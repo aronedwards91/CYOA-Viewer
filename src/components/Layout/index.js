@@ -11,25 +11,19 @@ import Character from "../Character";
 import CYOA from "../CYOA";
 
 // import img from "../../public/loogo512.png";
+const LayoutSettings = {
+  sidebarWidth: "320px",
+};
 
 const Template = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  ${media.greaterThan("medium")`
-    flex-direction: row;
-    justify-content:space-between;
-    align-items: flex-start;
-  `}
 `;
 
-const Layout = ({ children }) => (
+const Layout = () => (
   <Template>
     <Background />
-    <Character />
-    <CYOA />
+    <Character LayoutSettings={LayoutSettings} />
+    <CYOA LayoutSettings={LayoutSettings} />
   </Template>
 );
 

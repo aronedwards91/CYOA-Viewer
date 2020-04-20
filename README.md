@@ -1,10 +1,10 @@
 # CYOA App builder Page
 
-This project aims to bundle a useful, editable homepage based on react into a single html file. This avoids CORS and ensures a super fast boot for your home page.
+Builds a CYOA standalone html page, not optimised for web hosting but more as a shareable app/webpage file.
 
 ### Notes
 
-Data is saved to local storage, clearing cookies over whole timeframe will clear this in most browsers. 
+Data is saved to local storage, but the logical next step will be an exportable json, so your character/jump data can be used elsewhere (if goes well a journal will be the next app).
 
 ## Backup Data
 
@@ -12,13 +12,18 @@ Click on Tools +, then backup (or download file), copy the string given.
 
 #### Currently includes:
 
-[Trello-style Board](https://github.com/rcdexta/react-trello), changeable Weather from [weather.io](https://weatherwidget.io/), backup/import,
-
-img embedding
+img embedding, 
 
 #### TODO
 
-mobx state management, switchable template (for easier testing)
+Template: Bg, header, cyoa choices
+mobx state management, switchable template (for easier testing), simple templating file
+
+
+## Building a CYOA
+
+- Option 1: build a templater from the example, test it, create message in github issues requesting creation
+- Option 2: (requires some web dev experience, yarn installed) : following usual protocol, within folder run, `yarn install`, `yarn start`, test changes to templater file in `src/cyoadata`, once happy, run `yarn build`
 
 ## -
 ## Setup & other stuff
