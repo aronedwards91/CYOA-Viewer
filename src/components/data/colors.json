@@ -1,0 +1,23 @@
+{
+    "main": {
+        "lighter": "#6EA2B3",
+        "light": "#437F93",
+        "medium": "#2A6B80",
+        "dark": "#17576C",
+        "darker": "#074154"
+    },
+    "offset": {
+        "lighter": "#67C490",
+        "light": "#3FAA6E",
+        "medium": "#3FAA6E",
+        "dark": "#249B57",
+        "darker": "#01652C"
+    },
+    "offsetAlt": {
+        "lighter": "#ECFA84",
+        "light": "#D8E956",
+        "medium": "#C0D431",
+        "dark": "#9DAF16",
+        "darker": "#7A8A02"
+    }
+}
