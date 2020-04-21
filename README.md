@@ -6,6 +6,14 @@ Builds a CYOA standalone html page, not optimised for web hosting but more as a 
 
 Data is saved to local storage, but the logical next step will be an exportable json, so your character/jump data can be used elsewhere (if goes well a journal will be the next app).
 
+## Embedding Everything , why & how
+
+- WHY ; a standalone .html is easily shareable, cross platform, also for safety modern browser don't let html files natively pull from your drive (security), so any linked files wouldn't be read.
+
+- Image linked will auto embed up to 6MB (over 6 is left out just as a warning as this creates very slow & large html files.)
+
+- Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then imported as a file.
+
 ## Backup Data
 
 Click on Tools +, then backup (or download file), copy the string given.
@@ -17,7 +25,7 @@ img embedding -<img> not css,
 Done: Gen Layout, Bg,
 #### TODO
 
-Template: header, cyoa choices Layout, cyoa choice styling,
+Template: font test, header, cyoa choices Layout, cyoa choice styling,
 mobx state management, switchable template (for easier testing), simple templating file
 
 

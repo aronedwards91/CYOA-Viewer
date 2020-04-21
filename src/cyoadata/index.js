@@ -1,5 +1,6 @@
 // This Template fills in the data
-import bg from "../public/gold-tree.png";
+import bg from "../public/gold-tree.jpg";
+import fontb64 from "../public/celtic-font.json";
 
 const Data = {
   styling: {
@@ -26,6 +27,9 @@ const Data = {
       backgroundImgObjectFit: "cover",
       backgroundGradient: `darkgreen, green, lightgreen`, // String, list of choices as per css linear-gradient spec
     },
+    themeing: {
+      font: fontb64.base64String,
+    }
   },
   cyoa: {
     Header: {

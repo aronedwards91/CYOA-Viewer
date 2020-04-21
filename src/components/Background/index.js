@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Col from "../data/colors.json";
+// import Col from "../data/colors.json";
 
 const Background = styled.div`
   background-image: url(${(props) => props.styling.cyoa.backgroundImg});
@@ -21,6 +21,7 @@ const Image = styled.img`
   width: 100%;
   position: fixed;
   object-fit: ${(props) => props.styling.cyoa.backgroundImgObjectFit};
+  z-index: -100;
 `;
 
 export const BackgroundGradient = styled.div`
