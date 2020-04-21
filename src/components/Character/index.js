@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { ShowOnlyMobile, ShowOnlyDesktop } from "../StyledItems";
 
-const Character = ({ LayoutSettings }) => {
-  const [isMobSmallVersion, changeSize] = useState(true);
-  const switchSize = () => {
-    changeSize(!isMobSmallVersion);
-  };
-
+const Character = ({ LayoutSettings, isExpanded, switchCharSize }) => {
   return (
     <>
       <MobileBox>
-        {isMobSmallVersion ? <SmBox onClick={switchSize} /> : <Box />}
+        {isExpanded ? <Box /> : <SmBox onClick={switchCharSize} />}
       </MobileBox>
-      <DesktopBox sidebarWidth={LayoutSettings.sidebarWidth} />
+      <DesktopBox
+        width={
+          isExpanded
+            ? LayoutSettings.sidebarWidth
+            : LayoutSettings.sidebarWidthSm
+        }
+      />
     </>
   );
 };
@@ -21,7 +22,7 @@ const Character = ({ LayoutSettings }) => {
 const DesktopBox = styled(ShowOnlyDesktop)`
   height: 100vh;
   position: fixed;
-  width: ${(props) => props.sidebarWidth};
+  width: ${(props) => props.width};
   height: 100%;
   background: green;
 `;

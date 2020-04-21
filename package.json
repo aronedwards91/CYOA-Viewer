@@ -1,5 +1,5 @@
 {
-  "name": "CYOA-App",
+  "name": "cyoa-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

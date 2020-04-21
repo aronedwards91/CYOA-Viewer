@@ -2,8 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import media from "styled-media-query";
 
-const CYOA = ({ LayoutSettings }) => {
-  return <Box sidebarWidth={LayoutSettings.sidebarWidth} />;
+const CYOA = ({ LayoutSettings, isExpanded }) => {
+  return (
+    <Box
+      sidebarWidth={
+        isExpanded ? LayoutSettings.sidebarWidth : LayoutSettings.sidebarWidthSm
+      }
+    />
+  );
 };
 const Box = styled.div`
   flex-grow: 1;
