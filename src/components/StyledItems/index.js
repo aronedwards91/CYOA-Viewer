@@ -32,5 +32,15 @@ export const Card = styled.div`
   border: ${Style.themeing.bordersWidth} solid ${Style.colors.mainD};
   margin: 24px 16px;
   padding: 16px;
-  background: ${Style.colors.mainA}
+  background: ${Style.colors.mainA};
+`;
+
+export const Article3Col = styled.article`
+  -webkit-columns: 3 180px;
+  -moz-columns: 3 180px;
+  columns: 3 180px;
+  margin: 0 auto;
+  max-width: 1000px;
+  column-gap: 64px;
+  column-rule: 1px solid ${Style.colors.mainD};
 `;

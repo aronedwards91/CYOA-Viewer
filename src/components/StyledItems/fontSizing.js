@@ -5,14 +5,13 @@ export const HeaderLg = styled.span`
 `;
 
 export const HeaderMd = styled.span`
-  font-size: calc(1.2rem + 1vw);
+  font-size: calc(1.4rem + 1vw);
 `;
 
 export const HeaderSM = styled.span`
-  font-size: calc(0.9rem + 0.6vw);
+  font-size: calc(1rem + 0.8vw);
 `;
 
-
 export const TextMd = styled.span`
-  font-size: calc(0.7rem + 0.5vw);
+  font-size: calc(1rem + 0.6vw);
 `;
