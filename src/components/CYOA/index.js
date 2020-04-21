@@ -5,6 +5,7 @@ import media from "styled-media-query";
 import { BackgroundGradient, BgImg } from "../Background";
 import Header from "./header";
 import Intro from "./intro";
+import Choices from "./choices";
 
 const CYOA = ({ isExpanded, data }) => {
   const Layout = data.styling.layout;
@@ -18,8 +19,9 @@ const CYOA = ({ isExpanded, data }) => {
     >
       <BgImg styling={data.styling} />
       <BackgroundGradient styling={data.styling} />
-      <Header />
-      <Intro />
+      <Header data={data.cyoa.Header} />
+      <Intro data={data.cyoa.intro} />
+      <Choices data={data.cyoa.selections} />
     </Box>
   );
 };

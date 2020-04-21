@@ -14,4 +14,5 @@ export const HeaderSM = styled.span`
 
 export const TextMd = styled.span`
   font-size: calc(1rem + 0.6vw);
+  white-space: pre-wrap;
 `;

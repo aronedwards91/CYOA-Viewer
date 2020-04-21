@@ -23,10 +23,9 @@ Click on Tools +, then backup (or download file), copy the string given.
 
 img embedding -<img> not css, 
 
-Done: Gen Layout, Bg, font embed, header, intro, 
+Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching)
 #### TODO
-Stop Data import pull via state
-Template: cyoa choices Layout, cyoa choice styling,
+Template: cyoa choices present, character layout, mobx integration, button effects
 mobx state management, switchable template (for easier testing), simple templating file
 
 

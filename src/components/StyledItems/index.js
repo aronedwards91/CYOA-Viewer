@@ -30,7 +30,7 @@ export const ShowOnlyDesktop = styled.div`
 export const Card = styled.div`
   border-radius: ${Style.themeing.sectionCornerRadius};
   border: ${Style.themeing.bordersWidth} solid ${Style.colors.mainD};
-  margin: 24px 16px;
+  margin: calc(2rem + 2vw) calc(1rem + 1vw);;
   padding: 16px;
   background: ${Style.colors.mainA};
 `;
