@@ -1,23 +1,18 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styled from "styled-components";
-import media from "styled-media-query";
 
-// import Background from "../Background";
 // import { Header } from "../Text";
 // import Backup from "../Backup";
 // import Tools from "../Tools";
 import Character from "../Character";
 import CYOA from "../CYOA";
+import Data from "../../cyoadata";
 
 // import img from "../../public/loogo512.png";
-const LayoutSettings = {
-  sidebarWidth: "320px",
-  sidebarWidthSm: "80px",
-};
 
 const Template = styled.div`
-  display: flex;
+  display: flex; 
 `;
 
 const Layout = () => {
@@ -27,11 +22,11 @@ const Layout = () => {
   return (
     <Template>
       <Character
-        LayoutSettings={LayoutSettings}
         isExpanded={expandedChar}
         switchCharSize={switchCharSize}
+        styling={Data.styling}
       />
-      <CYOA LayoutSettings={LayoutSettings} isExpanded={expandedChar} />
+      <CYOA isExpanded={expandedChar} data={Data}/>
     </Template>
   );
 };

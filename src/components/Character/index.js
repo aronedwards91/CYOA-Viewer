@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { ShowOnlyMobile, ShowOnlyDesktop } from "../StyledItems";
 
-const Character = ({ LayoutSettings, isExpanded, switchCharSize }) => {
+const Character = ({ isExpanded, switchCharSize, styling }) => {
+  const LayoutSettings = styling.layout;
   return (
     <>
       <MobileBox>
-        {isExpanded ? <Box /> : <SmBox onClick={switchCharSize} />}
+        {isExpanded ? <Box /> : <SmBox onClick={switchCharSize} widthSm={LayoutSettings.sidebarWidthMobSm}/>}
       </MobileBox>
       <DesktopBox
         width={
           isExpanded
             ? LayoutSettings.sidebarWidth
-            : LayoutSettings.sidebarWidthSm
+            : LayoutSettings.sidebarWidthDeskSm
         }
       />
     </>
@@ -35,8 +36,7 @@ const Box = styled.div`
   background: darkgreen;
 `;
 const SmBox = styled.div`
-  min-height: 60px;
-  max-height: 80px;
+  height: ${(props) => props.widthSm};
   width: 100%;
   background: lightgreen;
 `;

@@ -12,11 +12,12 @@ Click on Tools +, then backup (or download file), copy the string given.
 
 #### Currently includes:
 
-img embedding, 
+img embedding -<img> not css, 
 
+Done: Gen Layout, Bg,
 #### TODO
 
-Template: Bg, header, cyoa choices
+Template: header, cyoa choices Layout, cyoa choice styling,
 mobx state management, switchable template (for easier testing), simple templating file
 
 
