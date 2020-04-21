@@ -1,5 +1,8 @@
 // This Template fills in the data
+// import images placed in /public
 import bg from "../public/gold-tree.jpg";
+import logo from "../public/logo.jpg";
+// import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 
 const Data = {
@@ -29,11 +32,13 @@ const Data = {
     },
     themeing: {
       font: fontb64.base64String,
-    }
+      sectionCornerRadius: "10px", //for curved corners, use 5~20px, for straight user 0px
+      bordersWidth: "6px",
+    },
   },
   cyoa: {
     Header: {
-      icon: "X",
+      logo: logo,
       title: "Celtica CYOA",
       subHeader: "The dark woods call for blood",
       author: "Bigspoon",

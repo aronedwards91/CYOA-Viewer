@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import media from "styled-media-query";
-// import "typeface-roboto";
 
 import { BackgroundGradient, BgImg } from "../Background";
-// Bg Gradient
+import Header from "./header";
 
 const CYOA = ({ isExpanded, data }) => {
   const Layout = data.styling.layout;
@@ -18,14 +17,11 @@ const CYOA = ({ isExpanded, data }) => {
     >
       <BgImg styling={data.styling} />
       <BackgroundGradient styling={data.styling} />
-      <FontTest>Text here 1234567890</FontTest>
+      <Header />
     </Box>
   );
 };
-const FontTest = styled.div`
-  color: white;
-  font-size 18px;
-`
+
 const Box = styled.div`
   position: relative;
   flex-grow: 2;

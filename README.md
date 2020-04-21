@@ -12,7 +12,8 @@ Data is saved to local storage, but the logical next step will be an exportable 
 
 - Image linked will auto embed up to 6MB (over 6 is left out just as a warning as this creates very slow & large html files.)
 
-- Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then imported as a file.
+- Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then add the string to public as a json (see example),
+- Font tip: to format export from linked site correctly to .json, use vscode's replace to remove the line endings.
 
 ## Backup Data
 
@@ -22,10 +23,10 @@ Click on Tools +, then backup (or download file), copy the string given.
 
 img embedding -<img> not css, 
 
-Done: Gen Layout, Bg,
+Done: Gen Layout, Bg, font embed, header
 #### TODO
 
-Template: font test, header, cyoa choices Layout, cyoa choice styling,
+Template: intro, cyoa choices Layout, cyoa choice styling,
 mobx state management, switchable template (for easier testing), simple templating file
 
 
