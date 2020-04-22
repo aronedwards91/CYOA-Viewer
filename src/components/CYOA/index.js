@@ -29,8 +29,7 @@ const CYOA = ({ isExpanded, data }) => {
 const Box = styled.div`
   position: relative;
   flex-grow: 2;
-  height: 1800px;
-  border: 2px solid black;
+  height: auto;
   padding-top: ${(props) => props.mobTopBarSize || "80px"};
 
   ${media.greaterThan("medium")`

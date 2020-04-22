@@ -2,7 +2,7 @@
 // import images placed in /public
 import bg from "../public/gold-tree.jpg";
 import logo from "../public/logo.jpg";
-import warrior from "../public/warrior.PNG";
+import warrior from "../public/warrior.png";
 import waterskin from "../public/waterskin.png"
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
@@ -41,7 +41,7 @@ const Data = {
   cyoa: {
     Header: {
       logo: logo,
-      title: "Celtica CYOA",
+      title: "CYOA - DarkWood",
       subHeader: "The dark woods call for blood",
       author: "BiggySpoonz",
     },
@@ -171,7 +171,7 @@ const Data = {
             },
           },
           {
-            name: "Greystone Amulet of Beyin'Parak",
+            name: "Greystone Amulet of Beyin` Parak",
             uid: "greystoneamulet",
             description:
               "A beautiful amulet, wrought in silver with many fine gems. It seems to hum with a gentle tune, it seems to give you strength.",

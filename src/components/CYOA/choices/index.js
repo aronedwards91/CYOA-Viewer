@@ -5,7 +5,7 @@ import {
   TextMd,
   HeaderLg,
   HeaderMd,
-  HeaderSM,
+  HeaderSm,
 } from "../../StyledItems/fontSizing";
 import {
   HeaderWrap,
@@ -51,7 +51,7 @@ const ChoiceLines = ({ data, styling }) => (
         <HeaderLg>{data.name}</HeaderLg>
       </HeaderSplit>
       <HeaderSplit>
-        <HeaderSM>{data.description}</HeaderSM>
+        <HeaderSm>{data.description}</HeaderSm>
       </HeaderSplit>
     </LineHeaderWrap>
     {data.choices.map((choice) => (
@@ -84,7 +84,7 @@ const ChoiceBoxes = ({ data, styling }) => {
             <HeaderLg>{data.name}</HeaderLg>
           </HeaderSplit>
           <HeaderSplit>
-            <HeaderSM>{data.description}</HeaderSM>
+            <HeaderSm>{data.description}</HeaderSm>
           </HeaderSplit>
         </HeaderWrap>
       </BoxHeader>
@@ -103,7 +103,7 @@ const BoxItem = ({ choice, styling }) => {
       <BoxImage alt="image" src={choice.img} />
       <BoxTextWrapper>
         <TitleWrap styling={styling}>
-          <HeaderSM>{choice.name}</HeaderSM>
+          <HeaderSm>{choice.name}</HeaderSm>
         </TitleWrap>
         <TextMd>{choice.description}</TextMd>
         <Details details={choice.effect} />

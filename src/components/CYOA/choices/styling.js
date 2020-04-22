@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import media from "styled-media-query";
 import { Card } from "../../StyledItems";
+import { TextSm } from "../../StyledItems/fontSizing";
 
 export const HeaderWrap = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ export const TitleWrap = styled.div`
   text-align: left;
   padding-right: 32px;
   padding-bottom: 4px;
-  border-bottom: 0.5px solid ${(props) => props.styling.colors.mainD || "black"};
+  border-bottom: 0.5px solid ${props => props.styling.colors.mainD || "black"};
   margin-bottom: 4px;
 `;
 
@@ -25,11 +26,11 @@ export const TitleWrap = styled.div`
 export const LineHeaderWrap = styled(HeaderWrap)`
   padding-bottom: 16px;
   margin-bottom: 16px;
-  border-bottom: 2px solid ${(props) => props.styling.colors.mainD || "black"};
+  border-bottom: 2px solid ${props => props.styling.colors.mainD || "black"};
 `;
 export const LinesWrapper = styled.div`
   padding: calc(16px + 0.5vw) 8px;
-  border-bottom: 1px solid ${(props) => props.styling.colors.mainD || "black"};
+  border-bottom: 1px solid ${props => props.styling.colors.mainD || "black"};
   margin-bottom: calc(16px + 0.5vw);
   cursor: pointer;
   display: flex;
@@ -68,8 +69,9 @@ export const BoxContainer = styled(Card)`
   padding: 0 0 16px 0;
   margin-top: 16px;
   margin-bottom: 16px;
-  width: calc(8rem + 8vw);
+  width: calc(10rem + 4vw);
   flex-grow: 1;
+  height: max-content;
 `;
 export const BoxImage = styled.img`
   height: 50%;
@@ -80,3 +82,16 @@ export const BoxTextWrapper = styled.div`
   text-align: center;
   padding: calc(0.5rem + 1vw);
 `;
+
+//choices
+export const ChoiceWrapper = styled.div`
+  margin-top: calc(0.6rem + 0.5vw);
+`;
+export const ChoiceHeader = styled(TextSm)`
+  border-bottom: 1px solid grey;
+`;
+export const PadTopDiv = styled.div`
+  margin-top: calc(12px + 0.5vw);
+  padding-left: calc(8px + 0.8vw);
+  border-left: 1px solid orange;
+`

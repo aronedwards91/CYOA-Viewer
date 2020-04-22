@@ -8,7 +8,7 @@ export const HeaderMd = styled.span`
   font-size: calc(1.4rem + 1vw);
 `;
 
-export const HeaderSM = styled.span`
+export const HeaderSm = styled.span`
   font-size: calc(1rem + 0.8vw);
 `;
 
@@ -17,6 +17,6 @@ export const TextMd = styled.span`
   white-space: pre-wrap;
 `;
 export const TextSm = styled.span`
-  font-size: calc(0.9rem + 0.3vw);
+  font-size: calc(0.9rem + 0.4vw);
   white-space: pre-wrap;
 `;

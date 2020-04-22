@@ -3,7 +3,7 @@ import styled from "styled-components";
 import media from "styled-media-query";
 
 import { Card, ShowOnlyMobile, ShowOnlyDesktop } from "../StyledItems";
-import { HeaderLg, HeaderMd, HeaderSM } from "../StyledItems/fontSizing";
+import { HeaderLg, HeaderMd, HeaderSm } from "../StyledItems/fontSizing";
 
 
 const Header = ({ data }) => (
@@ -22,7 +22,7 @@ const Header = ({ data }) => (
             <HeaderMd>{data.subHeader}</HeaderMd>
           </Subtitle>
           <Author>
-            <HeaderSM>Author: {data.author}</HeaderSM>
+            <HeaderSm>Author: {data.author}</HeaderSm>
           </Author>
         </TextArea>
       </TextWrapper>
