@@ -5,11 +5,11 @@ import media from "styled-media-query";
 import { BackgroundGradient, BgImg } from "../Background";
 import Header from "./header";
 import Intro from "./intro";
-import Choices from "./choices";
+import Choices from "./choices/index";
 
 const CYOA = ({ isExpanded, data }) => {
   const Layout = data.styling.layout;
-
+ 
   return (
     <Box
       mobTopBarSize={Layout.sidebarWidthMobSm}

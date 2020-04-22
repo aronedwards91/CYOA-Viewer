@@ -16,3 +16,7 @@ export const TextMd = styled.span`
   font-size: calc(1rem + 0.6vw);
   white-space: pre-wrap;
 `;
+export const TextSm = styled.span`
+  font-size: calc(0.9rem + 0.3vw);
+  white-space: pre-wrap;
+`;

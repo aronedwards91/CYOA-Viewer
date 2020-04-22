@@ -12,12 +12,12 @@ const Background = styled.div`
 `;
 export const BgImg = ({ styling }) =>
   styling.cyoa.backgroundImg ? (
-    <Image src={styling.cyoa.backgroundImg} styling={styling}/>
+    <Image src={styling.cyoa.backgroundImg} styling={styling} />
   ) : (
     <div />
   );
 const Image = styled.img`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   position: fixed;
   object-fit: ${(props) => props.styling.cyoa.backgroundImgObjectFit};

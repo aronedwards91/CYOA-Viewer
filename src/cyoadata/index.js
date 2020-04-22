@@ -2,6 +2,8 @@
 // import images placed in /public
 import bg from "../public/gold-tree.jpg";
 import logo from "../public/logo.jpg";
+import warrior from "../public/warrior.PNG";
+import waterskin from "../public/waterskin.png"
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 
@@ -69,7 +71,7 @@ const Data = {
             uid: "humanpeasant", // used for effecting other choices via discount / limiting
             description:
               "Your were raised in a small village in a poor keeptown, you spent your days hunting foraging and tending to your fields",
-            img: logo,
+            img: warrior,
             cost: 0,
             effect: {
               //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
@@ -102,7 +104,7 @@ const Data = {
             uid: "humanwarrior", // used for effecting other choices via discount / limiting
             description:
               "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land.",
-            img: logo,
+            img: warrior,
             cost: 50,
             effect: {
               //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
@@ -132,6 +134,106 @@ const Data = {
           },
         ],
       },
+      {
+        name: "2/ Accursed Relic",
+        description:
+          "Among the items in the decorated box you find a strange item, it's tingles with a ponderous and powerful energy. It seems this item has a called forth a being to futher it's destiny.",
+        style: "boxes",
+        buy: {
+          unique: true,
+          min: 1,
+          max: 1,
+        },
+        choices: [
+          {
+            name: "Bloody Dagger",
+            uid: "bloodydagger",
+            description:
+              "A ornate dagger, it's blade seems freshly wet with blood, no matter how often it is wiped. It calls to it's owner forever hoping to return to it's masters hand, but to do so would plunge the world into darkness.",
+            img: waterskin,
+            cost: 0,
+            effect: {
+              "char-advdrawback": {
+                name: "Accursed Dagger",
+                adv:
+                  "CUT: cutting yourself with the blade imbues you for one day with the power to open locked doors & heal dire injuries on others. WIND: rubbing the gem will cause the winds to blow toward it's owner.",
+                drawback:
+                  "Cuts dealt by the blade are painful and take years to heal, it cannot heal injuries it has caused. Rubbing the gem draws power to it's creator.",
+              },
+              "inv-item": [
+                {
+                  name: "Bloody Dagger",
+                  desc: "Ornate & ever bloody",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Greystone Amulet of Beyin'Parak",
+            uid: "greystoneamulet",
+            description:
+              "A beautiful amulet, wrought in silver with many fine gems. It seems to hum with a gentle tune, it seems to give you strength.",
+            img: waterskin,
+            cost: 0,
+            effect: {
+              "char-advdrawback": {
+                name: "Amulet of Beyin'Parak",
+                adv:
+                  "The amulet casts an aura that grants all nearby readily increased physical strength & indominable resolve if they be good of heart. It's glow scares and angers the beasts corrupted by evil.",
+                drawback:
+                  "The amulet casts fear in all those are dark of heart, they who know of it wish it to be destroyed and will take great pains to see it done.",
+              },
+              "inv-item": [
+                {
+                  name: "Amulet of Beyin'Parak",
+                  desc: "Glowing well adorned amulet.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Waters of Omsak Yashniir",
+            uid: "watersofomsak",
+            description:
+              "A runed leather waterskin, it feels heavy, but smells sweet.",
+            img: waterskin,
+            cost: 0,
+            effect: {
+              "char-advdrawback": {
+                name: "Waters of Omsak Yashniir",
+                adv:
+                  "POUR: pouring the water from the pouch onto a weapon makes it sharper and deadly to any man or beast, an arrow so wet will fly far & true. It refills itself a litre a day, enough for a hundred blades.",
+                drawback:
+                  "The waterskin's smell attracts the beasts of the dark wood, anywhere it's carrier stays will not be safe for long.",
+              },
+              "inv-item": [
+                {
+                  name: "Amulet of Beyin'Parak",
+                  desc: "Glowing well adorned amulet.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+        ],
+      },
+      // {
+      //   name: "2/ Villain",
+      //   description:
+      //     "Among the items in the decorated box you find a strange item, it's tingles with a strange and powerful energy. It seems this item has a called forth a being to futher it's destiny.",
+      //   style: "boxes",
+      //   buy: {
+      //     unique: true,
+      //     min: 1,
+      //     max: 1,
+      //   },
+      //   choices: []
+      // }
     ],
   },
   charSetup: {
