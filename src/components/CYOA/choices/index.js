@@ -13,6 +13,7 @@ import {
   TitleWrap,
   LineHeaderWrap,
   LinesWrapper,
+  LinesTopWrapper,
   TextWrapper,
   Image,
   BoxHeader,
@@ -63,14 +64,16 @@ const ChoiceLines = ({ data, styling }) => (
 const LineBox = ({ choice, styling }) => {
   return (
     <LinesWrapper key={choice.name} styling={styling}>
-      <TextWrapper>
-        <TitleWrap styling={styling}>
-          <HeaderMd>{choice.name}</HeaderMd>
-        </TitleWrap>
-        <TextMd>{choice.description}</TextMd>
-        <Details details={choice.effect} />
-      </TextWrapper>
-      <Image alt="Image" src={choice.img} />
+      <LinesTopWrapper>
+        <TextWrapper>
+          <TitleWrap styling={styling}>
+            <HeaderMd>{choice.name}</HeaderMd>
+          </TitleWrap>
+          <TextMd>{choice.description}</TextMd>
+        </TextWrapper>
+        <Image alt="Image" src={choice.img} />
+      </LinesTopWrapper>
+      <Details details={choice.effect} styling={styling} />
     </LinesWrapper>
   );
 };
@@ -106,7 +109,7 @@ const BoxItem = ({ choice, styling }) => {
           <HeaderSm>{choice.name}</HeaderSm>
         </TitleWrap>
         <TextMd>{choice.description}</TextMd>
-        <Details details={choice.effect} />
+        <Details details={choice.effect} styling={styling} />
       </BoxTextWrapper>
     </BoxContainer>
   );

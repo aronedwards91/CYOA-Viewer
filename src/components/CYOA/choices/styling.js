@@ -18,7 +18,7 @@ export const TitleWrap = styled.div`
   text-align: left;
   padding-right: 32px;
   padding-bottom: 4px;
-  border-bottom: 0.5px solid ${props => props.styling.colors.mainD || "black"};
+  border-bottom: 0.5px solid ${(props) => props.styling.colors.mainD || "black"};
   margin-bottom: 4px;
 `;
 
@@ -26,13 +26,16 @@ export const TitleWrap = styled.div`
 export const LineHeaderWrap = styled(HeaderWrap)`
   padding-bottom: 16px;
   margin-bottom: 16px;
-  border-bottom: 2px solid ${props => props.styling.colors.mainD || "black"};
+  border-bottom: 2px solid ${(props) => props.styling.colors.mainD || "black"};
 `;
 export const LinesWrapper = styled.div`
-  padding: calc(16px + 0.5vw) 8px;
-  border-bottom: 1px solid ${props => props.styling.colors.mainD || "black"};
+  border-bottom: 1px solid ${(props) => props.styling.colors.mainD || "black"};
   margin-bottom: calc(16px + 0.5vw);
   cursor: pointer;
+  padding-bottom: 16px;
+`;
+export const LinesTopWrapper = styled.div`
+  margin-bottom: calc(16px + 0.5vw);
   display: flex;
 `;
 export const TextWrapper = styled.div`
@@ -48,11 +51,11 @@ export const Image = styled.img`
   margin-left: 12px;
 
   ${media.greaterThan("medium")`
-max-width: 300px;
-width: 300px;
-height: 180px;
-margin-left: 32px;
-`}
+    max-width: 300px;
+    width: 300px;
+    height: 180px;
+    margin-left: 32px;
+  `}
 `;
 // boxes
 export const BoxHeader = styled(Card)`
@@ -69,9 +72,14 @@ export const BoxContainer = styled(Card)`
   padding: 0 0 16px 0;
   margin-top: 16px;
   margin-bottom: 16px;
-  width: calc(10rem + 4vw);
   flex-grow: 1;
   height: max-content;
+  width: 240px;
+  max-width: 560px;
+
+  ${media.greaterThan("medium")`
+    max-width: 380px;
+  `}
 `;
 export const BoxImage = styled.img`
   height: 50%;
@@ -79,7 +87,7 @@ export const BoxImage = styled.img`
   object-fit: cover;
 `;
 export const BoxTextWrapper = styled.div`
-  text-align: center;
+  text-align: left;
   padding: calc(0.5rem + 1vw);
 `;
 
@@ -88,10 +96,13 @@ export const ChoiceWrapper = styled.div`
   margin-top: calc(0.6rem + 0.5vw);
 `;
 export const ChoiceHeader = styled(TextSm)`
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid ${(props) => props.styling.colors.mainD};
+`;
+export const PadSm = styled.div`
+  margin-top: calc(8px + 0.3vw);
+  padding-left: calc(4px + 0.8vw);
 `;
 export const PadTopDiv = styled.div`
-  margin-top: calc(12px + 0.5vw);
-  padding-left: calc(8px + 0.8vw);
-  border-left: 1px solid orange;
-`
+  margin-top: calc(8px + 0.3vw);
+  border-left: 1px solid ${(props) => props.styling.colors.mainD};
+`;

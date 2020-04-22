@@ -11,8 +11,8 @@ const Data = {
   styling: {
     colors: {
       // order by contrast, lighter/darker first for both.
-      mainA: "#2E4E15",
-      mainB: "#628746",
+      mainA: "#628746",
+      mainB: "#2E4E15",
       mainC: "#436728",
       mainD: "#1A3407",
       mainE: "#0C1B00",
@@ -36,6 +36,7 @@ const Data = {
       font: fontb64.base64String,
       sectionCornerRadius: "10px", //for curved corners, use 5~20px, for straight user 0px
       bordersWidth: "6px",
+      borderStyle: "double" // https://www.w3schools.com/CSSref/playit.asp?filename=playcss_border-style&preval=outset
     },
   },
   cyoa: {
@@ -83,7 +84,7 @@ const Data = {
                 drawback:
                   "ignoble, nobility avoid/dislike, viewed as unimportant, lack in manners, offend easily",
               },
-              "inv-item": [
+              "inv-items": [
                 {
                   name: "knife",
                   desc: "A very small but sharp hunter's knife",
@@ -103,7 +104,7 @@ const Data = {
             name: "Human Warrior",
             uid: "humanwarrior", // used for effecting other choices via discount / limiting
             description:
-              "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land.",
+              "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land. Your fearlessness in battle and destruction of corrupted beasts has made you an ally of the hawks with whom you can speak.",
             img: warrior,
             cost: 50,
             effect: {
@@ -116,7 +117,7 @@ const Data = {
                 drawback:
                   "ignoble, nobility avoid/dislike, viewed as unimportant, lack in manners, offend easily",
               },
-              "inv-item": [
+              "inv-items": [
                 {
                   name: "Axe",
                   desc: "A rusty but still sharp and strong blade",
@@ -130,6 +131,10 @@ const Data = {
                   icon: false,
                 },
               ],
+              "body-ability": {
+                name: "Call Avian Ally",
+                power: "Summons a nearby hawk to you with which you can speak."
+              }
             },
           },
         ],
@@ -160,7 +165,7 @@ const Data = {
                 drawback:
                   "Cuts dealt by the blade are painful and take years to heal, it cannot heal injuries it has caused. Rubbing the gem draws power to it's creator.",
               },
-              "inv-item": [
+              "inv-items": [
                 {
                   name: "Bloody Dagger",
                   desc: "Ornate & ever bloody",
@@ -185,7 +190,7 @@ const Data = {
                 drawback:
                   "The amulet casts fear in all those are dark of heart, they who know of it wish it to be destroyed and will take great pains to see it done.",
               },
-              "inv-item": [
+              "inv-items": [
                 {
                   name: "Amulet of Beyin'Parak",
                   desc: "Glowing well adorned amulet.",
@@ -210,7 +215,7 @@ const Data = {
                 drawback:
                   "The waterskin's smell attracts the beasts of the dark wood, anywhere it's carrier stays will not be safe for long.",
               },
-              "inv-item": [
+              "inv-items": [
                 {
                   name: "Amulet of Beyin'Parak",
                   desc: "Glowing well adorned amulet.",
@@ -222,18 +227,35 @@ const Data = {
           },
         ],
       },
-      // {
-      //   name: "2/ Villain",
-      //   description:
-      //     "Among the items in the decorated box you find a strange item, it's tingles with a strange and powerful energy. It seems this item has a called forth a being to futher it's destiny.",
-      //   style: "boxes",
-      //   buy: {
-      //     unique: true,
-      //     min: 1,
-      //     max: 1,
-      //   },
-      //   choices: []
-      // }
+      {
+        name: "3/ Nemesis",
+        description:
+          "Deep in the dark wood a dark power is growing, it thirsts for something, something it hopes to gain from the people of this world.",
+        style: "boxes",
+        buy: {
+          unique: true,
+          min: 1,
+          max: 1,
+        },
+        choices: [
+          {
+            name: "Erred-Mhuur",
+            uid: "erredmhuur",
+            description:
+              "Erred-Mhuur hungers for the flesh of sentient beasts, it burns with anguish, only seeking to destroy that which it hates above all else. In it's anger it has reforged the beasts of the wood that have come under it's influence, dark & blood loving they move now as shadows branded in glowing red runes, hunting and preying on all they can.",
+            img: waterskin,
+            cost: 0,
+            effect: {
+              "char-challenge": [
+                {
+                  name: "Erred-Mhuur [Nemesis]",
+                  desc: "Hunts & enslaves sentient races.",
+                },
+              ],
+            },
+          },
+        ]
+      }
     ],
   },
   charSetup: {
