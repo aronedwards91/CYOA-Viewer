@@ -21,7 +21,7 @@ const CYOA = ({ isExpanded, data }) => {
       <BackgroundGradient styling={data.styling} />
       <Header data={data.cyoa.Header} />
       <Intro data={data.cyoa.intro} />
-      <Choices data={data.cyoa.selections} />
+      <Choices data={data.cyoa.selections}  styling={data.styling} />
     </Box>
   );
 };

@@ -44,3 +44,13 @@ export const Article3Col = styled.article`
   column-gap: 64px;
   column-rule: 1px solid ${Style.colors.mainD};
 `;
+
+export const Article2Col = styled.article`
+  -webkit-columns: 2 220px;
+  -moz-columns: 2 220px;
+  columns: 2 220px;
+  margin: 0 auto;
+  max-width: 800px;
+  column-gap: 32px;
+  column-rule: 2px solid ${Style.colors.mainD};
+`;

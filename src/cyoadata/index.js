@@ -97,6 +97,39 @@ const Data = {
               ],
             },
           },
+          {
+            name: "Human Warrior",
+            uid: "humanwarrior", // used for effecting other choices via discount / limiting
+            description:
+              "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land.",
+            img: logo,
+            cost: 50,
+            effect: {
+              //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
+              "char-home": "Bor-Duren",
+              "body-race": "Human",
+              "char-advdrawback": {
+                name: "warrior",
+                adv: "Strong, crafty and wise in battle, capable with arms",
+                drawback:
+                  "ignoble, nobility avoid/dislike, viewed as unimportant, lack in manners, offend easily",
+              },
+              "inv-item": [
+                {
+                  name: "Axe",
+                  desc: "A rusty but still sharp and strong blade",
+                  quantity: 1,
+                  icon: false,
+                },
+                {
+                  name: "Shield",
+                  desc: "A strong oak shield",
+                  quantity: 3,
+                  icon: false,
+                },
+              ],
+            },
+          },
         ],
       },
     ],
