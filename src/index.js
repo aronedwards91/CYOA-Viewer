@@ -4,11 +4,14 @@ import * as serviceWorker from "./serviceWorker";
 import GlobalStyle from "./GlobalStyles";
 
 import Layout from "./components/Layout";
+import { CharStoreProvider } from "./components/state/character";
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <Layout />
+    <CharStoreProvider>
+      <Layout />
+    </CharStoreProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

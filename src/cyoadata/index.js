@@ -3,7 +3,7 @@
 import bg from "../public/gold-tree.jpg";
 import logo from "../public/logo.jpg";
 import warrior from "../public/warrior.png";
-import waterskin from "../public/waterskin.png"
+import waterskin from "../public/waterskin.png";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 
@@ -36,7 +36,7 @@ const Data = {
       font: fontb64.base64String,
       sectionCornerRadius: "10px", //for curved corners, use 5~20px, for straight user 0px
       bordersWidth: "6px",
-      borderStyle: "double" // https://www.w3schools.com/CSSref/playit.asp?filename=playcss_border-style&preval=outset
+      borderStyle: "double", // https://www.w3schools.com/CSSref/playit.asp?filename=playcss_border-style&preval=outset
     },
   },
   cyoa: {
@@ -133,8 +133,8 @@ const Data = {
               ],
               "body-ability": {
                 name: "Call Avian Ally",
-                power: "Summons a nearby hawk to you with which you can speak."
-              }
+                power: "Summons a nearby hawk to you with which you can speak.",
+              },
             },
           },
         ],
@@ -246,16 +246,14 @@ const Data = {
             img: waterskin,
             cost: 0,
             effect: {
-              "char-challenge": [
-                {
-                  name: "Erred-Mhuur [Nemesis]",
-                  desc: "Hunts & enslaves sentient races.",
-                },
-              ],
+              "char-challenge": {
+                name: "Erred-Mhuur [Nemesis]",
+                desc: "Hunts & enslaves sentient races.",
+              },
             },
           },
-        ]
-      }
+        ],
+      },
     ],
   },
   charSetup: {

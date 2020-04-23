@@ -21,13 +21,14 @@ Click on Tools +, then backup (or download file), copy the string given.
 
 #### Currently includes:
 
-img embedding -<img> not css, 
+img embedding -<img> not css,
 
-Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching)
+Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present,
+
 #### TODO
-Template: cyoa choices present, character layout, mobx integration, button effects
-mobx state management, switchable template (for easier testing), simple templating file
 
+Template:  mobx integration, charbox layout, character info layout, character styling, button effects
+mobx state management, switchable template (for easier testing), simple templating file
 
 ## Building a CYOA
 
@@ -35,6 +36,7 @@ mobx state management, switchable template (for easier testing), simple templati
 - Option 2: (requires some web dev experience, yarn installed) : following usual protocol, within folder run, `yarn install`, `yarn start`, test changes to templater file in `src/cyoadata`, once happy, run `yarn build`
 
 ## -
+
 ## Setup & other stuff
 
 Bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Then Ejected to Webpack to allow for single html packaging thanks to [pomo](https://stackoverflow.com/questions/51949719/is-there-a-way-to-build-a-react-app-in-a-single-html-file)

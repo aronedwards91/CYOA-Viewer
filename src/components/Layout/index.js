@@ -9,8 +9,6 @@ import Character from "../Character";
 import CYOA from "../CYOA";
 import Data from "../../cyoadata";
 
-// import img from "../../public/loogo512.png";
-
 const Template = styled.div`
   display: flex; 
 `;

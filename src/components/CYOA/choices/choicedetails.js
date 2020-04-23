@@ -27,7 +27,6 @@ const ChoiceDetails = ({ details, styling }) => {
 };
 
 const ChoiceOptions = ({ type, value, styling }) => {
-  console.log("val", value);
   switch (type) {
     case EffectsList.Age:
       return <DivText value={"AGE; " + value} />;
