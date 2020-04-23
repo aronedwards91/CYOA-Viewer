@@ -32,7 +32,7 @@ export const Card = styled.div`
   border: ${Style.themeing.bordersWidth} ${Style.themeing.borderStyle} ${Style.colors.mainD};
   margin: calc(2rem + 2vw) calc(1rem + 1vw);;
   padding: 16px;
-  background: linear-gradient(0.15turn, ${Style.colors.mainB}, ${Style.colors.mainA}, ${Style.colors.mainB});;
+  background: linear-gradient(0.15turn, ${Style.colors.mainB}, ${Style.colors.mainA}, ${Style.colors.mainB});
 `;
 
 export const Article3Col = styled.article`

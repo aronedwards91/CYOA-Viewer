@@ -3,14 +3,13 @@ import { TextSm } from "../../StyledItems/fontSizing";
 import { ChoiceWrapper, ChoiceHeader, PadTopDiv, PadSm } from "./styling";
 
 const EffectsList = {
-  Age: "body-age",
-  Race: "body-race",
-  Ability: "body-ability",
-  Home: "char-home",
-  Background: "char-background",
-  AdvantageDrawback: "char-advdrawback",
-  Challenge: "char-challenge",
-  Item: "inv-items",
+  Age: "body-age", // number
+  Race: "body-race", // string
+  Background: "char-background", // string
+  Challenge: "char-challenge", // [name]string, [desc]string
+  Ability: "body-ability", // [name]string, [power]string
+  AdvantageDrawback: "char-advdrawback",// [name]string, [adv]string, [drawback]string
+  Item: "inv-items",// array [name]string, [desc]string, [quantity]string, [icon]img-Base64.jpg
 };
 
 const ChoiceDetails = ({ details, styling }) => {

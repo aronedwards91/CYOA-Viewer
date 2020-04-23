@@ -16,16 +16,16 @@ const Data = {
       mainC: "#436728",
       mainD: "#1A3407",
       mainE: "#0C1B00",
-      secondaryA: "#90A437",
-      secondaryB: "#E7F6A4",
-      secondaryC: "#BACD66",
-      secondaryD: "#687B14",
-      secondaryE: "#435200",
+      charBgA: "#90A437",
+      charBgB: "#E7F6A4",
+      charC: "#BACD66",
+      charText: "#1f2406",
+      charBorder: "#435200",
     },
     layout: {
       sidebarWidth: "320px",
       sidebarWidthDeskSm: "120px",
-      sidebarWidthMobSm: "80px",
+      sidebarWidthMobSm: "60px",
     },
     cyoa: {
       backgroundImg: bg,
@@ -76,7 +76,7 @@ const Data = {
             cost: 0,
             effect: {
               //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
-              "char-home": "Bor-Duren",
+              "char-background": "Bor-Duren",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "hunter-gatherer",
@@ -109,7 +109,7 @@ const Data = {
             cost: 50,
             effect: {
               //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
-              "char-home": "Bor-Duren",
+              "char-background": "Bor-Duren",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "warrior",
@@ -257,7 +257,7 @@ const Data = {
     ],
   },
   charSetup: {
-    choicePoints: 1000,
+    choicePoints: 990,
   },
 };
 
