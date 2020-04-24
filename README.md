@@ -27,8 +27,10 @@ Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later sw
 
 #### TODO
 
-Template:  mobx integration, charbox layout, character info layout, character styling, button effects
-mobx state management, switchable template (for easier testing), simple templating file
+Template:  character info layout, character styling, button effects
+switchable template (for easier testing), simple templating file
+unselect, unbuy, adjustable font scaling;
+high level mobile switch as variable;
 
 ## Building a CYOA
 

@@ -2,33 +2,70 @@ import React from "react";
 import styled from "styled-components";
 import { useCharDataStore } from "../state/character";
 import { TextMd, TextMdCss } from "../StyledItems/fontSizing";
-import { ShowOnlyMobile, ShowOnlyDesktop } from "../StyledItems";
+import {
+  ShowOnlyMobile,
+  ShowOnlyDesktop,
+  Tooltip,
+  TooltipWrapper,
+} from "../StyledItems";
 import { observer } from "mobx-react-lite";
 
-const Character = ({ isExpanded, switchCharSize, styling }) => {
-  const LayoutSettings = styling.layout;
-
-  return (
-    <>
-      <MobileWrapper styling={styling}>
-        {isExpanded ? (
-          <MobFull switchCharSize={switchCharSize} styling={styling} />
-        ) : (
-          <MobTopBanner switchCharSize={switchCharSize} styling={styling} />
-        )}
-      </MobileWrapper>
-      <DesktopBox
+const Character = ({ isExpanded, switchCharSize, styling, setup }) => (
+  <>
+    <MobileWrapper styling={styling}>
+      {isExpanded ? (
+        <MobFull
+          switchCharSize={switchCharSize}
+          styling={styling}
+          setup={setup}
+        />
+      ) : (
+        <MobTopBanner switchCharSize={switchCharSize} styling={styling} />
+      )}
+    </MobileWrapper>
+    <ShowOnlyDesktop>
+      <Desktop
+        isExpanded={isExpanded}
+        switchCharSize={switchCharSize}
         styling={styling}
-        width={
-          isExpanded
-            ? LayoutSettings.sidebarWidth
-            : LayoutSettings.sidebarWidthDeskSm
-        }
+        setup={setup}
       />
-    </>
-  );
-};
+    </ShowOnlyDesktop>
+  </>
+);
 
+// Desktop Comp
+const Desktop = ({ isExpanded, switchCharSize, styling, setup }) =>
+  isExpanded ? (
+    <DesktopFull
+      switchCharSize={switchCharSize}
+      styling={styling}
+      setup={setup}
+    />
+  ) : (
+    <div />
+  );
+
+const DesktopFull = ({ switchCharSize, styling, setup }) => (
+  <DesktopFullSize styling={styling}>
+    <DesktopScroll>
+      <LgCharTop>
+        <Portrait alt="image" />
+        <CharDetails />
+        <DropBtn onClick={switchCharSize} styling={styling}>
+          {"<"}
+        </DropBtn>
+      </LgCharTop>
+      <CharBackground />
+      <CharChallenge />
+      <CharSetting setup={setup} />
+      <Abilities />
+      <AdvDrawbacks />
+      <Items />
+    </DesktopScroll>
+  </DesktopFullSize>
+);
+// Mobile Comp
 const MobTopBanner = observer(({ switchCharSize, styling }) => {
   const store = useCharDataStore();
   const { name, race, points } = store;
@@ -44,37 +81,38 @@ const MobTopBanner = observer(({ switchCharSize, styling }) => {
     </SmBox>
   );
 });
-const MobFull = ({ switchCharSize, styling }) => (
+const MobFull = ({ switchCharSize, styling, setup }) => (
   <LgMobBox styling={styling}>
     <LgMobScroll>
-      <LgMobTop>
+      <LgCharTop>
         <Portrait alt="image" />
         <CharDetails />
         <DropBtn onClick={switchCharSize} styling={styling}>
           ~/\~
         </DropBtn>
-      </LgMobTop>
+      </LgCharTop>
       <CharBackground />
       <CharChallenge />
-      <CharSetting />
+      <CharSetting setup={setup} />
       <Abilities />
-      <div>Adv Drawback</div>
-      <div>Inventory</div>
+      <AdvDrawbacks />
+      <Items />
     </LgMobScroll>
   </LgMobBox>
 );
+
 // State connected components
 const CharDetails = observer(() => {
   const store = useCharDataStore();
   const { name, age, race, points } = store;
 
   return (
-    <LgMobTopText>
+    <LgCharTopText>
       <TextBox title="Name:" value={name} />
       <TextBox title="Age:" value={age} />
       <TextBox title="Race:" value={race} />
       <TextBox title="Points:" value={points} />
-    </LgMobTopText>
+    </LgCharTopText>
   );
 });
 const CharBackground = observer(() => {
@@ -91,8 +129,8 @@ const CharChallenge = observer(() => {
     <TextPara title={challenge.name} value={challenge.desc} />
   ) : null;
 });
-const CharSetting = () => {
-  return <TextPara title="Setting" value="To Do" />;
+const CharSetting = ({ setup }) => {
+  return <TextPara title="Setting" value={setup.setting} />;
 };
 const Abilities = observer(() => {
   const store = useCharDataStore();
@@ -103,12 +141,69 @@ const Abilities = observer(() => {
       <TitleDiv>
         <TextMd>Abilities</TextMd>
       </TitleDiv>
+      {abilities.length === 0 && <TextMd>None</TextMd>}
       {abilities.map((ability) => (
-        <TextBox title={'> ' + ability.name + " : "} value={ability.power} />
+        <TextBox title={"> " + ability.name + " : "} value={ability.power} />
       ))}
     </>
   );
 });
+const AdvDrawbacks = observer(() => {
+  const store = useCharDataStore();
+  const { advDrawback } = store;
+
+  return (
+    <>
+      <TitleDiv>
+        <TextMd>{"Advantages & Drawbacks"}</TextMd>
+      </TitleDiv>
+      {advDrawback.length === 0 && <TextMd>None</TextMd>}
+      {advDrawback.map((set) => (
+        <>
+          <TextPad>{"=>  " + set.name}</TextPad>
+          <div>{"+  " + set.adv}</div>
+          <div>{"-  " + set.drawback}</div>
+        </>
+      ))}
+    </>
+  );
+});
+const Items = observer(() => {
+  const store = useCharDataStore();
+  const { items } = store;
+  // TODO show icon / text switch
+  return (
+    <>
+      <TitleDiv>
+        <TextMd>{"Inventory"}</TextMd>
+      </TitleDiv>
+      {items.length === 0 && <TextMd>None</TextMd>}
+      <InventoryWrapper>
+        {items.map((item) => (
+          <InventoryItem
+            name={item.name}
+            desc={item.desc}
+            quantity={item.quantity}
+            icon={item.icon}
+          />
+        ))}
+      </InventoryWrapper>
+    </>
+  );
+});
+const InventoryItem = ({ name, desc, quantity, icon }) => {
+  // TODO icon
+  return (
+    <TooltipWrapper>
+      <Tooltip>{desc}</Tooltip>
+      <InventoryItemBox>
+        {name}
+        {quantity > 1 && "  |  x" + quantity}
+      </InventoryItemBox>
+    </TooltipWrapper>
+  );
+};
+
 // Templates
 const TextBox = ({ title, value }) => (
   <TextPad>
@@ -118,7 +213,7 @@ const TextBox = ({ title, value }) => (
 );
 const TextPara = ({ title, value }) => (
   <TextPad>
-    <TitleDiv>
+    <TitleDiv nopad>
       <TextMd>{title}</TextMd>
     </TitleDiv>
     <TextMd>{value}</TextMd>
@@ -127,7 +222,6 @@ const TextPara = ({ title, value }) => (
 
 const DesktopBox = styled(ShowOnlyDesktop)`
   height: 100vh;
-  position: fixed;
   width: ${(props) => props.width};
   height: 100%;
   background: green;
@@ -136,8 +230,40 @@ const DesktopBox = styled(ShowOnlyDesktop)`
 `;
 // Shared
 const TitleDiv = styled.div`
-  padding-left: 8px;
+  padding-left: ${({ nopad }) => (nopad ? "0" : "8px")};
   text-decoration: underline;
+`;
+const LgCharTop = styled.div`
+  display: flex;
+`;
+const LgCharTopText = styled.div`
+  flex-grow: 1;
+`;
+// Desktop
+const DesktopFullSize = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: ${({ styling }) => styling.layout.sidebarWidth};
+  padding: 32px;
+  background: linear-gradient(
+    0.6turn,
+    ${({ styling }) =>
+      styling.colors.charBgB +
+      ", " +
+      styling.colors.charBgA +
+      ", " +
+      styling.colors.charBgB}
+  );
+  border-right: ${({ styling }) =>
+    styling.themeing.bordersWidth +
+    " " +
+    styling.themeing.borderStyle +
+    " " +
+    styling.colors.charBorder};
+`;
+const DesktopScroll = styled.div`
+  margin-bottom: 10px;
+  overflow-y: auto;
 `;
 // Mobile
 const MobileWrapper = styled(ShowOnlyMobile)`
@@ -149,8 +275,8 @@ const MobileWrapper = styled(ShowOnlyMobile)`
 const DropBtn = styled.div`
   border: 1px solid ${({ styling }) => styling.colors.charBorder};
   border-radius: ${({ styling }) => styling.themeing.bordersWidth};
-  padding: 4px;
-  height: 120%;
+  padding: 2px;
+  height: 126%;
   margin-left: 16px;
 
   &:hover {
@@ -158,11 +284,9 @@ const DropBtn = styled.div`
     cursor: pointer;
   }
 `;
-// Mobile Desktop
+// Mobile Full
 const LgMobBox = styled.div`
   width: 100%;
-  min-height: 50%;
-  max-height: 75%;
   padding: 32px;
   background: linear-gradient(
     0.35turn,
@@ -181,13 +305,10 @@ const LgMobBox = styled.div`
     styling.colors.mainD};
 `;
 const LgMobScroll = styled.div`
+  min-height: 50vh;
+  max-height: 75vh;
+  margin-bottom: 10px;
   overflow-y: auto;
-`;
-const LgMobTop = styled.div`
-  display: flex;
-`;
-const LgMobTopText = styled.div`
-  flex-grow: 1;
 `;
 const Portrait = styled.img`
   width: 120px;
@@ -199,6 +320,16 @@ const TextPad = styled.div`
 `;
 const LgMobTitlePad = styled.span`
   padding-right: 16px;
+`;
+const InventoryWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8px;
+`;
+const InventoryItemBox = styled.div`
+  border-left: 1px solid black;
+  padding: 4px 16px;
+  cursor: help;
 `;
 
 // Small Mob

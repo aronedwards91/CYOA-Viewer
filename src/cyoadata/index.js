@@ -6,6 +6,8 @@ import warrior from "../public/warrior.png";
 import waterskin from "../public/waterskin.png";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
+// Item Icons
+import knifeIcon from "../public/knife-icon.png";
 
 const Data = {
   styling: {
@@ -89,7 +91,7 @@ const Data = {
                   name: "knife",
                   desc: "A very small but sharp hunter's knife",
                   quantity: 1,
-                  icon: false,
+                  icon: knifeIcon,
                 },
                 {
                   name: "bow & strings",
@@ -257,7 +259,8 @@ const Data = {
     ],
   },
   charSetup: {
-    choicePoints: 990,
+    choicePoints: 990,  // Starting choice points
+    setting: 'A dangerous Iron age forest.' // brief description of setup
   },
 };
 

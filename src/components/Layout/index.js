@@ -23,6 +23,7 @@ const Layout = () => {
         isExpanded={expandedChar}
         switchCharSize={switchCharSize}
         styling={Data.styling}
+        setup={Data.charSetup}
       />
       <CYOA isExpanded={expandedChar} data={Data}/>
     </Template>

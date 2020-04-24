@@ -4,6 +4,7 @@ import data from "../../cyoadata";
 
 export function createCharStore() {
   return {
+    profImg: null,
     name: "set",
     setName(newName) {
       this.name = newName;
@@ -37,20 +38,7 @@ export function createCharStore() {
     removeAbility(arrayIndex) {
       this.abilities.splice(arrayIndex, 1);
     },
-    advDrawback: [
-      {
-        name: "hunter-gatherer",
-        adv: "Skilled hunter, knows the land, people are more trusting",
-        drawback:
-          "ignoble, nobility avoid/dislike, viewed as unimportant, lack in manners, offend easily",
-      },
-      {
-        name: "warrior",
-        adv: "Strong, crafty and wise in battle, capable with arms",
-        drawback:
-          "ignoble, nobility avoid/dislike, viewed as unimportant, lack in manners, offend easily",
-      },
-    ],
+    advDrawback: [],
     addAdvDrawback(newAdvDrawback) {
       this.advDrawback.push(newAdvDrawback);
     },
@@ -62,14 +50,14 @@ export function createCharStore() {
     },
     items: [
       {
-        name: "Axe",
-        desc: "A rusty but still sharp and strong blade",
+        name: "knife",
+        desc: "A very small but sharp hunter's knife",
         quantity: 1,
         icon: false,
       },
       {
-        name: "Shield",
-        desc: "A strong oak shield",
+        name: "bow & strings",
+        desc: "A powerful hunters bow, well used, 3 strings",
         quantity: 3,
         icon: false,
       },
