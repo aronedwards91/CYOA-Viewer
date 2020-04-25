@@ -2,35 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import { useCharDataStore } from "../state/character";
 import { TextMd, TextMdCss } from "../StyledItems/fontSizing";
-import {
-  ShowOnlyMobile,
-  ShowOnlyDesktop,
-  Tooltip,
-  TooltipWrapper,
-} from "../StyledItems";
+import { Tooltip, TooltipWrapper, ShowOn } from "../StyledItems";
 import { observer } from "mobx-react-lite";
 
 const Character = ({ isExpanded, switchCharSize, styling, setup }) => (
   <>
-    <MobileWrapper styling={styling}>
-      {isExpanded ? (
-        <MobFull
-          switchCharSize={switchCharSize}
-          styling={styling}
-          setup={setup}
-        />
-      ) : (
-        <MobTopBanner switchCharSize={switchCharSize} styling={styling} />
-      )}
-    </MobileWrapper>
-    <ShowOnlyDesktop>
+    <ShowOn mobile>
+      <MobileWrapper styling={styling}>
+        {isExpanded ? (
+          <MobFull
+            switchCharSize={switchCharSize}
+            styling={styling}
+            setup={setup}
+          />
+        ) : (
+          <MobTopBanner switchCharSize={switchCharSize} styling={styling} />
+        )}
+      </MobileWrapper>
+    </ShowOn>
+    <ShowOn desktop>
       <Desktop
         isExpanded={isExpanded}
         switchCharSize={switchCharSize}
         styling={styling}
         setup={setup}
       />
-    </ShowOnlyDesktop>
+    </ShowOn>
   </>
 );
 
@@ -43,18 +40,38 @@ const Desktop = ({ isExpanded, switchCharSize, styling, setup }) =>
       setup={setup}
     />
   ) : (
-    <div />
+    <DesktopCompact styling={styling} switchCharSize={switchCharSize} />
   );
+const DesktopCompact = observer(({ switchCharSize, styling }) => {
+  const store = useCharDataStore();
+  const { name, race, points, items } = store;
 
+  return (
+    <DesktopSm styling={styling}>
+      <VertBtn onClick={switchCharSize} styling={styling}>
+        {">"}
+      </VertBtn>
+      <TitleDiv nopad>{"Character"}</TitleDiv>
+      <TextPad>{name}</TextPad>
+      <TextPad>{race}</TextPad>
+      <TextPad>Items: {items.length}</TextPad>
+      <TitleDiv nopad>{"Points"}</TitleDiv>
+      <TextPad>{points}</TextPad>
+      <VertBtn onClick={switchCharSize} styling={styling}>
+        {">"}
+      </VertBtn>
+    </DesktopSm>
+  );
+});
 const DesktopFull = ({ switchCharSize, styling, setup }) => (
   <DesktopFullSize styling={styling}>
     <DesktopScroll>
       <LgCharTop>
         <Portrait alt="image" />
         <CharDetails />
-        <DropBtn onClick={switchCharSize} styling={styling}>
+        <DeskFullBtn onClick={switchCharSize} styling={styling}>
           {"<"}
-        </DropBtn>
+        </DeskFullBtn>
       </LgCharTop>
       <CharBackground />
       <CharChallenge />
@@ -62,6 +79,9 @@ const DesktopFull = ({ switchCharSize, styling, setup }) => (
       <Abilities />
       <AdvDrawbacks />
       <Items />
+      <DeskFullBtn onClick={switchCharSize} styling={styling}>
+        {"<"}
+      </DeskFullBtn>
     </DesktopScroll>
   </DesktopFullSize>
 );
@@ -220,14 +240,6 @@ const TextPara = ({ title, value }) => (
   </TextPad>
 );
 
-const DesktopBox = styled(ShowOnlyDesktop)`
-  height: 100vh;
-  width: ${(props) => props.width};
-  height: 100%;
-  background: green;
-  color: ${({ styling }) => styling.colors.charText};
-  ${TextMdCss}
-`;
 // Shared
 const TitleDiv = styled.div`
   padding-left: ${({ nopad }) => (nopad ? "0" : "8px")};
@@ -239,7 +251,36 @@ const LgCharTop = styled.div`
 const LgCharTopText = styled.div`
   flex-grow: 1;
 `;
+const DropBtn = styled.div`
+  border: 1px solid ${({ styling }) => styling.colors.charBorder};
+  border-radius: ${({ styling }) => styling.themeing.bordersWidth};
+  padding: 2px;
+  height: 126%;
+  margin-left: 16px;
+
+  &:hover {
+    background: ${({ styling }) => styling.colors.charBgB};
+    cursor: pointer;
+  }
+`;
 // Desktop
+const DesktopSm = styled.div`
+  position: fixed;
+  height: 100vh;
+  width: ${({ styling }) => styling.layout.sidebarWidthDeskSm};
+  padding: 16px;
+  background: linear-gradient(
+    0.15turn,
+    ${({ styling }) =>
+      styling.colors.charBgB +
+      ", " +
+      styling.colors.charBgA +
+      ", " +
+      styling.colors.charBgB}
+  );
+  border-right: ${({ styling }) =>
+    styling.themeing.bordersWidth + " solid " + styling.colors.charBorder};
+`;
 const DesktopFullSize = styled.div`
   position: fixed;
   height: 100vh;
@@ -265,25 +306,24 @@ const DesktopScroll = styled.div`
   margin-bottom: 10px;
   overflow-y: auto;
 `;
+const DeskFullBtn = styled(DropBtn)`
+  height: 34px;
+  width: 34px;
+  text-align: center;
+  font-size: 22px;
+`;
+const VertBtn = styled(DeskFullBtn)`
+  margin: 16px 8px;
+`;
 // Mobile
-const MobileWrapper = styled(ShowOnlyMobile)`
+const MobileWrapper = styled.div`
   position: fixed;
   z-index: 100;
   color: ${({ styling }) => styling.colors.charText};
   ${TextMdCss}
+  width: 100%;
 `;
-const DropBtn = styled.div`
-  border: 1px solid ${({ styling }) => styling.colors.charBorder};
-  border-radius: ${({ styling }) => styling.themeing.bordersWidth};
-  padding: 2px;
-  height: 126%;
-  margin-left: 16px;
 
-  &:hover {
-    background: ${({ styling }) => styling.colors.charBgB};
-    cursor: pointer;
-  }
-`;
 // Mobile Full
 const LgMobBox = styled.div`
   width: 100%;

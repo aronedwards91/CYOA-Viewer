@@ -8,26 +8,6 @@ const Style = Data.styling;
 
 export const RedX = () => <span style={{ color: "red" }}>X</span>;
 
-// Mobile
-export const ShowOnlyMobile = styled.div`
-  display: block;
-  width: 100%;
-  height: 100%;
-
-  ${media.greaterThan("medium")`
-    display: none;
-  `}
-`;
-export const ShowOnlyDesktop = styled.div`
-  display: none;
-  width: 100%;
-  height: 100%;
-
-  ${media.greaterThan("medium")`
-    display: block;
-  `}
-`;
-
 export const Card = styled.div`
   border-radius: ${Style.themeing.sectionCornerRadius};
   border: ${Style.themeing.bordersWidth} ${Style.themeing.borderStyle}
@@ -85,8 +65,62 @@ export const TooltipWrapper = styled.div`
 
 // Mobile Wrappers
 
-const ShowOnDesktop = ({ children }) => {
-  let isDesktop = false;
+const DesktopSize = 768;
+export class ShowOn extends React.Component {
+  // passed props ; desktop[boolean]
+  constructor() {
+    super();
+    this.state = {
+      show: true,
+    };
+  }
 
-  return isDesktop ? <>{children}</> : null;
-};
+  componentDidMount = () => {
+    window.addEventListener("resize", () => this.checkSize());
+    this.checkSize();
+  };
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", () => this.checkSize());
+  };
+
+  checkSize = () => {
+    const shouldShowOnDesktop = window.matchMedia(
+      `(min-width: ${DesktopSize}px)`
+    ).matches;
+
+    if (this.props.desktop && this.state.show !== shouldShowOnDesktop) {
+      this.setState({
+        show: window.matchMedia(`(min-width: ${DesktopSize}px)`).matches,
+      });
+    }
+    if (!this.props.desktop && this.state.show === shouldShowOnDesktop) {
+      this.setState({
+        show: window.matchMedia(`(max-width: ${DesktopSize - 1}px)`).matches,
+      });
+    }
+  };
+
+  render() {
+    console.log("state", this.state);
+    return this.state.show ? <>{this.props.children}</> : null;
+  }
+}
+
+export const ShowOnlyMobile = styled.div`
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  ${media.greaterThan("medium")`
+    display: none;
+  `}
+`;
+export const ShowOnlyDesktop = styled.div`
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  ${media.greaterThan("medium")`
+    display: block;
+  `}
+`;
