@@ -63,9 +63,9 @@ const Data = {
         style: "lines", // layout style, options: lines, boxes
         buy: {
           //Limit the amount you can buy
-          unique: true, // if unique, can only be selected once
-          min: 1,
-          max: 1,
+          unique: true, // if unique, can only be selected once, can have multiple unique items
+          min: 1, //Not yet implemented
+          max: 2,
         },
         choices: [
           //The choice options available for this selection, may also include, requires (only allowed if char has given uid), discount ( if char has uid, costs 50% less)

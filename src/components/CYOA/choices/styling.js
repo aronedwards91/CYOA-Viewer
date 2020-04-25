@@ -33,6 +33,8 @@ export const LinesWrapper = styled.div`
   margin-bottom: calc(16px + 0.5vw);
   cursor: pointer;
   padding-bottom: 16px;
+  cursor: pointer;
+  ${({unique, boughtNum}) => unique && boughtNum > 0 ? 'border: 2px solid yellow' : ''}
 `;
 export const LinesTopWrapper = styled.div`
   margin-bottom: calc(16px + 0.5vw);

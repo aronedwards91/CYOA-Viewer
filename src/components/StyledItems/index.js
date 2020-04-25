@@ -101,7 +101,6 @@ export class ShowOn extends React.Component {
   };
 
   render() {
-    console.log("state", this.state);
     return this.state.show ? <>{this.props.children}</> : null;
   }
 }

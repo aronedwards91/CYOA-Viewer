@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Details from "./choicedetails";
 import { Card } from "../../StyledItems";
 import {
@@ -28,13 +28,20 @@ const StyleChoices = {
   boxes: "boxes",
 };
 
-const ChoicesBuilder = ({ data, styling }) => {
+const SelectionsBuilder = ({ data, styling }) => {
   if (Array.isArray(data)) {
-    return data.map((choice) => {
-      if (choice.style === StyleChoices.line)
-        return <ChoiceLines data={choice} styling={styling} />;
-      if (choice.style === StyleChoices.boxes) {
-        return <ChoiceBoxes data={choice} styling={styling} />;
+    return data.map((selection) => {
+      if (selection.style === StyleChoices.line)
+        // return <ChoiceLines data={selection} styling={styling} />;
+        return (
+          <SelectionLogicWrapper
+            ChildNode={ChoiceLines}
+            selectionData={selection}
+            styling={styling}
+          />
+        );
+      if (selection.style === StyleChoices.boxes) {
+        return <ChoiceBoxes data={selection} styling={styling} />;
       } else {
         return <div>style unknown</div>;
       }
@@ -44,8 +51,80 @@ const ChoicesBuilder = ({ data, styling }) => {
   }
 };
 
+const SelectionLogicWrapper = ({ ChildNode, selectionData, styling }) => {
+  const initArray = selectionData.choices.map(() => 0);
+  const unique = selectionData.buy.unique;
+  const MaxBuy = selectionData.buy.max;
+  const [numBought, setNumBought] = useState(0);
+  const [boughtDataArr, setBoughtArr] = useState([]);
+  const [errorMax, setErrorMax] = useState(false);
+  useEffect(() => {
+    setBoughtArr(initArray);
+  }, [initArray]);
+
+  const choiceBought = (arrayIndex) => {
+    if (unique && selectionData.buy.max > 1) {
+      if (boughtDataArr[arrayIndex] === 0) {
+        if (numBought < MaxBuy) {
+          const tempArray = boughtDataArr.slice(0);
+          tempArray[arrayIndex] = 1;
+          setBoughtArr(tempArray);
+          setNumBought(numBought + 1);
+        } else {
+          window.alert("No more of that group of selections can be taken");
+          setErrorMax(true);
+        }
+      } else {
+        const tempArray = boughtDataArr.slice(0);
+        tempArray[arrayIndex] = 0;
+        setBoughtArr(tempArray);
+        setNumBought(numBought - 1);
+      }
+    } else if (unique) {
+      if (boughtDataArr[arrayIndex] === 0) {
+        const tempArray = initArray.slice(0);
+        tempArray[arrayIndex] = 1;
+        setBoughtArr(tempArray);
+      } else if (boughtDataArr[arrayIndex] === 1) {
+        const tempArray = initArray.slice(0);
+        setBoughtArr(tempArray);
+      }
+    }
+    // TODO multibuy
+  };
+  const choiceUnSelected = (arrayIndex) => {
+    if (boughtDataArr[arrayIndex] > 0) {
+      setNumBought(numBought + 1);
+      const tempArray = boughtDataArr.slice(0);
+      tempArray[arrayIndex] = boughtDataArr[arrayIndex] + 1;
+    } else {
+      window.alert("unable to remove any more");
+    }
+  };
+  // console.log("bd:Logic:numBuy", numBought);
+  // console.log("bd:Logic:Arr", boughtDataArr);
+
+  return (
+    <ChildNode
+      data={selectionData}
+      styling={styling}
+      unique={unique}
+      boughtDataArr={boughtDataArr}
+      buyFunc={choiceBought}
+      unselectFunc={choiceUnSelected}
+      errorMax={errorMax}
+    />
+  );
+};
 // if selection style === 'lines'
-const ChoiceLines = ({ data, styling }) => (
+const ChoiceLines = ({
+  data,
+  styling,
+  unique,
+  boughtDataArr,
+  buyFunc,
+  unselectFunc,
+}) => (
   <Card key={data.name}>
     <LineHeaderWrap styling={styling}>
       <HeaderSplit>
@@ -55,15 +134,36 @@ const ChoiceLines = ({ data, styling }) => (
         <HeaderSm>{data.description}</HeaderSm>
       </HeaderSplit>
     </LineHeaderWrap>
-    {data.choices.map((choice) => (
-      <LineBox choice={choice} styling={styling} />
+    {data.choices.map((choice, index) => (
+      <LineBox
+        choice={choice}
+        styling={styling}
+        unique={unique}
+        buyFunc={() => buyFunc(index)}
+        unselectFunc={() => unselectFunc(index)}
+        boughtNum={boughtDataArr[index]}
+      />
     ))}
   </Card>
 );
 
-const LineBox = ({ choice, styling }) => {
+const LineBox = ({
+  choice,
+  styling,
+  unique,
+  buyFunc,
+  unselectFunc,
+  boughtNum,
+}) => {
   return (
-    <LinesWrapper key={choice.name} styling={styling}>
+    <LinesWrapper
+      key={choice.name}
+      styling={styling}
+      unique={unique}
+      boughtNum={boughtNum}
+      onClick={buyFunc}
+    >
+      {/* unselectFunc for seperate button on multibuy */}
       <LinesTopWrapper>
         <TextWrapper>
           <TitleWrap styling={styling}>
@@ -115,4 +215,4 @@ const BoxItem = ({ choice, styling }) => {
   );
 };
 
-export default ChoicesBuilder;
+export default SelectionsBuilder;

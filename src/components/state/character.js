@@ -5,7 +5,7 @@ import data from "../../cyoadata";
 export function createCharStore() {
   return {
     profImg: null,
-    name: "set",
+    name: "None",
     setName(newName) {
       this.name = newName;
     },
