@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Details from "./choicedetails";
 import { Card } from "../../StyledItems";
 import {
@@ -56,11 +56,12 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData, styling }) => {
   const unique = selectionData.buy.unique;
   const MaxBuy = selectionData.buy.max;
   const [numBought, setNumBought] = useState(0);
-  const [boughtDataArr, setBoughtArr] = useState([]);
+  const [boughtDataArr, setBoughtArr] = useState(initArray);
   const [errorMax, setErrorMax] = useState(false);
-  useEffect(() => {
-    setBoughtArr(initArray);
-  }, [initArray]);
+
+  // useEffect(() => {
+  //   setBoughtArr(initArray);
+  // }, [initArray]);
 
   const choiceBought = (arrayIndex) => {
     if (unique && selectionData.buy.max > 1) {

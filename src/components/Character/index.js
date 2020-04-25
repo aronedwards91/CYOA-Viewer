@@ -1,9 +1,31 @@
 import React from "react";
-import styled from "styled-components";
 import { useCharDataStore } from "../state/character";
-import { TextMd, TextMdCss } from "../StyledItems/fontSizing";
+import { TextMd } from "../StyledItems/fontSizing";
 import { Tooltip, TooltipWrapper, ShowOn } from "../StyledItems";
 import { observer } from "mobx-react-lite";
+import {
+  TextBox,
+  TextPara,
+  TitleDiv,
+  LgCharTop,
+  LgCharTopText,
+  DropBtn,
+  DesktopSm,
+  DesktopFullSize,
+  DesktopScroll,
+  DeskFullBtn,
+  VertBtn,
+  MobileWrapper,
+  LgMobBox,
+  LgMobScroll,
+  Portrait,
+  TextPad,
+  InventoryWrapper,
+  InventoryItemBox,
+  SmBox,
+  SmMobName,
+  SmMobPoints,
+} from "./styling";
 
 const Character = ({ isExpanded, switchCharSize, styling, setup }) => (
   <>
@@ -223,184 +245,5 @@ const InventoryItem = ({ name, desc, quantity, icon }) => {
     </TooltipWrapper>
   );
 };
-
-// Templates
-const TextBox = ({ title, value }) => (
-  <TextPad>
-    <LgMobTitlePad>{title}</LgMobTitlePad>
-    <TextMd>{value}</TextMd>
-  </TextPad>
-);
-const TextPara = ({ title, value }) => (
-  <TextPad>
-    <TitleDiv nopad>
-      <TextMd>{title}</TextMd>
-    </TitleDiv>
-    <TextMd>{value}</TextMd>
-  </TextPad>
-);
-
-// Shared
-const TitleDiv = styled.div`
-  padding-left: ${({ nopad }) => (nopad ? "0" : "8px")};
-  text-decoration: underline;
-`;
-const LgCharTop = styled.div`
-  display: flex;
-`;
-const LgCharTopText = styled.div`
-  flex-grow: 1;
-`;
-const DropBtn = styled.div`
-  border: 1px solid ${({ styling }) => styling.colors.charBorder};
-  border-radius: ${({ styling }) => styling.themeing.bordersWidth};
-  padding: 2px;
-  height: 126%;
-  margin-left: 16px;
-
-  &:hover {
-    background: ${({ styling }) => styling.colors.charBgB};
-    cursor: pointer;
-  }
-`;
-// Desktop
-const DesktopSm = styled.div`
-  position: fixed;
-  height: 100vh;
-  width: ${({ styling }) => styling.layout.sidebarWidthDeskSm};
-  padding: 16px;
-  background: linear-gradient(
-    0.15turn,
-    ${({ styling }) =>
-      styling.colors.charBgB +
-      ", " +
-      styling.colors.charBgA +
-      ", " +
-      styling.colors.charBgB}
-  );
-  border-right: ${({ styling }) =>
-    styling.themeing.bordersWidth + " solid " + styling.colors.charBorder};
-`;
-const DesktopFullSize = styled.div`
-  position: fixed;
-  height: 100vh;
-  width: ${({ styling }) => styling.layout.sidebarWidth};
-  padding: 32px;
-  background: linear-gradient(
-    0.6turn,
-    ${({ styling }) =>
-      styling.colors.charBgB +
-      ", " +
-      styling.colors.charBgA +
-      ", " +
-      styling.colors.charBgB}
-  );
-  border-right: ${({ styling }) =>
-    styling.themeing.bordersWidth +
-    " " +
-    styling.themeing.borderStyle +
-    " " +
-    styling.colors.charBorder};
-`;
-const DesktopScroll = styled.div`
-  margin-bottom: 10px;
-  overflow-y: auto;
-`;
-const DeskFullBtn = styled(DropBtn)`
-  height: 34px;
-  width: 34px;
-  text-align: center;
-  font-size: 22px;
-`;
-const VertBtn = styled(DeskFullBtn)`
-  margin: 16px 8px;
-`;
-// Mobile
-const MobileWrapper = styled.div`
-  position: fixed;
-  z-index: 100;
-  color: ${({ styling }) => styling.colors.charText};
-  ${TextMdCss}
-  width: 100%;
-`;
-
-// Mobile Full
-const LgMobBox = styled.div`
-  width: 100%;
-  padding: 32px;
-  background: linear-gradient(
-    0.35turn,
-    ${({ styling }) =>
-      styling.colors.charBgA +
-      ", " +
-      styling.colors.charBgB +
-      ", " +
-      styling.colors.charBgA}
-  );
-  border-bottom: ${({ styling }) =>
-    styling.themeing.bordersWidth +
-    " " +
-    styling.themeing.borderStyle +
-    " " +
-    styling.colors.mainD};
-`;
-const LgMobScroll = styled.div`
-  min-height: 50vh;
-  max-height: 75vh;
-  margin-bottom: 10px;
-  overflow-y: auto;
-`;
-const Portrait = styled.img`
-  width: 120px;
-  min-height: 60px
-  background: yellow;
-`;
-const TextPad = styled.div`
-  padding: 8px;
-`;
-const LgMobTitlePad = styled.span`
-  padding-right: 16px;
-`;
-const InventoryWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 8px;
-`;
-const InventoryItemBox = styled.div`
-  border-left: 1px solid black;
-  padding: 4px 16px;
-  cursor: help;
-`;
-
-// Small Mob
-const SmBox = styled.div`
-  background: lightgreen;
-  background: linear-gradient(
-    0.35turn,
-    ${({ styling }) =>
-      styling.colors.charBgA +
-      ", " +
-      styling.colors.charBgB +
-      ", " +
-      styling.colors.charBgA}
-  );
-  border-bottom: ${({ styling }) =>
-    styling.themeing.bordersWidth +
-    " " +
-    styling.themeing.borderStyle +
-    " " +
-    styling.colors.mainD};
-  height: ${({ styling }) => styling.layout.sidebarWidthMobSm};
-  width: 100%;
-  display: flex;
-  padding: 16px 8px;
-`;
-const SmMobName = styled(TextMd)`
-  padding-right: 16px;
-`;
-const SmMobPoints = styled(TextMd)`
-  text-align: right;
-  flex-grow: 1;
-`;
 
 export default Character;
