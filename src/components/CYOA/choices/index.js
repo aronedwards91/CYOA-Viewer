@@ -32,7 +32,6 @@ const SelectionsBuilder = ({ data, styling }) => {
   if (Array.isArray(data)) {
     return data.map((selection) => {
       if (selection.style === StyleChoices.line)
-        // return <ChoiceLines data={selection} styling={styling} />;
         return (
           <SelectionLogicWrapper
             ChildNode={ChoiceLines}
@@ -41,7 +40,14 @@ const SelectionsBuilder = ({ data, styling }) => {
           />
         );
       if (selection.style === StyleChoices.boxes) {
-        return <ChoiceBoxes data={selection} styling={styling} />;
+        // return <ChoiceBoxes data={selection} styling={styling} />;
+        return (
+          <SelectionLogicWrapper
+            ChildNode={ChoiceBoxes}
+            selectionData={selection}
+            styling={styling}
+          />
+        );
       } else {
         return <div>style unknown</div>;
       }
@@ -59,10 +65,6 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData, styling }) => {
   const [boughtDataArr, setBoughtArr] = useState(initArray);
   const [errorMax, setErrorMax] = useState(false);
 
-  // useEffect(() => {
-  //   setBoughtArr(initArray);
-  // }, [initArray]);
-
   const choiceBought = (arrayIndex) => {
     if (unique && selectionData.buy.max > 1) {
       if (boughtDataArr[arrayIndex] === 0) {
@@ -71,6 +73,7 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData, styling }) => {
           tempArray[arrayIndex] = 1;
           setBoughtArr(tempArray);
           setNumBought(numBought + 1);
+          // TODO trigger buy effect
         } else {
           window.alert("No more of that group of selections can be taken");
           setErrorMax(true);
@@ -80,26 +83,41 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData, styling }) => {
         tempArray[arrayIndex] = 0;
         setBoughtArr(tempArray);
         setNumBought(numBought - 1);
+        // TODO trigger unbuy effect
       }
     } else if (unique) {
       if (boughtDataArr[arrayIndex] === 0) {
         const tempArray = initArray.slice(0);
         tempArray[arrayIndex] = 1;
         setBoughtArr(tempArray);
+        // TODO trigger buy effect
       } else if (boughtDataArr[arrayIndex] === 1) {
         const tempArray = initArray.slice(0);
         setBoughtArr(tempArray);
+        // TODO trigger unbuy effect
+      }
+    } else {
+      // Non Unique
+      if (numBought < MaxBuy) {
+        const tempArray = boughtDataArr.slice(0);
+        tempArray[arrayIndex] = tempArray[arrayIndex] + 1;
+        setBoughtArr(tempArray);
+        setNumBought(numBought + 1);
+      } else {
+        window.alert("No more of that group of selections can be taken");
+        setErrorMax(true);
       }
     }
-    // TODO multibuy
   };
   const choiceUnSelected = (arrayIndex) => {
+    // TODO unselect for non-unique only
     if (boughtDataArr[arrayIndex] > 0) {
-      setNumBought(numBought + 1);
       const tempArray = boughtDataArr.slice(0);
-      tempArray[arrayIndex] = boughtDataArr[arrayIndex] + 1;
+      tempArray[arrayIndex] = boughtDataArr[arrayIndex] - 1;
+      setBoughtArr(tempArray);
+      setNumBought(numBought - 1);
     } else {
-      window.alert("unable to remove any more");
+      window.alert("ERROR: All already unselected");
     }
   };
   // console.log("bd:Logic:numBuy", numBought);

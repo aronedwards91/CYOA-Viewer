@@ -233,7 +233,7 @@ const Data = {
         name: "3/ Nemesis",
         description:
           "Deep in the dark wood a dark power is growing, it thirsts for something, something it hopes to gain from the people of this world.",
-        style: "boxes",
+        style: "lines",
         buy: {
           unique: true,
           min: 1,
@@ -256,11 +256,60 @@ const Data = {
           },
         ],
       },
+      {
+        name: "4/ Items",
+        description:
+          "What other useful equipment you have found to help you on your journey.",
+        style: "boxes",
+        buy: {
+          unique: false,
+          min: 1,
+          max: 100,
+        },
+        choices: [
+          {
+            name: "Climbers Satchel",
+            uid: "climbersatchel",
+            description:
+              "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
+            img: waterskin,
+            cost: 50,
+            effect: {
+              "inv-items": [
+                {
+                  name: "Climbers Satchel",
+                  desc: "Rope, hook & climbers chalk",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Large bottle of Emig's Honeysap",
+            uid: "honeysap",
+            description:
+              "A bottle containing three portions of a rare ointment, blessed by a kind nypmh, allows you to slowly regenerate from almost mortal wounds over the course of a few days.",
+            img: waterskin,
+            cost: 100,
+            effect: {
+              "inv-items": [
+                {
+                  name: "Emig's Honeysap portions",
+                  desc: "Heals mortal wounds ~3days",
+                  quantity: 3,
+                  icon: false,
+                },
+              ],
+            },
+          },
+        ],
+      },
     ],
   },
   charSetup: {
-    choicePoints: 990,  // Starting choice points
-    setting: 'A dangerous Iron age forest.' // brief description of setup
+    choicePoints: 990, // Starting choice points
+    setting: "A dangerous Iron age forest.", // brief description of setup
   },
 };
 

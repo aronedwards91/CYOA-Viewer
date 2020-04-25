@@ -26,7 +26,7 @@ img embedding -<img> not css,
 Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present,
 
 #### TODO
-
+Select: selection logic effect, select styling, selection state effect
 function:  , button effects, character styling, exportable .json
 switchable template (for easier testing), simple templating file
 unselect, unbuy, adjustable font scaling;
