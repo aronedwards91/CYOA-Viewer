@@ -197,7 +197,14 @@ const LineBox = ({
   );
 };
 
-const ChoiceBoxes = ({ data, styling }) => {
+const ChoiceBoxes = ({
+  data,
+  styling,
+  unique,
+  boughtDataArr,
+  buyFunc,
+  unselectFunc,
+}) => {
   return (
     <>
       <BoxHeader>
@@ -211,17 +218,37 @@ const ChoiceBoxes = ({ data, styling }) => {
         </HeaderWrap>
       </BoxHeader>
       <BoxItemWrapper>
-        {data.choices.map((choice) => (
-          <BoxItem choice={choice} styling={styling} />
+        {data.choices.map((choice, index) => (
+          <BoxItem
+            choice={choice}
+            styling={styling}
+            unique={unique}
+            buyFunc={() => buyFunc(index)}
+            unselectFunc={() => unselectFunc(index)}
+            boughtNum={boughtDataArr[index]}
+          />
         ))}
       </BoxItemWrapper>
     </>
   );
 };
 
-const BoxItem = ({ choice, styling }) => {
+const BoxItem = ({
+  choice,
+  styling,
+  unique,
+  buyFunc,
+  unselectFunc,
+  boughtNum,
+}) => {
   return (
-    <BoxContainer key={choice.name}>
+    <BoxContainer
+      key={choice.name}
+      styling={styling}
+      unique={unique}
+      boughtNum={boughtNum}
+      onClick={buyFunc}
+    >
       <BoxImage alt="image" src={choice.img} />
       <BoxTextWrapper>
         <TitleWrap styling={styling}>

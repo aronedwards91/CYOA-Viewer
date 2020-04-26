@@ -26,16 +26,19 @@ export const TitleWrap = styled.div`
 export const LineHeaderWrap = styled(HeaderWrap)`
   padding-bottom: 16px;
   margin-bottom: 16px;
-  border-bottom: 2px solid ${(props) => props.styling.colors.mainD || "black"};
+  border-bottom: 2px solid ${({ styling }) => styling.colors.mainD || "black"};
 `;
 export const LinesWrapper = styled.div`
-  border-bottom: 1px solid ${(props) => props.styling.colors.mainD || "black"};
+  border-bottom: 1px solid ${({ styling }) => styling.colors.mainD || "black"};
   margin-bottom: calc(16px + 0.5vw);
   cursor: pointer;
   padding: 16px;
   cursor: pointer;
   border: 2px solid transparent;
-  ${({unique, boughtNum}) => unique && boughtNum > 0 ? 'border: 2px solid yellow;' : ''}
+  ${({ unique, boughtNum, styling }) =>
+    unique && boughtNum > 0
+      ? "border: 2px solid " + styling.colors.mainHighlight + ";"
+      : ""}
 `;
 export const LinesTopWrapper = styled.div`
   margin-bottom: calc(16px + 0.5vw);
@@ -70,6 +73,7 @@ export const BoxItemWrapper = styled.div`
   align-content: flex-start;
 `;
 export const BoxContainer = styled(Card)`
+  cursor: pointer;
   border-width: 2px;
   overflow: hidden;
   padding: 0 0 16px 0;
@@ -79,6 +83,10 @@ export const BoxContainer = styled(Card)`
   height: max-content;
   width: 240px;
   max-width: 560px;
+  ${({ unique, boughtNum, styling }) =>
+    unique && boughtNum > 0
+      ? "border: 2px solid " + styling.colors.mainHighlight + ";"
+      : ""}
 
   ${media.greaterThan("medium")`
     max-width: 380px;
