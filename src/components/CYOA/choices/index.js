@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Details from "./choicedetails";
+import React from "react";
 import { Card } from "../../StyledItems";
 import {
   TextMd,
@@ -7,6 +6,9 @@ import {
   HeaderMd,
   HeaderSm,
 } from "../../StyledItems/fontSizing";
+
+import Details from "./choicedetails";
+import SelectionWrapperLogic from "./selectionWrapperLogic";
 import {
   HeaderWrap,
   HeaderSplit,
@@ -19,9 +21,12 @@ import {
   BoxHeader,
   BoxItemWrapper,
   BoxContainer,
+  MultibuyOverlay,
   BoxImage,
   BoxTextWrapper,
 } from "./styling";
+
+
 
 const StyleChoices = {
   line: "lines",
@@ -33,7 +38,7 @@ const SelectionsBuilder = ({ data, styling }) => {
     return data.map((selection) => {
       if (selection.style === StyleChoices.line)
         return (
-          <SelectionLogicWrapper
+          <SelectionWrapperLogic
             ChildNode={ChoiceLines}
             selectionData={selection}
             styling={styling}
@@ -42,7 +47,7 @@ const SelectionsBuilder = ({ data, styling }) => {
       if (selection.style === StyleChoices.boxes) {
         // return <ChoiceBoxes data={selection} styling={styling} />;
         return (
-          <SelectionLogicWrapper
+          <SelectionWrapperLogic
             ChildNode={ChoiceBoxes}
             selectionData={selection}
             styling={styling}
@@ -57,84 +62,6 @@ const SelectionsBuilder = ({ data, styling }) => {
   }
 };
 
-const SelectionLogicWrapper = ({ ChildNode, selectionData, styling }) => {
-  const initArray = selectionData.choices.map(() => 0);
-  const unique = selectionData.buy.unique;
-  const MaxBuy = selectionData.buy.max;
-  const [numBought, setNumBought] = useState(0);
-  const [boughtDataArr, setBoughtArr] = useState(initArray);
-  const [errorMax, setErrorMax] = useState(false);
-
-  const choiceBought = (arrayIndex) => {
-    if (unique && selectionData.buy.max > 1) {
-      if (boughtDataArr[arrayIndex] === 0) {
-        if (numBought < MaxBuy) {
-          const tempArray = boughtDataArr.slice(0);
-          tempArray[arrayIndex] = 1;
-          setBoughtArr(tempArray);
-          setNumBought(numBought + 1);
-          // TODO trigger buy effect
-        } else {
-          window.alert("No more of that group of selections can be taken");
-          setErrorMax(true);
-        }
-      } else {
-        const tempArray = boughtDataArr.slice(0);
-        tempArray[arrayIndex] = 0;
-        setBoughtArr(tempArray);
-        setNumBought(numBought - 1);
-        // TODO trigger unbuy effect
-      }
-    } else if (unique) {
-      if (boughtDataArr[arrayIndex] === 0) {
-        const tempArray = initArray.slice(0);
-        tempArray[arrayIndex] = 1;
-        setBoughtArr(tempArray);
-        // TODO trigger buy effect
-      } else if (boughtDataArr[arrayIndex] === 1) {
-        const tempArray = initArray.slice(0);
-        setBoughtArr(tempArray);
-        // TODO trigger unbuy effect
-      }
-    } else {
-      // Non Unique
-      if (numBought < MaxBuy) {
-        const tempArray = boughtDataArr.slice(0);
-        tempArray[arrayIndex] = tempArray[arrayIndex] + 1;
-        setBoughtArr(tempArray);
-        setNumBought(numBought + 1);
-      } else {
-        window.alert("No more of that group of selections can be taken");
-        setErrorMax(true);
-      }
-    }
-  };
-  const choiceUnSelected = (arrayIndex) => {
-    // TODO unselect for non-unique only
-    if (boughtDataArr[arrayIndex] > 0) {
-      const tempArray = boughtDataArr.slice(0);
-      tempArray[arrayIndex] = boughtDataArr[arrayIndex] - 1;
-      setBoughtArr(tempArray);
-      setNumBought(numBought - 1);
-    } else {
-      window.alert("ERROR: All already unselected");
-    }
-  };
-  // console.log("bd:Logic:numBuy", numBought);
-  // console.log("bd:Logic:Arr", boughtDataArr);
-
-  return (
-    <ChildNode
-      data={selectionData}
-      styling={styling}
-      unique={unique}
-      boughtDataArr={boughtDataArr}
-      buyFunc={choiceBought}
-      unselectFunc={choiceUnSelected}
-      errorMax={errorMax}
-    />
-  );
-};
 // if selection style === 'lines'
 const ChoiceLines = ({
   data,
@@ -247,10 +174,15 @@ const BoxItem = ({
       styling={styling}
       unique={unique}
       boughtNum={boughtNum}
-      onClick={buyFunc}
     >
+      {!unique && boughtNum > 0 && (
+        <MultibuyOverlay onClick={unselectFunc}>
+          <HeaderMd>[X]</HeaderMd>
+          <HeaderMd>x{boughtNum}</HeaderMd>
+        </MultibuyOverlay>
+      )}
       <BoxImage alt="image" src={choice.img} />
-      <BoxTextWrapper>
+      <BoxTextWrapper onClick={buyFunc}>
         <TitleWrap styling={styling}>
           <HeaderSm>{choice.name}</HeaderSm>
         </TitleWrap>

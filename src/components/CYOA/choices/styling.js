@@ -73,7 +73,7 @@ export const BoxItemWrapper = styled.div`
   align-content: flex-start;
 `;
 export const BoxContainer = styled(Card)`
-  cursor: pointer;
+  position: relative;
   border-width: 2px;
   overflow: hidden;
   padding: 0 0 16px 0;
@@ -92,6 +92,15 @@ export const BoxContainer = styled(Card)`
     max-width: 380px;
   `}
 `;
+export const MultibuyOverlay = styled.div`
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  background: rgba(124, 124, 124, 0.5);
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+`;
 export const BoxImage = styled.img`
   height: 50%;
   width: 100%;
@@ -100,6 +109,7 @@ export const BoxImage = styled.img`
 export const BoxTextWrapper = styled.div`
   text-align: left;
   padding: calc(0.5rem + 1vw);
+  cursor: pointer;
 `;
 
 //choices

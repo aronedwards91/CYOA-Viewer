@@ -30,6 +30,7 @@ Select: selection logic effect, select styling, selection state effect
 function:  , button effects, character styling, exportable .json
 switchable template (for easier testing), simple templating file
 unselect, unbuy, adjustable font scaling;
+Mobile Styling
 
 ## Building a CYOA
 

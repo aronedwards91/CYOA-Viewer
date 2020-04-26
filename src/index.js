@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 import GlobalStyle from "./GlobalStyles";
+import 'mobx-react-lite/batchingForReactDom';
 
 import Layout from "./components/Layout";
 import { CharStoreProvider } from "./components/state/character";
