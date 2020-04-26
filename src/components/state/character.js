@@ -2,10 +2,22 @@ import React from "react";
 import { useLocalStore } from "mobx-react-lite";
 import data from "../../cyoadata";
 
+export const effectKeys = {
+  profImg: "char-profimg", // number
+  age: "body-age", // string
+  race: "body-race", // string
+  background: "char-background", // [name]string, [desc]string
+  challenge: "char-challenge", // [name]string, [desc]string
+  abilities: "body-ability", // [name]string, [power]string
+  advDrawback: "char-advdrawback", // array [name]string, [desc]string, [quantity]string, [icon]img-Base64.jpg
+  items: "inv-items", // must be an array
+  points: "cost", // number
+};
+
 export function createCharStore() {
   return {
     profImg: null,
-    name: "None",
+    name: "None", // set only by user
     setName(newName) {
       this.name = newName;
     },
@@ -13,13 +25,22 @@ export function createCharStore() {
     setAge(newAge) {
       this.age = newAge;
     },
+    resetAge() {
+      this.age = 0;
+    },
     race: "Human",
     setRace(newRace) {
       this.race = newRace;
     },
+    resetRace() {
+      this.race = "Human";
+    },
     background: "none selected",
     setBackground(newBackground) {
       this.background = newBackground;
+    },
+    resetBackground() {
+      this.background = "none selected";
     },
     challenge: {
       name: null,
@@ -28,52 +49,61 @@ export function createCharStore() {
     setChallenge(newChallenge) {
       this.challenge = newChallenge;
     },
+    resetChallenge() {
+      this.challenge = {
+        name: null,
+        desc: null,
+      };
+    },
     abilities: [],
     addAbility(newAbility) {
       this.abilities.push(newAbility);
     },
-    addAbilityArray(abililtyArray) {
-      this.abilities.concat(abililtyArray);
-    },
-    removeAbility(arrayIndex) {
-      this.abilities.splice(arrayIndex, 1);
+    removeAbility(removedAbility) {
+      const indexOfRemoved = this.abilities.findIndex(
+        (i) => i.name === removedAbility.name
+      );
+      this.abilities.splice(indexOfRemoved, 1);
     },
     advDrawback: [],
     addAdvDrawback(newAdvDrawback) {
       this.advDrawback.push(newAdvDrawback);
     },
-    addAdvDrawbackArray(advDrawbackArray) {
-      this.advDrawback.concat(advDrawbackArray);
+    removeAdvDrawback(removedAdvDrawback) {
+      const indexOfRemoved = this.advDrawback.findIndex(
+        (i) => i.name === removedAdvDrawback.name
+      );
+      this.advDrawback.splice(indexOfRemoved, 1);
     },
-    removeAdvDrawback(arrayIndex) {
-      this.advDrawback.splice(arrayIndex, 1);
+    items: [],
+    addItemArray(itemsArray) {
+      itemsArray.forEach((item) => {
+        const indexOfRemoved = this.items.findIndex(
+          (i) => i.name === item.name
+        );
+        if (indexOfRemoved === -1) {
+          this.items.push(item);
+        } else {
+          this.items[indexOfRemoved].quantity++;
+        }
+      });
     },
-    items: [
-      {
-        name: "knife",
-        desc: "A very small but sharp hunter's knife",
-        quantity: 1,
-        icon: false,
-      },
-      {
-        name: "bow & strings",
-        desc: "A powerful hunters bow, well used, 3 strings",
-        quantity: 3,
-        icon: false,
-      },
-    ],
-    addItem(newItem) {
-      this.items.push(newItem);
-    },
-    addItemArray(itemArray) {
-      this.items.concat(itemArray);
-    },
-    removeItem(arrayIndex) {
-      this.items.splice(arrayIndex, 1);
+    removeItemArray(removedItemsArr) {
+      const OldArrayClone = this.items.splice(0);
+      removedItemsArr.forEach((item) => {
+        const indexOfRemoved = OldArrayClone.findIndex(
+          (i) => i.name === item.name
+        );
+        OldArrayClone.splice(indexOfRemoved, 1);
+      });
+      this.items = OldArrayClone;
     },
     points: data.charSetup.choicePoints,
     addPoints(number) {
       this.points = this.points + number;
+    },
+    removePoints(number) {
+      this.points = this.points - number;
     },
   };
 }

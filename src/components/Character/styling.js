@@ -6,7 +6,7 @@ import { TextMd, TextMdCss } from "../StyledItems/fontSizing";
 export const TextBox = ({ title, value }) => (
   <TextPad>
     <LgMobTitlePad>{title}</LgMobTitlePad>
-    <TextMd>{value}</TextMd>
+    <span>{value}</span>
   </TextPad>
 );
 export const TextPara = ({ title, value }) => (
@@ -14,7 +14,7 @@ export const TextPara = ({ title, value }) => (
     <TitleDiv nopad>
       <TextMd>{title}</TextMd>
     </TitleDiv>
-    <TextMd>{value}</TextMd>
+    <span>{value}</span>
   </TextPad>
 );
 
@@ -64,7 +64,8 @@ export const DesktopFullSize = styled.div`
   position: fixed;
   height: 100vh;
   width: ${({ styling }) => styling.layout.sidebarWidth};
-  padding: 32px;
+  overflow-y: auto;
+  padding: 24px;
   background: linear-gradient(
     0.6turn,
     ${({ styling }) =>
@@ -84,6 +85,7 @@ export const DesktopFullSize = styled.div`
 export const DesktopScroll = styled.div`
   margin-bottom: 10px;
   overflow-y: auto;
+  ${TextMdCss};
 `;
 export const DeskFullBtn = styled(DropBtn)`
   height: 34px;

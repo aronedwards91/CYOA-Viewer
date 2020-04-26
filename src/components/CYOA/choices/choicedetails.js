@@ -1,20 +1,21 @@
 import React from "react";
-import { TextSm } from "../../StyledItems/fontSizing";
-import { ChoiceWrapper, ChoiceHeader, PadTopDiv, PadSm } from "./styling";
-
-const EffectsList = {
-  Age: "body-age", // number
-  Race: "body-race", // string
-  Background: "char-background", // string
-  Challenge: "char-challenge", // [name]string, [desc]string
-  Ability: "body-ability", // [name]string, [power]string
-  AdvantageDrawback: "char-advdrawback",// [name]string, [adv]string, [drawback]string
-  Item: "inv-items",// array [name]string, [desc]string, [quantity]string, [icon]img-Base64.jpg
-};
+import { TextSm, TextMd } from "../../StyledItems/fontSizing";
+import {
+  ChoiceWrapper,
+  ChoiceHeader,
+  PadTopDiv,
+  PadSm,
+  PadBottom,
+} from "./styling";
+import { effectKeys } from "../../state/character";
 
 const ChoiceDetails = ({ details, styling }) => {
   return (
     <ChoiceWrapper>
+      <PadBottom>
+        <TextMd>Cost:{"  "}</TextMd>
+        <TextMd>{details.cost === 0 ? "Free" : details.cost}</TextMd>
+      </PadBottom>
       <ChoiceHeader styling={styling}>GRANTS: </ChoiceHeader>
       <div>
         {Object.keys(details).map((key) => (
@@ -27,22 +28,22 @@ const ChoiceDetails = ({ details, styling }) => {
 
 const ChoiceOptions = ({ type, value, styling }) => {
   switch (type) {
-    case EffectsList.Age:
+    case effectKeys.age:
       return <DivText value={"AGE; " + value} />;
-    case EffectsList.Race:
+    case effectKeys.race:
       return <DivText value={"RACE; " + value} />;
-    case EffectsList.Ability:
+    case effectKeys.abilities:
       return (
         <DivSectionWrapper styling={styling}>
           <DivText value={"ABILITY; " + value.name} />
           <DivText value={value.power} />
         </DivSectionWrapper>
       );
-    case EffectsList.Home:
+    case effectKeys.Home:
       return <DivText value={"HOME; " + value} />;
-    case EffectsList.Background:
+    case effectKeys.background:
       return <DivText value={"Background; " + value} />;
-    case EffectsList.AdvantageDrawback:
+    case effectKeys.advDrawback:
       return (
         <DivSectionWrapper styling={styling}>
           <DivText value={"CATCH; " + value.name} />
@@ -50,14 +51,14 @@ const ChoiceOptions = ({ type, value, styling }) => {
           <DivText value={"- > " + value.drawback} />
         </DivSectionWrapper>
       );
-    case EffectsList.Challenge:
+    case effectKeys.challenge:
       return (
         <DivSectionWrapper styling={styling}>
           <DivText value={"CHALLENGE; " + value.name} />
           <DivText value={value.desc} />
         </DivSectionWrapper>
       );
-    case EffectsList.Item:
+    case effectKeys.items:
       return value.map((item) => {
         const quantity = item.quantity > 1 ? "  X" + item.quantity : "";
         return (
@@ -67,7 +68,8 @@ const ChoiceOptions = ({ type, value, styling }) => {
           </DivSectionWrapper>
         );
       });
-
+    case effectKeys.points:
+      return null;
     default:
       return <DivText value="Type not recognised" />;
   }

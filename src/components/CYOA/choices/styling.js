@@ -127,3 +127,6 @@ export const PadTopDiv = styled.div`
   margin-top: calc(8px + 0.3vw);
   border-left: 1px solid ${(props) => props.styling.colors.mainD};
 `;
+export const PadBottom = styled.div`
+  margin-bottom: calc(8px + 0.3vw);
+`;

@@ -26,7 +26,7 @@ const Data = {
       charBorder: "#435200",
     },
     layout: {
-      sidebarWidth: "320px",
+      sidebarWidth: "380px",
       sidebarWidthDeskSm: "120px",
       sidebarWidthMobSm: "60px",
     },
@@ -76,8 +76,8 @@ const Data = {
             description:
               "Your were raised in a small village in a poor keeptown, you spent your days hunting foraging and tending to your fields",
             img: warrior,
-            cost: 0,
             effect: {
+              cost: 0,
               //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
               "char-background": "Bor-Duren",
               "body-race": "Human",
@@ -109,8 +109,8 @@ const Data = {
             description:
               "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land. Your fearlessness in battle and destruction of corrupted beasts has made you an ally of the hawks with whom you can speak.",
             img: warrior,
-            cost: 50,
             effect: {
+              cost: 50,
               //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
               "char-background": "Bor-Duren",
               "body-race": "Human",
@@ -135,6 +135,7 @@ const Data = {
                 },
               ],
               "body-ability": {
+                //name[String], power[String]
                 name: "Call Avian Ally",
                 power: "Summons a nearby hawk to you with which you can speak.",
               },
@@ -159,8 +160,8 @@ const Data = {
             description:
               "A ornate dagger, it's blade seems freshly wet with blood, no matter how often it is wiped. It calls to it's owner forever hoping to return to it's masters hand, but to do so would plunge the world into darkness.",
             img: waterskin,
-            cost: 0,
             effect: {
+              cost: 0,
               "char-advdrawback": {
                 name: "Accursed Dagger",
                 adv:
@@ -184,8 +185,8 @@ const Data = {
             description:
               "A beautiful amulet, wrought in silver with many fine gems. It seems to hum with a gentle tune, it seems to give you strength.",
             img: waterskin,
-            cost: 0,
             effect: {
+              cost: 0,
               "char-advdrawback": {
                 name: "Amulet of Beyin'Parak",
                 adv:
@@ -209,8 +210,8 @@ const Data = {
             description:
               "A runed leather waterskin, it feels heavy, but smells sweet.",
             img: waterskin,
-            cost: 0,
             effect: {
+              cost: 0,
               "char-advdrawback": {
                 name: "Waters of Omsak Yashniir",
                 adv:
@@ -247,8 +248,8 @@ const Data = {
             description:
               "Erred-Mhuur hungers for the flesh of sentient beasts, it burns with anguish, only seeking to destroy that which it hates above all else. In it's anger it has reforged the beasts of the wood that have come under it's influence, dark & blood loving they move now as shadows branded in glowing red runes, hunting and preying on all they can.",
             img: waterskin,
-            cost: 0,
             effect: {
+              cost: 0,
               "char-challenge": {
                 name: "Erred-Mhuur [Nemesis]",
                 desc: "Hunts & enslaves sentient races.",
@@ -274,8 +275,8 @@ const Data = {
             description:
               "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
             img: waterskin,
-            cost: 50,
             effect: {
+              cost: 50,
               "inv-items": [
                 {
                   name: "Climbers Satchel",
@@ -292,8 +293,8 @@ const Data = {
             description:
               "A bottle containing three portions of a rare ointment, blessed by a kind nypmh, allows you to slowly regenerate from almost mortal wounds over the course of a few days.",
             img: waterskin,
-            cost: 100,
             effect: {
+              cost: 100,
               "inv-items": [
                 {
                   name: "Emig's Honeysap portions",
