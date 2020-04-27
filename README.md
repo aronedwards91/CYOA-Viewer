@@ -26,11 +26,10 @@ img embedding -<img> not css,
 Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present,
 
 #### TODO
-show cost,
-Select: selection state effect
 function: character styling, exportable .json
-switchable template (for easier testing), simple templating file,adjustable font scaling, Mobile Styling, collapsable choices
+switchable template (for easier testing), simple templating file,adjustable font scaling, Mobile Styling, 
 
+Styling: collapsable choices, 2 column line descr, 2 box items on mob
 matching inv item logic
 
 ## Building a CYOA

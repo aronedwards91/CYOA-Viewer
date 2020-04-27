@@ -2,8 +2,16 @@
 // import images placed in /public
 import bg from "../public/gold-tree.jpg";
 import logo from "../public/logo.jpg";
-import warrior from "../public/warrior.png";
 import waterskin from "../public/waterskin.png";
+// Char Profile
+import humanhunter from "../public/origin/human-hunter.jpg";
+import humanwarrior from "../public/origin/human-warrior.jpg";
+import dwarfscout from "../public/origin/dwarf-scout.jpg";
+import dwarfguardian from "../public/origin/dwarf-guardian.jpg";
+// Relics
+import daggerbloody from "../public/relic/dagger-bloody.jpg";
+import amuletgreystone from "../public/relic/amulet-greystone.jpg";
+import waterskinomsak from "../public/relic/waterskin.jpg";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 // Item Icons
@@ -54,7 +62,8 @@ const Data = {
       introText:
         " You begin by inhabiting the dead body of a warrior, rising from the musty earth the powerful warrior's body begins to morph to your shape. Slowly you inbide the corpse's memories, taking them almost as your own, like coming from a coma your connection with your host body is hazy, but with a little use his abilities quickly feel natural.\n\n Arisen, you are in a clearing surrounded by a dark woodland, your clothes are moss covered and beginning to rot, the evening is cold. It seems you will remain here until the world is freed of the magic that pulled you here, or death finds you.\n\n You Find the items that had been on your person stashed inside an ornate wooden chest covered in strange symbols. The box’s energy slowly fades, it now seems to be merely but a strangely decorated wooden box.\n\n -- THE WORLD -- \n\n The world has no name, for none know more that much further beyond their village. It is a cold world, men and dwarves toil to survive the vicious unforgiving world. The forest grows, and grows, forever hardy, forever dangerous, but plentiful.\nMost subside through a mixture of farming and hunting, building up stores to survive the beasts the prey through winter. The men of this world are untrusting, but hardy and loyal, they have braved great terror before and are ready to do so again. But deep in the dark woods a terror grows, biding and spreading its influence among the wild and free beasts is gaining, soon no power of the intelligent races will be enough to stop the coming tide.",
       appendTitle: "Choose Wisely, you have 1000CP",
-      appendText: "You",
+      appendText:
+        "Find the origin of your corpse host, the relic which pulled you here and the evil villian you will face.",
     },
     selections: [
       {
@@ -71,14 +80,14 @@ const Data = {
         choices: [
           //The choice options available for this selection, may also include, requires (only allowed if char has given uid), discount ( if char has uid, costs 50% less)
           {
-            name: "Human Peasant",
-            uid: "humanpeasant", // used for effecting other choices via discount / limiting
+            name: "Human Hunter",
+            uid: "humanhunter", // used for effecting other choices via discount / limiting
             description:
               "Your were raised in a small village in a poor keeptown, you spent your days hunting foraging and tending to your fields",
-            img: warrior,
+            img: humanhunter,
             effect: {
               cost: 0,
-              //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
+              //The effects, a short list of options body-age, body-race, char-background, char-challenge, body-ability, char-advdrawback, inv-item
               "char-background": "Bor-Duren",
               "body-race": "Human",
               "char-advdrawback": {
@@ -105,13 +114,12 @@ const Data = {
           },
           {
             name: "Human Warrior",
-            uid: "humanwarrior", // used for effecting other choices via discount / limiting
+            uid: "humanwarrior",
             description:
               "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land. Your fearlessness in battle and destruction of corrupted beasts has made you an ally of the hawks with whom you can speak.",
-            img: warrior,
+            img: humanwarrior,
             effect: {
               cost: 50,
-              //The effects, a short list of options body-age, body-race, char-home, char-background, char-advdrawback, inv-item
               "char-background": "Bor-Duren",
               "body-race": "Human",
               "char-advdrawback": {
@@ -135,9 +143,92 @@ const Data = {
                 },
               ],
               "body-ability": {
-                //name[String], power[String]
                 name: "Call Avian Ally",
                 power: "Summons a nearby hawk to you with which you can speak.",
+              },
+            },
+          },
+          {
+            name: "Dwarf Scout",
+            uid: "dwarfscout",
+            description:
+              "One of the few dwarves who is comfortable outdoors. Your life of exploration and has made you cunning and wise to the dangers of the forest, few can catch such a swift and cap[able woodsman as yourself.",
+            img: dwarfscout,
+            effect: {
+              cost: 0,
+              "char-background": "Mines of Delarun, Scout.",
+              "body-race": "Dwarf",
+              "char-advdrawback": {
+                name: "Scout",
+                adv:
+                  "Fast, and capable in the arts of tracking, hiding & ambush.",
+                drawback:
+                  "Distrusted by dwarves for love of outdoors & humans as look like a spy. Struggle with remaining in one place.",
+              },
+              "inv-items": [
+                {
+                  name: "Dagger",
+                  desc: "A slender and sharp dagger.",
+                  quantity: 1,
+                  icon: false,
+                },
+                {
+                  name: "telescope",
+                  desc: "Provides good long vision.",
+                  quantity: 1,
+                  icon: false,
+                },
+                {
+                  name: "Collapsable crossbow",
+                  desc: "Small, but effective if targetted properly.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+              "body-ability": {
+                name: "Sense danger",
+                power:
+                  "Upon meditating your senses highten, allowing you too tell what dark beasts patrol in a mile area around you.",
+              },
+            },
+          },
+          {
+            name: "Dwarf Guardian",
+            uid: "dwarfguardian",
+            description:
+              "Dwarf guardians play the vital role of protecting the rare resource that is the Dwarf Queens. Few in number and slow to come to term, a dwarf birth is a great celebration, and nothing is more closely guarded than the powerful and important dwarf queens, they who decide shall bring in the next generation.",
+            img: dwarfguardian,
+            effect: {
+              cost: 0,
+              "char-background": "Mines of Delarun, Scout.",
+              "body-race": "Dwarf",
+              "char-advdrawback": {
+                name: "Guardian",
+                adv:
+                  "Stout, capable in arms and inflinching in the face of horror.",
+                drawback:
+                  "proud, unlikable, often unkind. Sterness can cause fear in others.",
+              },
+              "inv-items": [
+                {
+                  name: "Halberd",
+                  desc:
+                    "A thin but excellently made Halberd unbending and deadly sharp.",
+                  quantity: 1,
+                  icon: false,
+                },
+                {
+                  name: "Plated Cuirass",
+                  desc:
+                    "The Plated metal of the Guardian cuirass can turn all but the heaviest strikes.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+              "body-ability": {
+                name: "War Cry",
+                power:
+                  "Strikes fear into your enemies, and steels the resolve of nearby allies, can also call to aid from a great distance.",
               },
             },
           },
@@ -159,7 +250,7 @@ const Data = {
             uid: "bloodydagger",
             description:
               "A ornate dagger, it's blade seems freshly wet with blood, no matter how often it is wiped. It calls to it's owner forever hoping to return to it's masters hand, but to do so would plunge the world into darkness.",
-            img: waterskin,
+            img: daggerbloody,
             effect: {
               cost: 0,
               "char-advdrawback": {
@@ -184,7 +275,7 @@ const Data = {
             uid: "greystoneamulet",
             description:
               "A beautiful amulet, wrought in silver with many fine gems. It seems to hum with a gentle tune, it seems to give you strength.",
-            img: waterskin,
+            img: amuletgreystone,
             effect: {
               cost: 0,
               "char-advdrawback": {
@@ -209,7 +300,7 @@ const Data = {
             uid: "watersofomsak",
             description:
               "A runed leather waterskin, it feels heavy, but smells sweet.",
-            img: waterskin,
+            img: waterskinomsak,
             effect: {
               cost: 0,
               "char-advdrawback": {
@@ -310,7 +401,7 @@ const Data = {
     ],
   },
   charSetup: {
-    choicePoints: 990, // Starting choice points
+    choicePoints: 1000, // Starting choice points
     setting: "A dangerous Iron age forest.", // brief description of setup
   },
 };
