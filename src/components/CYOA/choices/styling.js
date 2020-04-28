@@ -44,14 +44,14 @@ export const LineHeaderWrap = styled(HeaderWrap)`
   border-bottom: 2px solid ${({ styling }) => styling.colors.mainD || "black"};
 `;
 export const LinesWrapper = styled.div`
-  border-bottom: 1px solid ${({ styling }) => styling.colors.mainD || "black"};
   margin-bottom: calc(16px + 0.5vw);
   cursor: pointer;
   padding: 8px;
   cursor: pointer;
   border: 2px solid transparent;
-  ${({ unique, boughtNum, styling }) =>
-    unique && boughtNum > 0
+  border-bottom: 2px solid ${({ styling }) => styling.colors.mainD || "black"};
+  ${({ boughtNum, styling }) =>
+    boughtNum > 0
       ? "border: 2px solid " + styling.colors.mainHighlight + ";"
       : ""}
 
@@ -72,7 +72,7 @@ export const Image = styled.img`
   max-width: 200px;
   width: 200px;
   height: 120px;
-  border: 1px solid orange;
+  border: 1px solid ${({ styling }) => styling.colors.mainHighlight || "black"};
   margin-left: 12px;
 
   ${media.greaterThan("medium")`
@@ -111,12 +111,14 @@ export const BoxContainer = styled(Card)`
     max-width: 380px;
   `}
 `;
-export const MultibuyOverlay = styled.div`
+export const LinesOverlay = styled.div`
   cursor: pointer;
-  position: absolute;
   width: 100%;
   background: rgba(124, 124, 124, 0.5);
   padding: 8px 16px;
+`;
+export const MultibuyOverlay = styled(LinesOverlay)`
+  position: absolute;
   display: flex;
   justify-content: space-between;
 `;

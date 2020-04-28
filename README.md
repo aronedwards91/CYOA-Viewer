@@ -26,7 +26,7 @@ img embedding -<img> not css,
 Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present,
 
 #### TODO
-Lines style multibuy, adjustable font scaling, character challenge display, choice points renameable, hide choice effects, item icons,  exportable .json
+ adjustable font scaling, character challenge display, choice points renameable, hide choice effects, item icons,  exportable .json, mobile top btn-bottom,
 
 ## Building a CYOA
 

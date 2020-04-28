@@ -25,6 +25,7 @@ import {
   BoxItemWrapper,
   BoxContainer,
   MultibuyOverlay,
+  LinesOverlay,
   BoxImage,
   BoxTextWrapper,
 } from "./styling";
@@ -85,7 +86,7 @@ const ChoiceLines = ({
       </LineHeaderWrap>
       {showChoices &&
         data.choices.map((choice, index) => (
-          <LineBox
+          <LineItem
             choice={choice}
             styling={styling}
             unique={unique}
@@ -99,7 +100,7 @@ const ChoiceLines = ({
   );
 };
 
-const LineBox = ({
+const LineItem = ({
   choice,
   styling,
   unique,
@@ -108,10 +109,16 @@ const LineBox = ({
   boughtNum,
 }) => {
   return (
+    <>
+    {!unique && boughtNum > 0 && (
+        <LinesOverlay onClick={unselectFunc}>
+          <HeaderMd>[X]  --  x{boughtNum}</HeaderMd>
+          <HeaderMd></HeaderMd>
+        </LinesOverlay>
+      )}
     <LinesWrapper
       key={choice.name}
       styling={styling}
-      unique={unique}
       boughtNum={boughtNum}
       onClick={buyFunc}
     >
@@ -125,13 +132,14 @@ const LineBox = ({
             <TextMd>{choice.description}</TextMd>
           </ShowOnlyDesktop>
         </TextWrapper>
-        <Image alt="Image" src={choice.img} />
+        <Image alt="Image" src={choice.img} styling={styling}/>
       </LinesTopWrapper>
       <ShowOnlyMobile>
         <TextMd>{choice.description}</TextMd>
       </ShowOnlyMobile>
       <Details details={choice.effect} styling={styling} />
     </LinesWrapper>
+    </>
   );
 };
 
