@@ -32,14 +32,15 @@ export const Article3Col = styled.article`
   column-rule: 1px solid ${Style.colors.mainD};
 `;
 
-export const Article2Col = styled.article`
-  -webkit-columns: 2 220px;
-  -moz-columns: 2 220px;
-  columns: 2 220px;
-  margin: 0 auto;
-  max-width: 800px;
-  column-gap: 32px;
-  column-rule: 2px solid ${Style.colors.mainD};
+export const Article2ColDesktop = styled.article`
+  ${media.greaterThan("medium")`
+    -webkit-columns: 2 220px;
+    -moz-columns: 2 220px;
+    columns: 2 220px;
+    margin: 0 auto;
+    column-gap: 48px;
+    column-rule: 1px dotted ${Style.colors.mainD};
+  `}
 `;
 
 export const Tooltip = styled.div`

@@ -29,8 +29,7 @@ Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later sw
 function: character styling, exportable .json
 switchable template (for easier testing), simple templating file,adjustable font scaling, Mobile Styling, 
 
-Styling: collapsable choices, 2 column line descr, 2 box items on mob
-matching inv item logic
+Styling: collapsable choices, chaacter challenge display, choice points renameable
 
 ## Building a CYOA
 

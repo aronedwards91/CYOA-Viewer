@@ -12,6 +12,12 @@ import dwarfguardian from "../public/origin/dwarf-guardian.jpg";
 import daggerbloody from "../public/relic/dagger-bloody.jpg";
 import amuletgreystone from "../public/relic/amulet-greystone.jpg";
 import waterskinomsak from "../public/relic/waterskin.jpg";
+// Challenge
+import erredmhuur from "../public/challenge/erred-mhuur.jpg";
+import haruspex from "../public/challenge/haruspex.jpg";
+import sandman from "../public/challenge/sandman.jpg";
+import Troll from "../public/challenge/troll.jpg";
+import wildman from "../public/challenge/wildman.jpg";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 // Item Icons
@@ -338,12 +344,72 @@ const Data = {
             uid: "erredmhuur",
             description:
               "Erred-Mhuur hungers for the flesh of sentient beasts, it burns with anguish, only seeking to destroy that which it hates above all else. In it's anger it has reforged the beasts of the wood that have come under it's influence, dark & blood loving they move now as shadows branded in glowing red runes, hunting and preying on all they can.",
-            img: waterskin,
+            img: erredmhuur,
             effect: {
               cost: 0,
               "char-challenge": {
                 name: "Erred-Mhuur [Nemesis]",
                 desc: "Hunts & enslaves sentient races.",
+              },
+            },
+          },
+          {
+            name: "The Haruspex",
+            uid: "haruspex",
+            description:
+              "The dark gods have been forgotten by those they helped make. To a god their is no greater disrespect, for this act they have sent the haruspex, whose mere prescence is to invite catastrophy. Disease, plagues, civil war all spread as he walks the land, he only walks and smiles as the land plunges into darkness. He is protected by four great heroes who served the will of the old gods, Albrith of the Axe, Eldrith of the Spear, Dantrith of the Blade & Ellena of the bow.",
+            img: haruspex,
+            effect: {
+              cost: 0,
+              "char-challenge": {
+                name: "Haruspex [Nemesis]",
+                desc:
+                  "prophet of the dark god's revenge, disease, famine & war grow quickly as he closes in. protect by four skeletal heroes of the past.",
+              },
+            },
+          },
+          {
+            name: "The Sandman",
+            uid: "sandman",
+            description:
+              "The Sandman hunger for hope, and his dark scuttling slaves hunger for flesh. traversing the dreamscape he subverts and darkens dreams, sucking the hope from people in their slumber, turning them into tragic figures, lacking the energy and courage to take up arms against the scuttling feeding horde.",
+            img: sandman,
+            effect: {
+              cost: 0,
+              "char-challenge": {
+                name: "Sandman [Nemesis]",
+                desc:
+                  "Hunts hope through dreams, destroying minds, then the beasts come to feast.",
+              },
+            },
+          },
+          {
+            name: "Tribe of Trolls",
+            uid: "trolls",
+            description:
+              "Angry, violent & strong, the Troll tribe has expanded far beyond it's means and now seeks new lands to plunder. Incapable farmers, the plentiful and well mainted farms of human and dwarf alike offer a tempting reward. Tales are heard already of small farmsteads overrun by the brutal creatures.",
+            img: Troll,
+            effect: {
+              cost: 0,
+              "char-challenge": {
+                name: "Tribe of Trolls [Nemesis]",
+                desc:
+                  "Brainless violent and innummerable, their lust for food and land pressuring both man & dwarf.",
+              },
+            },
+          },
+          {
+            name: "The Lost Wildmen",
+            uid: "wildmen",
+            description:
+              "Burned out the Allied council for their dark heretical practices, they have grown hungry for revenge, this hatred has allowed the dark rituals to penetrate thei minds further. Blood magic and necromancy, plus wild bloodlust has made them a terrible enemy, but their disorganisation has made them inneffective in pitched battle, now they move toward guerrilla action till their growing number will be too strong to hold back.",
+            img: wildman,
+            effect: {
+              cost: 0,
+              "char-challenge": {
+                name: "The Lost Wildmen [Nemesis]",
+                desc:
+                  "A lost tribe of beserkers & necromancers, hungering for revenge.",
               },
             },
           },
@@ -398,10 +464,42 @@ const Data = {
           },
         ],
       },
+      {
+        name: "5/ Allies",
+        description:
+          "there are many who are willing and able to help you on your journey.",
+        style: "boxes",
+        buy: {
+          unique: true,
+          min: 1,
+          max: 3,
+        },
+        choices: [
+          {
+            name: "Brothers of the Axe",
+            uid: "brothersaxe",
+            description:
+              "Your borthers in battle and blood, ready to lay down their life in battle alongside you. They number in 10, and are renowed for their feats of battle.",
+            img: waterskin,
+            effect: {
+              cost: 200,
+              "body-ability": [
+                {
+                  name: "Call Brothers of the Axe",
+                  power:
+                    "Your brothers in arms are always ready for a fight. They number in 10, and are renowed for their feats of battle.",
+                },
+              ],
+            },
+          },
+        ],
+      },
     ],
   },
   charSetup: {
     choicePoints: 1000, // Starting choice points
+    choicePointsFullName: "Choice Points",
+    choicePointsShort: "CP",
     setting: "A dangerous Iron age forest.", // brief description of setup
   },
 };

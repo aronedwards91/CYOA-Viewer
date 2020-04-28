@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "../../StyledItems";
+import { Card, ShowOnlyDesktop, ShowOnlyMobile } from "../../StyledItems";
 import {
   TextMd,
   HeaderLg,
@@ -25,8 +25,6 @@ import {
   BoxImage,
   BoxTextWrapper,
 } from "./styling";
-
-
 
 const StyleChoices = {
   line: "lines",
@@ -115,10 +113,15 @@ const LineBox = ({
           <TitleWrap styling={styling}>
             <HeaderMd>{choice.name}</HeaderMd>
           </TitleWrap>
-          <TextMd>{choice.description}</TextMd>
+          <ShowOnlyDesktop>
+            <TextMd>{choice.description}</TextMd>
+          </ShowOnlyDesktop>
         </TextWrapper>
         <Image alt="Image" src={choice.img} />
       </LinesTopWrapper>
+      <ShowOnlyMobile>
+        <TextMd>{choice.description}</TextMd>
+      </ShowOnlyMobile>
       <Details details={choice.effect} styling={styling} />
     </LinesWrapper>
   );

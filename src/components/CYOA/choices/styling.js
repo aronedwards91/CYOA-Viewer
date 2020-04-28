@@ -32,13 +32,17 @@ export const LinesWrapper = styled.div`
   border-bottom: 1px solid ${({ styling }) => styling.colors.mainD || "black"};
   margin-bottom: calc(16px + 0.5vw);
   cursor: pointer;
-  padding: 16px;
+  padding: 8px;
   cursor: pointer;
   border: 2px solid transparent;
   ${({ unique, boughtNum, styling }) =>
     unique && boughtNum > 0
       ? "border: 2px solid " + styling.colors.mainHighlight + ";"
       : ""}
+
+  ${media.greaterThan("medium")`
+    padding: 16px;
+  `}
 `;
 export const LinesTopWrapper = styled.div`
   margin-bottom: calc(16px + 0.5vw);
@@ -82,7 +86,7 @@ export const BoxContainer = styled(Card)`
   flex-grow: 1;
   height: max-content;
   width: 240px;
-  max-width: 560px;
+  max-width: 40%;
   ${({ unique, boughtNum, styling }) =>
     unique && boughtNum > 0
       ? "border: 2px solid " + styling.colors.mainHighlight + ";"

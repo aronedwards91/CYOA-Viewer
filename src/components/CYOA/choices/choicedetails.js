@@ -1,27 +1,24 @@
 import React from "react";
-import { TextSm, TextMd } from "../../StyledItems/fontSizing";
+import { TextSm } from "../../StyledItems/fontSizing";
+import { Article2ColDesktop } from "../../StyledItems";
 import {
   ChoiceWrapper,
   ChoiceHeader,
   PadTopDiv,
   PadSm,
-  PadBottom,
 } from "./styling";
 import { effectKeys } from "../../state/character";
 
 const ChoiceDetails = ({ details, styling }) => {
   return (
     <ChoiceWrapper>
-      <PadBottom>
-        <TextMd>Cost:{"  "}</TextMd>
-        <TextMd>{details.cost === 0 ? "Free" : details.cost}</TextMd>
-      </PadBottom>
+      <TextSm>CP: {details.cost === 0 ? "Free" : details.cost}{'   '}</TextSm>
       <ChoiceHeader styling={styling}>GRANTS: </ChoiceHeader>
-      <div>
+      <Article2ColDesktop>
         {Object.keys(details).map((key) => (
           <ChoiceOptions type={key} value={details[key]} styling={styling} />
         ))}
-      </div>
+      </Article2ColDesktop>
     </ChoiceWrapper>
   );
 };
