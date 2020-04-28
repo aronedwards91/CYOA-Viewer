@@ -151,3 +151,10 @@ export const PadTopDiv = styled.div`
 export const PadBottom = styled.div`
   margin-bottom: calc(8px + 0.3vw);
 `;
+export const ImgSm = styled.img`
+  margin-top: -12px;
+  margin-bottom: calc(-4px + -0.5vw);
+  height: calc(16px + 1.5vw);
+  width: calc(16px + 1.5vw);
+  ${({padleft}) => padleft && 'margin-left: calc(8px + 1vw);'};
+`

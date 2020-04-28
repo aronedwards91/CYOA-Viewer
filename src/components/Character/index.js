@@ -32,6 +32,7 @@ import {
   TextPad,
   InventoryWrapper,
   InventoryItemBox,
+  InvImg,
   MobFloatBtm,
   SmBox,
   SmMobName,
@@ -282,7 +283,6 @@ const Drawbacks = observer(() => {
 const Items = observer(() => {
   const store = useCharDataStore();
   const { items } = store;
-  // TODO show icon / text switch
   return (
     <>
       <TitleDiv>
@@ -309,7 +309,7 @@ const InventoryItem = ({ name, desc, quantity, icon }) => {
     <TooltipWrapper>
       <Tooltip>{desc}</Tooltip>
       <InventoryItemBox>
-        {name}
+        {icon ? <InvImg src={icon} alt={name} /> : name}
         {quantity > 1 && "  |  x" + quantity}
       </InventoryItemBox>
     </TooltipWrapper>

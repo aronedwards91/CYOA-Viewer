@@ -50,7 +50,7 @@ export const TextBtn = styled(DropBtn)`
 
   ${media.greaterThan("medium")`
     margin: 0;
-    ${({ marginBtm }) => marginBtm && "margin-bottom: 16px;"}
+    ${({ marginBtm }) => marginBtm && "margin: 16px 0 8px;"}
   `}
 `;
 
@@ -166,6 +166,12 @@ export const InventoryItemBox = styled.div`
   border-left: 1px solid black;
   padding: 4px 16px;
   cursor: help;
+`;
+export const InvImg = styled.img`
+  margin-top: -4px;
+  margin-bottom: calc(-4px + -0.5vw);
+  height: calc(24px + 1.5vw);
+  width: calc(24px + 1.5vw);
 `;
 export const MobFloatBtm = styled.div`
   position: absolute;

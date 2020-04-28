@@ -26,7 +26,7 @@ img embedding -<img> not css,
 Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present,
 
 #### TODO
-item icons, exportable .json, discount logic
+exportable .json, discount logic
 
 ## Building a CYOA
 

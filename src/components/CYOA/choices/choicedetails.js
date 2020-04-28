@@ -2,7 +2,13 @@ import React from "react";
 import Settings from "../../../cyoadata";
 import { TextSm, TextMd } from "../../StyledItems/fontSizing";
 import { Article2ColDesktop } from "../../StyledItems";
-import { ChoiceWrapper, ChoiceHeader, PadTopDiv, PadSm } from "./styling";
+import {
+  ChoiceWrapper,
+  ChoiceHeader,
+  PadTopDiv,
+  PadSm,
+  ImgSm,
+} from "./styling";
 import { effectKeys } from "../../state/character";
 
 const ChoiceDetails = ({ details, styling }) => {
@@ -75,7 +81,9 @@ const ChoiceOptions = ({ type, value, styling }) => {
         const quantity = item.quantity > 1 ? "  X" + item.quantity : "";
         return (
           <DivSectionWrapper styling={styling}>
-            <DivText value={"ITEM; " + item.name} />
+            <DivText value={"ITEM; " + item.name}>
+              {item.icon && <ImgSm src={item.icon} alt="icon error" padleft/>}
+            </DivText>
             <DivText value={item.desc + quantity} />
           </DivSectionWrapper>
         );
@@ -87,9 +95,10 @@ const ChoiceOptions = ({ type, value, styling }) => {
   }
 };
 
-const DivText = ({ value }) => (
+const DivText = ({ value, children }) => (
   <PadSm>
     <TextSm>{value}</TextSm>
+    {children}
   </PadSm>
 );
 const DivSectionWrapper = ({ children, styling }) => (

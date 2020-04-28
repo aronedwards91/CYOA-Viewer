@@ -39,7 +39,8 @@ import eagle from "../public/allies/greatereagle.jpg";
 import rangers from "../public/allies/rangers.jpg";
 import wildmage from "../public/allies/wildmage.jpg";
 // Item Icons
-import knifeIcon from "../public/knife-icon.png";
+import knifeIcon from "../public/icons/knife-icon.png";
+import bow from "../public/icons/bow.png";
 
 const Data = {
   styling: {
@@ -132,7 +133,7 @@ const Data = {
                   name: "bow & strings",
                   desc: "A powerful hunters bow, well used, 3 strings",
                   quantity: 3,
-                  icon: false,
+                  icon: bow,
                 },
               ],
             },
