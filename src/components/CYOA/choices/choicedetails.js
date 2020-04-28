@@ -29,6 +29,13 @@ const ChoiceOptions = ({ type, value, styling }) => {
       return <DivText value={"AGE; " + value} />;
     case effectKeys.race:
       return <DivText value={"RACE; " + value} />;
+    case effectKeys.allies:
+      return (
+        <DivSectionWrapper styling={styling}>
+          <DivText value={"ALLIES; " + value.name} />
+          <DivText value={value.desc} />
+        </DivSectionWrapper>
+      );
     case effectKeys.abilities:
       return (
         <DivSectionWrapper styling={styling}>

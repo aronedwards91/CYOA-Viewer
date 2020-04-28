@@ -151,6 +151,7 @@ export const Portrait = styled.img`
 `;
 export const TextPad = styled.div`
   padding: 8px;
+  max-width: 98%;
 `;
 export const LgMobTitlePad = styled.span`
   padding-right: 16px;

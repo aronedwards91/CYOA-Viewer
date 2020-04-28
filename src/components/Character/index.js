@@ -113,10 +113,11 @@ const DesktopFull = observer(({ switchCharSize, styling, setup }) => {
         <CharBackground />
         <CharChallenge />
         <CharSetting setup={setup} />
+        <Allies />
         <Abilities />
         <AdvDrawbacks />
         <Items />
-        <ShowEffectsBtn {...globalStore} styling={styling} marginBtm/>
+        <ShowEffectsBtn {...globalStore} styling={styling} marginBtm />
         <DeskFullBtn onClick={switchCharSize} styling={styling}>
           {"<"}
         </DeskFullBtn>
@@ -160,6 +161,7 @@ const MobFull = observer(({ switchCharSize, styling, setup }) => {
         <CharBackground />
         <CharChallenge />
         <CharSetting setup={setup} />
+        <Allies />
         <Abilities />
         <AdvDrawbacks />
         <Items />
@@ -203,6 +205,23 @@ const CharChallenge = observer(() => {
 const CharSetting = ({ setup }) => {
   return <TextPara title="Setting" value={setup.setting} />;
 };
+const Allies = observer(() => {
+  const store = useCharDataStore();
+  const { allies } = store;
+
+  return (
+    <>
+      {allies.length > 0 && (
+        <TitleDiv>
+          <TextMd>Allies</TextMd>
+        </TitleDiv>
+      )}
+      {allies.map((ally) => (
+        <TextBox title={"> " + ally.name + " : "} value={ally.desc} />
+      ))}
+    </>
+  );
+});
 const Abilities = observer(() => {
   const store = useCharDataStore();
   const { abilities } = store;
@@ -262,6 +281,7 @@ const Items = observer(() => {
     </>
   );
 });
+
 const InventoryItem = ({ name, desc, quantity, icon }) => {
   // TODO icon
   return (

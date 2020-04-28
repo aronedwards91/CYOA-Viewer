@@ -2,7 +2,6 @@
 // import images placed in /public
 import bg from "../public/gold-tree.jpg";
 import logo from "../public/logo.jpg";
-import waterskin from "../public/waterskin.png";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 // Char Profile
@@ -33,6 +32,12 @@ import spear from "../public/items/spear.jpg";
 import tome from "../public/items/tome.jpg";
 import ward from "../public/items/ward.jpg";
 import wolf from "../public/items/wolf.jpg";
+// Allies
+import brothers from "../public/allies/brothersinarms.jpg";
+import dwarves from "../public/allies/dwarves.jpg";
+import eagle from "../public/allies/greatereagle.jpg";
+import rangers from "../public/allies/rangers.jpg";
+import wildmage from "../public/allies/wildmage.jpg";
 // Item Icons
 import knifeIcon from "../public/knife-icon.png";
 
@@ -64,6 +69,7 @@ const Data = {
     },
     themeing: {
       font: fontb64.base64String,
+      fontScaling: 1.0, // adjust font size
       sectionCornerRadius: "10px", //for curved corners, use 5~20px, for straight user 0px
       bordersWidth: "6px",
       borderStyle: "double", // https://www.w3schools.com/CSSref/playit.asp?filename=playcss_border-style&preval=outset
@@ -673,17 +679,80 @@ const Data = {
             name: "Brothers of the Axe",
             uid: "brothersaxe",
             description:
-              "Your borthers in battle and blood, ready to lay down their life in battle alongside you. They number in 10, and are renowed for their feats of battle.",
-            img: waterskin,
+              "Your brothers in battle and blood, ready to lay down their life in battle alongside you. They number in 10, and are renowed for their feats of battle.",
+            img: brothers,
             effect: {
               cost: 200,
-              "body-ability": [
+              "char-allies": {
+                name: "Call Brothers of the Axe",
+                desc:
+                  "Your brothers in arms are always ready for a fight. They number in 10, and are renowed for their feats of battle.",
+              },
+            },
+          },
+          {
+            name: "Dwarven Mercenaries",
+            uid: "dwarfmercenaries",
+            description:
+              "Capable and strong, but not entirely fearless, nor particularly loyal.",
+            img: dwarves,
+            effect: {
+              cost: 50,
+              "char-allies": {
+                name: "Dwarven Mercenaries",
+                desc: "Strong, but not fearless or loyal.",
+              },
+            },
+          },
+          {
+            name: "Greater Eagle",
+            uid: "greatereagle",
+            description:
+              "One of the greater eagles is in your debt, but his honor will be sullied if you call him in aid for reason other than a time of dire need.",
+            img: eagle,
+            effect: {
+              cost: 100,
+              "char-allies": {
+                name: "Call Brothers of the Axe",
+                desc:
+                  "Your brothers in arms are always ready for a fight. They number in 10, and are renowed for their feats of battle.",
+              },
+              "inv-items": [
                 {
-                  name: "Call Brothers of the Axe",
-                  power:
-                    "Your brothers in arms are always ready for a fight. They number in 10, and are renowed for their feats of battle.",
+                  name: "Eagle's Horn",
+                  desc: "Sound to call for the aid of a greater Eagle.",
+                  quantity: 1,
+                  icon: false,
                 },
               ],
+            },
+          },
+          {
+            name: "Forest Rangers",
+            uid: "rangers",
+            description:
+              "Great & capable hunters, the rangers can guide and protect you their impressive bow skills even in the darkest & most perilous woods.",
+            img: rangers,
+            effect: {
+              cost: 150,
+              "char-allies": {
+                name: "Forest Rangers",
+                desc: "Capable forest guides, strong archers.",
+              },
+            },
+          },
+          {
+            name: "Wilderness Mage",
+            uid: "mage",
+            description:
+              "A strange but powerful mage has offered to take you under his wing, he has great power of natural forces and druidic summonings. he is however not entirely sane and has a tendency to charge ahead headless of danger.",
+            img: wildmage,
+            effect: {
+              cost: 200,
+              "char-allies": {
+                name: "Wilderness Mage",
+                desc: "powerful druid mage, dangerously fearless.",
+              },
             },
           },
         ],

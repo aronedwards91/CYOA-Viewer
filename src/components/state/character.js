@@ -8,6 +8,7 @@ export const effectKeys = {
   race: "body-race", // string
   background: "char-background", // [name]string, [desc]string
   challenge: "char-challenge", // [name]string, [desc]string
+  allies: "char-allies", // [name]string, [desc]string
   abilities: "body-ability", // [name]string, [power]string
   advDrawback: "char-advdrawback", // array [name]string, [desc]string, [quantity]string, [icon]img-Base64.jpg
   items: "inv-items", // must be an array
@@ -54,6 +55,16 @@ export function createCharStore() {
         name: null,
         desc: null,
       };
+    },
+    allies: [],
+    addAlly(newAlly) {
+      this.allies.push(newAlly);
+    },
+    removeAlly(removedAlly) {
+      const indexOfRemoved = this.allies.findIndex(
+        (i) => i.name === removedAlly.name
+      );
+      this.allies.splice(indexOfRemoved, 1);
     },
     abilities: [],
     addAbility(newAbility) {

@@ -110,6 +110,8 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
     resetBackground,
     setChallenge,
     resetChallenge,
+    addAlly,
+    removeAlly,
     addAbility,
     removeAbility,
     addAdvDrawback,
@@ -131,6 +133,10 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
 
     case effectKeys.background:
       isAdded ? setBackground(effectData) : resetBackground();
+      break;
+
+    case effectKeys.allies:
+      isAdded ? addAlly(effectData) : removeAlly(effectData);
       break;
 
     case effectKeys.challenge:
