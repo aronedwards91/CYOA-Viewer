@@ -6,6 +6,8 @@ import {
   HeaderMd,
   HeaderSm,
 } from "../../StyledItems/fontSizing";
+import { useGlobalDataStore } from "../../state/globals";
+import { observer } from "mobx-react-lite";
 
 import Details from "./choicedetails";
 import SelectionWrapperLogic from "./selectionWrapperLogic";
@@ -100,48 +102,48 @@ const ChoiceLines = ({
   );
 };
 
-const LineItem = ({
-  choice,
-  styling,
-  unique,
-  buyFunc,
-  unselectFunc,
-  boughtNum,
-}) => {
-  return (
-    <>
-    {!unique && boughtNum > 0 && (
-        <LinesOverlay onClick={unselectFunc}>
-          <HeaderMd>[X]  --  x{boughtNum}</HeaderMd>
-          <HeaderMd></HeaderMd>
-        </LinesOverlay>
-      )}
-    <LinesWrapper
-      key={choice.name}
-      styling={styling}
-      boughtNum={boughtNum}
-      onClick={buyFunc}
-    >
-      {/* unselectFunc for seperate button on multibuy */}
-      <LinesTopWrapper>
-        <TextWrapper>
-          <TitleWrap styling={styling}>
-            <HeaderMd>{choice.name}</HeaderMd>
-          </TitleWrap>
-          <ShowOnlyDesktop>
+const LineItem = observer(
+  ({ choice, styling, unique, buyFunc, unselectFunc, boughtNum }) => {
+    const store = useGlobalDataStore();
+    const { isShowingChoiceEffects } = store;
+
+    return (
+      <>
+        {!unique && boughtNum > 0 && (
+          <LinesOverlay onClick={unselectFunc}>
+            <HeaderMd>[X] -- x{boughtNum}</HeaderMd>
+            <HeaderMd></HeaderMd>
+          </LinesOverlay>
+        )}
+        <LinesWrapper
+          key={choice.name}
+          styling={styling}
+          boughtNum={boughtNum}
+          onClick={buyFunc}
+        >
+          {/* unselectFunc for seperate button on multibuy */}
+          <LinesTopWrapper>
+            <TextWrapper>
+              <TitleWrap styling={styling}>
+                <HeaderMd>{choice.name}</HeaderMd>
+              </TitleWrap>
+              <ShowOnlyDesktop>
+                <TextMd>{choice.description}</TextMd>
+              </ShowOnlyDesktop>
+            </TextWrapper>
+            <Image alt="Image" src={choice.img} styling={styling} />
+          </LinesTopWrapper>
+          <ShowOnlyMobile>
             <TextMd>{choice.description}</TextMd>
-          </ShowOnlyDesktop>
-        </TextWrapper>
-        <Image alt="Image" src={choice.img} styling={styling}/>
-      </LinesTopWrapper>
-      <ShowOnlyMobile>
-        <TextMd>{choice.description}</TextMd>
-      </ShowOnlyMobile>
-      <Details details={choice.effect} styling={styling} />
-    </LinesWrapper>
-    </>
-  );
-};
+          </ShowOnlyMobile>
+          {isShowingChoiceEffects && (
+            <Details details={choice.effect} styling={styling} />
+          )}
+        </LinesWrapper>
+      </>
+    );
+  }
+);
 
 const ChoiceBoxes = ({
   data,
@@ -186,7 +188,7 @@ const ChoiceBoxes = ({
   );
 };
 
-const BoxItem = ({
+const BoxItem = observer(({
   choice,
   styling,
   unique,
@@ -194,6 +196,8 @@ const BoxItem = ({
   unselectFunc,
   boughtNum,
 }) => {
+  const globalStore = useGlobalDataStore();
+
   return (
     <BoxContainer
       key={choice.name}
@@ -213,11 +217,13 @@ const BoxItem = ({
           <HeaderSm>{choice.name}</HeaderSm>
         </TitleWrap>
         <TextMd>{choice.description}</TextMd>
-        <Details details={choice.effect} styling={styling} />
+        {globalStore.isShowingChoiceEffects && (
+            <Details details={choice.effect} styling={styling} />
+          )}
       </BoxTextWrapper>
     </BoxContainer>
   );
-};
+});
 
 const HeaderContent = ({ data, onClick, shown }) => (
   <>

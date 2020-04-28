@@ -1,9 +1,17 @@
 import React from "react";
 import Settings from "../../cyoadata";
 import { useCharDataStore } from "../state/character";
-import { TextMd } from "../StyledItems/fontSizing";
-import { Tooltip, TooltipWrapper, ShowOn } from "../StyledItems";
+import { useGlobalDataStore } from "../state/globals";
 import { observer } from "mobx-react-lite";
+
+import { TextMd } from "../StyledItems/fontSizing";
+import {
+  Tooltip,
+  TooltipWrapper,
+  ShowOn,
+  ShowOnDeskSpan,
+  ShowOnMobSpan,
+} from "../StyledItems";
 import {
   TextBox,
   TextPara,
@@ -16,6 +24,7 @@ import {
   DesktopScroll,
   DeskFullBtn,
   VertBtn,
+  TextBtn,
   MobileWrapper,
   LgMobBox,
   LgMobScroll,
@@ -68,6 +77,7 @@ const Desktop = ({ isExpanded, switchCharSize, styling, setup }) =>
 const DesktopCompact = observer(({ switchCharSize, styling }) => {
   const store = useCharDataStore();
   const { name, race, points, items } = store;
+  const globalStore = useGlobalDataStore();
 
   return (
     <DesktopSm styling={styling}>
@@ -80,36 +90,43 @@ const DesktopCompact = observer(({ switchCharSize, styling }) => {
       <TextPad>Items: {items.length}</TextPad>
       <TitleDiv nopad>{Settings.charSetup.choicePointsFullName}</TitleDiv>
       <TextPad>{points}</TextPad>
+      <ShowEffectsBtn {...globalStore} styling={styling} />
       <VertBtn onClick={switchCharSize} styling={styling}>
         {">"}
       </VertBtn>
     </DesktopSm>
   );
 });
-const DesktopFull = ({ switchCharSize, styling, setup }) => (
-  <DesktopFullSize styling={styling}>
-    <DesktopScroll>
-      <LgCharTop>
-        <Portrait alt="image" />
-        <CharDetails />
+const DesktopFull = observer(({ switchCharSize, styling, setup }) => {
+  const globalStore = useGlobalDataStore();
+
+  return (
+    <DesktopFullSize styling={styling}>
+      <DesktopScroll>
+        <LgCharTop>
+          <Portrait alt="image" />
+          <CharDetails />
+          <DeskFullBtn onClick={switchCharSize} styling={styling}>
+            {"<"}
+          </DeskFullBtn>
+        </LgCharTop>
+        <CharBackground />
+        <CharChallenge />
+        <CharSetting setup={setup} />
+        <Abilities />
+        <AdvDrawbacks />
+        <Items />
+        <ShowEffectsBtn {...globalStore} styling={styling} marginBtm/>
         <DeskFullBtn onClick={switchCharSize} styling={styling}>
           {"<"}
         </DeskFullBtn>
-      </LgCharTop>
-      <CharBackground />
-      <CharChallenge />
-      <CharSetting setup={setup} />
-      <Abilities />
-      <AdvDrawbacks />
-      <Items />
-      <DeskFullBtn onClick={switchCharSize} styling={styling}>
-        {"<"}
-      </DeskFullBtn>
-    </DesktopScroll>
-  </DesktopFullSize>
-);
+      </DesktopScroll>
+    </DesktopFullSize>
+  );
+});
 // Mobile Comp
 const MobTopBanner = observer(({ switchCharSize, styling }) => {
+  const globalStore = useGlobalDataStore();
   const store = useCharDataStore();
   const { name, race, points } = store;
 
@@ -117,6 +134,7 @@ const MobTopBanner = observer(({ switchCharSize, styling }) => {
     <SmBox styling={styling}>
       <SmMobName>Name: {name}</SmMobName>
       <TextMd>[ {race} ]</TextMd>
+      <ShowEffectsBtn {...globalStore} styling={styling} />
       <SmMobPoints>
         {Settings.charSetup.choicePointsShort} [ {points} ]
       </SmMobPoints>
@@ -126,25 +144,30 @@ const MobTopBanner = observer(({ switchCharSize, styling }) => {
     </SmBox>
   );
 });
-const MobFull = ({ switchCharSize, styling, setup }) => (
-  <LgMobBox styling={styling}>
-    <LgMobScroll>
-      <LgCharTop>
-        <Portrait alt="image" />
-        <CharDetails />
-        <DropBtn onClick={switchCharSize} styling={styling}>
-          ~/\~
-        </DropBtn>
-      </LgCharTop>
-      <CharBackground />
-      <CharChallenge />
-      <CharSetting setup={setup} />
-      <Abilities />
-      <AdvDrawbacks />
-      <Items />
-    </LgMobScroll>
-  </LgMobBox>
-);
+const MobFull = observer(({ switchCharSize, styling, setup }) => {
+  const globalStore = useGlobalDataStore();
+
+  return (
+    <LgMobBox styling={styling}>
+      <LgMobScroll>
+        <LgCharTop>
+          <Portrait alt="image" />
+          <CharDetails />
+          <DropBtn onClick={switchCharSize} styling={styling}>
+            ~/\~
+          </DropBtn>
+        </LgCharTop>
+        <CharBackground />
+        <CharChallenge />
+        <CharSetting setup={setup} />
+        <Abilities />
+        <AdvDrawbacks />
+        <Items />
+        <ShowEffectsBtn {...globalStore} styling={styling} />
+      </LgMobScroll>
+    </LgMobBox>
+  );
+});
 
 // State connected components
 const CharDetails = observer(() => {
@@ -251,5 +274,26 @@ const InventoryItem = ({ name, desc, quantity, icon }) => {
     </TooltipWrapper>
   );
 };
+
+const ShowEffectsBtn = ({
+  isShowingChoiceEffects,
+  showChoiceEffects,
+  hideChoiceEffects,
+  styling,
+  marginBtm,
+}) =>
+  isShowingChoiceEffects ? (
+    <TextBtn onClick={hideChoiceEffects} styling={styling} marginBtm>
+      <ShowOnMobSpan>-</ShowOnMobSpan>
+      <ShowOnDeskSpan>Hide </ShowOnDeskSpan>
+      Effects
+    </TextBtn>
+  ) : (
+    <TextBtn onClick={showChoiceEffects} styling={styling} marginBtm>
+      <ShowOnMobSpan>-</ShowOnMobSpan>
+      <ShowOnDeskSpan>Show </ShowOnDeskSpan>
+      Effects
+    </TextBtn>
+  );
 
 export default Character;

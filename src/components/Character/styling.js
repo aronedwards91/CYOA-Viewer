@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { TextMd, TextMdCss } from "../StyledItems/fontSizing";
+import media from "styled-media-query";
+import { TextMd, TextMdCss, TextSmCss } from "../StyledItems/fontSizing";
 
 // Templates
 export const TextBox = ({ title, value }) => (
@@ -40,6 +41,17 @@ export const DropBtn = styled.div`
     background: ${({ styling }) => styling.colors.charBgB};
     cursor: pointer;
   }
+`;
+export const TextBtn = styled(DropBtn)`
+  text-align: center;
+  height: auto;
+  ${TextSmCss};
+  margin: 0 8px;
+
+  ${media.greaterThan("medium")`
+    margin: 0;
+    ${({ marginBtm }) => (marginBtm && "margin-bottom: 16px;")}
+  `}
 `;
 
 // Desktop

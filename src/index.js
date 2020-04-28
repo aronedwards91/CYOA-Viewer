@@ -2,17 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 import GlobalStyle from "./GlobalStyles";
-import 'mobx-react-lite/batchingForReactDom';
+import "mobx-react-lite/batchingForReactDom";
 
 import Layout from "./components/Layout";
 import { CharStoreProvider } from "./components/state/character";
+import { GlobalStoreProvider } from "./components/state/globals";
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
-    <CharStoreProvider>
-      <Layout />
-    </CharStoreProvider>
+    <GlobalStoreProvider>
+      <CharStoreProvider>
+        <Layout />
+      </CharStoreProvider>
+    </GlobalStoreProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

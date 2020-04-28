@@ -613,7 +613,7 @@ const Data = {
               "inv-items": [
                 {
                   name: "Burning Ward",
-                  desc: "Casts a 5m protective shield while medititing.",
+                  desc: "Casts a 5m protective shield while meditating.",
                   quantity: 1,
                   icon: false,
                 },

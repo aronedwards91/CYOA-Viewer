@@ -124,3 +124,18 @@ export const ShowOnlyDesktop = styled.div`
     display: block;
   `}
 `;
+
+export const ShowOnMobSpan = styled.span`
+  display: inline;
+
+  ${media.greaterThan("medium")`
+    display: none;
+  `}
+`;
+export const ShowOnDeskSpan = styled.span`
+  display: none;
+
+  ${media.greaterThan("medium")`
+    display: inline;
+  `}
+`;
