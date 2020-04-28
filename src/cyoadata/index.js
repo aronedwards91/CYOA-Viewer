@@ -3,6 +3,8 @@
 import bg from "../public/gold-tree.jpg";
 import logo from "../public/logo.jpg";
 import waterskin from "../public/waterskin.png";
+// import font converted to base64
+import fontb64 from "../public/celtic-font.json";
 // Char Profile
 import humanhunter from "../public/origin/human-hunter.jpg";
 import humanwarrior from "../public/origin/human-warrior.jpg";
@@ -18,8 +20,20 @@ import haruspex from "../public/challenge/haruspex.jpg";
 import sandman from "../public/challenge/sandman.jpg";
 import Troll from "../public/challenge/troll.jpg";
 import wildman from "../public/challenge/wildman.jpg";
-// import font converted to base64
-import fontb64 from "../public/celtic-font.json";
+// Items
+import satchel from "../public/items/satchel.jpg";
+import potion from "../public/items/potion.jpg";
+import arrows from "../public/items/arrows.jpg";
+import blade from "../public/items/blade.jpg";
+import helm from "../public/items/helm.jpg";
+import horse from "../public/items/horse.jpg";
+import lantern from "../public/items/lantern.jpg";
+import shield from "../public/items/shield.jpg";
+import talisman from "../public/items/talisman.jpg";
+import spear from "../public/items/spear.jpg";
+import tome from "../public/items/tome.jpg";
+import ward from "../public/items/ward.jpg";
+import wolf from "../public/items/wolf.jpg";
 // Item Icons
 import knifeIcon from "../public/knife-icon.png";
 
@@ -161,7 +175,7 @@ const Data = {
               "One of the few dwarves who is comfortable outdoors. Your life of exploration and has made you cunning and wise to the dangers of the forest, few can catch such a swift and cap[able woodsman as yourself.",
             img: dwarfscout,
             effect: {
-              cost: 0,
+              cost: 50,
               "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
               "char-advdrawback": {
@@ -205,7 +219,7 @@ const Data = {
               "Dwarf guardians play the vital role of protecting the rare resource that is the Dwarf Queens. Few in number and slow to come to term, a dwarf birth is a great celebration, and nothing is more closely guarded than the powerful and important dwarf queens, they who decide shall bring in the next generation.",
             img: dwarfguardian,
             effect: {
-              cost: 0,
+              cost: 100,
               "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
               "char-advdrawback": {
@@ -431,7 +445,7 @@ const Data = {
             uid: "climbersatchel",
             description:
               "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
-            img: waterskin,
+            img: satchel,
             effect: {
               cost: 50,
               "inv-items": [
@@ -449,7 +463,7 @@ const Data = {
             uid: "honeysap",
             description:
               "A bottle containing three portions of a rare ointment, blessed by a kind nypmh, allows you to slowly regenerate from almost mortal wounds over the course of a few days.",
-            img: waterskin,
+            img: potion,
             effect: {
               cost: 100,
               "inv-items": [
@@ -457,6 +471,187 @@ const Data = {
                   name: "Emig's Honeysap portions",
                   desc: "Heals mortal wounds ~3days",
                   quantity: 3,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Runed Blade",
+            uid: "blade",
+            description:
+              "An ancient family heirloom, sharp true and deadly, it makes short work of any hide or light armor.",
+            img: blade,
+            effect: {
+              cost: 50,
+              "inv-items": [
+                {
+                  name: "Runed Blade",
+                  desc: "Easily cut hide, light armor.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Ornate Helm",
+            uid: "helm",
+            description:
+              "A wonderous piece of work, striking and enobling, whilst also a fine and effective piece of armor.",
+            img: helm,
+            effect: {
+              cost: 50,
+              "inv-items": [
+                {
+                  name: "Ornate Helm",
+                  desc: "Enobling & protective.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Mages Lantern",
+            uid: "lantern",
+            description:
+              "burns brightly and confers a sense of comfort and warmth during cold nights. However may attract things best left unattracted.",
+            img: lantern,
+            effect: {
+              cost: 50,
+              "inv-items": [
+                {
+                  name: "Mages Lantern",
+                  desc: "Creates warming light. Attracts dark creatures.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Noble Mount",
+            uid: "horse",
+            description:
+              "the horse of Erenbiir's line are powerful warhorses, unflinching in the heat of battle and loyal as they come. He would appreciate you giving him a name.",
+            img: horse,
+            effect: {
+              cost: 100,
+              "inv-items": [
+                {
+                  name: "Noble Mount",
+                  desc: "Swift and fearless in charges, loyal.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Shield of the Blue Tree",
+            uid: "shield",
+            description:
+              "The shied of the blue tree is worn and old, but still an arrow or blade is yet to pierce its mighty bulwark. Legends say even magic may be defected by it's true and solid power.",
+            img: shield,
+            effect: {
+              cost: 150,
+              "inv-items": [
+                {
+                  name: "Shield of the Blue Tree",
+                  desc:
+                    "Deflects all including magic. But powerful spells will break it.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Mechanical Talisman",
+            uid: "talisman",
+            description:
+              "Tells of the approachment of menacing forces and in which direction they lay.",
+            img: talisman,
+            effect: {
+              cost: 150,
+              "inv-items": [
+                {
+                  name: "Mechanical Talisman",
+                  desc: "Shows direction of menacing forces.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Dark Spear",
+            uid: "spear",
+            description:
+              "A Dark spear, filled with anger and hate, can break through the toughest armor, but will slowly fill it's handler with a brooding darkness.",
+            img: spear,
+            effect: {
+              cost: 50,
+              "inv-items": [
+                {
+                  name: "Dark Spear",
+                  desc: "penetrates all, but curses user with growing hatred.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Burning Ward",
+            uid: "ward",
+            description:
+              "A Fiery magical torch, burns with a dark red light, but when meditate nearby it will create a protective shield.",
+            img: ward,
+            effect: {
+              cost: 100,
+              "inv-items": [
+                {
+                  name: "Burning Ward",
+                  desc: "Casts a 5m protective shield while medititing.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Loyal Dire Wolf",
+            uid: "wolf",
+            description:
+              "A Dire wolf you raised from a pup, intensiley loyal. Most sentient folk are incredibly fearful of such beasts.",
+            img: wolf,
+            effect: {
+              cost: 100,
+              "inv-items": [
+                {
+                  name: "Dire Wolf",
+                  desc: "Loyal & powerful, scares others.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Ancient Tome",
+            uid: "tome",
+            description:
+              "An ancient tome that tells of the dark forces that will come to plague this land, offers some puzzling & vague advice about possible weaknesses and manners by which it can be defeated.",
+            img: tome,
+            effect: {
+              cost: 50,
+              "inv-items": [
+                {
+                  name: "Ancient Tome",
+                  desc: "Puzzling & vague tome regarding your dark nemesis.",
+                  quantity: 1,
                   icon: false,
                 },
               ],
@@ -497,7 +692,7 @@ const Data = {
     ],
   },
   charSetup: {
-    choicePoints: 1000, // Starting choice points
+    choicePoints: 800, // Starting choice points
     choicePointsFullName: "Choice Points",
     choicePointsShort: "CP",
     setting: "A dangerous Iron age forest.", // brief description of setup
