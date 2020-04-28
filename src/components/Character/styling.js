@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import media from "styled-media-query";
+import Setting from "../../cyoadata";
 import { TextMd, TextMdCss, TextSmCss } from "../StyledItems/fontSizing";
 
 // Templates
@@ -211,4 +212,31 @@ export const SmMobName = styled(TextMd)`
 export const SmMobPoints = styled(TextMd)`
   text-align: right;
   flex-grow: 1;
+`;
+
+// EditBtn
+export const TickBtn = styled.span`
+  cursor: pointer;
+  color: ${Setting.styling.colors.charText};
+  border: 1px solid ${Setting.styling.colors.charBorder};
+  border-radius: ${Setting.styling.themeing.bordersWidth};
+  margin-right: 4px;
+  padding: 4px;
+`;
+export const DataInput = styled.input`
+  color: ${Setting.styling.colors.charText};
+  outline: none;
+  font-family: inherit;
+  background: transparent;
+  width: 70%;
+  border: 1px solid transparent;
+  ${TextMdCss}
+
+  &:focus {
+    border-bottom: 1px solid ${Setting.styling.colors.charBorder};
+  }
+  &::placeholder {
+    color: ${Setting.styling.colors.charText};
+    opacity: 1; /* Firefox */
+  }
 `;

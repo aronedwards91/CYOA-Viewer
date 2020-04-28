@@ -4,14 +4,9 @@ import { useCharDataStore } from "../state/character";
 import { useGlobalDataStore } from "../state/globals";
 import { observer } from "mobx-react-lite";
 
+import { ShowEffectsBtn, EditableText } from "./interactionComp";
 import { TextMd } from "../StyledItems/fontSizing";
-import {
-  Tooltip,
-  TooltipWrapper,
-  ShowOn,
-  ShowOnDeskSpan,
-  ShowOnMobSpan,
-} from "../StyledItems";
+import { Tooltip, TooltipWrapper, ShowOn } from "../StyledItems";
 import {
   TextBox,
   TextPara,
@@ -24,7 +19,6 @@ import {
   DesktopScroll,
   DeskFullBtn,
   VertBtn,
-  TextBtn,
   MobileWrapper,
   LgMobBox,
   LgMobScroll,
@@ -179,12 +173,22 @@ const MobFull = observer(({ switchCharSize, styling, setup }) => {
 // State connected components
 const CharDetails = observer(() => {
   const store = useCharDataStore();
-  const { name, age, race, points } = store;
+  const { name, setName, age, setAge, race, points } = store;
 
   return (
     <LgCharTopText>
-      <TextBox title="Name:" value={name} />
-      <TextBox title="Age:" value={age} />
+      <EditableText
+        label="Name:"
+        value={name}
+        triggerChange={setName}
+        type="text"
+      />
+      <EditableText
+        label="Age:"
+        value={age}
+        triggerChange={setAge}
+        type="number"
+      />
       <TextBox title="Race:" value={race} />
       <TextBox
         title={Settings.charSetup.choicePointsShort + ":"}
@@ -315,26 +319,5 @@ const InventoryItem = ({ name, desc, quantity, icon }) => {
     </TooltipWrapper>
   );
 };
-
-const ShowEffectsBtn = ({
-  isShowingChoiceEffects,
-  showChoiceEffects,
-  hideChoiceEffects,
-  styling,
-  marginBtm,
-}) =>
-  isShowingChoiceEffects ? (
-    <TextBtn onClick={hideChoiceEffects} styling={styling} marginBtm>
-      <ShowOnMobSpan>-</ShowOnMobSpan>
-      <ShowOnDeskSpan>Hide </ShowOnDeskSpan>
-      Effects
-    </TextBtn>
-  ) : (
-    <TextBtn onClick={showChoiceEffects} styling={styling} marginBtm>
-      <ShowOnMobSpan>-</ShowOnMobSpan>
-      <ShowOnDeskSpan>Show </ShowOnDeskSpan>
-      Effects
-    </TextBtn>
-  );
 
 export default Character;
