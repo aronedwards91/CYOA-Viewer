@@ -1,4 +1,5 @@
 import React from "react";
+import Settings from "../../cyoadata";
 import { useCharDataStore } from "../state/character";
 import { TextMd } from "../StyledItems/fontSizing";
 import { Tooltip, TooltipWrapper, ShowOn } from "../StyledItems";
@@ -77,7 +78,7 @@ const DesktopCompact = observer(({ switchCharSize, styling }) => {
       <TextPad>{name}</TextPad>
       <TextPad>{race}</TextPad>
       <TextPad>Items: {items.length}</TextPad>
-      <TitleDiv nopad>{"Points"}</TitleDiv>
+      <TitleDiv nopad>{Settings.charSetup.choicePointsFullName}</TitleDiv>
       <TextPad>{points}</TextPad>
       <VertBtn onClick={switchCharSize} styling={styling}>
         {">"}
@@ -116,7 +117,9 @@ const MobTopBanner = observer(({ switchCharSize, styling }) => {
     <SmBox styling={styling}>
       <SmMobName>Name: {name}</SmMobName>
       <TextMd>[ {race} ]</TextMd>
-      <SmMobPoints>CP [ {points} ]</SmMobPoints>
+      <SmMobPoints>
+        {Settings.charSetup.choicePointsShort} [ {points} ]
+      </SmMobPoints>
       <DropBtn onClick={switchCharSize} styling={styling}>
         ~V~
       </DropBtn>
@@ -153,7 +156,10 @@ const CharDetails = observer(() => {
       <TextBox title="Name:" value={name} />
       <TextBox title="Age:" value={age} />
       <TextBox title="Race:" value={race} />
-      <TextBox title="Points:" value={points} />
+      <TextBox
+        title={Settings.charSetup.choicePointsShort + ":"}
+        value={points}
+      />
     </LgCharTopText>
   );
 });

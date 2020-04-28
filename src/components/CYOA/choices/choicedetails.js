@@ -1,18 +1,18 @@
 import React from "react";
+import Settings from "../../../cyoadata";
 import { TextSm } from "../../StyledItems/fontSizing";
 import { Article2ColDesktop } from "../../StyledItems";
-import {
-  ChoiceWrapper,
-  ChoiceHeader,
-  PadTopDiv,
-  PadSm,
-} from "./styling";
+import { ChoiceWrapper, ChoiceHeader, PadTopDiv, PadSm } from "./styling";
 import { effectKeys } from "../../state/character";
 
 const ChoiceDetails = ({ details, styling }) => {
   return (
     <ChoiceWrapper>
-      <TextSm>CP: {details.cost === 0 ? "Free" : details.cost}{'   '}</TextSm>
+      <TextSm>
+        {Settings.charSetup.choicePointsShort}:{" "}
+        {details.cost === 0 ? "Free" : details.cost}
+        {"   "}
+      </TextSm>
       <ChoiceHeader styling={styling}>GRANTS: </ChoiceHeader>
       <Article2ColDesktop>
         {Object.keys(details).map((key) => (
