@@ -12,7 +12,22 @@ export const HeaderWrap = styled.div`
 `}
 `;
 export const HeaderSplit = styled.div`
-  flex-basis: 50%;
+  flex-basis: 40%;
+  flex-grow: 1;
+`;
+export const HeaderDescSplit = styled.div`
+  flex-basis: 30%;
+  flex-grow: 1;
+`;
+export const ButtonSplit = styled.div`
+  cursor: pointer;
+  flex-basis: 30px;
+  align-self: center;
+  padding-left: 16px;
+`;
+export const CentreDiv = styled.div`
+  width: 100%;
+  text-align: center;
 `;
 export const TitleWrap = styled.div`
   text-align: left;

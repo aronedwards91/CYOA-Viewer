@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, ShowOnlyDesktop, ShowOnlyMobile } from "../../StyledItems";
 import {
   TextMd,
@@ -12,6 +12,9 @@ import SelectionWrapperLogic from "./selectionWrapperLogic";
 import {
   HeaderWrap,
   HeaderSplit,
+  HeaderDescSplit,
+  ButtonSplit,
+  CentreDiv,
   TitleWrap,
   LineHeaderWrap,
   LinesWrapper,
@@ -43,7 +46,6 @@ const SelectionsBuilder = ({ data, styling }) => {
           />
         );
       if (selection.style === StyleChoices.boxes) {
-        // return <ChoiceBoxes data={selection} styling={styling} />;
         return (
           <SelectionWrapperLogic
             ChildNode={ChoiceBoxes}
@@ -60,7 +62,6 @@ const SelectionsBuilder = ({ data, styling }) => {
   }
 };
 
-// if selection style === 'lines'
 const ChoiceLines = ({
   data,
   styling,
@@ -68,28 +69,35 @@ const ChoiceLines = ({
   boughtDataArr,
   buyFunc,
   unselectFunc,
-}) => (
-  <Card key={data.name}>
-    <LineHeaderWrap styling={styling}>
-      <HeaderSplit>
-        <HeaderLg>{data.name}</HeaderLg>
-      </HeaderSplit>
-      <HeaderSplit>
-        <HeaderSm>{data.description}</HeaderSm>
-      </HeaderSplit>
-    </LineHeaderWrap>
-    {data.choices.map((choice, index) => (
-      <LineBox
-        choice={choice}
-        styling={styling}
-        unique={unique}
-        buyFunc={() => buyFunc(index)}
-        unselectFunc={() => unselectFunc(index)}
-        boughtNum={boughtDataArr[index]}
-      />
-    ))}
-  </Card>
-);
+}) => {
+  const [showChoices, setShowChoices] = useState(true);
+  const switchShowChoices = () => {
+    setShowChoices(!showChoices);
+  };
+  return (
+    <Card key={data.name}>
+      <LineHeaderWrap styling={styling}>
+        <HeaderContent
+          data={data}
+          onClick={switchShowChoices}
+          shown={showChoices}
+        />
+      </LineHeaderWrap>
+      {showChoices &&
+        data.choices.map((choice, index) => (
+          <LineBox
+            choice={choice}
+            styling={styling}
+            unique={unique}
+            buyFunc={() => buyFunc(index)}
+            unselectFunc={() => unselectFunc(index)}
+            boughtNum={boughtDataArr[index]}
+          />
+        ))}
+      {!showChoices && <TextMd>{data.choices.length} Choices Hidden</TextMd>}
+    </Card>
+  );
+};
 
 const LineBox = ({
   choice,
@@ -135,30 +143,37 @@ const ChoiceBoxes = ({
   buyFunc,
   unselectFunc,
 }) => {
+  const [showChoices, setShowChoices] = useState(true);
+  const switchShowChoices = () => {
+    setShowChoices(!showChoices);
+  };
+
   return (
     <>
       <BoxHeader>
         <HeaderWrap>
-          <HeaderSplit>
-            <HeaderLg>{data.name}</HeaderLg>
-          </HeaderSplit>
-          <HeaderSplit>
-            <HeaderSm>{data.description}</HeaderSm>
-          </HeaderSplit>
-        </HeaderWrap>
-      </BoxHeader>
-      <BoxItemWrapper>
-        {data.choices.map((choice, index) => (
-          <BoxItem
-            choice={choice}
-            styling={styling}
-            unique={unique}
-            buyFunc={() => buyFunc(index)}
-            unselectFunc={() => unselectFunc(index)}
-            boughtNum={boughtDataArr[index]}
+          <HeaderContent
+            data={data}
+            onClick={switchShowChoices}
+            shown={showChoices}
           />
-        ))}
-      </BoxItemWrapper>
+        </HeaderWrap>
+        {!showChoices && <TextMd>{data.choices.length} Choices Hidden</TextMd>}
+      </BoxHeader>
+      {showChoices && (
+        <BoxItemWrapper>
+          {data.choices.map((choice, index) => (
+            <BoxItem
+              choice={choice}
+              styling={styling}
+              unique={unique}
+              buyFunc={() => buyFunc(index)}
+              unselectFunc={() => unselectFunc(index)}
+              boughtNum={boughtDataArr[index]}
+            />
+          ))}
+        </BoxItemWrapper>
+      )}
     </>
   );
 };
@@ -195,5 +210,30 @@ const BoxItem = ({
     </BoxContainer>
   );
 };
+
+const HeaderContent = ({ data, onClick, shown }) => (
+  <>
+    <HeaderSplit>
+      <HeaderLg>{data.name}</HeaderLg>
+    </HeaderSplit>
+    <HeaderDescSplit>
+      <HeaderSm>{data.description}</HeaderSm>
+    </HeaderDescSplit>
+    <ButtonSplit onClick={onClick}>
+      {shown ? (
+        <>
+          <TextMd>/\</TextMd>
+          <CentreDiv>
+            <TextMd>X</TextMd>
+          </CentreDiv>
+        </>
+      ) : (
+        <CentreDiv>
+          <TextMd>~V~</TextMd>
+        </CentreDiv>
+      )}
+    </ButtonSplit>
+  </>
+);
 
 export default SelectionsBuilder;

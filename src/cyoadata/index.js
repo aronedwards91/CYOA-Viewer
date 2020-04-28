@@ -23,7 +23,6 @@ import wildman from "../public/challenge/wildman.jpg";
 // Items
 import satchel from "../public/items/satchel.jpg";
 import potion from "../public/items/potion.jpg";
-import arrows from "../public/items/arrows.jpg";
 import blade from "../public/items/blade.jpg";
 import helm from "../public/items/helm.jpg";
 import horse from "../public/items/horse.jpg";
