@@ -188,42 +188,37 @@ const ChoiceBoxes = ({
   );
 };
 
-const BoxItem = observer(({
-  choice,
-  styling,
-  unique,
-  buyFunc,
-  unselectFunc,
-  boughtNum,
-}) => {
-  const globalStore = useGlobalDataStore();
+const BoxItem = observer(
+  ({ choice, styling, unique, buyFunc, unselectFunc, boughtNum }) => {
+    const globalStore = useGlobalDataStore();
 
-  return (
-    <BoxContainer
-      key={choice.name}
-      styling={styling}
-      unique={unique}
-      boughtNum={boughtNum}
-    >
-      {!unique && boughtNum > 0 && (
-        <MultibuyOverlay onClick={unselectFunc}>
-          <HeaderMd>[X]</HeaderMd>
-          <HeaderMd>x{boughtNum}</HeaderMd>
-        </MultibuyOverlay>
-      )}
-      <BoxImage alt="image" src={choice.img} />
-      <BoxTextWrapper onClick={buyFunc}>
-        <TitleWrap styling={styling}>
-          <HeaderSm>{choice.name}</HeaderSm>
-        </TitleWrap>
-        <TextMd>{choice.description}</TextMd>
-        {globalStore.isShowingChoiceEffects && (
+    return (
+      <BoxContainer
+        key={choice.name}
+        styling={styling}
+        unique={unique}
+        boughtNum={boughtNum}
+      >
+        {!unique && boughtNum > 0 && (
+          <MultibuyOverlay onClick={unselectFunc}>
+            <HeaderMd>[X]</HeaderMd>
+            <HeaderMd>x{boughtNum}</HeaderMd>
+          </MultibuyOverlay>
+        )}
+        {choice.img && <BoxImage alt="image" src={choice.img} />}
+        <BoxTextWrapper onClick={buyFunc}>
+          <TitleWrap styling={styling}>
+            <HeaderSm>{choice.name}</HeaderSm>
+          </TitleWrap>
+          <TextMd>{choice.description}</TextMd>
+          {globalStore.isShowingChoiceEffects && (
             <Details details={choice.effect} styling={styling} />
           )}
-      </BoxTextWrapper>
-    </BoxContainer>
-  );
-});
+        </BoxTextWrapper>
+      </BoxContainer>
+    );
+  }
+);
 
 const HeaderContent = ({ data, onClick, shown }) => (
   <>

@@ -1,6 +1,6 @@
 import React from "react";
 import Settings from "../../../cyoadata";
-import { TextSm } from "../../StyledItems/fontSizing";
+import { TextSm, TextMd } from "../../StyledItems/fontSizing";
 import { Article2ColDesktop } from "../../StyledItems";
 import { ChoiceWrapper, ChoiceHeader, PadTopDiv, PadSm } from "./styling";
 import { effectKeys } from "../../state/character";
@@ -10,7 +10,8 @@ const ChoiceDetails = ({ details, styling }) => {
     <ChoiceWrapper>
       <TextSm>
         {Settings.charSetup.choicePointsShort}:{" "}
-        {details.cost === 0 ? "Free" : details.cost}
+        {details.cost < 0 && <TextMd bold>+</TextMd>}
+        {details.cost === 0 ? "Free" : -1 * details.cost}
         {"   "}
       </TextSm>
       <ChoiceHeader styling={styling}>GRANTS: </ChoiceHeader>
@@ -29,20 +30,6 @@ const ChoiceOptions = ({ type, value, styling }) => {
       return <DivText value={"AGE; " + value} />;
     case effectKeys.race:
       return <DivText value={"RACE; " + value} />;
-    case effectKeys.allies:
-      return (
-        <DivSectionWrapper styling={styling}>
-          <DivText value={"ALLIES; " + value.name} />
-          <DivText value={value.desc} />
-        </DivSectionWrapper>
-      );
-    case effectKeys.abilities:
-      return (
-        <DivSectionWrapper styling={styling}>
-          <DivText value={"ABILITY; " + value.name} />
-          <DivText value={value.power} />
-        </DivSectionWrapper>
-      );
     case effectKeys.Home:
       return <DivText value={"HOME; " + value} />;
     case effectKeys.background:
@@ -59,6 +46,27 @@ const ChoiceOptions = ({ type, value, styling }) => {
       return (
         <DivSectionWrapper styling={styling}>
           <DivText value={"CHALLENGE; " + value.name} />
+          <DivText value={value.desc} />
+        </DivSectionWrapper>
+      );
+    case effectKeys.allies:
+      return (
+        <DivSectionWrapper styling={styling}>
+          <DivText value={"ALLIES; " + value.name} />
+          <DivText value={value.desc} />
+        </DivSectionWrapper>
+      );
+    case effectKeys.abilities:
+      return (
+        <DivSectionWrapper styling={styling}>
+          <DivText value={"ABILITY; " + value.name} />
+          <DivText value={value.power} />
+        </DivSectionWrapper>
+      );
+    case effectKeys.drawback:
+      return (
+        <DivSectionWrapper styling={styling}>
+          <DivText value={"DRAWBACKS; " + value.name} />
           <DivText value={value.desc} />
         </DivSectionWrapper>
       );

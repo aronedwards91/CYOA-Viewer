@@ -116,6 +116,8 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
     removeAbility,
     addAdvDrawback,
     removeAdvDrawback,
+    addDrawback,
+    removeDrawback,
     addItemArray,
     removeItemArray,
     addPoints,
@@ -149,6 +151,10 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
 
     case effectKeys.advDrawback:
       isAdded ? addAdvDrawback(effectData) : removeAdvDrawback(effectData);
+      break;
+
+    case effectKeys.drawback:
+      isAdded ? addDrawback(effectData) : removeDrawback(effectData);
       break;
 
     case effectKeys.items:

@@ -50,7 +50,7 @@ export const TextBtn = styled(DropBtn)`
 
   ${media.greaterThan("medium")`
     margin: 0;
-    ${({ marginBtm }) => (marginBtm && "margin-bottom: 16px;")}
+    ${({ marginBtm }) => marginBtm && "margin-bottom: 16px;"}
   `}
 `;
 
@@ -120,6 +120,7 @@ export const MobileWrapper = styled.div`
 
 // Mobile Full
 export const LgMobBox = styled.div`
+  position: relative;
   width: 100%;
   padding: 32px;
   background: linear-gradient(
@@ -165,6 +166,14 @@ export const InventoryItemBox = styled.div`
   border-left: 1px solid black;
   padding: 4px 16px;
   cursor: help;
+`;
+export const MobFloatBtm = styled.div`
+  position: absolute;
+  padding: 0 32px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
 `;
 
 // Small Mob

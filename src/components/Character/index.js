@@ -32,6 +32,7 @@ import {
   TextPad,
   InventoryWrapper,
   InventoryItemBox,
+  MobFloatBtm,
   SmBox,
   SmMobName,
   SmMobPoints,
@@ -115,6 +116,7 @@ const DesktopFull = observer(({ switchCharSize, styling, setup }) => {
         <CharSetting setup={setup} />
         <Allies />
         <Abilities />
+        <Drawbacks />
         <AdvDrawbacks />
         <Items />
         <ShowEffectsBtn {...globalStore} styling={styling} marginBtm />
@@ -164,9 +166,11 @@ const MobFull = observer(({ switchCharSize, styling, setup }) => {
         <Allies />
         <Abilities />
         <AdvDrawbacks />
+        <Drawbacks />
         <Items />
         <ShowEffectsBtn {...globalStore} styling={styling} />
       </LgMobScroll>
+      <MobFloatBtm onClick={switchCharSize}>--/\--</MobFloatBtm>
     </LgMobBox>
   );
 });
@@ -254,6 +258,23 @@ const AdvDrawbacks = observer(() => {
           <div>{"+  " + set.adv}</div>
           <div>{"-  " + set.drawback}</div>
         </>
+      ))}
+    </>
+  );
+});
+const Drawbacks = observer(() => {
+  const store = useCharDataStore();
+  const { drawbacks } = store;
+
+  return (
+    <>
+      {drawbacks.length > 0 && (
+        <TitleDiv>
+          <TextMd>Drawbacks</TextMd>
+        </TitleDiv>
+      )}
+      {drawbacks.map((drawback) => (
+        <TextBox title={"> " + drawback.name + " : "} value={drawback.desc} />
       ))}
     </>
   );

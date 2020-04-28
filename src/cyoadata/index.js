@@ -757,6 +757,58 @@ const Data = {
           },
         ],
       },
+      {
+        name: "6/ Drawbacks",
+        description:
+          "Without challenges to make us stronger we remain weak in character.",
+        style: "boxes",
+        buy: {
+          unique: true,
+          min: 0,
+          max: 3,
+        },
+        choices: [
+          {
+            name: "Overwhelming Bloodlust",
+            uid: "bloodlust",
+            description:
+              "Your lust for blood makes you a dangerous enemy, but also a dangerous Ally.",
+            effect: {
+              cost: -50,
+              "char-drawback": {
+                name: "Overwhelming Bloodlust",
+                desc: "Once angered dangerous even to allies.",
+              },
+            },
+          },
+          {
+            name: "Power hungry",
+            uid: "powerlust",
+            description:
+              "Your desire for heroics stems from a lust for power & glory, those pure of heart can see your motivation.",
+            effect: {
+              cost: -50,
+              "char-drawback": {
+                name: "Power hungry",
+                desc: "Untrusted by those pure of heart.",
+              },
+            },
+          },
+          {
+            name: "Blind",
+            uid: "blind",
+            description:
+              "Unable to see like normal men you must rely on your other senses, which though enhanced do not aid in your ability to navigate quiet places.",
+            effect: {
+              cost: -150,
+              "char-drawback": {
+                name: "Power hungry",
+                desc: "Untrusted by those pure of heart.",
+              },
+            },
+          },
+        ]
+      }
     ],
   },
   charSetup: {
