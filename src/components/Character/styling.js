@@ -147,8 +147,9 @@ export const LgMobScroll = styled.div`
   overflow-y: auto;
 `;
 export const Portrait = styled.img`
-  width: 120px;
-  min-height: 60px
+  border: 1px solid ${Setting.styling.colors.charBorder};
+  max-width: 140px;
+  max-height: 240px;
   background: yellow;
 `;
 export const TextPad = styled.div`

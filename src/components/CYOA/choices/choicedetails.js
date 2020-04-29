@@ -32,6 +32,8 @@ const ChoiceDetails = ({ details, styling }) => {
 
 const ChoiceOptions = ({ type, value, styling }) => {
   switch (type) {
+    case effectKeys.profImg:
+      return <DivText value={"Adds Profile Img"} />;
     case effectKeys.age:
       return <DivText value={"AGE; " + value} />;
     case effectKeys.race:

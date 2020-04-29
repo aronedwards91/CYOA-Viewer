@@ -70,15 +70,15 @@ export const TextWrapper = styled.div`
 `;
 export const Image = styled.img`
   max-width: 200px;
-  width: 200px;
-  height: 120px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
   border: 1px solid ${({ styling }) => styling.colors.mainHighlight || "black"};
   margin-left: 12px;
 
   ${media.greaterThan("medium")`
     max-width: 300px;
-    width: 300px;
-    height: 180px;
+    max-height: 220px;
     margin-left: 32px;
   `}
 `;

@@ -5,8 +5,8 @@ import logo from "../public/logo.jpg";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 // Char Profile
+import humanwarriorprof from "../public/origin/humanwarrior-port.jpg";
 import humanhunter from "../public/origin/human-hunter.jpg";
-import humanwarrior from "../public/origin/human-warrior.jpg";
 import dwarfscout from "../public/origin/dwarf-scout.jpg";
 import dwarfguardian from "../public/origin/dwarf-guardian.jpg";
 // Relics
@@ -114,6 +114,7 @@ const Data = {
             effect: {
               cost: 0,
               //The effects, a short list of options body-age, body-race, char-background, char-challenge, body-ability, char-advdrawback, inv-item
+              "char-profimg": humanhunter,
               "char-background": "Bor-Duren",
               "body-race": "Human",
               "char-advdrawback": {
@@ -143,9 +144,10 @@ const Data = {
             uid: "humanwarrior",
             description:
               "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land. Your fearlessness in battle and destruction of corrupted beasts has made you an ally of the hawks with whom you can speak.",
-            img: humanwarrior,
+            img: humanwarriorprof,
             effect: {
               cost: 50,
+              "char-profimg": humanwarriorprof,
               "char-background": "Bor-Duren",
               "body-race": "Human",
               "char-advdrawback": {
@@ -182,6 +184,7 @@ const Data = {
             img: dwarfscout,
             effect: {
               cost: 50,
+              "char-profimg": dwarfscout,
               "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
               "char-advdrawback": {
@@ -226,6 +229,7 @@ const Data = {
             img: dwarfguardian,
             effect: {
               cost: 100,
+              "char-profimg": dwarfguardian,
               "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
               "char-advdrawback": {
@@ -808,8 +812,8 @@ const Data = {
               },
             },
           },
-        ]
-      }
+        ],
+      },
     ],
   },
   charSetup: {

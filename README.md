@@ -26,7 +26,7 @@ img embedding -<img> not css,
 Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present,
 
 #### TODO
-exportable .json, file cleanup, color naming, prof imgh, discount logic, test string build, test mobile, design journal
+exportable .json, file cleanup, color naming, discount logic, test string build, test mobile, design journal
 
 ## Building a CYOA
 

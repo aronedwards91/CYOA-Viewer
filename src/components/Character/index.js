@@ -100,7 +100,7 @@ const DesktopFull = observer(({ switchCharSize, styling, setup }) => {
     <DesktopFullSize styling={styling}>
       <DesktopScroll>
         <LgCharTop>
-          <Portrait alt="image" />
+          <CharProfile />
           <CharDetails />
           <DeskFullBtn onClick={switchCharSize} styling={styling}>
             {"<"}
@@ -149,7 +149,7 @@ const MobFull = observer(({ switchCharSize, styling, setup }) => {
     <LgMobBox styling={styling}>
       <LgMobScroll>
         <LgCharTop>
-          <Portrait alt="image" />
+          <CharProfile />
           <CharDetails />
           <DropBtn onClick={switchCharSize} styling={styling}>
             ~/\~
@@ -171,6 +171,12 @@ const MobFull = observer(({ switchCharSize, styling, setup }) => {
 });
 
 // State connected components
+const CharProfile = observer(() => {
+  const store = useCharDataStore();
+  const { profImg } = store;
+
+  return <Portrait alt="Img" src={profImg}/>;
+});
 const CharDetails = observer(() => {
   const store = useCharDataStore();
   const { name, setName, age, setAge, race, points } = store;

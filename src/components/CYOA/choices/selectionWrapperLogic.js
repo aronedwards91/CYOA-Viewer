@@ -102,6 +102,8 @@ const RunRemoveEffects = (effectsObj, store) => {
 
 const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
   const {
+    setProfImg,
+    resetProfImg,
     setAge,
     resetAge,
     setRace,
@@ -125,6 +127,11 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
   } = store;
 
   switch (effectKey) {
+
+    case effectKeys.profImg:
+      isAdded ? setProfImg(effectData) : resetProfImg();
+      break;
+
     case effectKeys.age:
       isAdded ? setAge(effectData) : resetAge();
       break;

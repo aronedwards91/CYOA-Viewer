@@ -3,7 +3,7 @@ import { useLocalStore } from "mobx-react-lite";
 import data from "../../cyoadata";
 
 export const effectKeys = {
-  profImg: "char-profimg", // number
+  profImg: "char-profimg", // imgfile
   age: "body-age", // string
   race: "body-race", // string
   background: "char-background", // [name]string, [desc]string
@@ -19,6 +19,12 @@ export const effectKeys = {
 export function createCharStore() {
   return {
     profImg: null,
+    setProfImg(newProfImg) {
+      this.profImg = newProfImg;
+    },
+    resetProfImg() {
+      this.profImg = null;
+    },
     name: "None", // set only by user
     setName(newName) {
       this.name = newName;
