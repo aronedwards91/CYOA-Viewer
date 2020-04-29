@@ -28,8 +28,9 @@ Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later sw
 Build Style Priority; string addition, inject storage reset
 
 #### TODO
-exportable .json, file cleanup, discount logic, test string build, test mobile, design journal
+exportable .json, discount logic, test string build, test mobile, design journal
 
+file cleanup; /Backup, /Tools /UserData
 ## Building a CYOA
 
 - Option 1: build a templater from the example, test it, create message in github issues requesting creation

@@ -32,20 +32,22 @@ import {
   BoxTextWrapper,
 } from "./styling";
 
+import Settings from "../../../cyoadata";
+
+const Data = Settings.cyoa.selections;
 const StyleChoices = {
   line: "lines",
   boxes: "boxes",
 };
 
-const SelectionsBuilder = ({ data, styling }) => {
-  if (Array.isArray(data)) {
-    return data.map((selection) => {
+const SelectionsBuilder = () => {
+  if (Array.isArray(Data)) {
+    return Data.map((selection) => {
       if (selection.style === StyleChoices.line)
         return (
           <SelectionWrapperLogic
             ChildNode={ChoiceLines}
             selectionData={selection}
-            styling={styling}
           />
         );
       if (selection.style === StyleChoices.boxes) {
@@ -53,7 +55,6 @@ const SelectionsBuilder = ({ data, styling }) => {
           <SelectionWrapperLogic
             ChildNode={ChoiceBoxes}
             selectionData={selection}
-            styling={styling}
           />
         );
       } else {
@@ -67,7 +68,6 @@ const SelectionsBuilder = ({ data, styling }) => {
 
 const ChoiceLines = ({
   data,
-  styling,
   unique,
   boughtDataArr,
   buyFunc,
@@ -79,7 +79,7 @@ const ChoiceLines = ({
   };
   return (
     <Card key={data.name}>
-      <LineHeaderWrap styling={styling}>
+      <LineHeaderWrap>
         <HeaderContent
           data={data}
           onClick={switchShowChoices}
@@ -90,7 +90,6 @@ const ChoiceLines = ({
         data.choices.map((choice, index) => (
           <LineItem
             choice={choice}
-            styling={styling}
             unique={unique}
             buyFunc={() => buyFunc(index)}
             unselectFunc={() => unselectFunc(index)}
@@ -103,7 +102,7 @@ const ChoiceLines = ({
 };
 
 const LineItem = observer(
-  ({ choice, styling, unique, buyFunc, unselectFunc, boughtNum }) => {
+  ({ choice, unique, buyFunc, unselectFunc, boughtNum }) => {
     const store = useGlobalDataStore();
     const { isShowingChoiceEffects } = store;
 
@@ -115,30 +114,23 @@ const LineItem = observer(
             <HeaderMd></HeaderMd>
           </LinesOverlay>
         )}
-        <LinesWrapper
-          key={choice.name}
-          styling={styling}
-          boughtNum={boughtNum}
-          onClick={buyFunc}
-        >
+        <LinesWrapper key={choice.name} boughtNum={boughtNum} onClick={buyFunc}>
           {/* unselectFunc for seperate button on multibuy */}
           <LinesTopWrapper>
             <TextWrapper>
-              <TitleWrap styling={styling}>
+              <TitleWrap>
                 <HeaderMd>{choice.name}</HeaderMd>
               </TitleWrap>
               <ShowOnlyDesktop>
                 <TextMd>{choice.description}</TextMd>
               </ShowOnlyDesktop>
             </TextWrapper>
-            <Image alt="Image" src={choice.img} styling={styling} />
+            <Image alt="Image" src={choice.img} />
           </LinesTopWrapper>
           <ShowOnlyMobile>
             <TextMd>{choice.description}</TextMd>
           </ShowOnlyMobile>
-          {isShowingChoiceEffects && (
-            <Details details={choice.effect} styling={styling} />
-          )}
+          {isShowingChoiceEffects && <Details details={choice.effect} />}
         </LinesWrapper>
       </>
     );
@@ -147,7 +139,6 @@ const LineItem = observer(
 
 const ChoiceBoxes = ({
   data,
-  styling,
   unique,
   boughtDataArr,
   buyFunc,
@@ -175,7 +166,6 @@ const ChoiceBoxes = ({
           {data.choices.map((choice, index) => (
             <BoxItem
               choice={choice}
-              styling={styling}
               unique={unique}
               buyFunc={() => buyFunc(index)}
               unselectFunc={() => unselectFunc(index)}
@@ -189,16 +179,11 @@ const ChoiceBoxes = ({
 };
 
 const BoxItem = observer(
-  ({ choice, styling, unique, buyFunc, unselectFunc, boughtNum }) => {
+  ({ choice, unique, buyFunc, unselectFunc, boughtNum }) => {
     const globalStore = useGlobalDataStore();
 
     return (
-      <BoxContainer
-        key={choice.name}
-        styling={styling}
-        unique={unique}
-        boughtNum={boughtNum}
-      >
+      <BoxContainer key={choice.name} unique={unique} boughtNum={boughtNum}>
         {!unique && boughtNum > 0 && (
           <MultibuyOverlay onClick={unselectFunc}>
             <HeaderMd>[X]</HeaderMd>
@@ -207,12 +192,12 @@ const BoxItem = observer(
         )}
         {choice.img && <BoxImage alt="image" src={choice.img} />}
         <BoxTextWrapper onClick={buyFunc}>
-          <TitleWrap styling={styling}>
+          <TitleWrap>
             <HeaderSm>{choice.name}</HeaderSm>
           </TitleWrap>
           <TextMd>{choice.description}</TextMd>
           {globalStore.isShowingChoiceEffects && (
-            <Details details={choice.effect} styling={styling} />
+            <Details details={choice.effect} />
           )}
         </BoxTextWrapper>
       </BoxContainer>

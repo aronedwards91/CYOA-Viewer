@@ -10,15 +10,16 @@ import Selections from "./choices/index";
 
 const Layout = Settings.styling.layout;
 
-const CYOA = ({ isExpanded, data }) => (
+const CYOA = ({ isExpanded}) => (
   <Box
     sidebarWidth={isExpanded ? Layout.sidebarWidth : Layout.sidebarWidthDeskSm}
   >
-    <BgImg styling={data.styling} />
-    <BackgroundGradient styling={data.styling} />
-    <Header data={data.cyoa.Header} />
-    <Intro data={data.cyoa.intro} />
-    <Selections data={data.cyoa.selections} styling={data.styling} />
+    <BgImg />
+    {/* Background gradient is used if image found */}
+    <BackgroundGradient />
+    <Header />
+    <Intro />
+    <Selections />
   </Box>
 );
 

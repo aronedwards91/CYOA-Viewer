@@ -1,26 +1,24 @@
 import React from "react";
 import styled from "styled-components";
-// import Col from "../data/colors.json";
+import Settings from "../../cyoadata";
+
+const Style = Settings.styling;
 
 const Background = styled.div`
-  background-image: url(${(props) => props.styling.cyoa.backgroundImg});
+  background-image: url(${Style.cyoa.backgroundImg});
   background-size: cover;
   height: 100vh;
   width: 100vw;
   position: fixed;
   z-index: -100;
 `;
-export const BgImg = ({ styling }) =>
-  styling.cyoa.backgroundImg ? (
-    <Image src={styling.cyoa.backgroundImg} styling={styling} />
-  ) : (
-    <div />
-  );
+export const BgImg = () =>
+  Style.cyoa.backgroundImg ? <Image src={Style.cyoa.backgroundImg} /> : null;
 const Image = styled.img`
   height: 100%;
   width: 100%;
   position: fixed;
-  object-fit: ${(props) => props.styling.cyoa.backgroundImgObjectFit};
+  object-fit: ${Style.cyoa.backgroundImgObjectFit};
   z-index: -100;
 `;
 
@@ -31,7 +29,7 @@ export const BackgroundGradient = styled.div`
   width: 100%;
 
   background-image: linear-gradient(
-    ${(props) => props.styling.cyoa.backgroundGradient || "red, yellow, red"}
+    ${Style.cyoa.backgroundGradient || "red, yellow, red"}
   );
 `;
 export default Background;

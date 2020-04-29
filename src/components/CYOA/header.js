@@ -1,21 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import media from "styled-media-query";
+import Settings from "../../cyoadata";
 
 import { Card, ShowOnlyMobile, ShowOnlyDesktop } from "../StyledItems";
 import { HeaderLg, HeaderMd, HeaderSm } from "../StyledItems/fontSizing";
 
+const data = Settings.cyoa.header;
 
-const Header = ({ data }) => (
+const Header = () => (
   <Card>
     <ShowOnlyMobile>
-      <TitleBox data={data} />
+      <TitleBox />
     </ShowOnlyMobile>
     <MainBox>
       <Logo alt="todo" src={data.logo} />
       <TextWrapper>
         <ShowOnlyDesktop>
-          <TitleBox data={data} />
+          <TitleBox />
         </ShowOnlyDesktop>
         <TextArea>
           <Subtitle>
@@ -30,11 +32,12 @@ const Header = ({ data }) => (
   </Card>
 );
 
-const TitleBox = ({ data }) => (
+const TitleBox = () => (
   <Title>
     <HeaderLg>{data.title}</HeaderLg>
   </Title>
 );
+
 const MainBox = styled.div`
   display: flex;
   align-items: center;

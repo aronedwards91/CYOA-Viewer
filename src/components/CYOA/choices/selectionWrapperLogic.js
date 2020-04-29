@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useCharDataStore, effectKeys } from "../../state/character";
 
-const SelectionLogicWrapper = ({ ChildNode, selectionData, styling }) => {
+const SelectionLogicWrapper = ({ ChildNode, selectionData }) => {
   const initArray = selectionData.choices.map(() => 0);
   const unique = selectionData.buy.unique;
   const MaxBuy = selectionData.buy.max;
@@ -79,7 +79,6 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData, styling }) => {
   return (
     <ChildNode
       data={selectionData}
-      styling={styling}
       unique={unique}
       boughtDataArr={boughtDataArr}
       buyFunc={choiceBought}

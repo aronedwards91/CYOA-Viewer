@@ -33,18 +33,14 @@ import {
   SmMobPoints,
 } from "./styling";
 
-const Character = ({ isExpanded, switchCharSize, styling, setup }) => (
+const Character = ({ isExpanded, switchCharSize, setup }) => (
   <>
     <ShowOn mobile>
-      <MobileWrapper styling={styling}>
+      <MobileWrapper>
         {isExpanded ? (
-          <MobFull
-            switchCharSize={switchCharSize}
-            styling={styling}
-            setup={setup}
-          />
+          <MobFull switchCharSize={switchCharSize} setup={setup} />
         ) : (
-          <MobTopBanner switchCharSize={switchCharSize} styling={styling} />
+          <MobTopBanner switchCharSize={switchCharSize} />
         )}
       </MobileWrapper>
     </ShowOn>
@@ -52,7 +48,6 @@ const Character = ({ isExpanded, switchCharSize, styling, setup }) => (
       <Desktop
         isExpanded={isExpanded}
         switchCharSize={switchCharSize}
-        styling={styling}
         setup={setup}
       />
     </ShowOn>
@@ -60,51 +55,41 @@ const Character = ({ isExpanded, switchCharSize, styling, setup }) => (
 );
 
 // Desktop Comp
-const Desktop = ({ isExpanded, switchCharSize, styling, setup }) =>
+const Desktop = ({ isExpanded, switchCharSize, setup }) =>
   isExpanded ? (
-    <DesktopFull
-      switchCharSize={switchCharSize}
-      styling={styling}
-      setup={setup}
-    />
+    <DesktopFull switchCharSize={switchCharSize} setup={setup} />
   ) : (
-    <DesktopCompact styling={styling} switchCharSize={switchCharSize} />
+    <DesktopCompact switchCharSize={switchCharSize} />
   );
-const DesktopCompact = observer(({ switchCharSize, styling }) => {
+const DesktopCompact = observer(({ switchCharSize }) => {
   const store = useCharDataStore();
   const { name, race, points, items } = store;
   const globalStore = useGlobalDataStore();
 
   return (
-    <DesktopSm styling={styling}>
-      <VertBtn onClick={switchCharSize} styling={styling}>
-        {">"}
-      </VertBtn>
+    <DesktopSm>
+      <VertBtn onClick={switchCharSize}>{">"}</VertBtn>
       <TitleDiv nopad>{"Character"}</TitleDiv>
       <TextPad>{name}</TextPad>
       <TextPad>{race}</TextPad>
       <TextPad>Items: {items.length}</TextPad>
       <TitleDiv nopad>{Settings.charSetup.choicePointsFullName}</TitleDiv>
       <TextPad>{points}</TextPad>
-      <ShowEffectsBtn {...globalStore} styling={styling} />
-      <VertBtn onClick={switchCharSize} styling={styling}>
-        {">"}
-      </VertBtn>
+      <ShowEffectsBtn {...globalStore} />
+      <VertBtn onClick={switchCharSize}>{">"}</VertBtn>
     </DesktopSm>
   );
 });
-const DesktopFull = observer(({ switchCharSize, styling, setup }) => {
+const DesktopFull = observer(({ switchCharSize, setup }) => {
   const globalStore = useGlobalDataStore();
 
   return (
-    <DesktopFullSize styling={styling}>
+    <DesktopFullSize>
       <DesktopScroll>
         <LgCharTop>
           <CharProfile />
           <CharDetails />
-          <DeskFullBtn onClick={switchCharSize} styling={styling}>
-            {"<"}
-          </DeskFullBtn>
+          <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
         </LgCharTop>
         <CharBackground />
         <CharChallenge />
@@ -114,46 +99,40 @@ const DesktopFull = observer(({ switchCharSize, styling, setup }) => {
         <Drawbacks />
         <AdvDrawbacks />
         <Items />
-        <ShowEffectsBtn {...globalStore} styling={styling} marginBtm />
-        <DeskFullBtn onClick={switchCharSize} styling={styling}>
-          {"<"}
-        </DeskFullBtn>
+        <ShowEffectsBtn {...globalStore} marginBtm />
+        <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
       </DesktopScroll>
     </DesktopFullSize>
   );
 });
 // Mobile Comp
-const MobTopBanner = observer(({ switchCharSize, styling }) => {
+const MobTopBanner = observer(({ switchCharSize }) => {
   const globalStore = useGlobalDataStore();
   const store = useCharDataStore();
   const { name, race, points } = store;
 
   return (
-    <SmBox styling={styling}>
+    <SmBox>
       <SmMobName>Name: {name}</SmMobName>
       <TextMd>[ {race} ]</TextMd>
-      <ShowEffectsBtn {...globalStore} styling={styling} />
+      <ShowEffectsBtn {...globalStore} />
       <SmMobPoints>
         {Settings.charSetup.choicePointsShort} [ {points} ]
       </SmMobPoints>
-      <DropBtn onClick={switchCharSize} styling={styling}>
-        ~V~
-      </DropBtn>
+      <DropBtn onClick={switchCharSize}>~V~</DropBtn>
     </SmBox>
   );
 });
-const MobFull = observer(({ switchCharSize, styling, setup }) => {
+const MobFull = observer(({ switchCharSize, setup }) => {
   const globalStore = useGlobalDataStore();
 
   return (
-    <LgMobBox styling={styling}>
+    <LgMobBox>
       <LgMobScroll>
         <LgCharTop>
           <CharProfile />
           <CharDetails />
-          <DropBtn onClick={switchCharSize} styling={styling}>
-            ~/\~
-          </DropBtn>
+          <DropBtn onClick={switchCharSize}>~/\~</DropBtn>
         </LgCharTop>
         <CharBackground />
         <CharChallenge />
@@ -163,7 +142,7 @@ const MobFull = observer(({ switchCharSize, styling, setup }) => {
         <AdvDrawbacks />
         <Drawbacks />
         <Items />
-        <ShowEffectsBtn {...globalStore} styling={styling} />
+        <ShowEffectsBtn {...globalStore} />
       </LgMobScroll>
       <MobFloatBtm onClick={switchCharSize}>--/\--</MobFloatBtm>
     </LgMobBox>
@@ -175,7 +154,7 @@ const CharProfile = observer(() => {
   const store = useCharDataStore();
   const { profImg } = store;
 
-  return <Portrait alt="Img" src={profImg}/>;
+  return <Portrait alt="Img" src={profImg} />;
 });
 const CharDetails = observer(() => {
   const store = useCharDataStore();

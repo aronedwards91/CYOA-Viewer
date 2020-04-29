@@ -75,7 +75,7 @@ const Data = {
     },
   },
   cyoa: {
-    Header: {
+    header: {
       logo: logo,
       title: "CYOA - DarkWood",
       subHeader: "The dark woods call for blood",

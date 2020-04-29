@@ -6,13 +6,11 @@ export const ShowEffectsBtn = ({
   isShowingChoiceEffects,
   showChoiceEffects,
   hideChoiceEffects,
-  styling,
   marginBtm,
 }) =>
   isShowingChoiceEffects ? (
     <TextBtn
       onClick={hideChoiceEffects}
-      styling={styling}
       marginBtm={marginBtm}
     >
       <ShowOnMobSpan>-</ShowOnMobSpan>
@@ -22,7 +20,6 @@ export const ShowEffectsBtn = ({
   ) : (
     <TextBtn
       onClick={showChoiceEffects}
-      styling={styling}
       marginBtm={marginBtm}
     >
       <ShowOnMobSpan>-</ShowOnMobSpan>

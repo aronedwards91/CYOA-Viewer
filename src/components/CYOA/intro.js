@@ -1,23 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
+import Settings from "../../cyoadata";
 import { Card, Article3Col } from "../StyledItems";
 import { HeaderMd, TextMd } from "../StyledItems/fontSizing";
 
+const Data = Settings.cyoa.intro;
 
-const Intro = ({data}) => (
+const Intro = () => (
   <IntroCard>
     <Article3Col>
-      <HeaderMd>{data.title}</HeaderMd>
+      <HeaderMd>{Data.title}</HeaderMd>
       <br />
       <br />
-      <TextMd>{data.introText}</TextMd>
+      <TextMd>{Data.introText}</TextMd>
       <br />
       <br />
-      <HeaderMd>{data.appendTitle}</HeaderMd>
+      <HeaderMd>{Data.appendTitle}</HeaderMd>
       <br />
       <br />
-      <TextMd>{data.appendText}</TextMd>
+      <TextMd>{Data.appendText}</TextMd>
     </Article3Col>
   </IntroCard>
 );

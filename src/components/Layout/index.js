@@ -2,9 +2,6 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-// import { Header } from "../Text";
-// import Backup from "../Backup";
-// import Tools from "../Tools";
 import Character from "../Character";
 import CYOA from "../CYOA";
 import Data from "../../cyoadata";
@@ -22,10 +19,9 @@ const Layout = () => {
       <Character
         isExpanded={expandedChar}
         switchCharSize={switchCharSize}
-        styling={Data.styling}
         setup={Data.charSetup}
       />
-      <CYOA isExpanded={expandedChar} data={Data}/>
+      <CYOA isExpanded={expandedChar}/>
     </Template>
   );
 };
