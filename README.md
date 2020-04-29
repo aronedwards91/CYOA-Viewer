@@ -4,7 +4,7 @@ Builds a CYOA standalone html page, not optimised for web hosting but more as a 
 
 ### Notes
 
-Data is saved to local storage, but the logical next step will be an exportable json, so your character/jump data can be used elsewhere (if goes well a journal will be the next app).
+Data is not saved locally, but can be exported as .json file, coming is a journal app taht these will be imported into.
 
 ## Embedding Everything , why & how
 
@@ -28,12 +28,14 @@ Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later sw
 Build Style Priority; string addition, inject storage reset
 
 #### TODO
-test string build, test mobile, design journal
+test string build, design journal
 
 ## Building a CYOA
 
-- Option 1: build a templater from the example, test it, create message in github issues requesting creation
-- Option 2: (requires some web dev experience, yarn installed) : following usual protocol, within folder run, `yarn install`, `yarn start`, test changes to templater file in `src/cyoadata`, once happy, run `yarn build`
+- Requires some js/dev knowledge, until a simpler process can be built.
+- Clone the repo `git clone https://github.com/aronedwards91/CYOA-Viewer.git`
+- at the root run  `yarn install` (npm may work, but haven't tested)
+- Then use `yarn start` to run dev, or if just want the .html file run `yarn build`, only he .html is required.
 
 ## -
 
