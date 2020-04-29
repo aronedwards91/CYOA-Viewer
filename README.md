@@ -15,10 +15,6 @@ Data is not saved locally, but can be exported as .json file, coming is a journa
 - Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then add the string to public as a json (see example),
 - Font tip: to format export from linked site correctly to .json, use vscode's replace to remove the line endings.
 
-## Backup Data
-
-Click on Tools +, then backup (or download file), copy the string given.
-
 #### Currently includes:
 
 img embedding -<img> not css,
