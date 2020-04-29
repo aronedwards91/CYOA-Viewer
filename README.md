@@ -24,7 +24,7 @@ Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later sw
 Build Style Priority; string addition, inject storage reset
 
 #### TODO
-test string build, design journal
+test custom build, simpler build process, design journal
 
 ## Building a CYOA
 

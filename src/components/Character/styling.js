@@ -104,6 +104,7 @@ export const DeskFullBtn = styled(DropBtn)`
   width: 34px;
   text-align: center;
   font-size: 22px;
+  margin: 0;
 `;
 export const VertBtn = styled(DeskFullBtn)`
   margin: 16px 8px;
