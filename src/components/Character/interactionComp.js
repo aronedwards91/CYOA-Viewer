@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { ShowOnDeskSpan, ShowOnMobSpan } from "../StyledItems";
 import { TextBtn, DataInput, TickBtn, LgMobTitlePad, TextPad } from "./styling";
+import { useCharDataStore } from "../state/character";
 
+export const CreateExport = () => {
+  const store = useCharDataStore();
+  const { createbackup } = store;
+
+  return (
+    <TextBtn onClick={createbackup} mobMargin>
+      Export Character
+    </TextBtn>
+  );
+};
 export const ShowEffectsBtn = ({
   isShowingChoiceEffects,
   showChoiceEffects,
@@ -9,19 +20,13 @@ export const ShowEffectsBtn = ({
   marginBtm,
 }) =>
   isShowingChoiceEffects ? (
-    <TextBtn
-      onClick={hideChoiceEffects}
-      marginBtm={marginBtm}
-    >
+    <TextBtn onClick={hideChoiceEffects} marginBtm={marginBtm}>
       <ShowOnMobSpan>-</ShowOnMobSpan>
       <ShowOnDeskSpan>Hide </ShowOnDeskSpan>
       Effects
     </TextBtn>
   ) : (
-    <TextBtn
-      onClick={showChoiceEffects}
-      marginBtm={marginBtm}
-    >
+    <TextBtn onClick={showChoiceEffects} marginBtm={marginBtm}>
       <ShowOnMobSpan>-</ShowOnMobSpan>
       <ShowOnDeskSpan>Show </ShowOnDeskSpan>
       Effects

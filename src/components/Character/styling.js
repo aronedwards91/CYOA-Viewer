@@ -66,6 +66,7 @@ export const TextBtn = styled(DropBtn)`
   height: auto;
   ${TextSmCss};
   margin: 0 8px;
+  ${({mobMargin}) => mobMargin && 'margin: 16px 32px 16px;'}
 
   ${media.greaterThan("medium")`
     margin: 0;

@@ -1,10 +1,10 @@
 import React from "react";
 import { useLocalStore } from "mobx-react-lite";
 import data from "../../cyoadata";
+import {createFileFromObj} from "./exportTools";
 
 export const effectKeys = {
   profImg: "char-profimg", // imgfile
-  age: "body-age", // string
   race: "body-race", // string
   background: "char-background", // [name]string, [desc]string
   challenge: "char-challenge", // [name]string, [desc]string
@@ -25,7 +25,7 @@ export function createCharStore() {
     resetProfImg() {
       this.profImg = null;
     },
-    name: "None", // set only by user
+    name: "Assign", // set only by user
     setName(newName) {
       this.name = newName;
     },
@@ -63,16 +63,6 @@ export function createCharStore() {
         desc: null,
       };
     },
-    drawbacks: [],
-    addDrawback(newDrawback) {
-      this.drawbacks.push(newDrawback);
-    },
-    removeDrawback(removedDrawback) {
-      const indexOfRemoved = this.drawbacks.findIndex(
-        (i) => i.name === removedDrawback.name
-      );
-      this.drawbacks.splice(indexOfRemoved, 1);
-    },
     allies: [],
     addAlly(newAlly) {
       this.allies.push(newAlly);
@@ -102,6 +92,16 @@ export function createCharStore() {
         (i) => i.name === removedAdvDrawback.name
       );
       this.advDrawback.splice(indexOfRemoved, 1);
+    },
+    drawbacks: [],
+    addDrawback(newDrawback) {
+      this.drawbacks.push(newDrawback);
+    },
+    removeDrawback(removedDrawback) {
+      const indexOfRemoved = this.drawbacks.findIndex(
+        (i) => i.name === removedDrawback.name
+      );
+      this.drawbacks.splice(indexOfRemoved, 1);
     },
     items: [],
     addItemArray(itemsArray) {
@@ -133,6 +133,28 @@ export function createCharStore() {
     removePoints(number) {
       this.points = this.points - number;
     },
+    createbackup() {
+      const dataObj = {
+        cyoa: data.cyoa.header.title,
+        name: this.name,
+        age: this.age,
+        subHeader: data.cyoa.header.subHeader || '',
+        cyoaAppVersion: data.appData.appversion, 
+        setting: data.cyoa.intro.introText,
+        logo: data.cyoa.header.logo,
+      };
+      dataObj[effectKeys.race] = this.race;
+      dataObj[effectKeys.background] = this.background;
+      dataObj[effectKeys.challenge] = this.challenge;
+      dataObj[effectKeys.allies] = this.allies;
+      dataObj[effectKeys.abilities] = this.abilities;
+      dataObj[effectKeys.advDrawback] = this.advDrawback;
+      dataObj[effectKeys.drawback] = this.drawbacks;
+      dataObj[effectKeys.items] = this.items;
+
+      const filename = this.name !== 'Assign' ? this.name : 'backup';
+      createFileFromObj(dataObj, filename);
+    }
   };
 }
 

@@ -4,7 +4,7 @@ import { useCharDataStore } from "../state/character";
 import { useGlobalDataStore } from "../state/globals";
 import { observer } from "mobx-react-lite";
 
-import { ShowEffectsBtn, EditableText } from "./interactionComp";
+import { ShowEffectsBtn, EditableText, CreateExport } from "./interactionComp";
 import { TextMd } from "../StyledItems/fontSizing";
 import { Tooltip, TooltipWrapper, ShowOn } from "../StyledItems";
 import {
@@ -101,6 +101,7 @@ const DesktopFull = observer(({ switchCharSize, setup }) => {
         <Items />
         <ShowEffectsBtn {...globalStore} marginBtm />
         <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
+        <CreateExport />
       </DesktopScroll>
     </DesktopFullSize>
   );
@@ -142,7 +143,8 @@ const MobFull = observer(({ switchCharSize, setup }) => {
         <AdvDrawbacks />
         <Drawbacks />
         <Items />
-        <ShowEffectsBtn {...globalStore} />
+        <ShowEffectsBtn {...globalStore} marginBtm/>
+        <CreateExport />
       </LgMobScroll>
       <MobFloatBtm onClick={switchCharSize}>--/\--</MobFloatBtm>
     </LgMobBox>
