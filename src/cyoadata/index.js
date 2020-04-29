@@ -1,43 +1,10 @@
 // This Template fills in the data
 // import images placed in /public
-import bg from "../public/gold-tree.jpg";
 import logo from "../public/logo.jpg";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 // Char Profile
-import humanwarriorprof from "../public/origin/humanwarrior-port.jpg";
 import humanhunter from "../public/origin/human-hunter.jpg";
-import dwarfscout from "../public/origin/dwarf-scout.jpg";
-import dwarfguardian from "../public/origin/dwarf-guardian.jpg";
-// Relics
-import daggerbloody from "../public/relic/dagger-bloody.jpg";
-import amuletgreystone from "../public/relic/amulet-greystone.jpg";
-import waterskinomsak from "../public/relic/waterskin.jpg";
-// Challenge
-import erredmhuur from "../public/challenge/erred-mhuur.jpg";
-import haruspex from "../public/challenge/haruspex.jpg";
-import sandman from "../public/challenge/sandman.jpg";
-import Troll from "../public/challenge/troll.jpg";
-import wildman from "../public/challenge/wildman.jpg";
-// Items
-import satchel from "../public/items/satchel.jpg";
-import potion from "../public/items/potion.jpg";
-import blade from "../public/items/blade.jpg";
-import helm from "../public/items/helm.jpg";
-import horse from "../public/items/horse.jpg";
-import lantern from "../public/items/lantern.jpg";
-import shield from "../public/items/shield.jpg";
-import talisman from "../public/items/talisman.jpg";
-import spear from "../public/items/spear.jpg";
-import tome from "../public/items/tome.jpg";
-import ward from "../public/items/ward.jpg";
-import wolf from "../public/items/wolf.jpg";
-// Allies
-import brothers from "../public/allies/brothersinarms.jpg";
-import dwarves from "../public/allies/dwarves.jpg";
-import eagle from "../public/allies/greatereagle.jpg";
-import rangers from "../public/allies/rangers.jpg";
-import wildmage from "../public/allies/wildmage.jpg";
 // Item Icons
 import knifeIcon from "../public/icons/knife-icon.png";
 import bow from "../public/icons/bow.png";
@@ -65,7 +32,6 @@ const Data = {
       sidebarWidthMobSm: "60px",
     },
     cyoa: {
-      backgroundImg: bg,
       backgroundImgObjectFit: "cover",
       backgroundGradient: `darkgreen, green, lightgreen`, // String, list of choices as per css linear-gradient spec
     },
@@ -145,10 +111,10 @@ const Data = {
             uid: "humanwarrior",
             description:
               "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land. Your fearlessness in battle and destruction of corrupted beasts has made you an ally of the hawks with whom you can speak.",
-            img: humanwarriorprof,
+            img: humanhunter,
             effect: {
               cost: 50,
-              "char-profimg": humanwarriorprof,
+              "char-profimg": humanhunter,
               "char-background": "Bor-Duren",
               "body-race": "Human",
               "char-advdrawback": {
@@ -182,10 +148,10 @@ const Data = {
             uid: "dwarfscout",
             description:
               "One of the few dwarves who is comfortable outdoors. Your life of exploration and has made you cunning and wise to the dangers of the forest, few can catch such a swift and cap[able woodsman as yourself.",
-            img: dwarfscout,
+            img: humanhunter,
             effect: {
               cost: 50,
-              "char-profimg": dwarfscout,
+              "char-profimg": humanhunter,
               "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
               "char-advdrawback": {
@@ -227,10 +193,10 @@ const Data = {
             uid: "dwarfguardian",
             description:
               "Dwarf guardians play the vital role of protecting the rare resource that is the Dwarf Queens. Few in number and slow to come to term, a dwarf birth is a great celebration, and nothing is more closely guarded than the powerful and important dwarf queens, they who decide shall bring in the next generation.",
-            img: dwarfguardian,
+            img: humanhunter,
             effect: {
               cost: 100,
-              "char-profimg": dwarfguardian,
+              "char-profimg": humanhunter,
               "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
               "char-advdrawback": {
@@ -281,7 +247,7 @@ const Data = {
             uid: "bloodydagger",
             description:
               "A ornate dagger, it's blade seems freshly wet with blood, no matter how often it is wiped. It calls to it's owner forever hoping to return to it's masters hand, but to do so would plunge the world into darkness.",
-            img: daggerbloody,
+            img: humanhunter,
             effect: {
               cost: 0,
               "char-advdrawback": {
@@ -306,7 +272,7 @@ const Data = {
             uid: "greystoneamulet",
             description:
               "A beautiful amulet, wrought in silver with many fine gems. It seems to hum with a gentle tune, it seems to give you strength.",
-            img: amuletgreystone,
+            img: humanhunter,
             effect: {
               cost: 0,
               "char-advdrawback": {
@@ -331,7 +297,7 @@ const Data = {
             uid: "watersofomsak",
             description:
               "A runed leather waterskin, it feels heavy, but smells sweet.",
-            img: waterskinomsak,
+            img: humanhunter,
             effect: {
               cost: 0,
               "char-advdrawback": {
@@ -369,7 +335,7 @@ const Data = {
             uid: "erredmhuur",
             description:
               "Erred-Mhuur hungers for the flesh of sentient beasts, it burns with anguish, only seeking to destroy that which it hates above all else. In it's anger it has reforged the beasts of the wood that have come under it's influence, dark & blood loving they move now as shadows branded in glowing red runes, hunting and preying on all they can.",
-            img: erredmhuur,
+            img: humanhunter,
             effect: {
               cost: 0,
               "char-challenge": {
@@ -383,7 +349,7 @@ const Data = {
             uid: "haruspex",
             description:
               "The dark gods have been forgotten by those they helped make. To a god their is no greater disrespect, for this act they have sent the haruspex, whose mere prescence is to invite catastrophy. Disease, plagues, civil war all spread as he walks the land, he only walks and smiles as the land plunges into darkness. He is protected by four great heroes who served the will of the old gods, Albrith of the Axe, Eldrith of the Spear, Dantrith of the Blade & Ellena of the bow.",
-            img: haruspex,
+            img: humanhunter,
             effect: {
               cost: 0,
               "char-challenge": {
@@ -398,7 +364,7 @@ const Data = {
             uid: "sandman",
             description:
               "The Sandman hunger for hope, and his dark scuttling slaves hunger for flesh. traversing the dreamscape he subverts and darkens dreams, sucking the hope from people in their slumber, turning them into tragic figures, lacking the energy and courage to take up arms against the scuttling feeding horde.",
-            img: sandman,
+            img: humanhunter,
             effect: {
               cost: 0,
               "char-challenge": {
@@ -413,7 +379,7 @@ const Data = {
             uid: "trolls",
             description:
               "Angry, violent & strong, the Troll tribe has expanded far beyond it's means and now seeks new lands to plunder. Incapable farmers, the plentiful and well mainted farms of human and dwarf alike offer a tempting reward. Tales are heard already of small farmsteads overrun by the brutal creatures.",
-            img: Troll,
+            img: humanhunter,
             effect: {
               cost: 0,
               "char-challenge": {
@@ -428,7 +394,7 @@ const Data = {
             uid: "wildmen",
             description:
               "Burned out the Allied council for their dark heretical practices, they have grown hungry for revenge, this hatred has allowed the dark rituals to penetrate thei minds further. Blood magic and necromancy, plus wild bloodlust has made them a terrible enemy, but their disorganisation has made them inneffective in pitched battle, now they move toward guerrilla action till their growing number will be too strong to hold back.",
-            img: wildman,
+            img: humanhunter,
             effect: {
               cost: 0,
               "char-challenge": {
@@ -456,7 +422,7 @@ const Data = {
             uid: "climbersatchel",
             description:
               "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
-            img: satchel,
+            img: humanhunter,
             effect: {
               cost: 50,
               "inv-items": [
@@ -474,7 +440,7 @@ const Data = {
             uid: "honeysap",
             description:
               "A bottle containing three portions of a rare ointment, blessed by a kind nypmh, allows you to slowly regenerate from almost mortal wounds over the course of a few days.",
-            img: potion,
+            img: humanhunter,
             effect: {
               cost: 100,
               "inv-items": [
@@ -492,7 +458,7 @@ const Data = {
             uid: "blade",
             description:
               "An ancient family heirloom, sharp true and deadly, it makes short work of any hide or light armor.",
-            img: blade,
+            img: humanhunter,
             effect: {
               cost: 50,
               "inv-items": [
@@ -510,7 +476,7 @@ const Data = {
             uid: "helm",
             description:
               "A wonderous piece of work, striking and enobling, whilst also a fine and effective piece of armor.",
-            img: helm,
+            img: humanhunter,
             effect: {
               cost: 50,
               "inv-items": [
@@ -528,7 +494,7 @@ const Data = {
             uid: "lantern",
             description:
               "burns brightly and confers a sense of comfort and warmth during cold nights. However may attract things best left unattracted.",
-            img: lantern,
+            img: humanhunter,
             effect: {
               cost: 50,
               "inv-items": [
@@ -546,7 +512,7 @@ const Data = {
             uid: "horse",
             description:
               "the horse of Erenbiir's line are powerful warhorses, unflinching in the heat of battle and loyal as they come. He would appreciate you giving him a name.",
-            img: horse,
+            img: humanhunter,
             effect: {
               cost: 100,
               "inv-items": [
@@ -564,7 +530,7 @@ const Data = {
             uid: "shield",
             description:
               "The shied of the blue tree is worn and old, but still an arrow or blade is yet to pierce its mighty bulwark. Legends say even magic may be defected by it's true and solid power.",
-            img: shield,
+            img: humanhunter,
             effect: {
               cost: 150,
               "inv-items": [
@@ -583,7 +549,7 @@ const Data = {
             uid: "talisman",
             description:
               "Tells of the approachment of menacing forces and in which direction they lay.",
-            img: talisman,
+            img: humanhunter,
             effect: {
               cost: 150,
               "inv-items": [
@@ -601,7 +567,7 @@ const Data = {
             uid: "spear",
             description:
               "A Dark spear, filled with anger and hate, can break through the toughest armor, but will slowly fill it's handler with a brooding darkness.",
-            img: spear,
+            img: humanhunter,
             effect: {
               cost: 50,
               "inv-items": [
@@ -619,7 +585,7 @@ const Data = {
             uid: "ward",
             description:
               "A Fiery magical torch, burns with a dark red light, but when meditate nearby it will create a protective shield.",
-            img: ward,
+            img: humanhunter,
             effect: {
               cost: 100,
               "inv-items": [
@@ -637,7 +603,7 @@ const Data = {
             uid: "wolf",
             description:
               "A Dire wolf you raised from a pup, intensiley loyal. Most sentient folk are incredibly fearful of such beasts.",
-            img: wolf,
+            img: humanhunter,
             effect: {
               cost: 100,
               "inv-items": [
@@ -655,7 +621,7 @@ const Data = {
             uid: "tome",
             description:
               "An ancient tome that tells of the dark forces that will come to plague this land, offers some puzzling & vague advice about possible weaknesses and manners by which it can be defeated.",
-            img: tome,
+            img: humanhunter,
             effect: {
               cost: 50,
               "inv-items": [
@@ -686,7 +652,7 @@ const Data = {
             uid: "brothersaxe",
             description:
               "Your brothers in battle and blood, ready to lay down their life in battle alongside you. They number in 10, and are renowed for their feats of battle.",
-            img: brothers,
+            img: humanhunter,
             effect: {
               cost: 200,
               "char-allies": {
@@ -701,7 +667,7 @@ const Data = {
             uid: "dwarfmercenaries",
             description:
               "Capable and strong, but not entirely fearless, nor particularly loyal.",
-            img: dwarves,
+            img: humanhunter,
             effect: {
               cost: 50,
               "char-allies": {
@@ -715,7 +681,7 @@ const Data = {
             uid: "greatereagle",
             description:
               "One of the greater eagles is in your debt, but his honor will be sullied if you call him in aid for reason other than a time of dire need.",
-            img: eagle,
+            img: humanhunter,
             effect: {
               cost: 100,
               "char-allies": {
@@ -738,7 +704,7 @@ const Data = {
             uid: "rangers",
             description:
               "Great & capable hunters, the rangers can guide and protect you their impressive bow skills even in the darkest & most perilous woods.",
-            img: rangers,
+            img: humanhunter,
             effect: {
               cost: 150,
               "char-allies": {
@@ -752,7 +718,7 @@ const Data = {
             uid: "mage",
             description:
               "A strange but powerful mage has offered to take you under his wing, he has great power of natural forces and druidic summonings. he is however not entirely sane and has a tendency to charge ahead headless of danger.",
-            img: wildmage,
+            img: humanhunter,
             effect: {
               cost: 200,
               "char-allies": {
