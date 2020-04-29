@@ -100,8 +100,8 @@ const DesktopFull = observer(({ switchCharSize, setup }) => {
         <AdvDrawbacks />
         <Items />
         <ShowEffectsBtn {...globalStore} marginBtm />
+        <CreateExport marginBtm />
         <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
-        <CreateExport />
       </DesktopScroll>
     </DesktopFullSize>
   );
@@ -110,15 +110,14 @@ const DesktopFull = observer(({ switchCharSize, setup }) => {
 const MobTopBanner = observer(({ switchCharSize }) => {
   const globalStore = useGlobalDataStore();
   const store = useCharDataStore();
-  const { name, race, points } = store;
+  const { name, points } = store;
 
   return (
     <SmBox>
       <SmMobName>Name: {name}</SmMobName>
-      <TextMd>[ {race} ]</TextMd>
       <ShowEffectsBtn {...globalStore} />
       <SmMobPoints>
-        {Settings.charSetup.choicePointsShort} [ {points} ]
+        {Settings.charSetup.choicePointsShort} {points}
       </SmMobPoints>
       <DropBtn onClick={switchCharSize}>~V~</DropBtn>
     </SmBox>
@@ -143,7 +142,7 @@ const MobFull = observer(({ switchCharSize, setup }) => {
         <AdvDrawbacks />
         <Drawbacks />
         <Items />
-        <ShowEffectsBtn {...globalStore} marginBtm/>
+        <ShowEffectsBtn {...globalStore} marginBtm />
         <CreateExport />
       </LgMobScroll>
       <MobFloatBtm onClick={switchCharSize}>--/\--</MobFloatBtm>

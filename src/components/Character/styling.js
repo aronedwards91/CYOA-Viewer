@@ -66,7 +66,7 @@ export const TextBtn = styled(DropBtn)`
   height: auto;
   ${TextSmCss};
   margin: 0 8px;
-  ${({mobMargin}) => mobMargin && 'margin: 16px 32px 16px;'}
+  ${({ mobMargin }) => mobMargin && "margin: 16px 32px 16px;"}
 
   ${media.greaterThan("medium")`
     margin: 0;
@@ -136,7 +136,6 @@ export const Portrait = styled.img`
   border: 1px solid ${Style.colors.charBorder};
   max-width: 140px;
   max-height: 240px;
-  background: yellow;
 `;
 export const TextPad = styled.div`
   padding: 8px;
@@ -214,3 +213,5 @@ export const DataInput = styled.input`
     opacity: 1; /* Firefox */
   }
 `;
+
+export const FontBold = { fontWeight: "bold" };

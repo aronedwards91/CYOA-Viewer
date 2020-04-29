@@ -26,6 +26,8 @@ import {
   BoxHeader,
   BoxItemWrapper,
   BoxContainer,
+  OverlayBox,
+  TriggerOverlay,
   MultibuyOverlay,
   LinesOverlay,
   BoxImage,
@@ -184,14 +186,17 @@ const BoxItem = observer(
 
     return (
       <BoxContainer key={choice.name} unique={unique} boughtNum={boughtNum}>
-        {!unique && boughtNum > 0 && (
-          <MultibuyOverlay onClick={unselectFunc}>
-            <HeaderMd>[X]</HeaderMd>
-            <HeaderMd>x{boughtNum}</HeaderMd>
-          </MultibuyOverlay>
-        )}
+        <OverlayBox>
+          {!unique && boughtNum > 0 && (
+            <MultibuyOverlay onClick={unselectFunc}>
+              <HeaderMd>[X]</HeaderMd>
+              <HeaderMd>x{boughtNum}</HeaderMd>
+            </MultibuyOverlay>
+          )}
+          <TriggerOverlay onClick={buyFunc} />
+        </OverlayBox>
         {choice.img && <BoxImage alt="image" src={choice.img} />}
-        <BoxTextWrapper onClick={buyFunc}>
+        <BoxTextWrapper>
           <TitleWrap>
             <HeaderSm>{choice.name}</HeaderSm>
           </TitleWrap>
@@ -216,9 +221,14 @@ const HeaderContent = ({ data, onClick, shown }) => (
     <ButtonSplit onClick={onClick}>
       {shown ? (
         <>
-          <TextMd>/\</TextMd>
+          <ShowOnlyDesktop>
+            <TextMd>/\</TextMd>
+          </ShowOnlyDesktop>
           <CentreDiv>
-            <TextMd>X</TextMd>
+            <TextMd>
+              <ShowOnlyMobile>/\ X /\</ShowOnlyMobile>
+              <ShowOnlyDesktop>X</ShowOnlyDesktop>
+            </TextMd>
           </CentreDiv>
         </>
       ) : (

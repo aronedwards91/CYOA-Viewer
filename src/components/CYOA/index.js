@@ -27,7 +27,7 @@ const Box = styled.div`
   position: relative;
   flex-grow: 2;
   height: auto;
-  padding-top: ${Layout.mobTopBarSize || "80px"};
+  padding-top: ${Layout.sidebarWidthMobSm || "80px"};
   color: ${Settings.styling.colors.maintext};
 
   ${media.greaterThan("medium")`

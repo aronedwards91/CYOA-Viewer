@@ -44,7 +44,7 @@ import bow from "../public/icons/bow.png";
 
 const Data = {
   appData:{
-    appversion: 1, //Do not adjust
+    appversion: 2, //Do not adjust
   },
   styling: {
     colors: {

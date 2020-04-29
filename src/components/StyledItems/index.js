@@ -15,7 +15,7 @@ export const RedX = () => <span style={{ color: "red" }}>X</span>;
 export const Card = styled.div`
   border-radius: ${Style.themeing.sectionCornerRadius};
   border: ${MainBorderStyle};
-  margin: calc(2rem + 2vw) calc(1rem + 1vw);
+  margin: calc(2rem + 2vw) calc(0.5rem + 1.5vw);
   padding: 16px;
   background: linear-gradient(
     0.15turn,

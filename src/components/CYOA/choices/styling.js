@@ -125,6 +125,15 @@ export const MultibuyOverlay = styled(LinesOverlay)`
   display: flex;
   justify-content: space-between;
 `;
+export const OverlayBox = styled.div`
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`;
+export const TriggerOverlay = styled.div`
+  height: 100%;
+`;
 export const BoxImage = styled.img`
   height: 50%;
   width: 100%;
@@ -159,5 +168,5 @@ export const ImgSm = styled.img`
   margin-bottom: calc(-4px + -0.5vw);
   height: calc(16px + 1.5vw);
   width: calc(16px + 1.5vw);
-  ${({padleft}) => padleft && 'margin-left: calc(8px + 1vw);'};
-`
+  ${({ padleft }) => padleft && "margin-left: calc(8px + 1vw);"};
+`;

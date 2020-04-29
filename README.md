@@ -29,7 +29,6 @@ Build Style Priority; string addition, inject storage reset
 
 #### TODO
 test string build, test mobile, design journal
-mob styling fixes; top pad, 
 
 ## Building a CYOA
 
