@@ -4,6 +4,24 @@ import media from "styled-media-query";
 import Setting from "../../cyoadata";
 import { TextMd, TextMdCss, TextSmCss } from "../StyledItems/fontSizing";
 
+const Style = Setting.styling;
+const CharBorderStyle =
+  Style.themeing.bordersWidth +
+  " " +
+  Style.themeing.borderStyle +
+  " " +
+  Style.colors.charBorder;
+const CharBgGradient = `linear-gradient(
+  0.15turn,
+  ${
+    Style.colors.charBgB +
+    ", " +
+    Style.colors.charBgA +
+    ", " +
+    Style.colors.charBgB
+  }
+);`;
+
 // Templates
 export const TextBox = ({ title, value }) => (
   <TextPad>
@@ -32,14 +50,14 @@ export const LgCharTopText = styled.div`
   flex-grow: 1;
 `;
 export const DropBtn = styled.div`
-  border: 1px solid ${({ styling }) => styling.colors.charBorder};
-  border-radius: ${({ styling }) => styling.themeing.bordersWidth};
+  border: 1px solid ${Style.colors.charBorder};
+  border-radius: ${Style.themeing.bordersWidth};
   padding: 2px;
   height: 126%;
   margin-left: 16px;
 
   &:hover {
-    background: ${({ styling }) => styling.colors.charBgB};
+    background: ${Style.colors.charBgB};
     cursor: pointer;
   }
 `;
@@ -59,41 +77,21 @@ export const TextBtn = styled(DropBtn)`
 export const DesktopSm = styled.div`
   position: fixed;
   height: 100vh;
-  width: ${({ styling }) => styling.layout.sidebarWidthDeskSm};
+  width: ${Style.layout.sidebarWidthDeskSm};
   padding: 16px;
-  background: linear-gradient(
-    0.15turn,
-    ${({ styling }) =>
-      styling.colors.charBgB +
-      ", " +
-      styling.colors.charBgA +
-      ", " +
-      styling.colors.charBgB}
-  );
-  border-right: ${({ styling }) =>
-    styling.themeing.bordersWidth + " solid " + styling.colors.charBorder};
+  background: ${CharBgGradient}
+  border-right: ${
+    Style.themeing.bordersWidth + " solid " + Style.colors.charBorder
+  };
 `;
 export const DesktopFullSize = styled.div`
   position: fixed;
   height: 100vh;
-  width: ${({ styling }) => styling.layout.sidebarWidth};
+  width: ${Style.layout.sidebarWidth};
   overflow-y: auto;
   padding: 24px;
-  background: linear-gradient(
-    0.6turn,
-    ${({ styling }) =>
-      styling.colors.charBgB +
-      ", " +
-      styling.colors.charBgA +
-      ", " +
-      styling.colors.charBgB}
-  );
-  border-right: ${({ styling }) =>
-    styling.themeing.bordersWidth +
-    " " +
-    styling.themeing.borderStyle +
-    " " +
-    styling.colors.charBorder};
+  background: ${CharBgGradient}
+  border-right: ${CharBorderStyle};
 `;
 export const DesktopScroll = styled.div`
   margin-bottom: 10px;
@@ -114,7 +112,7 @@ export const VertBtn = styled(DeskFullBtn)`
 export const MobileWrapper = styled.div`
   position: fixed;
   z-index: 100;
-  color: ${({ styling }) => styling.colors.charText};
+  color: ${Style.colors.charText};
   ${TextMdCss}
   width: 100%;
 `;
@@ -124,21 +122,8 @@ export const LgMobBox = styled.div`
   position: relative;
   width: 100%;
   padding: 32px;
-  background: linear-gradient(
-    0.35turn,
-    ${({ styling }) =>
-      styling.colors.charBgA +
-      ", " +
-      styling.colors.charBgB +
-      ", " +
-      styling.colors.charBgA}
-  );
-  border-bottom: ${({ styling }) =>
-    styling.themeing.bordersWidth +
-    " " +
-    styling.themeing.borderStyle +
-    " " +
-    styling.colors.mainD};
+  background: ${CharBgGradient}
+  border-bottom: ${CharBorderStyle};
 `;
 export const LgMobScroll = styled.div`
   min-height: 50vh;
@@ -147,7 +132,7 @@ export const LgMobScroll = styled.div`
   overflow-y: auto;
 `;
 export const Portrait = styled.img`
-  border: 1px solid ${Setting.styling.colors.charBorder};
+  border: 1px solid ${Style.colors.charBorder};
   max-width: 140px;
   max-height: 240px;
   background: yellow;
@@ -187,22 +172,9 @@ export const MobFloatBtm = styled.div`
 // Small Mob
 export const SmBox = styled.div`
   background: lightgreen;
-  background: linear-gradient(
-    0.35turn,
-    ${({ styling }) =>
-      styling.colors.charBgA +
-      ", " +
-      styling.colors.charBgB +
-      ", " +
-      styling.colors.charBgA}
-  );
-  border-bottom: ${({ styling }) =>
-    styling.themeing.bordersWidth +
-    " " +
-    styling.themeing.borderStyle +
-    " " +
-    styling.colors.mainD};
-  height: ${({ styling }) => styling.layout.sidebarWidthMobSm};
+  background: ${CharBgGradient}
+  border-bottom: ${CharBorderStyle};
+  height: ${Style.layout.sidebarWidthMobSm};
   width: 100%;
   display: flex;
   padding: 16px 8px;
@@ -218,14 +190,14 @@ export const SmMobPoints = styled(TextMd)`
 // EditBtn
 export const TickBtn = styled.span`
   cursor: pointer;
-  color: ${Setting.styling.colors.charText};
-  border: 1px solid ${Setting.styling.colors.charBorder};
-  border-radius: ${Setting.styling.themeing.bordersWidth};
+  color: ${Style.colors.charText};
+  border: 1px solid ${Style.colors.charBorder};
+  border-radius: ${Style.themeing.bordersWidth};
   margin-right: 4px;
   padding: 4px;
 `;
 export const DataInput = styled.input`
-  color: ${Setting.styling.colors.charText};
+  color: ${Style.colors.charText};
   outline: none;
   font-family: inherit;
   background: transparent;
@@ -234,10 +206,10 @@ export const DataInput = styled.input`
   ${TextMdCss}
 
   &:focus {
-    border-bottom: 1px solid ${Setting.styling.colors.charBorder};
+    border-bottom: 1px solid ${Style.colors.charBorder};
   }
   &::placeholder {
-    color: ${Setting.styling.colors.charText};
+    color: ${Style.colors.charText};
     opacity: 1; /* Firefox */
   }
 `;

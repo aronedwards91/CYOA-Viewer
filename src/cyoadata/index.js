@@ -46,15 +46,13 @@ const Data = {
   styling: {
     colors: {
       // order by contrast, lighter/darker first for both.
-      mainA: "#628746",
-      mainB: "#2E4E15",
-      mainC: "#436728",
-      mainD: "#1A3407",
-      mainE: "#0C1B00",
+      maintext: `black`,
+      bgA: "#628746",
+      bgB: "#2E4E15",
+      mainBorder: "#1A3407",
       mainHighlight: "#BCFA0F",
       charBgA: "#90A437",
       charBgB: "#E7F6A4",
-      charC: "#BACD66",
       charText: "#1f2406",
       charBorder: "#435200",
     },

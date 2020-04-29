@@ -10,7 +10,7 @@ Data is saved to local storage, but the logical next step will be an exportable 
 
 - WHY ; a standalone .html is easily shareable, cross platform, also for safety modern browser don't let html files natively pull from your drive (security), so any linked files wouldn't be read.
 
-- Image linked will auto embed up to 6MB (over 6 is left out just as a warning as this creates very slow & large html files.)
+- Image linked will auto embed up to 6MB (over 6 is left out just as a warning as this creates very slow & large html files, most images are small and only require around 300x400 for big screens.)
 
 - Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then add the string to public as a json (see example),
 - Font tip: to format export from linked site correctly to .json, use vscode's replace to remove the line endings.
@@ -23,10 +23,12 @@ Click on Tools +, then backup (or download file), copy the string given.
 
 img embedding -<img> not css,
 
-Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present,
+Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present, remove prop drill data
+
+Build Style Priority; string addition, inject storage reset
 
 #### TODO
-exportable .json, file cleanup, color naming, discount logic, test string build, test mobile, design journal
+exportable .json, file cleanup, discount logic, test string build, test mobile, design journal
 
 ## Building a CYOA
 

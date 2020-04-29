@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import media from "styled-media-query";
+import Settings from "../../../cyoadata";
 import { Card } from "../../StyledItems";
 import { TextSm } from "../../StyledItems/fontSizing";
+
+const Style = Settings.styling;
 
 export const HeaderWrap = styled.div`
   display: flex;
@@ -33,7 +36,7 @@ export const TitleWrap = styled.div`
   text-align: left;
   padding-right: 32px;
   padding-bottom: 4px;
-  border-bottom: 0.5px solid ${(props) => props.styling.colors.mainD || "black"};
+  border-bottom: 0.5px solid ${Style.colors.mainBorder || "black"};
   margin-bottom: 4px;
 `;
 
@@ -41,7 +44,7 @@ export const TitleWrap = styled.div`
 export const LineHeaderWrap = styled(HeaderWrap)`
   padding-bottom: 16px;
   margin-bottom: 16px;
-  border-bottom: 2px solid ${({ styling }) => styling.colors.mainD || "black"};
+  border-bottom: 2px solid ${Style.colors.mainBorder || "black"};
 `;
 export const LinesWrapper = styled.div`
   margin-bottom: calc(16px + 0.5vw);
@@ -49,10 +52,10 @@ export const LinesWrapper = styled.div`
   padding: 8px;
   cursor: pointer;
   border: 2px solid transparent;
-  border-bottom: 2px solid ${({ styling }) => styling.colors.mainD || "black"};
-  ${({ boughtNum, styling }) =>
+  border-bottom: 2px solid ${Style.colors.mainBorder || "black"};
+  ${({ boughtNum }) =>
     boughtNum > 0
-      ? "border: 2px solid " + styling.colors.mainHighlight + ";"
+      ? "border: 2px solid " + Style.colors.mainHighlight + ";"
       : ""}
 
   ${media.greaterThan("medium")`
@@ -73,7 +76,7 @@ export const Image = styled.img`
   max-height: 150px;
   width: auto;
   height: auto;
-  border: 1px solid ${({ styling }) => styling.colors.mainHighlight || "black"};
+  border: 1px solid ${Style.colors.mainHighlight || "black"};
   margin-left: 12px;
 
   ${media.greaterThan("medium")`
@@ -102,9 +105,9 @@ export const BoxContainer = styled(Card)`
   height: max-content;
   width: 240px;
   max-width: 40%;
-  ${({ unique, boughtNum, styling }) =>
+  ${({ unique, boughtNum }) =>
     unique && boughtNum > 0
-      ? "border: 2px solid " + styling.colors.mainHighlight + ";"
+      ? "border: 2px solid " + Style.colors.mainHighlight + ";"
       : ""}
 
   ${media.greaterThan("medium")`
@@ -138,7 +141,7 @@ export const ChoiceWrapper = styled.div`
   margin-top: calc(0.6rem + 0.5vw);
 `;
 export const ChoiceHeader = styled(TextSm)`
-  border-bottom: 1px solid ${(props) => props.styling.colors.mainD};
+  border-bottom: 1px solid ${Style.colors.mainBorder};
 `;
 export const PadSm = styled.div`
   margin-top: calc(8px + 0.3vw);
@@ -146,7 +149,7 @@ export const PadSm = styled.div`
 `;
 export const PadTopDiv = styled.div`
   margin-top: calc(8px + 0.3vw);
-  border-left: 1px solid ${(props) => props.styling.colors.mainD};
+  border-left: 1px solid ${Style.colors.mainBorder};
 `;
 export const PadBottom = styled.div`
   margin-bottom: calc(8px + 0.3vw);

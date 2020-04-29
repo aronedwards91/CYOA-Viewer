@@ -2,23 +2,26 @@ import React from "react";
 import styled from "styled-components";
 import media from "styled-media-query";
 
-import Data from "../../cyoadata";
+
 import { TextSmCss } from "./fontSizing";
+import Data from "../../cyoadata";
+
 const Style = Data.styling;
+const MainBorderStyle = `${Style.themeing.bordersWidth} ${Style.themeing.borderStyle}
+${Style.colors.mainBorder}`
 
 export const RedX = () => <span style={{ color: "red" }}>X</span>;
 
 export const Card = styled.div`
   border-radius: ${Style.themeing.sectionCornerRadius};
-  border: ${Style.themeing.bordersWidth} ${Style.themeing.borderStyle}
-    ${Style.colors.mainD};
+  border: ${MainBorderStyle};
   margin: calc(2rem + 2vw) calc(1rem + 1vw);
   padding: 16px;
   background: linear-gradient(
     0.15turn,
-    ${Style.colors.mainB},
-    ${Style.colors.mainA},
-    ${Style.colors.mainB}
+    ${Style.colors.bgB},
+    ${Style.colors.bgA},
+    ${Style.colors.bgB}
   );
 `;
 
@@ -29,7 +32,7 @@ export const Article3Col = styled.article`
   margin: 0 auto;
   max-width: 1000px;
   column-gap: 64px;
-  column-rule: 1px solid ${Style.colors.mainD};
+  column-rule: 1px solid ${Style.colors.mainBorder};
 `;
 
 export const Article2ColDesktop = styled.article`
@@ -39,7 +42,7 @@ export const Article2ColDesktop = styled.article`
     columns: 2 220px;
     margin: 0 auto;
     column-gap: 48px;
-    column-rule: 1px dotted ${Style.colors.mainD};
+    column-rule: 1px dotted ${Style.colors.mainBorder};
   `}
 `;
 
@@ -51,10 +54,10 @@ export const Tooltip = styled.div`
   left: 0;
   padding: 8px;
   min-width: 140px;
-  background: ${Data.styling.colors.mainA};
+  background: ${Style.colors.bgA};
   z-index: 100;
-  border: 1px solid ${Data.styling.colors.mainD};
-  border-radius: ${Data.styling.themeing.bordersWidth};
+  border: 1px solid ${Style.colors.mainBorder};
+  border-radius: ${Style.themeing.bordersWidth};
 `;
 export const TooltipWrapper = styled.div`
   position: relative;
