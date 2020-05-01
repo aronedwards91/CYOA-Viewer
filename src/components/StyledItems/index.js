@@ -2,13 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import media from "styled-media-query";
 
-
 import { TextSmCss } from "./fontSizing";
 import Data from "../../cyoadata";
 
 const Style = Data.styling;
 const MainBorderStyle = `${Style.themeing.bordersWidth} ${Style.themeing.borderStyle}
-${Style.colors.mainBorder}`
+${Style.colors.mainBorder}`;
 
 export const RedX = () => <span style={{ color: "red" }}>X</span>;
 
@@ -26,13 +25,17 @@ export const Card = styled.div`
 `;
 
 export const Article3Col = styled.article`
-  -webkit-columns: 3 180px;
-  -moz-columns: 3 180px;
-  columns: 3 180px;
+  -webkit-columns: 3 230px;
+  -moz-columns: 3 230px;
+  columns: 3 230px;
   margin: 0 auto;
-  max-width: 1000px;
-  column-gap: 64px;
+  column-gap: 32px;
   column-rule: 1px solid ${Style.colors.mainBorder};
+
+  ${media.greaterThan("medium")`
+    column-gap: 64px;
+    max-width: 80%;
+  `}
 `;
 
 export const Article2ColDesktop = styled.article`
