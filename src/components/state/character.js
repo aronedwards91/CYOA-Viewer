@@ -150,8 +150,12 @@ export function createCharStore() {
             bgB: data.styling.colors.bgB,
             mainBorder: data.styling.colors.mainBorder,
           },
+          font: {
+            fontData: data.styling.themeing.font,
+            fontIsLink: data.styling.themeing.fontIsLink,
+            fontName: data.styling.themeing.fontName,
+          },
           themeing: {
-            font: data.styling.themeing.font,
             sectionCornerRadius: data.styling.themeing.sectionCornerRadius,
             bordersWidth: data.styling.themeing.bordersWidth,
             borderStyle: data.styling.themeing.borderStyle,

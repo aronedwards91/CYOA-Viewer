@@ -70,6 +70,8 @@ const Data = {
       backgroundGradient: `darkgreen, green, lightgreen`, // String, list of choices as per css linear-gradient spec
     },
     themeing: {
+      fontName: "Celtic",
+      fontIsLink: false, // If font is given as link eg googlefonts link, make sure this is true
       font: fontb64.base64String,
       fontScaling: 1.0, // adjust font size
       sectionCornerRadius: "10px", //for curved corners, use 5~20px, for straight user 0px

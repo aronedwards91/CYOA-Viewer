@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import GlobalStyle from "./GlobalStyles";
 import "mobx-react-lite/batchingForReactDom";
+import {Helmet} from "react-helmet";
 
+import GlobalStyle from "./GlobalStyles";
+import data from "./cyoadata";
 import Layout from "./components/Layout";
 import { CharStoreProvider } from "./components/state/character";
 import { GlobalStoreProvider } from "./components/state/globals";
@@ -13,6 +15,11 @@ ReactDOM.render(
     <GlobalStyle />
     <GlobalStoreProvider>
       <CharStoreProvider>
+        <Helmet>
+          {data.styling.themeing.fontIsLink && (
+            <link href={data.styling.themeing.font} rel="stylesheet" />
+          )}
+        </Helmet>
         <Layout />
       </CharStoreProvider>
     </GlobalStoreProvider>
