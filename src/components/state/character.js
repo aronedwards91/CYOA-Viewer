@@ -138,6 +138,7 @@ export function createCharStore() {
         cyoa: data.cyoa.header.title,
         name: this.name,
         age: this.age,
+        profImg: this.profImg,
         subHeader: data.cyoa.header.subHeader || '',
         cyoaAppVersion: data.appData.appversion, 
         setting: data.cyoa.intro.introText,
