@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocalStore } from "mobx-react-lite";
 import data from "../../cyoadata";
-import {createFileFromObj} from "./exportTools";
+import { createFileFromObj } from "./exportTools";
 
 export const effectKeys = {
   profImg: "char-profimg", // imgfile
@@ -138,10 +138,25 @@ export function createCharStore() {
         cyoa: data.cyoa.header.title,
         name: this.name,
         age: this.age,
-        subHeader: data.cyoa.header.subHeader || '',
-        cyoaAppVersion: data.appData.appversion, 
+        profImg: this.profImg,
+        subHeader: data.cyoa.header.subHeader || "",
+        cyoaAppVersion: data.appData.appversion,
         setting: data.cyoa.intro.introText,
         logo: data.cyoa.header.logo,
+        styling: {
+          colors: {
+            maintext: data.styling.colors.maintext,
+            bgA: data.styling.colors.bgA,
+            bgB: data.styling.colors.bgB,
+            mainBorder: data.styling.colors.mainBorder,
+          },
+          themeing: {
+            font: data.styling.themeing.font,
+            sectionCornerRadius: data.styling.themeing.sectionCornerRadius,
+            bordersWidth: data.styling.themeing.bordersWidth,
+            borderStyle: data.styling.themeing.borderStyle,
+          },
+        },
       };
       dataObj[effectKeys.race] = this.race;
       dataObj[effectKeys.background] = this.background;
@@ -152,9 +167,9 @@ export function createCharStore() {
       dataObj[effectKeys.drawback] = this.drawbacks;
       dataObj[effectKeys.items] = this.items;
 
-      const filename = this.name !== 'Assign' ? this.name : 'backup';
+      const filename = this.name !== "Assign" ? this.name : "backup";
       createFileFromObj(dataObj, filename);
-    }
+    },
   };
 }
 
