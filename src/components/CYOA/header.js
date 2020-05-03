@@ -14,7 +14,7 @@ const Header = () => (
       <TitleBox />
     </ShowOnlyMobile>
     <MainBox>
-      <Logo alt="todo" src={data.logo} />
+      <Logo alt="logo" src={data.logo} />
       <TextWrapper>
         <ShowOnlyDesktop>
           <TitleBox />

@@ -294,7 +294,6 @@ const Items = observer(() => {
 });
 
 const InventoryItem = ({ name, desc, quantity, icon }) => {
-  // TODO icon
   return (
     <TooltipWrapper>
       <Tooltip>{desc}</Tooltip>

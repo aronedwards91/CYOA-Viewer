@@ -15,16 +15,9 @@ Data is not saved locally, but can be exported as .json file, coming is a journa
 - Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then add the string to public as a json (see example),
 - Font tip: to format export from linked site correctly to .json, use vscode's replace to remove the line endings.
 
-#### Currently includes:
-
-img embedding -<img> not css,
-
-Done: Gen Layout, Bg, font embed, header, intro, data prop drilled (for later switching), cyoa choices present, remove prop drill data
-
-Build Style Priority; string addition, inject storage reset
 
 #### TODO
-test custom build, simpler build process, design journal
+test custom build, simpler build process, design journal, extra options, 
 
 ## Building a CYOA
 
