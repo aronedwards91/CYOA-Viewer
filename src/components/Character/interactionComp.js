@@ -24,13 +24,14 @@ export const ShowEffectsBtn = ({
   isShowingChoiceEffects,
   showChoiceEffects,
   hideChoiceEffects,
+  buildHtml,
   marginBtm,
 }) =>
   isShowingChoiceEffects ? (
-    <TextBtn onClick={hideChoiceEffects} marginBtm={marginBtm}>
+    <TextBtn onClick={buildHtml} marginBtm={marginBtm}>
       <ShowOnMobSpan style={FontBold}>-</ShowOnMobSpan>
       <ShowOnDeskSpan>Hide </ShowOnDeskSpan>
-      Effects
+      Test html build
     </TextBtn>
   ) : (
     <TextBtn onClick={showChoiceEffects} marginBtm={marginBtm}>

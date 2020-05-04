@@ -1,5 +1,8 @@
 import React from "react";
 import { useLocalStore } from "mobx-react-lite";
+import BuildTextObj from "../../filebreakdown/htmlbits";
+import { createFile } from "./exportTools";
+import Data from "../../filebreakdown/jsontest";
 
 export function createGlobalStore() {
   return {
@@ -8,7 +11,17 @@ export function createGlobalStore() {
       this.isShowingChoiceEffects = true;
     },
     hideChoiceEffects() {
-      this.isShowingChoiceEffects  = false;
+      this.isShowingChoiceEffects = false;
+    },
+    buildHtml() {
+      // const b64String =
+      //   BuildTextObj.pre + BuildTextObj.json + BuildTextObj.post;
+      // const decodedData = window.atob(b64String);
+      const decodedData =
+        window.atob(BuildTextObj.pre) +
+        JSON.stringify(Data) +
+        window.atob(BuildTextObj.post);
+      createFile(decodedData, "stringjoinbuilt.html", "	text/html");
     },
   };
 }
