@@ -121,12 +121,13 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
     removeDrawback,
     addItemArray,
     removeItemArray,
+    addMisc,
+    removeMisc,
     addPoints,
     removePoints,
   } = store;
 
   switch (effectKey) {
-
     case effectKeys.profImg:
       isAdded ? setProfImg(effectData) : resetProfImg();
       break;
@@ -165,6 +166,10 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
 
     case effectKeys.items:
       isAdded ? addItemArray(effectData) : removeItemArray(effectData);
+      break;
+
+    case effectKeys.misc:
+      isAdded ? addMisc(effectData) : removeMisc(effectData);
       break;
 
     case effectKeys.points:

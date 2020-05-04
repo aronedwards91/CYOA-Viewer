@@ -42,6 +42,7 @@ export const TextPara = ({ title, value }) => (
 export const TitleDiv = styled.div`
   padding-left: ${({ nopad }) => (nopad ? "0" : "8px")};
   text-decoration: underline;
+  text-transform: capitalize;
 `;
 export const LgCharTop = styled.div`
   display: flex;
@@ -144,6 +145,7 @@ export const TextPad = styled.div`
 `;
 export const LgMobTitlePad = styled.span`
   padding-right: 16px;
+  text-transform: capitalize;
 `;
 export const InventoryWrapper = styled.div`
   display: flex;

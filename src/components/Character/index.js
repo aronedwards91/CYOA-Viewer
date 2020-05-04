@@ -1,7 +1,6 @@
 import React from "react";
 import Settings from "../../cyoadata";
 import { useCharDataStore } from "../state/character";
-import { useGlobalDataStore } from "../state/globals";
 import { observer } from "mobx-react-lite";
 
 import { ShowEffectsBtn, EditableText, CreateExport } from "./interactionComp";
@@ -64,7 +63,6 @@ const Desktop = ({ isExpanded, switchCharSize, setup }) =>
 const DesktopCompact = observer(({ switchCharSize }) => {
   const store = useCharDataStore();
   const { name, race, points, items } = store;
-  const globalStore = useGlobalDataStore();
 
   return (
     <DesktopSm>
@@ -75,47 +73,43 @@ const DesktopCompact = observer(({ switchCharSize }) => {
       <TextPad>Items: {items.length}</TextPad>
       <TitleDiv nopad>{Settings.charSetup.choicePointsFullName}</TitleDiv>
       <TextPad>{points}</TextPad>
-      <ShowEffectsBtn {...globalStore} />
+      <ShowEffectsBtn />
       <VertBtn onClick={switchCharSize}>{">"}</VertBtn>
     </DesktopSm>
   );
 });
-const DesktopFull = observer(({ switchCharSize, setup }) => {
-  const globalStore = useGlobalDataStore();
-
-  return (
-    <DesktopFullSize>
-      <DesktopScroll>
-        <LgCharTop>
-          <CharProfile />
-          <CharDetails />
-          <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
-        </LgCharTop>
-        <CharBackground />
-        <CharChallenge />
-        <CharSetting setup={setup} />
-        <Allies />
-        <Abilities />
-        <Drawbacks />
-        <AdvDrawbacks />
-        <Items />
-        <ShowEffectsBtn {...globalStore} marginBtm />
-        <CreateExport marginBtm />
+const DesktopFull = ({ switchCharSize, setup }) => (
+  <DesktopFullSize>
+    <DesktopScroll>
+      <LgCharTop>
+        <CharProfile />
+        <CharDetails />
         <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
-      </DesktopScroll>
-    </DesktopFullSize>
-  );
-});
+      </LgCharTop>
+      <CharBackground />
+      <CharChallenge />
+      <CharSetting setup={setup} />
+      <Allies />
+      <Abilities />
+      <Drawbacks />
+      <AdvDrawbacks />
+      <Items />
+      <MiscEffects />
+      <ShowEffectsBtn marginBtm />
+      <CreateExport marginBtm />
+      <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
+    </DesktopScroll>
+  </DesktopFullSize>
+);
 // Mobile Comp
 const MobTopBanner = observer(({ switchCharSize }) => {
-  const globalStore = useGlobalDataStore();
   const store = useCharDataStore();
   const { name, points } = store;
 
   return (
     <SmBox>
       <SmMobName>Name: {name}</SmMobName>
-      <ShowEffectsBtn {...globalStore} />
+      <ShowEffectsBtn />
       <SmMobPoints>
         {Settings.charSetup.choicePointsShort} {points}
       </SmMobPoints>
@@ -123,32 +117,29 @@ const MobTopBanner = observer(({ switchCharSize }) => {
     </SmBox>
   );
 });
-const MobFull = observer(({ switchCharSize, setup }) => {
-  const globalStore = useGlobalDataStore();
-
-  return (
-    <LgMobBox>
-      <LgMobScroll>
-        <LgCharTop>
-          <CharProfile />
-          <CharDetails />
-          <DropBtn onClick={switchCharSize}>~/\~</DropBtn>
-        </LgCharTop>
-        <CharBackground />
-        <CharChallenge />
-        <CharSetting setup={setup} />
-        <Allies />
-        <Abilities />
-        <AdvDrawbacks />
-        <Drawbacks />
-        <Items />
-        <ShowEffectsBtn {...globalStore} marginBtm />
-        <CreateExport />
-      </LgMobScroll>
-      <MobFloatBtm onClick={switchCharSize}>--/\--</MobFloatBtm>
-    </LgMobBox>
-  );
-});
+const MobFull = ({ switchCharSize, setup }) => (
+  <LgMobBox>
+    <LgMobScroll>
+      <LgCharTop>
+        <CharProfile />
+        <CharDetails />
+        <DropBtn onClick={switchCharSize}>~/\~</DropBtn>
+      </LgCharTop>
+      <CharBackground />
+      <CharChallenge />
+      <CharSetting setup={setup} />
+      <Allies />
+      <Abilities />
+      <AdvDrawbacks />
+      <Drawbacks />
+      <Items />
+      <MiscEffects />
+      <ShowEffectsBtn marginBtm />
+      <CreateExport />
+    </LgMobScroll>
+    <MobFloatBtm onClick={switchCharSize}>--/\--</MobFloatBtm>
+  </LgMobBox>
+);
 
 // State connected components
 const CharProfile = observer(() => {
@@ -304,5 +295,22 @@ const InventoryItem = ({ name, desc, quantity, icon }) => {
     </TooltipWrapper>
   );
 };
+
+const MiscEffects = observer(() => {
+  const { misc } = useCharDataStore();
+
+  return Object.keys(misc).map((miscKey) =>
+    misc[miscKey].length > 0 ? (
+      <>
+        <TitleDiv>
+          <TextMd>{miscKey}</TextMd>
+        </TitleDiv>
+        {misc[miscKey].map((miscEffect) => (
+          <TextBox title={miscEffect.name + ": "} value={miscEffect.desc} />
+        ))}
+      </>
+    ) : null
+  );
+});
 
 export default Character;

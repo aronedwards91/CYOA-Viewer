@@ -10,13 +10,16 @@ Data is not saved locally, but can be exported as .json file, coming is a journa
 
 - WHY ; a standalone .html is easily shareable, cross platform, also for safety modern browser don't let html files natively pull from your drive (security), so any linked files wouldn't be read.
 
-- Image linked will auto embed up to 6MB (over 6 is left out just as a warning as this creates very slow & large html files, most images are small and only require around 300x400 for big screens.)
+- Image linked will auto embed up to 6MB (over 6 is left out just as a warning as this creates very slow & large html files, most images are small and only require around 300x400 for big screens, but for smaller file sizes may be best to go lower.)
 
 - Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then add the string to public as a json (see example),
 - Font tip: to format export from linked site correctly to .json, use vscode's replace to remove the line endings.
 
 
 #### TODO
+-discount logic
+-custom coinage
+-small boxes
 test custom build, simpler build process, design journal, extra options, 
 
 ## Building a CYOA

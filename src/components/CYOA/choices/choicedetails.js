@@ -84,12 +84,19 @@ const ChoiceOptions = ({ type, value, styling }) => {
         return (
           <DivSectionWrapper styling={styling}>
             <DivText value={"ITEM; " + item.name}>
-              {item.icon && <ImgSm src={item.icon} alt="icon error" padleft/>}
+              {item.icon && <ImgSm src={item.icon} alt="icon error" padleft />}
             </DivText>
             <DivText value={item.desc + quantity} />
           </DivSectionWrapper>
         );
       });
+    case effectKeys.misc:
+      return (
+        <DivSectionWrapper styling={styling}>
+          <DivText value={`[${value.key}] ` + value.name} />
+          <DivText value={value.desc} />
+        </DivSectionWrapper>
+      );
     case effectKeys.points:
       return null;
     default:

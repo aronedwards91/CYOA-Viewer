@@ -13,6 +13,7 @@ export const effectKeys = {
   advDrawback: "char-advdrawback", // [name]string, [adv]string, [drawback]string
   drawback: "char-drawback", // // [name]string, [desc]string
   items: "inv-items", // must be an array , [icon]img-Base64.jpg
+  misc: "misc", // [key] string (effects will be collected under misc), [name]String, [desc]String
   points: "cost", // number
 };
 
@@ -126,6 +127,35 @@ export function createCharStore() {
       });
       this.items = OldArrayClone;
     },
+    misc: {
+      spell: [
+        {
+          name: "fireball",
+          desc: "fire n shit",
+        },
+      ],
+    },
+    addMisc(newMisc) {
+      if (newMisc.key) {
+        if (this.misc[newMisc.key]) {
+          this.misc[newMisc.key].push(newMisc);
+        } else {
+          this.misc[newMisc.key] = [newMisc];
+        }
+      } else {
+        console.error("misc effect invalid, must have a key");
+      }
+    },
+    removeMisc(removeMisc) {
+      if (removeMisc.key && this.misc[removeMisc.key]) {
+        const indexOfRemoved = this.misc[removeMisc.key].findIndex(
+          (i) => i.name === removeMisc.name
+        );
+        if (indexOfRemoved >= 0) {
+          this.misc[removeMisc.key].splice(indexOfRemoved, 1);
+        }
+      }
+    },
     points: data.charSetup.choicePoints,
     addPoints(number) {
       this.points = this.points + number;
@@ -170,6 +200,7 @@ export function createCharStore() {
       dataObj[effectKeys.advDrawback] = this.advDrawback;
       dataObj[effectKeys.drawback] = this.drawbacks;
       dataObj[effectKeys.items] = this.items;
+      dataObj[effectKeys.misc] = this.misc;
 
       const filename = this.name !== "Assign" ? this.name : "backup";
       createFileFromObj(dataObj, filename);

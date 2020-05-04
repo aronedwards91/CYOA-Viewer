@@ -43,7 +43,7 @@ import knifeIcon from "../public/icons/knife-icon.png";
 import bow from "../public/icons/bow.png";
 
 const Data = {
-  appData:{
+  appData: {
     appversion: 2, //Do not adjust
   },
   styling: {
@@ -812,6 +812,59 @@ const Data = {
               "char-drawback": {
                 name: "Power hungry",
                 desc: "Untrusted by those pure of heart.",
+              },
+            },
+          },
+        ],
+      },
+      {
+        name: "7/ Skills",
+        description:
+          "You had a home, your past has given you many strengths to build from.",
+        style: "boxes",
+        buy: {
+          //Limit the amount you can buy
+          unique: true, // if unique, can only be selected once, can have multiple unique items
+          min: 1, //Not yet implemented
+          max: 20,
+        },
+        choices: [
+          {
+            name: "Capable Fighter",
+            uid: "fighter",
+            description: "Seasoned in battle.",
+            effect: {
+              cost: 20,
+              misc: {
+                key: "skill",
+                name: "Overwhelming Bloodlust",
+                desc: "Once angered dangerous even to allies.",
+              },
+            },
+          },
+          {
+            name: "Tracker",
+            uid: "tracker",
+            description: "Seasoned hunter.",
+            effect: {
+              cost: 20,
+              misc: {
+                key: "knowledge",
+                name: "Tracking",
+                desc: "Able to track any beasts.",
+              },
+            },
+          },
+          {
+            name: "Archer",
+            uid: "archer",
+            description: "Capable archer.",
+            effect: {
+              cost: 20,
+              misc: {
+                key: "skill",
+                name: "Tracking",
+                desc: "Your home's best Bowman.",
               },
             },
           },
