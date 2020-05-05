@@ -110,7 +110,6 @@ const Data = {
           //The choice options available for this selection, may also include, requires (only allowed if char has given uid), discount ( if char has uid, costs 50% less)
           {
             name: "Human Hunter",
-            uid: "humanhunter", // used for effecting other choices via discount / limiting
             description:
               "Your were raised in a small village in a poor keeptown, you spent your days hunting foraging and tending to your fields",
             img: humanhunter,
@@ -144,7 +143,6 @@ const Data = {
           },
           {
             name: "Human Warrior",
-            uid: "humanwarrior",
             description:
               "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land. Your fearlessness in battle and destruction of corrupted beasts has made you an ally of the hawks with whom you can speak.",
             img: humanwarriorprof,
@@ -181,7 +179,6 @@ const Data = {
           },
           {
             name: "Dwarf Scout",
-            uid: "dwarfscout",
             description:
               "One of the few dwarves who is comfortable outdoors. Your life of exploration and has made you cunning and wise to the dangers of the forest, few can catch such a swift and cap[able woodsman as yourself.",
             img: dwarfscout,
@@ -226,7 +223,6 @@ const Data = {
           },
           {
             name: "Dwarf Guardian",
-            uid: "dwarfguardian",
             description:
               "Dwarf guardians play the vital role of protecting the rare resource that is the Dwarf Queens. Few in number and slow to come to term, a dwarf birth is a great celebration, and nothing is more closely guarded than the powerful and important dwarf queens, they who decide shall bring in the next generation.",
             img: dwarfguardian,
@@ -280,7 +276,6 @@ const Data = {
         choices: [
           {
             name: "Bloody Dagger",
-            uid: "bloodydagger",
             description:
               "A ornate dagger, it's blade seems freshly wet with blood, no matter how often it is wiped. It calls to it's owner forever hoping to return to it's masters hand, but to do so would plunge the world into darkness.",
             img: daggerbloody,
@@ -305,7 +300,6 @@ const Data = {
           },
           {
             name: "Greystone Amulet of Beyin` Parak",
-            uid: "greystoneamulet",
             description:
               "A beautiful amulet, wrought in silver with many fine gems. It seems to hum with a gentle tune, it seems to give you strength.",
             img: amuletgreystone,
@@ -330,7 +324,6 @@ const Data = {
           },
           {
             name: "Waters of Omsak Yashniir",
-            uid: "watersofomsak",
             description:
               "A runed leather waterskin, it feels heavy, but smells sweet.",
             img: waterskinomsak,
@@ -368,7 +361,6 @@ const Data = {
         choices: [
           {
             name: "Erred-Mhuur",
-            uid: "erredmhuur",
             description:
               "Erred-Mhuur hungers for the flesh of sentient beasts, it burns with anguish, only seeking to destroy that which it hates above all else. In it's anger it has reforged the beasts of the wood that have come under it's influence, dark & blood loving they move now as shadows branded in glowing red runes, hunting and preying on all they can.",
             img: erredmhuur,
@@ -382,7 +374,6 @@ const Data = {
           },
           {
             name: "The Haruspex",
-            uid: "haruspex",
             description:
               "The dark gods have been forgotten by those they helped make. To a god their is no greater disrespect, for this act they have sent the haruspex, whose mere prescence is to invite catastrophy. Disease, plagues, civil war all spread as he walks the land, he only walks and smiles as the land plunges into darkness. He is protected by four great heroes who served the will of the old gods, Albrith of the Axe, Eldrith of the Spear, Dantrith of the Blade & Ellena of the bow.",
             img: haruspex,
@@ -397,7 +388,6 @@ const Data = {
           },
           {
             name: "The Sandman",
-            uid: "sandman",
             description:
               "The Sandman hunger for hope, and his dark scuttling slaves hunger for flesh. traversing the dreamscape he subverts and darkens dreams, sucking the hope from people in their slumber, turning them into tragic figures, lacking the energy and courage to take up arms against the scuttling feeding horde.",
             img: sandman,
@@ -412,7 +402,6 @@ const Data = {
           },
           {
             name: "Tribe of Trolls",
-            uid: "trolls",
             description:
               "Angry, violent & strong, the Troll tribe has expanded far beyond it's means and now seeks new lands to plunder. Incapable farmers, the plentiful and well mainted farms of human and dwarf alike offer a tempting reward. Tales are heard already of small farmsteads overrun by the brutal creatures.",
             img: Troll,
@@ -427,7 +416,6 @@ const Data = {
           },
           {
             name: "The Lost Wildmen",
-            uid: "wildmen",
             description:
               "Burned out the Allied council for their dark heretical practices, they have grown hungry for revenge, this hatred has allowed the dark rituals to penetrate thei minds further. Blood magic and necromancy, plus wild bloodlust has made them a terrible enemy, but their disorganisation has made them inneffective in pitched battle, now they move toward guerrilla action till their growing number will be too strong to hold back.",
             img: wildman,
@@ -455,11 +443,12 @@ const Data = {
         choices: [
           {
             name: "Climbers Satchel",
-            uid: "climbersatchel",
             description:
               "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
             img: satchel,
             effect: {
+              discount: "Human Hunter",
+              discountVal: 20,
               cost: 50,
               "inv-items": [
                 {
@@ -473,7 +462,6 @@ const Data = {
           },
           {
             name: "Large bottle of Emig's Honeysap",
-            uid: "honeysap",
             description:
               "A bottle containing three portions of a rare ointment, blessed by a kind nypmh, allows you to slowly regenerate from almost mortal wounds over the course of a few days.",
             img: potion,
@@ -491,7 +479,6 @@ const Data = {
           },
           {
             name: "Runed Blade",
-            uid: "blade",
             description:
               "An ancient family heirloom, sharp true and deadly, it makes short work of any hide or light armor.",
             img: blade,
@@ -509,7 +496,6 @@ const Data = {
           },
           {
             name: "Ornate Helm",
-            uid: "helm",
             description:
               "A wonderous piece of work, striking and enobling, whilst also a fine and effective piece of armor.",
             img: helm,
@@ -527,7 +513,6 @@ const Data = {
           },
           {
             name: "Mages Lantern",
-            uid: "lantern",
             description:
               "burns brightly and confers a sense of comfort and warmth during cold nights. However may attract things best left unattracted.",
             img: lantern,
@@ -545,7 +530,6 @@ const Data = {
           },
           {
             name: "Noble Mount",
-            uid: "horse",
             description:
               "the horse of Erenbiir's line are powerful warhorses, unflinching in the heat of battle and loyal as they come. He would appreciate you giving him a name.",
             img: horse,
@@ -563,7 +547,6 @@ const Data = {
           },
           {
             name: "Shield of the Blue Tree",
-            uid: "shield",
             description:
               "The shied of the blue tree is worn and old, but still an arrow or blade is yet to pierce its mighty bulwark. Legends say even magic may be defected by it's true and solid power.",
             img: shield,
@@ -582,7 +565,6 @@ const Data = {
           },
           {
             name: "Mechanical Talisman",
-            uid: "talisman",
             description:
               "Tells of the approachment of menacing forces and in which direction they lay.",
             img: talisman,
@@ -600,7 +582,6 @@ const Data = {
           },
           {
             name: "Dark Spear",
-            uid: "spear",
             description:
               "A Dark spear, filled with anger and hate, can break through the toughest armor, but will slowly fill it's handler with a brooding darkness.",
             img: spear,
@@ -618,7 +599,6 @@ const Data = {
           },
           {
             name: "Burning Ward",
-            uid: "ward",
             description:
               "A Fiery magical torch, burns with a dark red light, but when meditate nearby it will create a protective shield.",
             img: ward,
@@ -636,7 +616,6 @@ const Data = {
           },
           {
             name: "Loyal Dire Wolf",
-            uid: "wolf",
             description:
               "A Dire wolf you raised from a pup, intensiley loyal. Most sentient folk are incredibly fearful of such beasts.",
             img: wolf,
@@ -654,7 +633,6 @@ const Data = {
           },
           {
             name: "Ancient Tome",
-            uid: "tome",
             description:
               "An ancient tome that tells of the dark forces that will come to plague this land, offers some puzzling & vague advice about possible weaknesses and manners by which it can be defeated.",
             img: tome,
@@ -676,31 +654,30 @@ const Data = {
         name: "5/ Allies",
         description:
           "there are many who are willing and able to help you on your journey.",
-        style: "boxes",
+        style: "lines",
         buy: {
-          unique: true,
+          unique: false,
           min: 1,
-          max: 3,
+          max: 4,
         },
         choices: [
           {
             name: "Brothers of the Axe",
-            uid: "brothersaxe",
             description:
               "Your brothers in battle and blood, ready to lay down their life in battle alongside you. They number in 10, and are renowed for their feats of battle.",
             img: brothers,
             effect: {
-              cost: 200,
+              cost: 150,
               "char-allies": {
                 name: "Call Brothers of the Axe",
                 desc:
-                  "Your brothers in arms are always ready for a fight. They number in 10, and are renowed for their feats of battle.",
+                  "Your brothers in arms are always ready for a fight, and are renowed for their feats of battle.",
+                quantity: 5,
               },
             },
           },
           {
             name: "Dwarven Mercenaries",
-            uid: "dwarfmercenaries",
             description:
               "Capable and strong, but not entirely fearless, nor particularly loyal.",
             img: dwarves,
@@ -709,12 +686,12 @@ const Data = {
               "char-allies": {
                 name: "Dwarven Mercenaries",
                 desc: "Strong, but not fearless or loyal.",
+                quantity: 4,
               },
             },
           },
           {
             name: "Greater Eagle",
-            uid: "greatereagle",
             description:
               "One of the greater eagles is in your debt, but his honor will be sullied if you call him in aid for reason other than a time of dire need.",
             img: eagle,
@@ -724,6 +701,7 @@ const Data = {
                 name: "Call Brothers of the Axe",
                 desc:
                   "Your brothers in arms are always ready for a fight. They number in 10, and are renowed for their feats of battle.",
+                quantity: 1,
               },
               "inv-items": [
                 {
@@ -737,7 +715,6 @@ const Data = {
           },
           {
             name: "Forest Rangers",
-            uid: "rangers",
             description:
               "Great & capable hunters, the rangers can guide and protect you their impressive bow skills even in the darkest & most perilous woods.",
             img: rangers,
@@ -746,12 +723,12 @@ const Data = {
               "char-allies": {
                 name: "Forest Rangers",
                 desc: "Capable forest guides, strong archers.",
+                quantity: 8,
               },
             },
           },
           {
             name: "Wilderness Mage",
-            uid: "mage",
             description:
               "A strange but powerful mage has offered to take you under his wing, he has great power of natural forces and druidic summonings. he is however not entirely sane and has a tendency to charge ahead headless of danger.",
             img: wildmage,
@@ -760,6 +737,7 @@ const Data = {
               "char-allies": {
                 name: "Wilderness Mage",
                 desc: "powerful druid mage, dangerously fearless.",
+                quantity: 1,
               },
             },
           },
@@ -778,7 +756,6 @@ const Data = {
         choices: [
           {
             name: "Overwhelming Bloodlust",
-            uid: "bloodlust",
             description:
               "Your lust for blood makes you a dangerous enemy, but also a dangerous Ally.",
             effect: {
@@ -791,7 +768,6 @@ const Data = {
           },
           {
             name: "Power hungry",
-            uid: "powerlust",
             description:
               "Your desire for heroics stems from a lust for power & glory, those pure of heart can see your motivation.",
             effect: {
@@ -804,7 +780,6 @@ const Data = {
           },
           {
             name: "Blind",
-            uid: "blind",
             description:
               "Unable to see like normal men you must rely on your other senses, which though enhanced do not aid in your ability to navigate quiet places.",
             effect: {
@@ -831,7 +806,6 @@ const Data = {
         choices: [
           {
             name: "Capable Fighter",
-            uid: "fighter",
             description: "Seasoned in battle.",
             effect: {
               cost: 20,
@@ -839,12 +813,12 @@ const Data = {
                 key: "skill",
                 name: "Overwhelming Bloodlust",
                 desc: "Once angered dangerous even to allies.",
+                quantity: 1,
               },
             },
           },
           {
             name: "Tracker",
-            uid: "tracker",
             description: "Seasoned hunter.",
             effect: {
               cost: 20,
@@ -852,12 +826,12 @@ const Data = {
                 key: "knowledge",
                 name: "Tracking",
                 desc: "Able to track any beasts.",
+                quantity: 1,
               },
             },
           },
           {
             name: "Archer",
-            uid: "archer",
             description: "Capable archer.",
             effect: {
               cost: 20,
@@ -865,6 +839,7 @@ const Data = {
                 key: "skill",
                 name: "Tracking",
                 desc: "Your home's best Bowman.",
+                quantity: 1,
               },
             },
           },

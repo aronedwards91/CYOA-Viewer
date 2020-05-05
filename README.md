@@ -17,8 +17,9 @@ Data is not saved locally, but can be exported as .json file, coming is a journa
 
 
 #### TODO
+-multiple deselect fix
 -discount logic
--custom coinage
+-custom buy, multiple options
 -small boxes
 test custom build, simpler build process, design journal, extra options, 
 

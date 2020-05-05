@@ -203,7 +203,10 @@ const Allies = observer(() => {
         </TitleDiv>
       )}
       {allies.map((ally) => (
-        <TextBox title={"> " + ally.name + " : "} value={ally.desc} />
+        <TextBox
+          title={"> " + ally.name + " : "}
+          value={`${ally.desc} ${ally.quantity} in number.`}
+        />
       ))}
     </>
   );
@@ -264,6 +267,7 @@ const Drawbacks = observer(() => {
 const Items = observer(() => {
   const store = useCharDataStore();
   const { items } = store;
+
   return (
     <>
       <TitleDiv>
@@ -306,7 +310,10 @@ const MiscEffects = observer(() => {
           <TextMd>{miscKey}</TextMd>
         </TitleDiv>
         {misc[miscKey].map((miscEffect) => (
-          <TextBox title={miscEffect.name + ": "} value={miscEffect.desc} />
+          <TextBox
+            title={miscEffect.name + ": "}
+            value={`${miscEffect.desc} x${miscEffect.quantity}`}
+          />
         ))}
       </>
     ) : null

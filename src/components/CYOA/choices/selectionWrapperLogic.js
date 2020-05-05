@@ -19,7 +19,7 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData }) => {
           tempArray[arrayIndex] = 1;
           setBoughtArr(tempArray);
           setNumBought(numBought + 1);
-          RunAddEffects(selectionData.choices[arrayIndex].effect, store);
+          RunAddEffects(selectionData.choices[arrayIndex].effect, store, true);
         } else {
           window.alert("No more of that group of selections can be taken");
           setErrorMax(true);
@@ -29,34 +29,34 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData }) => {
         tempArray[arrayIndex] = 0;
         setBoughtArr(tempArray);
         setNumBought(numBought - 1);
-        RunRemoveEffects(selectionData.choices[arrayIndex].effect, store);
+        RunRemoveEffects(selectionData.choices[arrayIndex].effect, store, true);
       }
     } else if (unique) {
       if (boughtDataArr[arrayIndex] === 0) {
         // Remove effects from already selected Items
         boughtDataArr.forEach((value, index) => {
           if (value === 1 && index !== arrayIndex) {
-            RunRemoveEffects(selectionData.choices[index].effect, store);
+            RunRemoveEffects(selectionData.choices[index].effect, store, true);
           }
         });
         // switches item to selected item
         const tempArray = initArray.slice(0);
         tempArray[arrayIndex] = 1;
         setBoughtArr(tempArray);
-        RunAddEffects(selectionData.choices[arrayIndex].effect, store);
+        RunAddEffects(selectionData.choices[arrayIndex].effect, store, true);
       } else if (boughtDataArr[arrayIndex] === 1) {
         const tempArray = initArray.slice(0);
         setBoughtArr(tempArray);
-        RunRemoveEffects(selectionData.choices[arrayIndex].effect, store);
+        RunRemoveEffects(selectionData.choices[arrayIndex].effect, store, true);
       }
     } else {
-      // Non Unique Logic
+      // Non Unique Add Logic
       if (numBought < MaxBuy) {
         const tempArray = boughtDataArr.slice(0);
         tempArray[arrayIndex] = tempArray[arrayIndex] + 1;
         setBoughtArr(tempArray);
         setNumBought(numBought + 1);
-        RunAddEffects(selectionData.choices[arrayIndex].effect, store);
+        RunAddEffects(selectionData.choices[arrayIndex].effect, store, false);
       } else {
         window.alert("No more of that group of selections can be taken");
         setErrorMax(true);
@@ -64,13 +64,13 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData }) => {
     }
   };
   const choiceUnSelected = (arrayIndex) => {
-    // Unselect for Non-unique items
+    // Unselect/remove for Non-unique items
     if (boughtDataArr[arrayIndex] > 0) {
       const tempArray = boughtDataArr.slice(0);
       tempArray[arrayIndex] = boughtDataArr[arrayIndex] - 1;
       setBoughtArr(tempArray);
       setNumBought(numBought - 1);
-      RunRemoveEffects(selectionData.choices[arrayIndex].effect, store);
+      RunRemoveEffects(selectionData.choices[arrayIndex].effect, store, false);
     } else {
       window.alert("ERROR: All already unselected");
     }
@@ -88,18 +88,18 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData }) => {
   );
 };
 
-const RunAddEffects = (effectsObj, store) => {
+const RunAddEffects = (effectsObj, store, isUnique) => {
   Object.keys(effectsObj).forEach((effectKey) => {
-    EffectsSwitch(effectKey, effectsObj[effectKey], store, true);
+    EffectsSwitch(effectKey, effectsObj[effectKey], store, true, isUnique);
   });
 };
-const RunRemoveEffects = (effectsObj, store) => {
+const RunRemoveEffects = (effectsObj, store, isUnique) => {
   Object.keys(effectsObj).forEach((effectKey) => {
-    EffectsSwitch(effectKey, effectsObj[effectKey], store, false);
+    EffectsSwitch(effectKey, effectsObj[effectKey], store, false, isUnique);
   });
 };
 
-const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
+const EffectsSwitch = (effectKey, effectData, store, isAdded, isUnique) => {
   const {
     setProfImg,
     resetProfImg,
@@ -144,10 +144,6 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
       isAdded ? setBackground(effectData) : resetBackground();
       break;
 
-    case effectKeys.allies:
-      isAdded ? addAlly(effectData) : removeAlly(effectData);
-      break;
-
     case effectKeys.challenge:
       isAdded ? setChallenge(effectData) : resetChallenge();
       break;
@@ -162,6 +158,10 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
 
     case effectKeys.drawback:
       isAdded ? addDrawback(effectData) : removeDrawback(effectData);
+      break;
+
+    case effectKeys.allies:
+      isAdded ? addAlly(effectData) : removeAlly(effectData);
       break;
 
     case effectKeys.items:

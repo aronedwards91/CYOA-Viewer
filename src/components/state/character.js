@@ -4,17 +4,22 @@ import data from "../../cyoadata";
 import { createFileFromObj } from "./exportTools";
 
 export const effectKeys = {
+  // Unique, only added to unique buy choices
   profImg: "char-profimg", // imgfile
   race: "body-race", // string
   background: "char-background", // [name]string, [desc]string
   challenge: "char-challenge", // [name]string, [desc]string
-  allies: "char-allies", // [name]string, [desc]string
   abilities: "body-ability", // [name]string, [power]string
   advDrawback: "char-advdrawback", // [name]string, [adv]string, [drawback]string
   drawback: "char-drawback", // // [name]string, [desc]string
+  // Multiple - have a quantity
+  allies: "char-allies", // [name]string, [desc]string
   items: "inv-items", // must be an array , [icon]img-Base64.jpg
   misc: "misc", // [key] string (effects will be collected under misc), [name]String, [desc]String
+  // Not exported - costing logic
   points: "cost", // number
+  discount: "discount", // String
+  discountVal: "discountVal", // number
 };
 
 export function createCharStore() {
@@ -64,16 +69,6 @@ export function createCharStore() {
         desc: null,
       };
     },
-    allies: [],
-    addAlly(newAlly) {
-      this.allies.push(newAlly);
-    },
-    removeAlly(removedAlly) {
-      const indexOfRemoved = this.allies.findIndex(
-        (i) => i.name === removedAlly.name
-      );
-      this.allies.splice(indexOfRemoved, 1);
-    },
     abilities: [],
     addAbility(newAbility) {
       this.abilities.push(newAbility);
@@ -84,6 +79,7 @@ export function createCharStore() {
       );
       this.abilities.splice(indexOfRemoved, 1);
     },
+
     advDrawback: [],
     addAdvDrawback(newAdvDrawback) {
       this.advDrawback.push(newAdvDrawback);
@@ -104,6 +100,32 @@ export function createCharStore() {
       );
       this.drawbacks.splice(indexOfRemoved, 1);
     },
+
+    // Multiple
+    allies: [],
+    addAlly(newAlly) {
+      const indexOfExisting = this.allies.findIndex(
+        (i) => i.name === newAlly.name
+      );
+      if (indexOfExisting === -1) {
+        this.allies.push(newAlly);
+      } else {
+        this.allies[indexOfExisting].quantity =
+          newAlly.quantity + this.allies[indexOfExisting].quantity;
+      }
+    },
+    removeAlly(removedAlly) {
+      const indexOfRemoved = this.allies.findIndex(
+        (i) => i.name === removedAlly.name
+      );
+      if (this.allies[indexOfRemoved].quantity > removedAlly.quantity) {
+        this.allies[indexOfRemoved].quantity =
+          this.allies[indexOfRemoved].quantity - removedAlly.quantity;
+      } else {
+        this.allies.splice(indexOfRemoved, 1);
+      }
+    },
+
     items: [],
     addItemArray(itemsArray) {
       itemsArray.forEach((item) => {
@@ -113,7 +135,8 @@ export function createCharStore() {
         if (indexOfRemoved === -1) {
           this.items.push(item);
         } else {
-          this.items[indexOfRemoved].quantity++;
+          this.items[indexOfRemoved].quantity =
+            this.items[indexOfRemoved].quantity + item.quantity;
         }
       });
     },
@@ -123,22 +146,38 @@ export function createCharStore() {
         const indexOfRemoved = OldArrayClone.findIndex(
           (i) => i.name === item.name
         );
-        OldArrayClone.splice(indexOfRemoved, 1);
+        if (OldArrayClone[indexOfRemoved].quantity > item.quantity) {
+          OldArrayClone[indexOfRemoved].quantity =
+            OldArrayClone[indexOfRemoved].quantity - item.quantity;
+        } else {
+          OldArrayClone.splice(indexOfRemoved, 1);
+        }
       });
       this.items = OldArrayClone;
     },
+
     misc: {
-      spell: [
+      key: [
         {
           name: "fireball",
           desc: "fire n shit",
+          quantity: 1,
         },
       ],
     },
     addMisc(newMisc) {
       if (newMisc.key) {
         if (this.misc[newMisc.key]) {
-          this.misc[newMisc.key].push(newMisc);
+          const indexOfExisting = this.misc[newMisc.key].findIndex(
+            (i) => i.name === newMisc.name
+          );
+          if (indexOfExisting === -1) {
+            this.misc[newMisc.key].push(newMisc);
+          } else {
+            this.misc[newMisc.key][indexOfExisting].quantity =
+              newMisc.quantity +
+              this.misc[newMisc.key][indexOfExisting].quantity;
+          }
         } else {
           this.misc[newMisc.key] = [newMisc];
         }
@@ -147,15 +186,22 @@ export function createCharStore() {
       }
     },
     removeMisc(removeMisc) {
-      if (removeMisc.key && this.misc[removeMisc.key]) {
+      if (removeMisc.key && this.misc[removeMisc.key].length > 0) {
         const indexOfRemoved = this.misc[removeMisc.key].findIndex(
           (i) => i.name === removeMisc.name
         );
-        if (indexOfRemoved >= 0) {
+        const currentQuantity = this.misc[removeMisc.key][indexOfRemoved]
+          .quantity;
+        if (currentQuantity > removeMisc.quantity) {
+          this.misc[removeMisc.key][indexOfRemoved].quantity =
+            currentQuantity - removeMisc.quantity;
+        } else if (indexOfRemoved >= 0) {
           this.misc[removeMisc.key].splice(indexOfRemoved, 1);
         }
       }
     },
+
+    // Costing, discounts
     points: data.charSetup.choicePoints,
     addPoints(number) {
       this.points = this.points + number;
@@ -163,6 +209,22 @@ export function createCharStore() {
     removePoints(number) {
       this.points = this.points - number;
     },
+
+    choicesTaken: ["test"],
+    addCid(choiceName) {
+      this.choicesTaken.push(choiceName);
+    },
+    removeCid(choiceName) {
+      const index = this.choicesTaken.indexOf(choiceName);
+      if (index >= 0) {
+        this.choicesTaken.splice(index, 1);
+      }
+    },
+    checkCid(choiceName) {
+      return this.choicesTaken.indexOf(choiceName) >= 0;
+    },
+
+    // Tools
     createbackup() {
       const dataObj = {
         cyoa: data.cyoa.header.title,
