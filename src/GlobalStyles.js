@@ -4,13 +4,16 @@ import data from "./cyoadata";
 
 const GlobalStyle = createGlobalStyle`
   @font-face{
-    font-family: 'Celtic';
-    src: url(data:font/ttf;base64,${data.styling.themeing.font} ) format('truetype');
+    font-family: '${data.styling.themeing.fontName}';
+    ${
+      !data.styling.themeing.fontIsLink &&
+      `src: url(data:font/ttf;base64,${data.styling.themeing.font} ) format('truetype');`
+    }
   }
 
   body {
     margin: 0;
-    font-family: 'Celtic', sans-serif;
+    font-family: '${data.styling.themeing.fontName}', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

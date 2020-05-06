@@ -109,9 +109,13 @@ export const BoxContainer = styled(Card)`
     unique && boughtNum > 0
       ? "border: 2px solid " + Style.colors.mainHighlight + ";"
       : ""}
+  ${({ small }) => small && `max-width: 30%; margin: 4px;`}
 
   ${media.greaterThan("medium")`
     max-width: 380px;
+    ${({ small }) =>
+      small &&
+      `max-width: 200px; margin: calc(1rem + 1vw) calc(0.5rem + 0.3vw);`}
   `}
 `;
 export const LinesOverlay = styled.div`

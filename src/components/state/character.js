@@ -1,19 +1,26 @@
 import React from "react";
 import { useLocalStore } from "mobx-react-lite";
 import data from "../../cyoadata";
-import {createFileFromObj} from "./exportTools";
+import { createFileFromObj } from "./exportTools";
 
 export const effectKeys = {
+  // Unique, only added to unique buy choices
   profImg: "char-profimg", // imgfile
   race: "body-race", // string
   background: "char-background", // [name]string, [desc]string
   challenge: "char-challenge", // [name]string, [desc]string
-  allies: "char-allies", // [name]string, [desc]string
   abilities: "body-ability", // [name]string, [power]string
   advDrawback: "char-advdrawback", // [name]string, [adv]string, [drawback]string
   drawback: "char-drawback", // // [name]string, [desc]string
+  discountid: "discountid", // String, discounts check if selected
+  // Multiple - have a quantity
+  allies: "char-allies", // [name]string, [desc]string
   items: "inv-items", // must be an array , [icon]img-Base64.jpg
+  misc: "misc", // [key] string (effects will be collected under misc), [name]String, [desc]String
+  // Not exported - costing logic
   points: "cost", // number
+  discount: "discount", // String
+  discountVal: "discountVal", // number
 };
 
 export function createCharStore() {
@@ -63,16 +70,6 @@ export function createCharStore() {
         desc: null,
       };
     },
-    allies: [],
-    addAlly(newAlly) {
-      this.allies.push(newAlly);
-    },
-    removeAlly(removedAlly) {
-      const indexOfRemoved = this.allies.findIndex(
-        (i) => i.name === removedAlly.name
-      );
-      this.allies.splice(indexOfRemoved, 1);
-    },
     abilities: [],
     addAbility(newAbility) {
       this.abilities.push(newAbility);
@@ -83,6 +80,7 @@ export function createCharStore() {
       );
       this.abilities.splice(indexOfRemoved, 1);
     },
+
     advDrawback: [],
     addAdvDrawback(newAdvDrawback) {
       this.advDrawback.push(newAdvDrawback);
@@ -103,6 +101,32 @@ export function createCharStore() {
       );
       this.drawbacks.splice(indexOfRemoved, 1);
     },
+
+    // Multiple
+    allies: [],
+    addAlly(newAlly) {
+      const indexOfExisting = this.allies.findIndex(
+        (i) => i.name === newAlly.name
+      );
+      if (indexOfExisting === -1) {
+        this.allies.push(newAlly);
+      } else {
+        this.allies[indexOfExisting].quantity =
+          newAlly.quantity + this.allies[indexOfExisting].quantity;
+      }
+    },
+    removeAlly(removedAlly) {
+      const indexOfRemoved = this.allies.findIndex(
+        (i) => i.name === removedAlly.name
+      );
+      if (this.allies[indexOfRemoved].quantity > removedAlly.quantity) {
+        this.allies[indexOfRemoved].quantity =
+          this.allies[indexOfRemoved].quantity - removedAlly.quantity;
+      } else {
+        this.allies.splice(indexOfRemoved, 1);
+      }
+    },
+
     items: [],
     addItemArray(itemsArray) {
       itemsArray.forEach((item) => {
@@ -112,7 +136,8 @@ export function createCharStore() {
         if (indexOfRemoved === -1) {
           this.items.push(item);
         } else {
-          this.items[indexOfRemoved].quantity++;
+          this.items[indexOfRemoved].quantity =
+            this.items[indexOfRemoved].quantity + item.quantity;
         }
       });
     },
@@ -122,17 +147,100 @@ export function createCharStore() {
         const indexOfRemoved = OldArrayClone.findIndex(
           (i) => i.name === item.name
         );
-        OldArrayClone.splice(indexOfRemoved, 1);
+        if (OldArrayClone[indexOfRemoved].quantity > item.quantity) {
+          OldArrayClone[indexOfRemoved].quantity =
+            OldArrayClone[indexOfRemoved].quantity - item.quantity;
+        } else {
+          OldArrayClone.splice(indexOfRemoved, 1);
+        }
       });
       this.items = OldArrayClone;
     },
-    points: data.charSetup.choicePoints,
-    addPoints(number) {
-      this.points = this.points + number;
+
+    misc: {
+      key: [
+        {
+          name: "fireball",
+          desc: "fire n shit",
+          quantity: 1,
+        },
+      ],
     },
-    removePoints(number) {
-      this.points = this.points - number;
+    addMisc(newMisc) {
+      if (newMisc.key) {
+        if (this.misc[newMisc.key]) {
+          const indexOfExisting = this.misc[newMisc.key].findIndex(
+            (i) => i.name === newMisc.name
+          );
+          if (indexOfExisting === -1) {
+            this.misc[newMisc.key].push(newMisc);
+          } else {
+            this.misc[newMisc.key][indexOfExisting].quantity =
+              newMisc.quantity +
+              this.misc[newMisc.key][indexOfExisting].quantity;
+          }
+        } else {
+          this.misc[newMisc.key] = [newMisc];
+        }
+      } else {
+        console.error("misc effect invalid, must have a key");
+      }
     },
+    removeMisc(removeMisc) {
+      if (removeMisc.key && this.misc[removeMisc.key].length > 0) {
+        const indexOfRemoved = this.misc[removeMisc.key].findIndex(
+          (i) => i.name === removeMisc.name
+        );
+        const currentQuantity = this.misc[removeMisc.key][indexOfRemoved]
+          .quantity;
+        if (currentQuantity > removeMisc.quantity) {
+          this.misc[removeMisc.key][indexOfRemoved].quantity =
+            currentQuantity - removeMisc.quantity;
+        } else if (indexOfRemoved >= 0) {
+          this.misc[removeMisc.key].splice(indexOfRemoved, 1);
+        }
+      }
+    },
+
+    // Costing, discounts
+    purchasing: data.charSetup.purchasing,
+    addPurchase(data) {
+      const arrayClone = this.purchasing.splice(0);
+      if(Array.isArray(data)) {
+        data.forEach((cost,index) => {
+          arrayClone[index].amount -= cost; 
+        })
+      } else {
+        arrayClone[0].amount -= data; 
+      }
+      this.purchasing = arrayClone;
+    },
+    removePurchase(data) {
+      if(Array.isArray(data)) {
+        data.forEach((cost,index) => {
+          this.purchasing[index].amount += cost; 
+        })
+      } else {
+        this.purchasing[0].amount += data; 
+      }
+    },
+
+    // Todo: will require larger rewrite due to complexity
+    discountIds: ["test"],
+    addDiscountId(discountId) {
+      this.discountIds.push(discountId);
+    },
+    removeDiscountId(discountId) {
+      const index = this.discountIds.indexOf(discountId);
+      if (index >= 0) {
+        this.discountIds.splice(index, 1);
+      }
+    },
+    checkDiscountId(discountId) {
+      return this.discountIds.indexOf(discountId) >= 0;
+    },
+
+    // Tools
     createbackup() {
       const dataObj = {
         cyoa: data.cyoa.header.title,
@@ -143,6 +251,24 @@ export function createCharStore() {
         cyoaAppVersion: data.appData.appversion, 
         setting: data.cyoa.intro.introText,
         logo: data.cyoa.header.logo,
+        styling: {
+          colors: {
+            maintext: data.styling.colors.maintext,
+            bgA: data.styling.colors.bgA,
+            bgB: data.styling.colors.bgB,
+            mainBorder: data.styling.colors.mainBorder,
+          },
+          font: {
+            fontData: data.styling.themeing.font,
+            fontIsLink: data.styling.themeing.fontIsLink,
+            fontName: data.styling.themeing.fontName,
+          },
+          themeing: {
+            sectionCornerRadius: data.styling.themeing.sectionCornerRadius,
+            bordersWidth: data.styling.themeing.bordersWidth,
+            borderStyle: data.styling.themeing.borderStyle,
+          },
+        },
       };
       dataObj[effectKeys.race] = this.race;
       dataObj[effectKeys.background] = this.background;
@@ -152,10 +278,11 @@ export function createCharStore() {
       dataObj[effectKeys.advDrawback] = this.advDrawback;
       dataObj[effectKeys.drawback] = this.drawbacks;
       dataObj[effectKeys.items] = this.items;
+      dataObj[effectKeys.misc] = this.misc;
 
-      const filename = this.name !== 'Assign' ? this.name : 'backup';
+      const filename = this.name !== "Assign" ? this.name : "backup";
       createFileFromObj(dataObj, filename);
-    }
+    },
   };
 }
 

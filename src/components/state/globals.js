@@ -6,7 +6,7 @@ import Data from "../../filebreakdown/jsontest";
 
 export function createGlobalStore() {
   return {
-    isShowingChoiceEffects: true,
+    isShowingChoiceEffects: false,
     showChoiceEffects() {
       this.isShowingChoiceEffects = true;
     },

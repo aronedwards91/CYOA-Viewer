@@ -14,12 +14,6 @@ import { effectKeys } from "../../state/character";
 const ChoiceDetails = ({ details, styling }) => {
   return (
     <ChoiceWrapper>
-      <TextSm>
-        {Settings.charSetup.choicePointsShort}:{" "}
-        {details.cost < 0 && <TextMd bold>+</TextMd>}
-        {details.cost === 0 ? "Free" : -1 * details.cost}
-        {"   "}
-      </TextSm>
       <ChoiceHeader styling={styling}>GRANTS: </ChoiceHeader>
       <Article2ColDesktop>
         {Object.keys(details).map((key) => (
@@ -27,6 +21,40 @@ const ChoiceDetails = ({ details, styling }) => {
         ))}
       </Article2ColDesktop>
     </ChoiceWrapper>
+  );
+};
+
+export const Cost = ({ data }) => {
+  const isArray = Array.isArray(data);
+  return isArray ? (
+    data.map((cost, index) => {
+      const Info = Settings.charSetup.purchasing[index];
+      console.log("i", Info);
+      return (
+        cost !== 0 && (
+          <div>
+            <TextSm>
+              {cost < 0 && <TextMd bold>+</TextMd>}
+              {-1 * cost}
+              {!Info.icon && " " + Info.ShortName}
+            </TextSm>
+            {Info.icon && (
+              <ImgSm src={Info.icon} alt={Info.ShortName} />
+            )}
+          </div>
+        )
+      );
+    })
+  ) : (
+    <div>
+      <TextSm>
+        {data < 0 && <TextMd bold>+</TextMd>}
+        {data === 0 ? "Free" : -1 * data}
+      </TextSm>
+      {Settings.charSetup.purchasing[0].icon && data !== 0 && (
+        <ImgSm src={Settings.charSetup.purchasing[0].icon} alt="cost" />
+      )}
+    </div>
   );
 };
 
@@ -84,13 +112,24 @@ const ChoiceOptions = ({ type, value, styling }) => {
         return (
           <DivSectionWrapper styling={styling}>
             <DivText value={"ITEM; " + item.name}>
-              {item.icon && <ImgSm src={item.icon} alt="icon error" padleft/>}
+              {item.icon && <ImgSm src={item.icon} alt="icon error" padleft />}
             </DivText>
             <DivText value={item.desc + quantity} />
           </DivSectionWrapper>
         );
       });
+    case effectKeys.misc:
+      return (
+        <DivSectionWrapper styling={styling}>
+          <DivText value={`[${value.key}] ` + value.name} />
+          <DivText value={value.desc} />
+        </DivSectionWrapper>
+      );
     case effectKeys.points:
+      return null;
+    case effectKeys.discount:
+      return null;
+    case effectKeys.discountVal:
       return null;
     default:
       return <DivText value="Type not recognised" />;

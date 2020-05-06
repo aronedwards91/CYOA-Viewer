@@ -1,7 +1,5 @@
 import React from "react";
-import Settings from "../../cyoadata";
 import { useCharDataStore } from "../state/character";
-import { useGlobalDataStore } from "../state/globals";
 import { observer } from "mobx-react-lite";
 
 import { ShowEffectsBtn, EditableText, CreateExport } from "./interactionComp";
@@ -31,6 +29,7 @@ import {
   SmBox,
   SmMobName,
   SmMobPoints,
+  SmIcon,
 } from "./styling";
 
 const Character = ({ isExpanded, switchCharSize, setup }) => (
@@ -63,8 +62,7 @@ const Desktop = ({ isExpanded, switchCharSize, setup }) =>
   );
 const DesktopCompact = observer(({ switchCharSize }) => {
   const store = useCharDataStore();
-  const { name, race, points, items } = store;
-  const globalStore = useGlobalDataStore();
+  const { name, race, items, purchasing } = store;
 
   return (
     <DesktopSm>
@@ -73,84 +71,107 @@ const DesktopCompact = observer(({ switchCharSize }) => {
       <TextPad>{name}</TextPad>
       <TextPad>{race}</TextPad>
       <TextPad>Items: {items.length}</TextPad>
-      <TitleDiv nopad>{Settings.charSetup.choicePointsFullName}</TitleDiv>
-      <TextPad>{points}</TextPad>
-      <ShowEffectsBtn {...globalStore} />
+      {purchasing.map((purchaseType) => (
+        <>
+          <TitleDiv nopad>
+            {!purchaseType.icon ? purchaseType.FullName : null}
+          </TitleDiv>
+          <TextPad>
+            {purchaseType.icon && (
+              <SmIcon src={purchaseType.icon} alt={purchaseType.ShortName} />
+            )}
+            {purchaseType.amount}
+          </TextPad>
+        </>
+      ))}
+      <ShowEffectsBtn />
       <VertBtn onClick={switchCharSize}>{">"}</VertBtn>
     </DesktopSm>
   );
 });
-const DesktopFull = observer(({ switchCharSize, setup }) => {
-  const globalStore = useGlobalDataStore();
-
-  return (
-    <DesktopFullSize>
-      <DesktopScroll>
-        <LgCharTop>
-          <CharProfile />
-          <CharDetails />
-          <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
-        </LgCharTop>
-        <CharBackground />
-        <CharChallenge />
-        <CharSetting setup={setup} />
-        <Allies />
-        <Abilities />
-        <Drawbacks />
-        <AdvDrawbacks />
-        <Items />
-        <ShowEffectsBtn {...globalStore} marginBtm />
-        <CreateExport marginBtm />
+const DesktopFull = ({ switchCharSize, setup }) => (
+  <DesktopFullSize>
+    <DesktopScroll>
+      <LgCharTop>
+        <CharProfile />
+        <CharDetails />
         <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
-      </DesktopScroll>
-    </DesktopFullSize>
-  );
-});
+      </LgCharTop>
+      <CharBackground />
+      <CharChallenge />
+      <CharSetting setup={setup} />
+      <Allies />
+      <Abilities />
+      <Drawbacks />
+      <AdvDrawbacks />
+      <Items />
+      <MiscEffects />
+      <ShowEffectsBtn marginBtm />
+      <CreateExport marginBtm />
+      <DeskFullBtn onClick={switchCharSize}>{"<"}</DeskFullBtn>
+    </DesktopScroll>
+  </DesktopFullSize>
+);
 // Mobile Comp
 const MobTopBanner = observer(({ switchCharSize }) => {
-  const globalStore = useGlobalDataStore();
   const store = useCharDataStore();
-  const { name, points } = store;
+  const { name } = store;
 
   return (
     <SmBox>
       <SmMobName>Name: {name}</SmMobName>
-      <ShowEffectsBtn {...globalStore} />
-      <SmMobPoints>
-        {Settings.charSetup.choicePointsShort} {points}
-      </SmMobPoints>
+      <ShowEffectsBtn />
+      <Purchasing small />
       <DropBtn onClick={switchCharSize}>~V~</DropBtn>
     </SmBox>
   );
 });
-const MobFull = observer(({ switchCharSize, setup }) => {
-  const globalStore = useGlobalDataStore();
-
-  return (
-    <LgMobBox>
-      <LgMobScroll>
-        <LgCharTop>
-          <CharProfile />
-          <CharDetails />
-          <DropBtn onClick={switchCharSize}>~/\~</DropBtn>
-        </LgCharTop>
-        <CharBackground />
-        <CharChallenge />
-        <CharSetting setup={setup} />
-        <Allies />
-        <Abilities />
-        <AdvDrawbacks />
-        <Drawbacks />
-        <Items />
-        <ShowEffectsBtn {...globalStore} marginBtm />
-        <CreateExport />
-      </LgMobScroll>
-      <MobFloatBtm onClick={switchCharSize}>--/\--</MobFloatBtm>
-    </LgMobBox>
-  );
-});
+const MobFull = ({ switchCharSize, setup }) => (
+  <LgMobBox>
+    <LgMobScroll>
+      <LgCharTop>
+        <CharProfile />
+        <CharDetails />
+        <DropBtn onClick={switchCharSize}>~/\~</DropBtn>
+      </LgCharTop>
+      <CharBackground />
+      <CharChallenge />
+      <CharSetting setup={setup} />
+      <Allies />
+      <Abilities />
+      <AdvDrawbacks />
+      <Drawbacks />
+      <Items />
+      <MiscEffects />
+      <ShowEffectsBtn marginBtm />
+      <CreateExport />
+    </LgMobScroll>
+    <MobFloatBtm onClick={switchCharSize}>--/\--</MobFloatBtm>
+  </LgMobBox>
+);
 
 // State connected components
+
+const Purchasing = observer(({ small }) => {
+  const { purchasing } = useCharDataStore();
+  return purchasing.map((purchaseType) => {
+    const Icon = purchaseType.icon || false;
+    const Title = !Icon ? purchaseType.ShortName + ":" : null;
+
+    return small ? (
+      <SmMobPoints>
+        {Icon && <SmIcon src={Icon} alt={purchaseType.ShortName} />}
+        <span>
+          {Title} {purchaseType.amount}
+        </span>
+      </SmMobPoints>
+    ) : (
+      <TextBox title={purchaseType.ShortName + ":"} value={purchaseType.amount}>
+        {Icon && <SmIcon src={Icon} alt={purchaseType.ShortName} />}
+      </TextBox>
+    );
+  });
+});
 const CharProfile = observer(() => {
   const store = useCharDataStore();
   const { profImg } = store;
@@ -159,7 +180,7 @@ const CharProfile = observer(() => {
 });
 const CharDetails = observer(() => {
   const store = useCharDataStore();
-  const { name, setName, age, setAge, race, points } = store;
+  const { name, setName, age, setAge, race } = store;
 
   return (
     <LgCharTopText>
@@ -176,10 +197,7 @@ const CharDetails = observer(() => {
         type="number"
       />
       <TextBox title="Race:" value={race} />
-      <TextBox
-        title={Settings.charSetup.choicePointsShort + ":"}
-        value={points}
-      />
+      <Purchasing />
     </LgCharTopText>
   );
 });
@@ -212,7 +230,10 @@ const Allies = observer(() => {
         </TitleDiv>
       )}
       {allies.map((ally) => (
-        <TextBox title={"> " + ally.name + " : "} value={ally.desc} />
+        <TextBox
+          title={"> " + ally.name + " : "}
+          value={`${ally.desc} ${ally.quantity} in number.`}
+        />
       ))}
     </>
   );
@@ -273,6 +294,7 @@ const Drawbacks = observer(() => {
 const Items = observer(() => {
   const store = useCharDataStore();
   const { items } = store;
+
   return (
     <>
       <TitleDiv>
@@ -294,7 +316,6 @@ const Items = observer(() => {
 });
 
 const InventoryItem = ({ name, desc, quantity, icon }) => {
-  // TODO icon
   return (
     <TooltipWrapper>
       <Tooltip>{desc}</Tooltip>
@@ -305,5 +326,25 @@ const InventoryItem = ({ name, desc, quantity, icon }) => {
     </TooltipWrapper>
   );
 };
+
+const MiscEffects = observer(() => {
+  const { misc } = useCharDataStore();
+
+  return Object.keys(misc).map((miscKey) =>
+    misc[miscKey].length > 0 ? (
+      <>
+        <TitleDiv>
+          <TextMd>{miscKey}</TextMd>
+        </TitleDiv>
+        {misc[miscKey].map((miscEffect) => (
+          <TextBox
+            title={miscEffect.name + ": "}
+            value={`${miscEffect.desc} x${miscEffect.quantity}`}
+          />
+        ))}
+      </>
+    ) : null
+  );
+});
 
 export default Character;

@@ -9,6 +9,8 @@ import {
   FontBold,
 } from "./styling";
 import { useCharDataStore } from "../state/character";
+import { useGlobalDataStore } from "../state/globals";
+import { observer } from "mobx-react-lite";
 
 export const CreateExport = ({ marginBtm }) => {
   const store = useCharDataStore();
@@ -20,14 +22,15 @@ export const CreateExport = ({ marginBtm }) => {
     </TextBtn>
   );
 };
-export const ShowEffectsBtn = ({
-  isShowingChoiceEffects,
-  showChoiceEffects,
-  hideChoiceEffects,
-  buildHtml,
-  marginBtm,
-}) =>
-  isShowingChoiceEffects ? (
+export const ShowEffectsBtn = observer(({ marginBtm }) => {
+  const {
+    isShowingChoiceEffects,
+    showChoiceEffects,
+    // hideChoiceEffects,
+    buildHtml,
+  } = useGlobalDataStore();
+
+  return isShowingChoiceEffects ? (
     <TextBtn onClick={buildHtml} marginBtm={marginBtm}>
       <ShowOnMobSpan style={FontBold}>-</ShowOnMobSpan>
       <ShowOnDeskSpan>Hide </ShowOnDeskSpan>
@@ -40,6 +43,7 @@ export const ShowEffectsBtn = ({
       Effects
     </TextBtn>
   );
+});
 
 export const EditableText = ({ label, value, triggerChange, type }) => {
   const [showTick, setShowTick] = useState(false);
