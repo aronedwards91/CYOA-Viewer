@@ -10,6 +10,9 @@ import humanwarriorprof from "../public/origin/humanwarrior-port.jpg";
 import humanhunter from "../public/origin/human-hunter.jpg";
 import dwarfscout from "../public/origin/dwarf-scout.jpg";
 import dwarfguardian from "../public/origin/dwarf-guardian.jpg";
+import dwarfpriest from "../public/origin/dwarf-priest.jpg";
+import humandruid from "../public/origin/human-druid.jpg";
+import humanwanderer from "../public/origin/human-wanderer.jpg";
 // Relics
 import daggerbloody from "../public/relic/dagger-bloody.jpg";
 import amuletgreystone from "../public/relic/amulet-greystone.jpg";
@@ -180,6 +183,81 @@ const Data = {
             },
           },
           {
+            name: "Human Druid",
+            description:
+              "A child of the forest, you are free and easy in even the most dangerous of woods, knowing it's every secret path, and every useful fruit.",
+            img: humandruid,
+            effect: {
+              cost: 50,
+              "char-profimg": humandruid,
+              "char-background": "Golden Forest",
+              "body-race": "Human",
+              "char-advdrawback": {
+                name: "Druid",
+                adv:
+                  "Understanding and wedded to the forest, it's uncorrupted beasts view you as an ally.",
+                drawback:
+                  "Dislike humans & dwarfs, especially those who do not respect nature, difficult to get along with.",
+              },
+              "inv-items": [
+                {
+                  name: "Staff",
+                  desc: "An old staff, can produce light, and command wind.",
+                  quantity: 1,
+                  icon: false,
+                },
+                {
+                  name: "Horn of Offorn",
+                  desc: "Blow to summon allied beasts to your aid.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+              "body-ability": {
+                name: "Meld",
+                power:
+                  "Can become completely camoflagued by meditating, all eyes view you as just a bush, transformation takes a whle minute.",
+              },
+            },
+          },
+          {
+            name: "Human Wanderer",
+            description:
+              "Unable to withstand the pull of your feet you let them lead you. You are rarely interested in plannign ahead but merely rely on you wit and intelligence to get you through each day.",
+            img: humanwanderer,
+            effect: {
+              cost: 0,
+              "char-profimg": humanwanderer,
+              "char-background": "Nowhere & everywhere",
+              "body-race": "Human",
+              "char-advdrawback": {
+                name: "wanderer",
+                adv: "Undaunted by grim potents you take events as they come.",
+                drawback: "Unable to stick to plans, and hate making them.",
+              },
+              "inv-items": [
+                {
+                  name: "sword",
+                  desc: "A rusty but effective blade",
+                  quantity: 1,
+                  icon: knifeIcon,
+                },
+                {
+                  name: "lute",
+                  desc:
+                    "You know many songs and have an ethereal singing voice.",
+                  quantity: 3,
+                  icon: bow,
+                },
+              ],
+              "body-ability": {
+                name: "Inspriring Word",
+                power:
+                  "When drunk can find your tongue, crafting inspiring speeches with ease.",
+              },
+            },
+          },
+          {
             name: "Dwarf Scout",
             description:
               "One of the few dwarves who is comfortable outdoors. Your life of exploration and has made you cunning and wise to the dangers of the forest, few can catch such a swift and cap[able woodsman as yourself.",
@@ -260,6 +338,53 @@ const Data = {
                 name: "War Cry",
                 power:
                   "Strikes fear into your enemies, and steels the resolve of nearby allies, can also call to aid from a great distance.",
+              },
+            },
+          },
+          {
+            name: "Dwarf Priest",
+            description:
+              "You live to press the true word of Gorruk the savior, lord of protect against dark forces. undaunted by horror and beloved by all those who follow the word, you are a light in the dark, and the great bulwark against which horror will crash.",
+            img: dwarfpriest,
+            effect: {
+              cost: 0,
+              "char-profimg": dwarfpriest,
+              "char-background": "Gorruk's Wake Hermitage.",
+              "body-race": "Dwarf",
+              "char-advdrawback": {
+                name: "Priest",
+                adv:
+                  "Unbreaking courage in the face of horror.",
+                drawback:
+                  "Intense and unkind to those who do not follow the word.",
+              },
+              "inv-items": [
+                {
+                  name: "Mace",
+                  desc:
+                    "A heavy, powerful mace, blessed & adorned with symbolism.",
+                  quantity: 1,
+                  icon: false,
+                },
+                {
+                  name: "Chainmail",
+                  desc:
+                    "Lightweight and effective protection.",
+                  quantity: 1,
+                  icon: false,
+                },
+                {
+                  name: "Book of psalms",
+                  desc:
+                    "Inside and many useful & applicable lessons to the warrior against darkness.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+              "body-ability": {
+                name: "Holy Light",
+                power:
+                  "Once a day cast a powerful light from a blessed object, frightens foes and illuminates for 1 hour.",
               },
             },
           },

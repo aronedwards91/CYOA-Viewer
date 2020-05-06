@@ -17,7 +17,7 @@ Data is not saved locally, but can be exported as .json file, coming is a journa
 
 
 #### TODO
-- extra choices ; origin, items
+- extra choices ; items
 test custom build, simpler build process, extra options, 
 
 #### Possible future additions
