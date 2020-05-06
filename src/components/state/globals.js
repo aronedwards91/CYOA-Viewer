@@ -3,7 +3,7 @@ import { useLocalStore } from "mobx-react-lite";
 
 export function createGlobalStore() {
   return {
-    isShowingChoiceEffects: true,
+    isShowingChoiceEffects: false,
     showChoiceEffects() {
       this.isShowingChoiceEffects = true;
     },

@@ -14,7 +14,6 @@ import { effectKeys } from "../../state/character";
 const ChoiceDetails = ({ details, styling }) => {
   return (
     <ChoiceWrapper>
-      <Cost data={details.cost} />
       <ChoiceHeader styling={styling}>GRANTS: </ChoiceHeader>
       <Article2ColDesktop>
         {Object.keys(details).map((key) => (
@@ -25,7 +24,7 @@ const ChoiceDetails = ({ details, styling }) => {
   );
 };
 
-const Cost = ({ data }) => {
+export const Cost = ({ data }) => {
   const isArray = Array.isArray(data);
   return isArray ? (
     data.map((cost, index) => {
@@ -33,7 +32,7 @@ const Cost = ({ data }) => {
       console.log("i", Info);
       return (
         cost !== 0 && (
-          <>
+          <div>
             <TextSm>
               {cost < 0 && <TextMd bold>+</TextMd>}
               {-1 * cost}
@@ -42,13 +41,12 @@ const Cost = ({ data }) => {
             {Info.icon && (
               <ImgSm src={Info.icon} alt={Info.ShortName} />
             )}
-            <br />
-          </>
+          </div>
         )
       );
     })
   ) : (
-    <>
+    <div>
       <TextSm>
         {data < 0 && <TextMd bold>+</TextMd>}
         {data === 0 ? "Free" : -1 * data}
@@ -56,8 +54,7 @@ const Cost = ({ data }) => {
       {Settings.charSetup.purchasing[0].icon && data !== 0 && (
         <ImgSm src={Settings.charSetup.purchasing[0].icon} alt="cost" />
       )}
-      <br />
-    </>
+    </div>
   );
 };
 

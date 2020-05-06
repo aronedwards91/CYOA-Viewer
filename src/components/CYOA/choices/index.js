@@ -9,7 +9,7 @@ import {
 import { useGlobalDataStore } from "../../state/globals";
 import { observer } from "mobx-react-lite";
 
-import Details from "./choicedetails";
+import Details, { Cost } from "./choicedetails";
 import SelectionWrapperLogic from "./selectionWrapperLogic";
 import {
   HeaderWrap,
@@ -40,27 +40,38 @@ const Data = Settings.cyoa.selections;
 const StyleChoices = {
   line: "lines",
   boxes: "boxes",
+  smBoxes: "smallboxes",
 };
 
 const SelectionsBuilder = () => {
   if (Array.isArray(Data)) {
     return Data.map((selection) => {
-      if (selection.style === StyleChoices.line)
-        return (
-          <SelectionWrapperLogic
-            ChildNode={ChoiceLines}
-            selectionData={selection}
-          />
-        );
-      if (selection.style === StyleChoices.boxes) {
-        return (
-          <SelectionWrapperLogic
-            ChildNode={ChoiceBoxes}
-            selectionData={selection}
-          />
-        );
-      } else {
-        return <div>style unknown</div>;
+      switch (selection.style) {
+        case StyleChoices.line:
+          return (
+            <SelectionWrapperLogic
+              ChildNode={ChoiceLines}
+              selectionData={selection}
+            />
+          );
+
+        case StyleChoices.boxes:
+          return (
+            <SelectionWrapperLogic
+              ChildNode={ChoiceBoxes}
+              selectionData={selection}
+            />
+          );
+        case StyleChoices.smBoxes:
+          return (
+            <SelectionWrapperLogic
+              ChildNode={ChoiceSmBoxes}
+              selectionData={selection}
+            />
+          );
+
+        default:
+          return <div>style unknown</div>;
       }
     });
   } else {
@@ -105,8 +116,7 @@ const ChoiceLines = ({
 
 const LineItem = observer(
   ({ choice, unique, buyFunc, unselectFunc, boughtNum }) => {
-    const store = useGlobalDataStore();
-    const { isShowingChoiceEffects } = store;
+    const { isShowingChoiceEffects } = useGlobalDataStore();
 
     return (
       <>
@@ -132,19 +142,21 @@ const LineItem = observer(
           <ShowOnlyMobile>
             <TextMd>{choice.description}</TextMd>
           </ShowOnlyMobile>
+          <Cost data={choice.effect.cost}/>
           {isShowingChoiceEffects && <Details details={choice.effect} />}
         </LinesWrapper>
       </>
     );
   }
 );
-
+const ChoiceSmBoxes = (props) => <ChoiceBoxes {...props} small />;
 const ChoiceBoxes = ({
   data,
   unique,
   boughtDataArr,
   buyFunc,
   unselectFunc,
+  small,
 }) => {
   const [showChoices, setShowChoices] = useState(true);
   const switchShowChoices = () => {
@@ -172,6 +184,7 @@ const ChoiceBoxes = ({
               buyFunc={() => buyFunc(index)}
               unselectFunc={() => unselectFunc(index)}
               boughtNum={boughtDataArr[index]}
+              small={small}
             />
           ))}
         </BoxItemWrapper>
@@ -181,11 +194,16 @@ const ChoiceBoxes = ({
 };
 
 const BoxItem = observer(
-  ({ choice, unique, buyFunc, unselectFunc, boughtNum }) => {
-    const globalStore = useGlobalDataStore();
+  ({ choice, unique, buyFunc, unselectFunc, boughtNum, small }) => {
+    const { isShowingChoiceEffects } = useGlobalDataStore();
 
     return (
-      <BoxContainer key={choice.name} unique={unique} boughtNum={boughtNum}>
+      <BoxContainer
+        key={choice.name}
+        unique={unique}
+        boughtNum={boughtNum}
+        small={small}
+      >
         <OverlayBox>
           {!unique && boughtNum > 0 && (
             <MultibuyOverlay onClick={unselectFunc}>
@@ -201,9 +219,8 @@ const BoxItem = observer(
             <HeaderSm>{choice.name}</HeaderSm>
           </TitleWrap>
           <TextMd>{choice.description}</TextMd>
-          {globalStore.isShowingChoiceEffects && (
-            <Details details={choice.effect} />
-          )}
+          <Cost data={choice.effect.cost}/>
+          {isShowingChoiceEffects && <Details details={choice.effect} />}
         </BoxTextWrapper>
       </BoxContainer>
     );

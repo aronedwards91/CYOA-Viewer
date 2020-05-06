@@ -796,7 +796,7 @@ const Data = {
         name: "7/ Skills",
         description:
           "You had a home, your past has given you many strengths to build from.",
-        style: "boxes",
+        style: "smallboxes",
         buy: {
           //Limit the amount you can buy
           unique: true, // if unique, can only be selected once, can have multiple unique items
@@ -806,7 +806,7 @@ const Data = {
         choices: [
           {
             name: "Capable Fighter",
-            description: "Seasoned in battle.",
+            description: "Seasoned in Melee combat.",
             effect: {
               cost: [0, 1],
               misc: {
@@ -843,18 +843,53 @@ const Data = {
               },
             },
           },
+          {
+            name: "Tactician",
+            description: "Devious tactician.",
+            effect: {
+              cost: [0, 1],
+              misc: {
+                key: "knowledge",
+                name: "Tactician",
+                desc: "Able to outsmart and outflank any enemy.",
+                quantity: 1,
+              },
+            },
+          },
+          {
+            name: "ShapeShift",
+            description: "Can transform at will into a werewolf.",
+            effect: {
+              cost: [0, 1],
+              "body-ability": {
+                name: "ShapeShift",
+                power: "Can transform at will into a werewolf.",
+              },
+            },
+          },
+          {
+            name: "Necromancy",
+            description: "Summon the dead, seen by most as heresy.",
+            effect: {
+              cost: [0, 2],
+              misc: {
+                key: "knowledge",
+                name: "Necromancy",
+                desc:
+                  "Reawaken the dead through strange and slow ritual, seen by most as heresy.",
+                quantity: 1,
+              },
+            },
+          },
         ],
       },
     ],
   },
   charSetup: {
-    choicePoints: 800, // Starting choice points
-    choicePointsFullName: "Choice Points",
-    choicePointsShort: "CP",
     purchasing: [
       // min 1, 4+ will break mobile styling
       {
-        amount: 700, // Starting choice points
+        amount: 800, // Starting choice points
         FullName: "Magic power",
         ShortName: "MP",
         icon: BuyIcon,
