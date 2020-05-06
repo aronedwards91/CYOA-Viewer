@@ -2,6 +2,7 @@
 // import images placed in /public
 import bg from "../public/gold-tree.jpg";
 import logo from "../public/logo.jpg";
+import BuyIcon from "../public/icons/buy.png";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 // Char Profile
@@ -107,13 +108,13 @@ const Data = {
           max: 1,
         },
         choices: [
-          //The choice options available for this selection, may also include, requires (only allowed if char has given uid), discount ( if char has uid, costs 50% less)
           {
             name: "Human Hunter",
             description:
               "Your were raised in a small village in a poor keeptown, you spent your days hunting foraging and tending to your fields",
             img: humanhunter,
             effect: {
+              discountid: "humanhunter",
               cost: 0,
               //The effects, a short list of options body-age, body-race, char-background, char-challenge, body-ability, char-advdrawback, inv-item
               "char-profimg": humanhunter,
@@ -147,6 +148,7 @@ const Data = {
               "Raised in the blood of battle you had once protected the lands of your lord from the violent beasts the prowl the land. Your fearlessness in battle and destruction of corrupted beasts has made you an ally of the hawks with whom you can speak.",
             img: humanwarriorprof,
             effect: {
+              discountid: "humanwarrior",
               cost: 50,
               "char-profimg": humanwarriorprof,
               "char-background": "Bor-Duren",
@@ -447,8 +449,6 @@ const Data = {
               "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
             img: satchel,
             effect: {
-              discount: "Human Hunter",
-              discountVal: 20,
               cost: 50,
               "inv-items": [
                 {
@@ -466,7 +466,7 @@ const Data = {
               "A bottle containing three portions of a rare ointment, blessed by a kind nypmh, allows you to slowly regenerate from almost mortal wounds over the course of a few days.",
             img: potion,
             effect: {
-              cost: 100,
+              cost: 50,
               "inv-items": [
                 {
                   name: "Emig's Honeysap portions",
@@ -808,7 +808,7 @@ const Data = {
             name: "Capable Fighter",
             description: "Seasoned in battle.",
             effect: {
-              cost: 20,
+              cost: [0, 1],
               misc: {
                 key: "skill",
                 name: "Overwhelming Bloodlust",
@@ -821,7 +821,7 @@ const Data = {
             name: "Tracker",
             description: "Seasoned hunter.",
             effect: {
-              cost: 20,
+              cost: [0, 1],
               misc: {
                 key: "knowledge",
                 name: "Tracking",
@@ -834,7 +834,7 @@ const Data = {
             name: "Archer",
             description: "Capable archer.",
             effect: {
-              cost: 20,
+              cost: [0, 1],
               misc: {
                 key: "skill",
                 name: "Tracking",
@@ -851,6 +851,20 @@ const Data = {
     choicePoints: 800, // Starting choice points
     choicePointsFullName: "Choice Points",
     choicePointsShort: "CP",
+    purchasing: [
+      // min 1, 4+ will break mobile styling
+      {
+        amount: 700, // Starting choice points
+        FullName: "Magic power",
+        ShortName: "MP",
+        icon: BuyIcon,
+      },
+      {
+        amount: 2, // Starting choice points
+        FullName: "Skill Points",
+        ShortName: "SP",
+      },
+    ],
     setting: "A dangerous Iron age forest.", // brief description of setup
   },
 };

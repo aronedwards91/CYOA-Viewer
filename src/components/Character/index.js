@@ -1,5 +1,4 @@
 import React from "react";
-import Settings from "../../cyoadata";
 import { useCharDataStore } from "../state/character";
 import { observer } from "mobx-react-lite";
 
@@ -30,6 +29,7 @@ import {
   SmBox,
   SmMobName,
   SmMobPoints,
+  SmIcon,
 } from "./styling";
 
 const Character = ({ isExpanded, switchCharSize, setup }) => (
@@ -62,7 +62,7 @@ const Desktop = ({ isExpanded, switchCharSize, setup }) =>
   );
 const DesktopCompact = observer(({ switchCharSize }) => {
   const store = useCharDataStore();
-  const { name, race, points, items } = store;
+  const { name, race, items, purchasing } = store;
 
   return (
     <DesktopSm>
@@ -71,8 +71,19 @@ const DesktopCompact = observer(({ switchCharSize }) => {
       <TextPad>{name}</TextPad>
       <TextPad>{race}</TextPad>
       <TextPad>Items: {items.length}</TextPad>
-      <TitleDiv nopad>{Settings.charSetup.choicePointsFullName}</TitleDiv>
-      <TextPad>{points}</TextPad>
+      {purchasing.map((purchaseType) => (
+        <>
+          <TitleDiv nopad>
+            {!purchaseType.icon ? purchaseType.FullName : null}
+          </TitleDiv>
+          <TextPad>
+            {purchaseType.icon && (
+              <SmIcon src={purchaseType.icon} alt={purchaseType.ShortName} />
+            )}
+            {purchaseType.amount}
+          </TextPad>
+        </>
+      ))}
       <ShowEffectsBtn />
       <VertBtn onClick={switchCharSize}>{">"}</VertBtn>
     </DesktopSm>
@@ -104,15 +115,13 @@ const DesktopFull = ({ switchCharSize, setup }) => (
 // Mobile Comp
 const MobTopBanner = observer(({ switchCharSize }) => {
   const store = useCharDataStore();
-  const { name, points } = store;
+  const { name } = store;
 
   return (
     <SmBox>
       <SmMobName>Name: {name}</SmMobName>
       <ShowEffectsBtn />
-      <SmMobPoints>
-        {Settings.charSetup.choicePointsShort} {points}
-      </SmMobPoints>
+      <Purchasing small />
       <DropBtn onClick={switchCharSize}>~V~</DropBtn>
     </SmBox>
   );
@@ -142,6 +151,27 @@ const MobFull = ({ switchCharSize, setup }) => (
 );
 
 // State connected components
+
+const Purchasing = observer(({ small }) => {
+  const { purchasing } = useCharDataStore();
+  return purchasing.map((purchaseType) => {
+    const Icon = purchaseType.icon || false;
+    const Title = !Icon ? purchaseType.ShortName + ":" : null;
+
+    return small ? (
+      <SmMobPoints>
+        {Icon && <SmIcon src={Icon} alt={purchaseType.ShortName} />}
+        <span>
+          {Title} {purchaseType.amount}
+        </span>
+      </SmMobPoints>
+    ) : (
+      <TextBox title={purchaseType.ShortName + ":"} value={purchaseType.amount}>
+        {Icon && <SmIcon src={Icon} alt={purchaseType.ShortName} />}
+      </TextBox>
+    );
+  });
+});
 const CharProfile = observer(() => {
   const store = useCharDataStore();
   const { profImg } = store;
@@ -150,7 +180,7 @@ const CharProfile = observer(() => {
 });
 const CharDetails = observer(() => {
   const store = useCharDataStore();
-  const { name, setName, age, setAge, race, points } = store;
+  const { name, setName, age, setAge, race } = store;
 
   return (
     <LgCharTopText>
@@ -167,10 +197,7 @@ const CharDetails = observer(() => {
         type="number"
       />
       <TextBox title="Race:" value={race} />
-      <TextBox
-        title={Settings.charSetup.choicePointsShort + ":"}
-        value={points}
-      />
+      <Purchasing />
     </LgCharTopText>
   );
 });

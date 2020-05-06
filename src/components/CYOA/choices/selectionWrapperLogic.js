@@ -88,18 +88,18 @@ const SelectionLogicWrapper = ({ ChildNode, selectionData }) => {
   );
 };
 
-const RunAddEffects = (effectsObj, store, isUnique) => {
+const RunAddEffects = (effectsObj, store) => {
   Object.keys(effectsObj).forEach((effectKey) => {
-    EffectsSwitch(effectKey, effectsObj[effectKey], store, true, isUnique);
+    EffectsSwitch(effectKey, effectsObj[effectKey], store, true);
   });
 };
-const RunRemoveEffects = (effectsObj, store, isUnique) => {
+const RunRemoveEffects = (effectsObj, store) => {
   Object.keys(effectsObj).forEach((effectKey) => {
-    EffectsSwitch(effectKey, effectsObj[effectKey], store, false, isUnique);
+    EffectsSwitch(effectKey, effectsObj[effectKey], store, false);
   });
 };
 
-const EffectsSwitch = (effectKey, effectData, store, isAdded, isUnique) => {
+const EffectsSwitch = (effectKey, effectData, store, isAdded) => {
   const {
     setProfImg,
     resetProfImg,
@@ -123,8 +123,8 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded, isUnique) => {
     removeItemArray,
     addMisc,
     removeMisc,
-    addPoints,
-    removePoints,
+    addPurchase,
+    removePurchase,
   } = store;
 
   switch (effectKey) {
@@ -173,7 +173,7 @@ const EffectsSwitch = (effectKey, effectData, store, isAdded, isUnique) => {
       break;
 
     case effectKeys.points:
-      isAdded ? removePoints(effectData) : addPoints(effectData);
+      isAdded ? addPurchase(effectData) : removePurchase(effectData);
       break;
 
     default:

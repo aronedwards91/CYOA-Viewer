@@ -23,10 +23,11 @@ const CharBgGradient = `linear-gradient(
 );`;
 
 // Templates
-export const TextBox = ({ title, value }) => (
+export const TextBox = ({ title, value, children }) => (
   <TextPad>
     <LgMobTitlePad>{title}</LgMobTitlePad>
     <span>{value}</span>
+    {children}
   </TextPad>
 );
 export const TextPara = ({ title, value }) => (
@@ -184,10 +185,20 @@ export const SmBox = styled.div`
 `;
 export const SmMobName = styled(TextMd)`
   padding-right: 16px;
+  flex-grow: 2;
 `;
 export const SmMobPoints = styled(TextMd)`
   text-align: right;
   flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+export const SmIcon = styled.img`
+  margin-left: 4px;
+  width: calc(24px + 0.5vw);
+  height: calc(24px + 0.5vw);
+  vertical-align: bottom;
 `;
 
 // EditBtn

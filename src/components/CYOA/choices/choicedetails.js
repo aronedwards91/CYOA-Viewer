@@ -14,12 +14,7 @@ import { effectKeys } from "../../state/character";
 const ChoiceDetails = ({ details, styling }) => {
   return (
     <ChoiceWrapper>
-      <TextSm>
-        {Settings.charSetup.choicePointsShort}:{" "}
-        {details.cost < 0 && <TextMd bold>+</TextMd>}
-        {details.cost === 0 ? "Free" : -1 * details.cost}
-        {"   "}
-      </TextSm>
+      <Cost data={details.cost} />
       <ChoiceHeader styling={styling}>GRANTS: </ChoiceHeader>
       <Article2ColDesktop>
         {Object.keys(details).map((key) => (
@@ -27,6 +22,42 @@ const ChoiceDetails = ({ details, styling }) => {
         ))}
       </Article2ColDesktop>
     </ChoiceWrapper>
+  );
+};
+
+const Cost = ({ data }) => {
+  const isArray = Array.isArray(data);
+  return isArray ? (
+    data.map((cost, index) => {
+      const Info = Settings.charSetup.purchasing[index];
+      console.log("i", Info);
+      return (
+        cost !== 0 && (
+          <>
+            <TextSm>
+              {cost < 0 && <TextMd bold>+</TextMd>}
+              {-1 * cost}
+              {!Info.icon && " " + Info.ShortName}
+            </TextSm>
+            {Info.icon && (
+              <ImgSm src={Info.icon} alt={Info.ShortName} />
+            )}
+            <br />
+          </>
+        )
+      );
+    })
+  ) : (
+    <>
+      <TextSm>
+        {data < 0 && <TextMd bold>+</TextMd>}
+        {data === 0 ? "Free" : -1 * data}
+      </TextSm>
+      {Settings.charSetup.purchasing[0].icon && data !== 0 && (
+        <ImgSm src={Settings.charSetup.purchasing[0].icon} alt="cost" />
+      )}
+      <br />
+    </>
   );
 };
 
@@ -98,6 +129,10 @@ const ChoiceOptions = ({ type, value, styling }) => {
         </DivSectionWrapper>
       );
     case effectKeys.points:
+      return null;
+    case effectKeys.discount:
+      return null;
+    case effectKeys.discountVal:
       return null;
     default:
       return <DivText value="Type not recognised" />;

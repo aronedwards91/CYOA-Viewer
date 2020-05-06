@@ -12,6 +12,7 @@ export const effectKeys = {
   abilities: "body-ability", // [name]string, [power]string
   advDrawback: "char-advdrawback", // [name]string, [adv]string, [drawback]string
   drawback: "char-drawback", // // [name]string, [desc]string
+  discountid: "discountid", // String, discounts check if selected
   // Multiple - have a quantity
   allies: "char-allies", // [name]string, [desc]string
   items: "inv-items", // must be an array , [icon]img-Base64.jpg
@@ -202,26 +203,41 @@ export function createCharStore() {
     },
 
     // Costing, discounts
-    points: data.charSetup.choicePoints,
-    addPoints(number) {
-      this.points = this.points + number;
+    purchasing: data.charSetup.purchasing,
+    addPurchase(data) {
+      const arrayClone = this.purchasing.splice(0);
+      if(Array.isArray(data)) {
+        data.forEach((cost,index) => {
+          arrayClone[index].amount -= cost; 
+        })
+      } else {
+        arrayClone[0].amount -= data; 
+      }
+      this.purchasing = arrayClone;
     },
-    removePoints(number) {
-      this.points = this.points - number;
-    },
-
-    choicesTaken: ["test"],
-    addCid(choiceName) {
-      this.choicesTaken.push(choiceName);
-    },
-    removeCid(choiceName) {
-      const index = this.choicesTaken.indexOf(choiceName);
-      if (index >= 0) {
-        this.choicesTaken.splice(index, 1);
+    removePurchase(data) {
+      if(Array.isArray(data)) {
+        data.forEach((cost,index) => {
+          this.purchasing[index].amount += cost; 
+        })
+      } else {
+        this.purchasing[0].amount += data; 
       }
     },
-    checkCid(choiceName) {
-      return this.choicesTaken.indexOf(choiceName) >= 0;
+
+    // Todo: will require larger rewrite due to complexity
+    discountIds: ["test"],
+    addDiscountId(discountId) {
+      this.discountIds.push(discountId);
+    },
+    removeDiscountId(discountId) {
+      const index = this.discountIds.indexOf(discountId);
+      if (index >= 0) {
+        this.discountIds.splice(index, 1);
+      }
+    },
+    checkDiscountId(discountId) {
+      return this.discountIds.indexOf(discountId) >= 0;
     },
 
     // Tools
