@@ -2,13 +2,7 @@
 // import images placed in /public
 import logo from "../public/logo.jpg";
 import BuyIcon from "../public/icons/buy.png";
-// import font converted to base64
-import fontb64 from "../public/celtic-font.json";
-// Char Profile
 import humanhunter from "../public/origin/human-hunter.jpg";
-// Item Icons
-import knifeIcon from "../public/icons/knife-icon.png";
-import bow from "../public/icons/bow.png";
 
 const Data = {
   appData: {
@@ -37,9 +31,8 @@ const Data = {
       backgroundGradient: `darkgreen, green, lightgreen`, // String, list of choices as per css linear-gradient spec
     },
     themeing: {
-      fontName: "Celtic",
-      fontIsLink: false, // If font is given as link eg googlefonts link, make sure this is true
-      font: fontb64.base64String,
+      fontName: "arial",
+      fontIsLink: false,
       fontScaling: 1.0, // adjust font size
       sectionCornerRadius: "10px", //for curved corners, use 5~20px, for straight user 0px
       bordersWidth: "6px",
@@ -97,13 +90,11 @@ const Data = {
                   name: "knife",
                   desc: "A very small but sharp hunter's knife",
                   quantity: 1,
-                  icon: knifeIcon,
                 },
                 {
                   name: "bow & strings",
                   desc: "A powerful hunters bow, well used, 3 strings",
                   quantity: 3,
-                  icon: bow,
                 },
               ],
             },
@@ -203,14 +194,12 @@ const Data = {
                   name: "sword",
                   desc: "A rusty but effective blade",
                   quantity: 1,
-                  icon: knifeIcon,
                 },
                 {
                   name: "lute",
                   desc:
                     "You know many songs and have an ethereal singing voice.",
                   quantity: 3,
-                  icon: bow,
                 },
               ],
               "body-ability": {
@@ -316,8 +305,7 @@ const Data = {
               "body-race": "Dwarf",
               "char-advdrawback": {
                 name: "Priest",
-                adv:
-                  "Unbreaking courage in the face of horror.",
+                adv: "Unbreaking courage in the face of horror.",
                 drawback:
                   "Intense and unkind to those who do not follow the word.",
               },
@@ -331,8 +319,7 @@ const Data = {
                 },
                 {
                   name: "Chainmail",
-                  desc:
-                    "Lightweight and effective protection.",
+                  desc: "Lightweight and effective protection.",
                   quantity: 1,
                   icon: false,
                 },
