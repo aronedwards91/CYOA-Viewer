@@ -103,7 +103,7 @@ const Data = {
         name: "1/ Origin",
         description:
           "You had a home, your past has given you many strengths to build from.",
-        style: "lines", // layout style, options: lines, boxes
+        style: "lines", // layout style, options: lines, boxes, smallboxes
         buy: {
           //Limit the amount you can buy
           unique: true, // if unique, can only be selected once, can have multiple unique items
@@ -118,7 +118,7 @@ const Data = {
             img: humanhunter,
             effect: {
               discountid: "humanhunter",
-              cost: 0,
+              cost: [0],
               //The effects, a short list of options body-age, body-race, char-background, char-challenge, body-ability, char-advdrawback, inv-item
               "char-profimg": humanhunter,
               "char-background": "Bor-Duren",
@@ -152,7 +152,7 @@ const Data = {
             img: humanwarriorprof,
             effect: {
               discountid: "humanwarrior",
-              cost: 50,
+              cost: [50],
               "char-profimg": humanwarriorprof,
               "char-background": "Bor-Duren",
               "body-race": "Human",
