@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: '${data.styling.themeing.fontName}';
     ${
       !data.styling.themeing.fontIsLink &&
-      `src: url(data:font/ttf;base64,${data.styling.themeing.font} ) format('truetype');`
+      `src: url(${data.styling.themeing.font} ) format('truetype');`
     }
   }
 

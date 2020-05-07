@@ -12,13 +12,14 @@ export const effectKeys = {
   abilities: "body-ability", // [name]string, [power]string
   advDrawback: "char-advdrawback", // [name]string, [adv]string, [drawback]string
   drawback: "char-drawback", // // [name]string, [desc]string
-  discountid: "discountid", // String, discounts check if selected
-  // Multiple - have a quantity
+  // Multiple - have [quantity] number
   allies: "char-allies", // [name]string, [desc]string
-  items: "inv-items", // must be an array , [icon]img-Base64.jpg
+  items: "inv-items", // Array, [name]string, [desc]string [icon]img-Base64.jpg
   misc: "misc", // [key] string (effects will be collected under misc), [name]String, [desc]String
   // Not exported - costing logic
   points: "cost", // number
+  // Todo / not yet supported
+  discountid: "discountid", // String, discounts check if selected
   discount: "discount", // String
   discountVal: "discountVal", // number
 };

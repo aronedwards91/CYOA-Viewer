@@ -26,12 +26,12 @@ export const ShowEffectsBtn = observer(({ marginBtm }) => {
   const {
     isShowingChoiceEffects,
     showChoiceEffects,
-    // hideChoiceEffects,
-    buildHtml,
+    hideChoiceEffects,
+    // buildHtml,
   } = useGlobalDataStore();
 
   return isShowingChoiceEffects ? (
-    <TextBtn onClick={buildHtml} marginBtm={marginBtm}>
+    <TextBtn onClick={hideChoiceEffects} marginBtm={marginBtm}>
       <ShowOnMobSpan style={FontBold}>-</ShowOnMobSpan>
       <ShowOnDeskSpan>Hide </ShowOnDeskSpan>
       Test html build
