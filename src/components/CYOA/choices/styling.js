@@ -174,3 +174,7 @@ export const ImgSm = styled.img`
   width: calc(16px + 1.5vw);
   ${({ padleft }) => padleft && "margin-left: calc(8px + 1vw);"};
 `;
+
+export const PadNoImg = styled.div`
+  height: calc(1.8rem + 1vw);
+`;

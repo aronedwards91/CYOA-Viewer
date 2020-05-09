@@ -8,7 +8,7 @@ export function createGlobalStore() {
       this.isShowingChoiceEffects = true;
     },
     hideChoiceEffects() {
-      this.isShowingChoiceEffects  = false;
+      this.isShowingChoiceEffects = false;
     },
   };
 }
@@ -19,7 +19,7 @@ export const GlobalStoreProvider = ({ children }) => {
   const store = useLocalStore(createGlobalStore);
   return (
     <GlobalStoreContext.Provider value={store}>
-      {children}.{" "}
+      {children}
     </GlobalStoreContext.Provider>
   );
 };

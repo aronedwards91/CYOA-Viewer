@@ -7,7 +7,7 @@ export const effectKeys = {
   // Unique, only added to unique buy choices
   profImg: "char-profimg", // imgfile
   race: "body-race", // string
-  background: "char-background", // [name]string, [desc]string
+  background: "char-background", // String
   challenge: "char-challenge", // [name]string, [desc]string
   abilities: "body-ability", // [name]string, [power]string
   advDrawback: "char-advdrawback", // [name]string, [adv]string, [drawback]string
@@ -207,22 +207,22 @@ export function createCharStore() {
     purchasing: data.charSetup.purchasing,
     addPurchase(data) {
       const arrayClone = this.purchasing.splice(0);
-      if(Array.isArray(data)) {
-        data.forEach((cost,index) => {
-          arrayClone[index].amount -= cost; 
-        })
+      if (Array.isArray(data)) {
+        data.forEach((cost, index) => {
+          arrayClone[index].amount -= cost;
+        });
       } else {
-        arrayClone[0].amount -= data; 
+        arrayClone[0].amount -= data;
       }
       this.purchasing = arrayClone;
     },
     removePurchase(data) {
-      if(Array.isArray(data)) {
-        data.forEach((cost,index) => {
-          this.purchasing[index].amount += cost; 
-        })
+      if (Array.isArray(data)) {
+        data.forEach((cost, index) => {
+          this.purchasing[index].amount += cost;
+        });
       } else {
-        this.purchasing[0].amount += data; 
+        this.purchasing[0].amount += data;
       }
     },
 
@@ -293,7 +293,7 @@ export const CharStoreProvider = ({ children }) => {
   const store = useLocalStore(createCharStore);
   return (
     <CharStoreContext.Provider value={store}>
-      {children}.{" "}
+      {children}
     </CharStoreContext.Provider>
   );
 };
