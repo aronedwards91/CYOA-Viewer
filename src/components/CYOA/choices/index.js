@@ -138,7 +138,7 @@ const LineItem = observer(
                 <TextMd>{choice.description}</TextMd>
               </ShowOnlyDesktop>
             </TextWrapper>
-            <Image alt="Image" src={choice.img} />
+            {choice.img && <Image alt="Image" src={choice.img} />}
           </LinesTopWrapper>
           <ShowOnlyMobile>
             <TextMd>{choice.description}</TextMd>

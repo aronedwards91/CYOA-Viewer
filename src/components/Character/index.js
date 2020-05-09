@@ -119,8 +119,7 @@ const MobTopBanner = observer(({ switchCharSize }) => {
 
   return (
     <SmBox>
-      <SmMobName>Name: {name}</SmMobName>
-      <ShowEffectsBtn />
+      <SmMobName>{name}</SmMobName>
       <Purchasing small />
       <DropBtn onClick={switchCharSize}>~V~</DropBtn>
     </SmBox>
