@@ -2,9 +2,9 @@
 
 Builds a CYOA standalone html page, not optimised for web hosting but more as a shareable app/webpage file.
 
-### Notes
+You character can be exported and opened in a [journalling app](https://github.com/aronedwards91/CYOA-Journal/releases)
 
-Data is not saved locally, but can be exported as .json file, coming is a journal app taht these will be imported into.
+To build your own App, a web form App has been build that exports working html Apps, [CYOA-Form](https://github.com/aronedwards91/CYOA-Form/releases)
 
 ## Embedding Everything , why & how
 
@@ -14,11 +14,6 @@ Data is not saved locally, but can be exported as .json file, coming is a journa
 
 - Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then add the string to public as a json (see example),
 - Font tip: to format export from linked site correctly to .json, use vscode's replace to remove the line endings.
-
-
-#### TODO
-- extra choices ; items
-test custom build, simpler build process, extra options, 
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)

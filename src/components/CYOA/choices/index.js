@@ -32,6 +32,7 @@ import {
   LinesOverlay,
   BoxImage,
   BoxTextWrapper,
+  PadNoImg,
 } from "./styling";
 
 import Settings from "../../../cyoadata";
@@ -142,7 +143,7 @@ const LineItem = observer(
           <ShowOnlyMobile>
             <TextMd>{choice.description}</TextMd>
           </ShowOnlyMobile>
-          <Cost data={choice.effect.cost}/>
+          <Cost data={choice.effect.cost} />
           {isShowingChoiceEffects && <Details details={choice.effect} />}
         </LinesWrapper>
       </>
@@ -214,12 +215,13 @@ const BoxItem = observer(
           <TriggerOverlay onClick={buyFunc} />
         </OverlayBox>
         {choice.img && <BoxImage alt="image" src={choice.img} />}
+        {!choice.img && !unique && boughtNum > 0 && <PadNoImg>|</PadNoImg>}
         <BoxTextWrapper>
           <TitleWrap>
             <HeaderSm>{choice.name}</HeaderSm>
           </TitleWrap>
           <TextMd>{choice.description}</TextMd>
-          <Cost data={choice.effect.cost}/>
+          <Cost data={choice.effect.cost} />
           {isShowingChoiceEffects && <Details details={choice.effect} />}
         </BoxTextWrapper>
       </BoxContainer>
