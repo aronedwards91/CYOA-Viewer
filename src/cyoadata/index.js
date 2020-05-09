@@ -962,7 +962,7 @@ const Data = {
   },
   charSetup: {
     purchasing: [
-      // min 1, 4+ will break mobile styling
+      // min 0, 4+ will break mobile styling
       {
         amount: 800, // Starting choice points
         FullName: "Magic power",

@@ -13,7 +13,9 @@ To build your own App, a web form App has been build that exports working html A
 - Image linked will auto embed up to 6MB (over 6 is left out just as a warning as this creates very slow & large html files, most images are small and only require around 300x400 for big screens, but for smaller file sizes may be best to go lower.)
 
 - Fonts: Need to be converted to [Base64](https://www.opinionatedgeek.com/codecs/base64encoder) then add the string to public as a json (see example),
-- Font tip: to format export from linked site correctly to .json, use vscode's replace to remove the line endings.
+- Font tip: to format export from linked site correctly to .json, use 
+vscode's replace to remove the line endings.
+
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)

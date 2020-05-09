@@ -38,9 +38,7 @@ export const ShowEffectsBtn = observer(({ marginBtm }) => {
     </TextBtn>
   ) : (
     <TextBtn onClick={showChoiceEffects} marginBtm={marginBtm}>
-      <ShowOnMobSpan style={FontBold}>+</ShowOnMobSpan>
-      <ShowOnDeskSpan>Show </ShowOnDeskSpan>
-      Effects
+      Show Effects
     </TextBtn>
   );
 });

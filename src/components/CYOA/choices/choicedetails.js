@@ -25,28 +25,26 @@ const ChoiceDetails = ({ details, styling }) => {
 };
 
 export const Cost = ({ data }) => {
+  if (Settings.charSetup.purchasing.length === 0) return null;
   const isArray = Array.isArray(data);
   return isArray ? (
     data.map((cost, index) => {
       const Info = Settings.charSetup.purchasing[index];
-      console.log("i", Info);
       return (
         cost !== 0 && (
-          <div>
+          <div key={Info.ShortName}>
             <TextSm>
               {cost < 0 && <TextMd bold>+</TextMd>}
               {-1 * cost}
               {!Info.icon && " " + Info.ShortName}
             </TextSm>
-            {Info.icon && (
-              <ImgSm src={Info.icon} alt={Info.ShortName} />
-            )}
+            {Info.icon && <ImgSm src={Info.icon} alt={Info.ShortName} />}
           </div>
         )
       );
     })
   ) : (
-    <div>
+    <div key={"free"}>
       <TextSm>
         {data < 0 && <TextMd bold>+</TextMd>}
         {data === 0 ? "Free" : -1 * data}
