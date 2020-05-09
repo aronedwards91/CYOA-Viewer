@@ -188,7 +188,7 @@ const Data = {
               "A child of the forest, you are free and easy in even the most dangerous of woods, knowing it's every secret path, and every useful fruit.",
             img: humandruid,
             effect: {
-              cost: 50,
+              cost: [50],
               "char-profimg": humandruid,
               "char-background": "Golden Forest",
               "body-race": "Human",
@@ -226,7 +226,7 @@ const Data = {
               "Unable to withstand the pull of your feet you let them lead you. You are rarely interested in plannign ahead but merely rely on you wit and intelligence to get you through each day.",
             img: humanwanderer,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-profimg": humanwanderer,
               "char-background": "Nowhere & everywhere",
               "body-race": "Human",
@@ -263,7 +263,7 @@ const Data = {
               "One of the few dwarves who is comfortable outdoors. Your life of exploration and has made you cunning and wise to the dangers of the forest, few can catch such a swift and cap[able woodsman as yourself.",
             img: dwarfscout,
             effect: {
-              cost: 50,
+              cost: [50],
               "char-profimg": dwarfscout,
               "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
@@ -307,7 +307,7 @@ const Data = {
               "Dwarf guardians play the vital role of protecting the rare resource that is the Dwarf Queens. Few in number and slow to come to term, a dwarf birth is a great celebration, and nothing is more closely guarded than the powerful and important dwarf queens, they who decide shall bring in the next generation.",
             img: dwarfguardian,
             effect: {
-              cost: 100,
+              cost: [100],
               "char-profimg": dwarfguardian,
               "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
@@ -347,7 +347,7 @@ const Data = {
               "You live to press the true word of Gorruk the savior, lord of protect against dark forces. undaunted by horror and beloved by all those who follow the word, you are a light in the dark, and the great bulwark against which horror will crash.",
             img: dwarfpriest,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-profimg": dwarfpriest,
               "char-background": "Gorruk's Wake Hermitage.",
               "body-race": "Dwarf",
@@ -407,7 +407,7 @@ const Data = {
               "A ornate dagger, it's blade seems freshly wet with blood, no matter how often it is wiped. It calls to it's owner forever hoping to return to it's masters hand, but to do so would plunge the world into darkness.",
             img: daggerbloody,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-advdrawback": {
                 name: "Accursed Dagger",
                 adv:
@@ -431,7 +431,7 @@ const Data = {
               "A beautiful amulet, wrought in silver with many fine gems. It seems to hum with a gentle tune, it seems to give you strength.",
             img: amuletgreystone,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-advdrawback": {
                 name: "Amulet of Beyin'Parak",
                 adv:
@@ -455,7 +455,7 @@ const Data = {
               "A runed leather waterskin, it feels heavy, but smells sweet.",
             img: waterskinomsak,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-advdrawback": {
                 name: "Waters of Omsak Yashniir",
                 adv:
@@ -492,7 +492,7 @@ const Data = {
               "Erred-Mhuur hungers for the flesh of sentient beasts, it burns with anguish, only seeking to destroy that which it hates above all else. In it's anger it has reforged the beasts of the wood that have come under it's influence, dark & blood loving they move now as shadows branded in glowing red runes, hunting and preying on all they can.",
             img: erredmhuur,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-challenge": {
                 name: "Erred-Mhuur [Nemesis]",
                 desc: "Hunts & enslaves sentient races.",
@@ -505,7 +505,7 @@ const Data = {
               "The dark gods have been forgotten by those they helped make. To a god their is no greater disrespect, for this act they have sent the haruspex, whose mere prescence is to invite catastrophy. Disease, plagues, civil war all spread as he walks the land, he only walks and smiles as the land plunges into darkness. He is protected by four great heroes who served the will of the old gods, Albrith of the Axe, Eldrith of the Spear, Dantrith of the Blade & Ellena of the bow.",
             img: haruspex,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-challenge": {
                 name: "Haruspex [Nemesis]",
                 desc:
@@ -519,7 +519,7 @@ const Data = {
               "The Sandman hunger for hope, and his dark scuttling slaves hunger for flesh. traversing the dreamscape he subverts and darkens dreams, sucking the hope from people in their slumber, turning them into tragic figures, lacking the energy and courage to take up arms against the scuttling feeding horde.",
             img: sandman,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-challenge": {
                 name: "Sandman [Nemesis]",
                 desc:
@@ -533,7 +533,7 @@ const Data = {
               "Angry, violent & strong, the Troll tribe has expanded far beyond it's means and now seeks new lands to plunder. Incapable farmers, the plentiful and well mainted farms of human and dwarf alike offer a tempting reward. Tales are heard already of small farmsteads overrun by the brutal creatures.",
             img: Troll,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-challenge": {
                 name: "Tribe of Trolls [Nemesis]",
                 desc:
@@ -547,7 +547,7 @@ const Data = {
               "Burned out the Allied council for their dark heretical practices, they have grown hungry for revenge, this hatred has allowed the dark rituals to penetrate thei minds further. Blood magic and necromancy, plus wild bloodlust has made them a terrible enemy, but their disorganisation has made them inneffective in pitched battle, now they move toward guerrilla action till their growing number will be too strong to hold back.",
             img: wildman,
             effect: {
-              cost: 0,
+              cost: [0],
               "char-challenge": {
                 name: "The Lost Wildmen [Nemesis]",
                 desc:
@@ -574,7 +574,7 @@ const Data = {
               "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
             img: satchel,
             effect: {
-              cost: 50,
+              cost: [50],
               "inv-items": [
                 {
                   name: "Climbers Satchel",
@@ -591,7 +591,7 @@ const Data = {
               "A bottle containing three portions of a rare ointment, blessed by a kind nypmh, allows you to slowly regenerate from almost mortal wounds over the course of a few days.",
             img: potion,
             effect: {
-              cost: 50,
+              cost: [50],
               "inv-items": [
                 {
                   name: "Emig's Honeysap portions",
@@ -608,7 +608,7 @@ const Data = {
               "An ancient family heirloom, sharp true and deadly, it makes short work of any hide or light armor.",
             img: blade,
             effect: {
-              cost: 50,
+              cost: [50],
               "inv-items": [
                 {
                   name: "Runed Blade",
@@ -625,7 +625,7 @@ const Data = {
               "A wonderous piece of work, striking and enobling, whilst also a fine and effective piece of armor.",
             img: helm,
             effect: {
-              cost: 50,
+              cost: [50],
               "inv-items": [
                 {
                   name: "Ornate Helm",
@@ -642,7 +642,7 @@ const Data = {
               "burns brightly and confers a sense of comfort and warmth during cold nights. However may attract things best left unattracted.",
             img: lantern,
             effect: {
-              cost: 50,
+              cost: [50],
               "inv-items": [
                 {
                   name: "Mages Lantern",
@@ -659,7 +659,7 @@ const Data = {
               "the horse of Erenbiir's line are powerful warhorses, unflinching in the heat of battle and loyal as they come. He would appreciate you giving him a name.",
             img: horse,
             effect: {
-              cost: 100,
+              cost: [100],
               "inv-items": [
                 {
                   name: "Noble Mount",
@@ -676,7 +676,7 @@ const Data = {
               "The shied of the blue tree is worn and old, but still an arrow or blade is yet to pierce its mighty bulwark. Legends say even magic may be defected by it's true and solid power.",
             img: shield,
             effect: {
-              cost: 150,
+              cost: [150],
               "inv-items": [
                 {
                   name: "Shield of the Blue Tree",
@@ -694,7 +694,7 @@ const Data = {
               "Tells of the approachment of menacing forces and in which direction they lay.",
             img: talisman,
             effect: {
-              cost: 150,
+              cost: [150],
               "inv-items": [
                 {
                   name: "Mechanical Talisman",
@@ -711,7 +711,7 @@ const Data = {
               "A Dark spear, filled with anger and hate, can break through the toughest armor, but will slowly fill it's handler with a brooding darkness.",
             img: spear,
             effect: {
-              cost: 50,
+              cost: [50],
               "inv-items": [
                 {
                   name: "Dark Spear",
@@ -728,7 +728,7 @@ const Data = {
               "A Fiery magical torch, burns with a dark red light, but when meditate nearby it will create a protective shield.",
             img: ward,
             effect: {
-              cost: 100,
+              cost: [100],
               "inv-items": [
                 {
                   name: "Burning Ward",
@@ -745,7 +745,7 @@ const Data = {
               "A Dire wolf you raised from a pup, intensiley loyal. Most sentient folk are incredibly fearful of such beasts.",
             img: wolf,
             effect: {
-              cost: 100,
+              cost: [100],
               "inv-items": [
                 {
                   name: "Dire Wolf",
@@ -762,7 +762,7 @@ const Data = {
               "An ancient tome that tells of the dark forces that will come to plague this land, offers some puzzling & vague advice about possible weaknesses and manners by which it can be defeated.",
             img: tome,
             effect: {
-              cost: 50,
+              cost: [50],
               "inv-items": [
                 {
                   name: "Ancient Tome",
@@ -792,7 +792,7 @@ const Data = {
               "Your brothers in battle and blood, ready to lay down their life in battle alongside you. They number in 10, and are renowed for their feats of battle.",
             img: brothers,
             effect: {
-              cost: 150,
+              cost: [150],
               "char-allies": {
                 name: "Call Brothers of the Axe",
                 desc:
@@ -807,7 +807,7 @@ const Data = {
               "Capable and strong, but not entirely fearless, nor particularly loyal.",
             img: dwarves,
             effect: {
-              cost: 50,
+              cost: [50],
               "char-allies": {
                 name: "Dwarven Mercenaries",
                 desc: "Strong, but not fearless or loyal.",
@@ -821,7 +821,7 @@ const Data = {
               "One of the greater eagles is in your debt, but his honor will be sullied if you call him in aid for reason other than a time of dire need.",
             img: eagle,
             effect: {
-              cost: 100,
+              cost: [100],
               "char-allies": {
                 name: "Call Brothers of the Axe",
                 desc:
@@ -844,7 +844,7 @@ const Data = {
               "Great & capable hunters, the rangers can guide and protect you their impressive bow skills even in the darkest & most perilous woods.",
             img: rangers,
             effect: {
-              cost: 150,
+              cost: [150],
               "char-allies": {
                 name: "Forest Rangers",
                 desc: "Capable forest guides, strong archers.",
@@ -858,7 +858,7 @@ const Data = {
               "A strange but powerful mage has offered to take you under his wing, he has great power of natural forces and druidic summonings. he is however not entirely sane and has a tendency to charge ahead headless of danger.",
             img: wildmage,
             effect: {
-              cost: 200,
+              cost: [200],
               "char-allies": {
                 name: "Wilderness Mage",
                 desc: "powerful druid mage, dangerously fearless.",
@@ -884,7 +884,7 @@ const Data = {
             description:
               "Your lust for blood makes you a dangerous enemy, but also a dangerous Ally.",
             effect: {
-              cost: -50,
+              cost: [-50],
               "char-drawback": {
                 name: "Overwhelming Bloodlust",
                 desc: "Once angered dangerous even to allies.",
@@ -896,7 +896,7 @@ const Data = {
             description:
               "Your desire for heroics stems from a lust for power & glory, those pure of heart can see your motivation.",
             effect: {
-              cost: -50,
+              cost: [-50],
               "char-drawback": {
                 name: "Power hungry",
                 desc: "Untrusted by those pure of heart.",
@@ -908,7 +908,7 @@ const Data = {
             description:
               "Unable to see like normal men you must rely on your other senses, which though enhanced do not aid in your ability to navigate quiet places.",
             effect: {
-              cost: -150,
+              cost: [-150],
               "char-drawback": {
                 name: "Power hungry",
                 desc: "Untrusted by those pure of heart.",
