@@ -72,7 +72,7 @@ const DesktopCompact = observer(({ switchCharSize }) => {
       <TextPad>{race}</TextPad>
       <TextPad>Items: {items.length}</TextPad>
       {purchasing.map((purchaseType) => (
-        <>
+        <div key={purchaseType.FullName}>
           <TitleDiv nopad>
             {!purchaseType.icon ? purchaseType.FullName : null}
           </TitleDiv>
@@ -82,7 +82,7 @@ const DesktopCompact = observer(({ switchCharSize }) => {
             )}
             {purchaseType.amount}
           </TextPad>
-        </>
+        </div>
       ))}
       <ShowEffectsBtn />
       <VertBtn onClick={switchCharSize}>{">"}</VertBtn>
@@ -158,14 +158,18 @@ const Purchasing = observer(({ small }) => {
     const Title = !Icon ? purchaseType.ShortName + ":" : null;
 
     return small ? (
-      <SmMobPoints>
+      <SmMobPoints key={purchaseType.ShortName}>
         {Icon && <SmIcon src={Icon} alt={purchaseType.ShortName} />}
         <span>
           {Title} {purchaseType.amount}
         </span>
       </SmMobPoints>
     ) : (
-      <TextBox title={purchaseType.ShortName + ":"} value={purchaseType.amount}>
+      <TextBox
+        key={purchaseType.ShortName}
+        title={purchaseType.ShortName + ":"}
+        value={purchaseType.amount}
+      >
         {Icon && <SmIcon src={Icon} alt={purchaseType.ShortName} />}
       </TextBox>
     );
@@ -230,6 +234,7 @@ const Allies = observer(() => {
       )}
       {allies.map((ally) => (
         <TextBox
+          key={ally.name}
           title={"> " + ally.name + " : "}
           value={`${ally.desc} ${ally.quantity} in number.`}
         />
@@ -248,7 +253,11 @@ const Abilities = observer(() => {
       </TitleDiv>
       {abilities.length === 0 && <TextMd>None</TextMd>}
       {abilities.map((ability) => (
-        <TextBox title={"> " + ability.name + " : "} value={ability.power} />
+        <TextBox
+          key={ability.name}
+          title={"> " + ability.name + " : "}
+          value={ability.power}
+        />
       ))}
     </>
   );
@@ -264,11 +273,11 @@ const AdvDrawbacks = observer(() => {
       </TitleDiv>
       {advDrawback.length === 0 && <TextMd>None</TextMd>}
       {advDrawback.map((set) => (
-        <>
+        <div key={set.name}>
           <TextPad>{"=>  " + set.name}</TextPad>
           <div>{"+  " + set.adv}</div>
           <div>{"-  " + set.drawback}</div>
-        </>
+        </div>
       ))}
     </>
   );
@@ -285,7 +294,11 @@ const Drawbacks = observer(() => {
         </TitleDiv>
       )}
       {drawbacks.map((drawback) => (
-        <TextBox title={"> " + drawback.name + " : "} value={drawback.desc} />
+        <TextBox
+          key={drawback.name}
+          title={"> " + drawback.name + " : "}
+          value={drawback.desc}
+        />
       ))}
     </>
   );
@@ -303,6 +316,7 @@ const Items = observer(() => {
       <InventoryWrapper>
         {items.map((item) => (
           <InventoryItem
+            key={item.name}
             name={item.name}
             desc={item.desc}
             quantity={item.quantity}
@@ -331,17 +345,18 @@ const MiscEffects = observer(() => {
 
   return Object.keys(misc).map((miscKey) =>
     misc[miscKey].length > 0 ? (
-      <>
+      <div key={miscKey}>
         <TitleDiv>
           <TextMd>{miscKey}</TextMd>
         </TitleDiv>
         {misc[miscKey].map((miscEffect) => (
           <TextBox
+            key={miscEffect.name}
             title={miscEffect.name + ": "}
             value={`${miscEffect.desc} x${miscEffect.quantity}`}
           />
         ))}
-      </>
+      </div>
     ) : null
   );
 });

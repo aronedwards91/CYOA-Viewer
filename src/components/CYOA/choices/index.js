@@ -51,6 +51,7 @@ const SelectionsBuilder = () => {
         case StyleChoices.line:
           return (
             <SelectionWrapperLogic
+              key={selection.name}
               ChildNode={ChoiceLines}
               selectionData={selection}
             />
@@ -59,6 +60,7 @@ const SelectionsBuilder = () => {
         case StyleChoices.boxes:
           return (
             <SelectionWrapperLogic
+              key={selection.name}
               ChildNode={ChoiceBoxes}
               selectionData={selection}
             />
@@ -66,6 +68,7 @@ const SelectionsBuilder = () => {
         case StyleChoices.smBoxes:
           return (
             <SelectionWrapperLogic
+              key={selection.name}
               ChildNode={ChoiceSmBoxes}
               selectionData={selection}
             />
@@ -103,6 +106,7 @@ const ChoiceLines = ({
       {showChoices &&
         data.choices.map((choice, index) => (
           <LineItem
+            key={choice.name}
             choice={choice}
             unique={unique}
             buyFunc={() => buyFunc(index)}
@@ -180,6 +184,7 @@ const ChoiceBoxes = ({
         <BoxItemWrapper>
           {data.choices.map((choice, index) => (
             <BoxItem
+              key={choice.name}
               choice={choice}
               unique={unique}
               buyFunc={() => buyFunc(index)}
@@ -236,6 +241,12 @@ const HeaderContent = ({ data, onClick, shown }) => (
     </HeaderSplit>
     <HeaderDescSplit>
       <HeaderSm>{data.description}</HeaderSm>
+      {data.buy.max > 1 && (
+        <>
+          <br />
+          <HeaderSm>Max {data.buy.max} choices</HeaderSm>
+        </>
+      )}
     </HeaderDescSplit>
     <ButtonSplit onClick={onClick}>
       {shown ? (

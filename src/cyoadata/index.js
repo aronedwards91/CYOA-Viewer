@@ -1013,17 +1013,17 @@ const Data = {
   charSetup: {
     purchasing: [
       // min 0, 4+ will break mobile styling
-      // {
-      //   amount: 800, // Starting choice points
-      //   FullName: "Magic power",
-      //   ShortName: "MP",
-      //   icon: BuyIcon,
-      // },
-      // {
-      //   amount: 2, // Starting choice points
-      //   FullName: "Skill Points",
-      //   ShortName: "SP",
-      // },
+      {
+        amount: 800, // Starting choice points
+        FullName: "Magic power",
+        ShortName: "MP",
+        icon: BuyIcon,
+      },
+      {
+        amount: 2, // Starting choice points
+        FullName: "Skill Points",
+        ShortName: "SP",
+      },
     ],
     setting: "A dangerous Iron age forest.", // brief description of setup
   },
