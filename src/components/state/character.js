@@ -158,15 +158,7 @@ export function createCharStore() {
       this.items = OldArrayClone;
     },
 
-    misc: {
-      key: [
-        {
-          name: "fireball",
-          desc: "fire n shit",
-          quantity: 1,
-        },
-      ],
-    },
+    misc: {},
     addMisc(newMisc) {
       if (newMisc.key) {
         if (this.misc[newMisc.key]) {
