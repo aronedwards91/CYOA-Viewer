@@ -18,7 +18,7 @@ vscode's replace to remove the line endings.
 
 
 #### Todo
-- no purchase opt
+- display max
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)

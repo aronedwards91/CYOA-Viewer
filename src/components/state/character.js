@@ -198,23 +198,27 @@ export function createCharStore() {
     // Costing, discounts
     purchasing: data.charSetup.purchasing,
     addPurchase(data) {
-      const arrayClone = this.purchasing.splice(0);
-      if (Array.isArray(data)) {
-        data.forEach((cost, index) => {
-          arrayClone[index].amount -= cost;
-        });
-      } else {
-        arrayClone[0].amount -= data;
+      if (this.purchasing.length > 0) {
+        const arrayClone = this.purchasing.splice(0);
+        if (Array.isArray(data)) {
+          data.forEach((cost, index) => {
+            arrayClone[index].amount -= cost;
+          });
+        } else {
+          arrayClone[0].amount -= data;
+        }
+        this.purchasing = arrayClone;
       }
-      this.purchasing = arrayClone;
     },
     removePurchase(data) {
-      if (Array.isArray(data)) {
-        data.forEach((cost, index) => {
-          this.purchasing[index].amount += cost;
-        });
-      } else {
-        this.purchasing[0].amount += data;
+      if (this.purchasing.length > 0) {
+        if (Array.isArray(data)) {
+          data.forEach((cost, index) => {
+            this.purchasing[index].amount += cost;
+          });
+        } else {
+          this.purchasing[0].amount += data;
+        }
       }
     },
 

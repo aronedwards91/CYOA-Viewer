@@ -175,7 +175,7 @@ const CharProfile = observer(() => {
   const store = useCharDataStore();
   const { profImg } = store;
 
-  return <Portrait alt="Img" src={profImg} />;
+  return profImg ? <Portrait alt="Img" src={profImg} /> : null;
 });
 const CharDetails = observer(() => {
   const store = useCharDataStore();

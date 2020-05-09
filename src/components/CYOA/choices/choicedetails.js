@@ -25,6 +25,7 @@ const ChoiceDetails = ({ details, styling }) => {
 };
 
 export const Cost = ({ data }) => {
+  if (Settings.charSetup.purchasing.length === 0) return null;
   const isArray = Array.isArray(data);
   return isArray ? (
     data.map((cost, index) => {
