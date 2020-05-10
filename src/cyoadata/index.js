@@ -1,7 +1,7 @@
 // This Template fills in the data
 // import images placed in /public
-import bg from "../public/gold-tree.jpg";
-import logo from "../public/logo.jpg";
+import bg from "../public/gold-tree.svg";
+import logo from "../public/logo.svg";
 import BuyIcon from "../public/icons/buy.png";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
@@ -904,14 +904,14 @@ const Data = {
             },
           },
           {
-            name: "Blind",
+            name: "Outlaw",
             description:
-              "Unable to see like normal men you must rely on your other senses, which though enhanced do not aid in your ability to navigate quiet places.",
+              "Your past misdeeds have caught up with you, those loyal to tribal law distrust you and want to see you pay for your crimes.",
             effect: {
               cost: [-150],
               "char-drawback": {
-                name: "Power hungry",
-                desc: "Untrusted by those pure of heart.",
+                name: "Outlaw",
+                desc: "Kicked out from your home and branded a criminal.",
               },
             },
           },
