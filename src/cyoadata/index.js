@@ -1,7 +1,6 @@
 // This Template fills in the data
 // import images placed in /public
-import bg from "../public/gold-tree.svg";
-import logo from "../public/logo.svg";
+import bg from "../public/gold.jpg";
 import BuyIcon from "../public/icons/buy.png";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
@@ -85,7 +84,6 @@ const Data = {
   },
   cyoa: {
     header: {
-      logo: logo,
       title: "CYOA - DarkWood",
       subHeader: "The dark woods call for blood",
       author: "BiggySpoonz",
