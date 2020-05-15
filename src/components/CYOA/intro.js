@@ -33,19 +33,27 @@ const Intro = () => (
   </IntroCard>
 );
 
-export const Addendum = () => (
-  <AddendumCard>
-    <div>{Data.addendumTitle && <HeaderMd>{Data.addendumTitle}</HeaderMd>}</div>
-    {Data.addendumPic && <MdImg alt="worldMap" src={Data.addendumPic} />}
-    {Data.addendumText && Data.addendumText.length > 400 ? (
-      <Article3Col>
-        <TextMd>{Data.addendumText}</TextMd>
-      </Article3Col>
-    ) : (
-      <TextMd>{Data.addendumText}</TextMd>
-    )}
-  </AddendumCard>
-);
+export const Addendum = () => {
+  if (Data.addendumTitle || Data.addendumPic || Data.addendumText) {
+    return (
+      <AddendumCard>
+        <div>
+          {Data.addendumTitle && <HeaderMd>{Data.addendumTitle}</HeaderMd>}
+        </div>
+        {Data.addendumPic && <MdImg alt="worldMap" src={Data.addendumPic} />}
+        {Data.addendumText && Data.addendumText.length > 400 ? (
+          <Article3Col>
+            <TextMd>{Data.addendumText}</TextMd>
+          </Article3Col>
+        ) : (
+          <TextMd>{Data.addendumText}</TextMd>
+        )}
+      </AddendumCard>
+    );
+  } else {
+    return <div></div>;
+  }
+};
 
 const IntroCard = styled(Card)`
   padding: 32px;
