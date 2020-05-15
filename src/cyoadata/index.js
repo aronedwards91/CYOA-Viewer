@@ -53,6 +53,9 @@ const Data = {
       appendTitle: "Choose Wisely, you have 1000CP",
       appendText:
         "This CYOA sets up a classic hero's journey archetype adventure, a dark nemesis rise to destroy the land, will you take up the accursed relic and wield it to save the land from darkness?",
+      addendumTitle: "The light of this world is waning...",
+      addendumText:
+        "With your preperations made, the adventure begins, but so do your troubles. Within a month the gates of Fort Eadharras will fall to the first launched attack from the approaching dark of the lost. If unsupported by the next month Fort Gorrot & Landskarn end, if the first three forts fall there can be nothing to stem the tide of doom.",
     },
     selections: [
       {

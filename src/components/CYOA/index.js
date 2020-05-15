@@ -5,12 +5,12 @@ import media from "styled-media-query";
 import Settings from "../../cyoadata";
 import { BackgroundGradient, BgImg } from "../Background";
 import Header from "./header";
-import Intro from "./intro";
+import Intro, { Addendum } from "./intro";
 import Selections from "./choices/index";
 
 const Layout = Settings.styling.layout;
 
-const CYOA = ({ isExpanded}) => (
+const CYOA = ({ isExpanded }) => (
   <Box
     sidebarWidth={isExpanded ? Layout.sidebarWidth : Layout.sidebarWidthDeskSm}
   >
@@ -20,6 +20,7 @@ const CYOA = ({ isExpanded}) => (
     <Header />
     <Intro />
     <Selections />
+    <Addendum />
   </Box>
 );
 
