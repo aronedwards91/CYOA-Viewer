@@ -137,8 +137,9 @@ export const LgMobScroll = styled.div`
 `;
 export const Portrait = styled.img`
   border: 1px solid ${Style.colors.charBorder};
-  max-width: 140px;
   max-height: 240px;
+  max-width: 134px;
+  object-fit: cover;
 `;
 export const TextPad = styled.div`
   padding: 8px;

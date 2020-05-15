@@ -29,6 +29,10 @@ import minesDelarun from "../public/origin/mines-delarun.jpg";
 import daggerbloody from "../public/relic/dagger-bloody.jpg";
 import amuletgreystone from "../public/relic/amulet-greystone.jpg";
 import waterskinomsak from "../public/relic/waterskin.jpg";
+// Relic Icons
+import daggericon from "../public/icons/icon-dagger.png";
+import amuleticon from "../public/icons/icon-amulet.png";
+import waterskinicon from "../public/icons/icon-waterskin.png";
 // Challenge
 import erredmhuur from "../public/challenge/erred-mhuur.jpg";
 import haruspex from "../public/challenge/haruspex.jpg";
@@ -448,8 +452,7 @@ const Data = {
               "char-background": "Bennet's Rest.",
               "body-ability": {
                 name: "Horsemanship",
-                power:
-                  "Rider faster and fight easier on any mount.",
+                power: "Rider faster and fight easier on any mount.",
               },
             },
           },
@@ -463,8 +466,7 @@ const Data = {
               "char-background": "Dinnol Pits.",
               "body-ability": {
                 name: "Brawling",
-                power:
-                  "Handy with your fists, even when drunk",
+                power: "Handy with your fists, even when drunk",
               },
             },
           },
@@ -494,7 +496,8 @@ const Data = {
               "inv-items": [
                 {
                   name: "Knight's Banner",
-                  desc: "True knight's will follow the banner of a true hero unto death.",
+                  desc:
+                    "True knight's will follow the banner of a true hero unto death.",
                   quantity: 1,
                   icon: false,
                 },
@@ -541,8 +544,7 @@ const Data = {
               "char-background": "Landskarn End.",
               "body-ability": {
                 name: "Censor's rod",
-                power:
-                  "Cast fear into those who lack moral scruples.",
+                power: "Cast fear into those who lack moral scruples.",
               },
             },
           },
@@ -578,7 +580,7 @@ const Data = {
                   name: "Bloody Dagger",
                   desc: "Ornate & ever bloody",
                   quantity: 1,
-                  icon: false,
+                  icon: daggericon,
                 },
               ],
             },
@@ -602,7 +604,7 @@ const Data = {
                   name: "Amulet of Beyin'Parak",
                   desc: "Glowing Relic of indominable will.",
                   quantity: 1,
-                  icon: false,
+                  icon: amuleticon,
                 },
               ],
             },
@@ -626,7 +628,7 @@ const Data = {
                   name: "Waterskin of Omsak Yashniir",
                   desc: "Relic that weapons more powerful.",
                   quantity: 1,
-                  icon: false,
+                  icon: waterskinicon,
                 },
               ],
             },
@@ -727,16 +729,16 @@ const Data = {
         },
         choices: [
           {
-            name: "Climbers Satchel",
+            name: "Bag of holding",
             description:
-              "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
+              "A small bag capable of holding twice your own bodyweight in items before it becomes heavy, bag never grows in size, once full uncarriably heavy.",
             img: satchel,
             effect: {
-              cost: [50],
+              cost: [100],
               "inv-items": [
                 {
-                  name: "Climbers Satchel",
-                  desc: "Rope, hook & climbers chalk",
+                  name: "Bag of holding",
+                  desc: "Holds 2x bodyweight, never gets bigger.",
                   quantity: 1,
                   icon: false,
                 },
@@ -936,7 +938,7 @@ const Data = {
       {
         name: "6/ Allies",
         description:
-          "there are many who are willing and able to help you on your journey.",
+          "There are many who are willing and able to help you on your journey.",
         style: "lines",
         buy: {
           unique: false,
@@ -947,22 +949,22 @@ const Data = {
           {
             name: "Brothers of the Axe",
             description:
-              "Your brothers in battle and blood, ready to lay down their life in battle alongside you. They number in 10, and are renowed for their feats of battle.",
+              "Your brothers in battle and blood, ready to lay down their life in battle alongside you. [Aefild] Calm but once angry his bloodrage is legendery, axe & shield [Orris] Drunken hunter, likes to toy with his prey, bow & spear [Soffick] Elegent and proud, insatiable cassanova, often difficult to find and more often causes you problems, dual blade, plate armor.",
             img: brothers,
             effect: {
-              cost: [150],
+              cost: [100],
               "char-allies": {
                 name: "Call Brothers of the Axe",
                 desc:
-                  "Your brothers in arms are always ready for a fight, and are renowed for their feats of battle.",
-                quantity: 5,
+                  "Your brothers in arms are always ready for a fight, and are renowed for their feats of battle.[Aefild] Either calm or blood mad [Orris] drunken, sadistic [Soffick] Elegant, difficult, cassanova",
+                quantity: 3,
               },
             },
           },
           {
             name: "Dwarven Mercenaries",
             description:
-              "Capable and strong, but not entirely fearless, nor particularly loyal.",
+              "Capable and strong, but not entirely fearless, nor particularly loyal. They are a hard drinking & fighting lot, but given direction they will throw themselves wildly into battle. Will abandon you if the coin runs out.",
             img: dwarves,
             effect: {
               cost: [50],
@@ -999,27 +1001,29 @@ const Data = {
           {
             name: "Forest Rangers",
             description:
-              "Great & capable hunters, the rangers can guide and protect you their impressive bow skills even in the darkest & most perilous woods.",
+              "Great & capable hunters, the rangers can guide and protect you their impressive bow skills even in the darkest & most perilous woods. [Redwald] A quiet mystery, always faithful, he speaks of little but the movement of beasts [Swefred] Loud and brash, always competitive and lively, but never drinks, quiet about it but very religious.",
             img: rangers,
             effect: {
-              cost: [150],
+              cost: [100],
               "char-allies": {
                 name: "Forest Rangers",
-                desc: "Capable forest guides, strong archers.",
-                quantity: 8,
+                desc:
+                  "Capable forest guides, strong archers.[Redwald]quiet, mystery [Swefred]loud, competitive",
+                quantity: 2,
               },
             },
           },
           {
             name: "Wilderness Mage",
             description:
-              "A strange but powerful mage has offered to take you under his wing, he has great power of natural forces and druidic summonings. he is however not entirely sane and has a tendency to charge ahead headless of danger.",
+              "Cudbert is a strange but powerful mage who has offered to take you under his wing, he has great power of natural forces and druidic summonings. He is however not entirely sane and has a tendency to charge ahead headless of danger. ",
             img: wildmage,
             effect: {
               cost: [200],
               "char-allies": {
                 name: "Wilderness Mage",
-                desc: "powerful druid mage, dangerously fearless.",
+                desc:
+                  "[Cudbert] powerful druid mage, dangerously fearless, partially insane. Can summon ethereal beasts, razorsharp leaves and can use gentle healing magics.",
                 quantity: 1,
               },
             },
@@ -1084,7 +1088,7 @@ const Data = {
           //Limit the amount you can buy
           unique: true, // if unique, can only be selected once, can have multiple unique items
           min: 1, //Not yet implemented
-          max: 20,
+          max: 2,
         },
         choices: [
           {
@@ -1160,6 +1164,20 @@ const Data = {
                 name: "Necromancy",
                 desc:
                   "Reawaken the dead through strange and slow ritual, seen by most as heresy.",
+                quantity: 1,
+              },
+            },
+          },
+          {
+            name: "Stealth",
+            description:
+              "the darkness is your friend, when the sun is down, you are only seen when you wish to be.",
+            effect: {
+              cost: [0, 1],
+              misc: {
+                key: "Skill",
+                name: "Stealth",
+                desc: "Able to hide in the shadows and move quietly.",
                 quantity: 1,
               },
             },
