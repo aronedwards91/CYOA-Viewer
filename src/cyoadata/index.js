@@ -3,6 +3,7 @@
 import bg from "../public/gold.jpg";
 import BuyIcon from "../public/icons/buy.png";
 import logo from "../public/logo.svg";
+import addendum from "../public/grim.jpg";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
 //worldmap
@@ -116,6 +117,10 @@ const Data = {
       worldmap: worldmap,
       Worldbuildingtext:
         "Deep in the lost woods of the west a dark power rises, the greater spirit of the land calls forth for a hero to unite the tribes of man, dwarf and all that sentient races together to fight the dark spirit. In the north the wild mages of the golden forest seperate themselves from the ungifted, and think only of growing their power. The looming spire skirmishes with the wild and frienzied zealots of Gorruk's Hermitage, risking a wider conflict between man & dwarf. Bennet's rest grows poor under the failing guidance of greedy spiteful lord and his arrogant housecarls. The mines of Delarun are rich but the breaking down into family factions has lead to crumbling social foundation as houses further plot, murder, and sow the seeds of chaos to gain greater ranking in the High council. The dinnol pits continue to produce great fighters in their fighting pits, but brash, angry and poor they feed not the barracks of LandsKarn End but the wild bandit groups that pester the southern woods. Fort Eadharras stands proud, holding against the first of the push from the lost, but as others ignore it's calls for aid, it's numbers begin to fail. Fort Gorrots growing power is seen as alooming threat to it's neighbours as past transgressions pollute it's reputation, will it's newest High Chaplain restore it's reputation or fall to war against it's neighbours.",
+      addendumTitle: "The light of this world is waning...",
+      addendumPic: addendum,
+      addendumText:
+        "With your preperations made, the adventure begins, but so do your troubles. Within a month the gates of Fort Eadharras will fall to the first launched attack from the approaching dark of the lost. If unsupported by the next month Fort Gorrot & Landskarn end, if the first three forts fall there can be nothing to stem the tide of doom.",
     },
     selections: [
       {

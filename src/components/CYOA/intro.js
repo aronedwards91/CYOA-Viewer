@@ -33,6 +33,20 @@ const Intro = () => (
   </IntroCard>
 );
 
+export const Addendum = () => (
+  <AddendumCard>
+    <div>{Data.addendumTitle && <HeaderMd>{Data.addendumTitle}</HeaderMd>}</div>
+    {Data.addendumPic && <MdImg alt="worldMap" src={Data.addendumPic} />}
+    {Data.addendumText && Data.addendumText.length > 400 ? (
+      <Article3Col>
+        <TextMd>{Data.addendumText}</TextMd>
+      </Article3Col>
+    ) : (
+      <TextMd>{Data.addendumText}</TextMd>
+    )}
+  </AddendumCard>
+);
+
 const IntroCard = styled(Card)`
   padding: 32px;
 `;
@@ -40,6 +54,17 @@ const LgImg = styled.img`
   width: 100%;
   object-fit: cover;
   border: 2px solid ${Settings.styling.colors.mainHighlight};
+  margin-bottom: 20px;
+`;
+const AddendumCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+`;
+const MdImg = styled.img`
+  max-width: 100%;
+  min-width: 220px;
+  object-fit: contain;
   margin-bottom: 20px;
 `;
 
