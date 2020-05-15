@@ -16,9 +16,9 @@ To build your own App, a web form App has been build that exports working html A
 - Font tip: to format export from linked site correctly to .json, use 
 vscode's replace to remove the line endings.
 
-
 #### Possible future additions
 - discount logic (requires bigger rewrite)
+- extra item icons for example Dark Forest CYOA
 
 ## Building a CYOA
 

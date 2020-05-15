@@ -2,7 +2,7 @@
 // import images placed in /public
 import logo from "../public/logo.jpg";
 import BuyIcon from "../public/icons/buy.png";
-import humanhunter from "../public/origin/human-hunter.jpg";
+import humanhunter from "../public/archetype/human-hunter.jpg";
 
 const Data = {
   appData: {
@@ -41,10 +41,10 @@ const Data = {
   },
   cyoa: {
     header: {
-      logo: logo,
-      title: "CYOA - DarkWood",
+      title: "CYOA - Dark Forest",
       subHeader: "The dark woods call for blood",
       author: "BiggySpoonz",
+      logo: logo,
     },
     intro: {
       title: "Welcome to the dark woodlands..",
@@ -52,13 +52,13 @@ const Data = {
         "You begin by inhabiting the dead body of a warrior, rising from the musty earth the powerful warrior's body begins to morph to your shape. Slowly you inbide the corpse's memories, taking them almost as your own, like coming from a coma your connection with your host body is hazy, but with a little use his abilities quickly feel natural.\n\n Arisen, you are in a clearing surrounded by a dark woodland, your clothes are moss covered and beginning to rot, the evening is cold. It seems you will remain here until the world is freed of the magic that pulled you here, or death finds you.\n\n You Find the items that had been on your person stashed inside an ornate wooden chest covered in strange symbols. The box’s energy slowly fades, it now seems to be merely but a strangely decorated wooden box.\n\n -- THE WORLD -- \n\n The world has no name, for none know more that much further beyond their village. It is a cold world, men and dwarves toil to survive the vicious unforgiving world. The forest grows, and grows, forever hardy, forever dangerous, but plentiful.\nMost subside through a mixture of farming and hunting, building up stores to survive the beasts the prey through winter. The men of this world are untrusting, but hardy and loyal, they have braved great terror before and are ready to do so again. But deep in the dark woods a terror grows, biding and spreading its influence among the wild and free beasts is gaining, soon no power of the intelligent races will be enough to stop the coming tide.",
       appendTitle: "Choose Wisely, you have 1000CP",
       appendText:
-        "Find the origin of your corpse host, the relic which pulled you here and the evil villian you will face.",
+        "This CYOA sets up a classic hero's journey archetype adventure, a dark nemesis rise to destroy the land, will you take up the accursed relic and wield it to save the land from darkness?",
     },
     selections: [
       {
-        name: "1/ Origin",
+        name: "1/ Archetype",
         description:
-          "You had a home, your past has given you many strengths to build from.",
+          "What were you once in this darkened place, and from what seeds will you grow?",
         style: "lines", // layout style, options: lines, boxes, smallboxes
         buy: {
           //Limit the amount you can buy
@@ -77,7 +77,6 @@ const Data = {
               cost: [0],
               //The effects, a short list of options body-age, body-race, char-background, char-challenge, body-ability, char-advdrawback, inv-item
               "char-profimg": humanhunter,
-              "char-background": "Bor-Duren",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "hunter-gatherer",
@@ -341,7 +340,7 @@ const Data = {
         ],
       },
       {
-        name: "2/ Accursed Relic",
+        name: "3/ Accursed Relic",
         description:
           "Among the items in the decorated box you find a strange item, it's tingles with a ponderous and powerful energy. It seems this item has a called forth a being to futher it's destiny.",
         style: "boxes",
@@ -370,7 +369,7 @@ const Data = {
                   name: "Bloody Dagger",
                   desc: "Ornate & ever bloody",
                   quantity: 1,
-                  icon: false,
+                  icon: null,
                 },
               ],
             },
@@ -394,7 +393,7 @@ const Data = {
                   name: "Amulet of Beyin'Parak",
                   desc: "Glowing Relic of indominable will.",
                   quantity: 1,
-                  icon: false,
+                  icon: null,
                 },
               ],
             },
@@ -418,7 +417,7 @@ const Data = {
                   name: "Waterskin of Omsak Yashniir",
                   desc: "Relic that weapons more powerful.",
                   quantity: 1,
-                  icon: false,
+                  icon: null,
                 },
               ],
             },
@@ -426,7 +425,7 @@ const Data = {
         ],
       },
       {
-        name: "3/ Nemesis",
+        name: "4/ Nemesis",
         description:
           "Deep in the dark wood a dark power is growing, it thirsts for something, something it hopes to gain from the people of this world.",
         style: "lines",
@@ -508,7 +507,7 @@ const Data = {
         ],
       },
       {
-        name: "4/ Items",
+        name: "5/ Items",
         description:
           "What other useful equipment you have found to help you on your journey.",
         style: "boxes",
@@ -519,16 +518,16 @@ const Data = {
         },
         choices: [
           {
-            name: "Climbers Satchel",
+            name: "Bag of holding",
             description:
               "A small bag with a leather sling, contains string on the end of which is a large iron hook, and a ground stone dust for your fingers.",
             img: humanhunter,
             effect: {
-              cost: [50],
+              cost: [100],
               "inv-items": [
                 {
-                  name: "Climbers Satchel",
-                  desc: "Rope, hook & climbers chalk",
+                  name: "Bag of holding",
+                  desc: "Holds 2x bodyweight, never gets bigger.",
                   quantity: 1,
                   icon: false,
                 },
@@ -725,101 +724,9 @@ const Data = {
           },
         ],
       },
+      
       {
-        name: "5/ Allies",
-        description:
-          "there are many who are willing and able to help you on your journey.",
-        style: "lines",
-        buy: {
-          unique: false,
-          min: 1,
-          max: 4,
-        },
-        choices: [
-          {
-            name: "Brothers of the Axe",
-            description:
-              "Your brothers in battle and blood, ready to lay down their life in battle alongside you. They number in 10, and are renowed for their feats of battle.",
-            img: humanhunter,
-            effect: {
-              cost: [150],
-              "char-allies": {
-                name: "Call Brothers of the Axe",
-                desc:
-                  "Your brothers in arms are always ready for a fight, and are renowed for their feats of battle.",
-                quantity: 5,
-              },
-            },
-          },
-          {
-            name: "Dwarven Mercenaries",
-            description:
-              "Capable and strong, but not entirely fearless, nor particularly loyal.",
-            img: humanhunter,
-            effect: {
-              cost: [50],
-              "char-allies": {
-                name: "Dwarven Mercenaries",
-                desc: "Strong, but not fearless or loyal.",
-                quantity: 4,
-              },
-            },
-          },
-          {
-            name: "Greater Eagle",
-            description:
-              "One of the greater eagles is in your debt, but his honor will be sullied if you call him in aid for reason other than a time of dire need.",
-            img: humanhunter,
-            effect: {
-              cost: [100],
-              "char-allies": {
-                name: "Call Brothers of the Axe",
-                desc:
-                  "Your brothers in arms are always ready for a fight. They number in 10, and are renowed for their feats of battle.",
-                quantity: 1,
-              },
-              "inv-items": [
-                {
-                  name: "Eagle's Horn",
-                  desc: "Sound to call for the aid of a greater Eagle.",
-                  quantity: 1,
-                  icon: false,
-                },
-              ],
-            },
-          },
-          {
-            name: "Forest Rangers",
-            description:
-              "Great & capable hunters, the rangers can guide and protect you their impressive bow skills even in the darkest & most perilous woods.",
-            img: humanhunter,
-            effect: {
-              cost: [150],
-              "char-allies": {
-                name: "Forest Rangers",
-                desc: "Capable forest guides, strong archers.",
-                quantity: 8,
-              },
-            },
-          },
-          {
-            name: "Wilderness Mage",
-            description:
-              "A strange but powerful mage has offered to take you under his wing, he has great power of natural forces and druidic summonings. he is however not entirely sane and has a tendency to charge ahead headless of danger.",
-            img: humanhunter,
-            effect: {
-              cost: [200],
-              "char-allies": {
-                name: "Wilderness Mage",
-                desc: "powerful druid mage, dangerously fearless.",
-                quantity: 1,
-              },
-            },
-          },
-        ],
-      },
-      {
-        name: "6/ Drawbacks",
+        name: "7/ Drawbacks",
         description:
           "Without challenges to make us stronger we remain weak in character.",
         style: "boxes",
@@ -854,21 +761,21 @@ const Data = {
             },
           },
           {
-            name: "Blind",
+            name: "Outlaw",
             description:
-              "Unable to see like normal men you must rely on your other senses, which though enhanced do not aid in your ability to navigate quiet places.",
+              "Your past misdeeds have caught up with you, those loyal to tribal law distrust you and want to see you pay for your crimes.",
             effect: {
               cost: [-150],
               "char-drawback": {
-                name: "Power hungry",
-                desc: "Untrusted by those pure of heart.",
+                name: "Outlaw",
+                desc: "Kicked out from your home and branded a criminal.",
               },
             },
           },
         ],
       },
       {
-        name: "7/ Skills",
+        name: "8/ Skills",
         description:
           "You had a home, your past has given you many strengths to build from.",
         style: "smallboxes",
@@ -876,7 +783,7 @@ const Data = {
           //Limit the amount you can buy
           unique: true, // if unique, can only be selected once, can have multiple unique items
           min: 1, //Not yet implemented
-          max: 20,
+          max: 2,
         },
         choices: [
           {
@@ -956,6 +863,20 @@ const Data = {
               },
             },
           },
+          {
+            name: "Stealth",
+            description:
+              "the darkness is your friend, when the sun is down, you are only seen when you wish to be.",
+            effect: {
+              cost: [0, 1],
+              misc: {
+                key: "Skill",
+                name: "Stealth",
+                desc: "Able to hide in the shadows and move quietly.",
+                quantity: 1,
+              },
+            },
+          },
         ],
       },
     ],
@@ -964,7 +885,7 @@ const Data = {
     purchasing: [
       // min 0, 4+ will break mobile styling
       {
-        amount: 800, // Starting choice points
+        amount: 1000, // Starting choice points
         FullName: "Magic power",
         ShortName: "MP",
         icon: BuyIcon,
