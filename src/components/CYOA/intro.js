@@ -23,7 +23,7 @@ const Intro = () => (
     </Article3Col>
     <br />
     {Data.worldmap && <LgImg alt="worldMap" src={Data.worldmap} />}
-    {Data.Worldbuildingtext.length > 300 ? (
+    {Data.Worldbuildingtext && Data.Worldbuildingtext.length > 300 ? (
       <Article3Col>
         <TextMd>{Data.Worldbuildingtext}</TextMd>
       </Article3Col>
