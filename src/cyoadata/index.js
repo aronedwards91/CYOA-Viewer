@@ -2,8 +2,11 @@
 // import images placed in /public
 import bg from "../public/gold.jpg";
 import BuyIcon from "../public/icons/buy.png";
+import logo from "../public/logo.svg";
 // import font converted to base64
 import fontb64 from "../public/celtic-font.json";
+//worldmap
+import worldmap from "../public/darkwoods-map.jpg";
 // Char Profile
 import humanwarriorprof from "../public/origin/humanwarrior-port.jpg";
 import humanhunter from "../public/origin/human-hunter.jpg";
@@ -87,6 +90,7 @@ const Data = {
       title: "CYOA - DarkWood",
       subHeader: "The dark woods call for blood",
       author: "BiggySpoonz",
+      logo: logo,
     },
     intro: {
       title: "Welcome to the dark woodlands..",
@@ -94,7 +98,9 @@ const Data = {
         "You begin by inhabiting the dead body of a warrior, rising from the musty earth the powerful warrior's body begins to morph to your shape. Slowly you inbide the corpse's memories, taking them almost as your own, like coming from a coma your connection with your host body is hazy, but with a little use his abilities quickly feel natural.\n\n Arisen, you are in a clearing surrounded by a dark woodland, your clothes are moss covered and beginning to rot, the evening is cold. It seems you will remain here until the world is freed of the magic that pulled you here, or death finds you.\n\n You Find the items that had been on your person stashed inside an ornate wooden chest covered in strange symbols. The box’s energy slowly fades, it now seems to be merely but a strangely decorated wooden box.\n\n -- THE WORLD -- \n\n The world has no name, for none know more that much further beyond their village. It is a cold world, men and dwarves toil to survive the vicious unforgiving world. The forest grows, and grows, forever hardy, forever dangerous, but plentiful.\nMost subside through a mixture of farming and hunting, building up stores to survive the beasts the prey through winter. The men of this world are untrusting, but hardy and loyal, they have braved great terror before and are ready to do so again. But deep in the dark woods a terror grows, biding and spreading its influence among the wild and free beasts is gaining, soon no power of the intelligent races will be enough to stop the coming tide.",
       appendTitle: "Choose Wisely, you have 1000CP",
       appendText:
-        "Find the origin of your corpse host, the relic which pulled you here and the evil villian you will face.",
+        "This CYOA sets up a classic hero's journey archetype adventure, a dark nemesis rise to destroy the land, will you take up the accursed relic and wield it to save the land from darkness?",
+      worldmap: worldmap,
+      Worldbuildingtext: "Deep in the lost woods of the west a dark power rises, the greater spirit of the land calls forth for a hero to unite the tribes of man, dwarf and all that sentient races together to fight the dark spirit. In the north the wild mages of the golden forest seperate themselves from the ungifted, and think only of growing their power. The looming spire skirmishes with the wild and frienzied zealots of Gorruk's Hermitage, risking a wider conflict between man & dwarf. Bennet's rest grows poor under the failing guidance of greedy spiteful lord and his arrogant housecarls. The mines of Delarun are rich but the breaking down into family factions has lead to crumbling social foundation as houses further plot, murder, and sow the seeds of chaos to gain greater ranking in the High council. The dinnol pits continue to produce great fighters in their fighting pits, but brash, angry and poor they feed not the barracks of LandsKarn End but the wild bandit groups that pester the southern woods. Fort Eadharras stands proud, holding against the first of the push from the lost, but as others ignore it's calls for aid, it's numbers begin to fail. Fort Gorrots growinf power is seen as alooming threat to it's neighbours as past transgressions pollute it's reputation, will it's newest High Chaplain restore it's reputation or fall to war against it's neighbours.",
     },
     selections: [
       {
@@ -119,7 +125,7 @@ const Data = {
               cost: [0],
               //The effects, a short list of options body-age, body-race, char-background, char-challenge, body-ability, char-advdrawback, inv-item
               "char-profimg": humanhunter,
-              "char-background": "Bor-Duren",
+              "char-background": "The Looming Spires",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "hunter-gatherer",
@@ -152,7 +158,7 @@ const Data = {
               discountid: "humanwarrior",
               cost: [50],
               "char-profimg": humanwarriorprof,
-              "char-background": "Bor-Duren",
+              "char-background": "Bennet's Rest",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "warrior",
@@ -307,7 +313,7 @@ const Data = {
             effect: {
               cost: [100],
               "char-profimg": dwarfguardian,
-              "char-background": "Mines of Delarun, Scout.",
+              "char-background": "Mines of Delarun, Guardian.",
               "body-race": "Dwarf",
               "char-advdrawback": {
                 name: "Guardian",
@@ -347,12 +353,11 @@ const Data = {
             effect: {
               cost: [0],
               "char-profimg": dwarfpriest,
-              "char-background": "Gorruk's Wake Hermitage.",
+              "char-background": "Gorruk's Hermitage.",
               "body-race": "Dwarf",
               "char-advdrawback": {
                 name: "Priest",
-                adv:
-                  "Unbreaking courage in the face of horror.",
+                adv: "Unbreaking courage in the face of horror.",
                 drawback:
                   "Intense and unkind to those who do not follow the word.",
               },
@@ -366,8 +371,7 @@ const Data = {
                 },
                 {
                   name: "Chainmail",
-                  desc:
-                    "Lightweight and effective protection.",
+                  desc: "Lightweight and effective protection.",
                   quantity: 1,
                   icon: false,
                 },
@@ -816,14 +820,14 @@ const Data = {
           {
             name: "Greater Eagle",
             description:
-              "One of the greater eagles is in your debt, but his honor will be sullied if you call him in aid for reason other than a time of dire need.",
+              "Feddith Karr of the greater eagles, most noble and prideful of the eagles. For an earlier heroic act he has pledged you a favour is in your debt, but his honor will be sullied if you call him in aid for reason other than a time of dire need.",
             img: eagle,
             effect: {
               cost: [100],
               "char-allies": {
-                name: "Call Brothers of the Axe",
+                name: "Greater Eagle",
                 desc:
-                  "Your brothers in arms are always ready for a fight. They number in 10, and are renowed for their feats of battle.",
+                  "The greatest of eagles, Feddith Karr, noblest of the sky and lord of war.",
                 quantity: 1,
               },
               "inv-items": [
@@ -1012,7 +1016,7 @@ const Data = {
     purchasing: [
       // min 0, 4+ will break mobile styling
       {
-        amount: 800, // Starting choice points
+        amount: 1000, // Starting choice points
         FullName: "Magic power",
         ShortName: "MP",
         icon: BuyIcon,

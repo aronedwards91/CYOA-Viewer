@@ -16,6 +16,12 @@ To build your own App, a web form App has been build that exports working html A
 - Font tip: to format export from linked site correctly to .json, use 
 vscode's replace to remove the line endings.
 
+### Todo
+
+- seperate origin from character
+- example : Ally identity, 
+- wrapup info
+- better font
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)
