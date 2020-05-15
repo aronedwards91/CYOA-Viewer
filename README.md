@@ -18,7 +18,6 @@ vscode's replace to remove the line endings.
 
 ### Todo
 
-- seperate origin from character
 - example : Ally identity, 
 - wrapup info
 - better font

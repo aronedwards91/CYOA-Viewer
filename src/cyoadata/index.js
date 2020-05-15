@@ -8,13 +8,23 @@ import fontb64 from "../public/celtic-font.json";
 //worldmap
 import worldmap from "../public/darkwoods-map.jpg";
 // Char Profile
-import humanwarriorprof from "../public/origin/humanwarrior-port.jpg";
-import humanhunter from "../public/origin/human-hunter.jpg";
-import dwarfscout from "../public/origin/dwarf-scout.jpg";
-import dwarfguardian from "../public/origin/dwarf-guardian.jpg";
-import dwarfpriest from "../public/origin/dwarf-priest.jpg";
-import humandruid from "../public/origin/human-druid.jpg";
-import humanwanderer from "../public/origin/human-wanderer.jpg";
+import humanwarriorprof from "../public/archetype/humanwarrior-port.jpg";
+import humanhunter from "../public/archetype/human-hunter.jpg";
+import dwarfscout from "../public/archetype/dwarf-scout.jpg";
+import dwarfguardian from "../public/archetype/dwarf-guardian.jpg";
+import dwarfpriest from "../public/archetype/dwarf-priest.jpg";
+import humandruid from "../public/archetype/human-druid.jpg";
+import humanwanderer from "../public/archetype/human-wanderer.jpg";
+// Origin
+import bennetsRest from "../public/origin/bennets-rest.jpg";
+import dinnolPits from "../public/origin/dinnol-pits.jpg";
+import fortEadharras from "../public/origin/fort-eadharras.jpg";
+import fortGorrot from "../public/origin/fort-gorrot.jpg";
+import goldenForest from "../public/origin/golden-forest.jpg";
+import gorruksHermitage from "../public/origin/gorruks-hermitage.jpg";
+import LandskarnEnd from "../public/origin/Landskarn-end.jpg";
+import loomingSpire from "../public/origin/looming-spire.jpg";
+import minesDelarun from "../public/origin/mines-delarun.jpg";
 // Relics
 import daggerbloody from "../public/relic/dagger-bloody.jpg";
 import amuletgreystone from "../public/relic/amulet-greystone.jpg";
@@ -100,13 +110,14 @@ const Data = {
       appendText:
         "This CYOA sets up a classic hero's journey archetype adventure, a dark nemesis rise to destroy the land, will you take up the accursed relic and wield it to save the land from darkness?",
       worldmap: worldmap,
-      Worldbuildingtext: "Deep in the lost woods of the west a dark power rises, the greater spirit of the land calls forth for a hero to unite the tribes of man, dwarf and all that sentient races together to fight the dark spirit. In the north the wild mages of the golden forest seperate themselves from the ungifted, and think only of growing their power. The looming spire skirmishes with the wild and frienzied zealots of Gorruk's Hermitage, risking a wider conflict between man & dwarf. Bennet's rest grows poor under the failing guidance of greedy spiteful lord and his arrogant housecarls. The mines of Delarun are rich but the breaking down into family factions has lead to crumbling social foundation as houses further plot, murder, and sow the seeds of chaos to gain greater ranking in the High council. The dinnol pits continue to produce great fighters in their fighting pits, but brash, angry and poor they feed not the barracks of LandsKarn End but the wild bandit groups that pester the southern woods. Fort Eadharras stands proud, holding against the first of the push from the lost, but as others ignore it's calls for aid, it's numbers begin to fail. Fort Gorrots growinf power is seen as alooming threat to it's neighbours as past transgressions pollute it's reputation, will it's newest High Chaplain restore it's reputation or fall to war against it's neighbours.",
+      Worldbuildingtext:
+        "Deep in the lost woods of the west a dark power rises, the greater spirit of the land calls forth for a hero to unite the tribes of man, dwarf and all that sentient races together to fight the dark spirit. In the north the wild mages of the golden forest seperate themselves from the ungifted, and think only of growing their power. The looming spire skirmishes with the wild and frienzied zealots of Gorruk's Hermitage, risking a wider conflict between man & dwarf. Bennet's rest grows poor under the failing guidance of greedy spiteful lord and his arrogant housecarls. The mines of Delarun are rich but the breaking down into family factions has lead to crumbling social foundation as houses further plot, murder, and sow the seeds of chaos to gain greater ranking in the High council. The dinnol pits continue to produce great fighters in their fighting pits, but brash, angry and poor they feed not the barracks of LandsKarn End but the wild bandit groups that pester the southern woods. Fort Eadharras stands proud, holding against the first of the push from the lost, but as others ignore it's calls for aid, it's numbers begin to fail. Fort Gorrots growing power is seen as alooming threat to it's neighbours as past transgressions pollute it's reputation, will it's newest High Chaplain restore it's reputation or fall to war against it's neighbours.",
     },
     selections: [
       {
-        name: "1/ Origin",
+        name: "1/ Archetype",
         description:
-          "You had a home, your past has given you many strengths to build from.",
+          "What were you once in this darkened place, and from what seeds will you grow?",
         style: "lines", // layout style, options: lines, boxes, smallboxes
         buy: {
           //Limit the amount you can buy
@@ -125,7 +136,6 @@ const Data = {
               cost: [0],
               //The effects, a short list of options body-age, body-race, char-background, char-challenge, body-ability, char-advdrawback, inv-item
               "char-profimg": humanhunter,
-              "char-background": "The Looming Spires",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "hunter-gatherer",
@@ -158,7 +168,6 @@ const Data = {
               discountid: "humanwarrior",
               cost: [50],
               "char-profimg": humanwarriorprof,
-              "char-background": "Bennet's Rest",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "warrior",
@@ -194,7 +203,6 @@ const Data = {
             effect: {
               cost: [50],
               "char-profimg": humandruid,
-              "char-background": "Golden Forest",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "Druid",
@@ -232,7 +240,6 @@ const Data = {
             effect: {
               cost: [0],
               "char-profimg": humanwanderer,
-              "char-background": "Nowhere & everywhere",
               "body-race": "Human",
               "char-advdrawback": {
                 name: "wanderer",
@@ -269,7 +276,6 @@ const Data = {
             effect: {
               cost: [50],
               "char-profimg": dwarfscout,
-              "char-background": "Mines of Delarun, Scout.",
               "body-race": "Dwarf",
               "char-advdrawback": {
                 name: "Scout",
@@ -313,7 +319,6 @@ const Data = {
             effect: {
               cost: [100],
               "char-profimg": dwarfguardian,
-              "char-background": "Mines of Delarun, Guardian.",
               "body-race": "Dwarf",
               "char-advdrawback": {
                 name: "Guardian",
@@ -353,7 +358,6 @@ const Data = {
             effect: {
               cost: [0],
               "char-profimg": dwarfpriest,
-              "char-background": "Gorruk's Hermitage.",
               "body-race": "Dwarf",
               "char-advdrawback": {
                 name: "Priest",
@@ -393,7 +397,159 @@ const Data = {
         ],
       },
       {
-        name: "2/ Accursed Relic",
+        name: "2/ Origin",
+        description:
+          "the land from whence you came and your nearest location of interest.",
+        style: "boxes", // layout style, options: lines, boxes, smallboxes
+        buy: {
+          //Limit the amount you can buy
+          unique: true, // if unique, can only be selected once, can have multiple unique items
+          min: 1, //Not yet implemented
+          max: 1,
+        },
+        choices: [
+          {
+            name: "Mines of Delarun",
+            description:
+              "The oldest of Dwarven mines, and their spiritual home, here the many factions vie for political power. It is a rich place, where even the most humble can find a chance to earn well, but the selfishness and fight for status have burned much goodwill from it's populace, and now it has become a dog eat dog world.",
+            img: minesDelarun,
+            effect: {
+              cost: [100],
+              "char-background": "Mines of Delarun.",
+              "body-ability": {
+                name: "Bribe",
+                power:
+                  "You have a heavy purse, and you konw home to grease a willing palm, many may follow your lead as it seems to be a chance for riches..",
+              },
+            },
+          },
+          {
+            name: "Looming Spires",
+            description:
+              "The looming spires are an old series of fortifications from long past was between man and dwarf. Now they remain a place of pilgrimage to the god of harvests who has repeatedly blessed the nearby forests with rich bounties during the hardest of times. Mostly a citadel of men, many dwarves also follow the belief, but are seen as heretics by the dwarves of the nearby hermitage of Gorruk. Religious disagreements are bumbling up between the two citadels and skirmishes are already breaking out. Those born hear are likely to spend much time scaling the dangerous cliffs for that most precious of regional resource, the healing swiftleaf flower.",
+            img: loomingSpire,
+            effect: {
+              cost: [50],
+              "char-background": "Looming Spires.",
+              "body-ability": {
+                name: "Climber",
+                power:
+                  "natural agility for scouring cliffs and dangerous climbs.",
+              },
+            },
+          },
+          {
+            name: "Bennet's Rest",
+            description:
+              "Most northern and poorest of the large cities, Bennet's rest only grows worse still, once it was manned by the noblest of lords, but now his greedy progeny drives the populace like slaves, and holds the richest givings of that work for himself & his housecarls. Though lacking in moral fortitude Lord Aldhelm commands a powerful army, few bandits plague his land, if his own men can be discounted from that label. The poeple of bennet's rest are natural horsemen, prized throughout the land as great messengers and cavalrymen.",
+            img: bennetsRest,
+            effect: {
+              cost: [0],
+              "char-background": "Bennet's Rest.",
+              "body-ability": {
+                name: "Horsemanship",
+                power:
+                  "Rider faster and fight easier on any mount.",
+              },
+            },
+          },
+          {
+            name: "Dinnol Pits",
+            description:
+              "A stinking puit of villainy and murder, few but those with nothing to lose travel willingly to the Dinnol pits. Its few exports are it's inescapable prisons and it's fierce mercenaries, largely survivors of it's brutal jails. Gambling and all vices are rife, those who survive have their wits about them and no who to threaten and who to appease. power is divided between the three crime families, the Johnsons, an old bloodline of hustlers and gamblers, The red falcons, a mishmash of orphans related by their harsh paths and recruit only from the most wretched of urchins, and lastly the proud Hlothere, draoed in a mask of nobility and fanciful garments, quietly they pull the strings of alchohol and whoring.",
+            img: dinnolPits,
+            effect: {
+              cost: [0],
+              "char-background": "Dinnol Pits.",
+              "body-ability": {
+                name: "Brawling",
+                power:
+                  "Handy with your fists, even when drunk",
+              },
+            },
+          },
+          {
+            name: "Fort Eadharras",
+            description:
+              "The first keep standing against the probing finger of darkness that pours it's vile intent from the burnt woodland of the lost. An Aristocratic city of knights and valour, but ever prideful, a clever tongue will quickly be burnt. The city has many strong men, but these numbers are being cut by a sudden number of dangerous raids, lost patrols even of highly lauded knights have been lost, causing the High King Eanfrid to swallow his endless pride and request help from the swelling darkness at his door, other cities, steeped in their own pettu troubles are failing to respond.",
+            img: fortEadharras,
+            effect: {
+              cost: [50],
+              "char-background": "Fort Eadharras.",
+              "body-ability": {
+                name: "Courtly manners.",
+                power:
+                  "A silver tongue marks you out from the filty peasantry.",
+              },
+            },
+          },
+          {
+            name: "Fort Gorrot",
+            description:
+              "A sordid air surrounds Fort Gorrot, once a great bastion of true knights, one Errant knight sought glory in the subjugation of his neighbours, it's reputation destroyed the fort now resides under the guidance of High Chaplain Oswald. If his moral hand is true, the brave fighting power of Fort Gorrot may once again be turned against a true foe.",
+            img: fortGorrot,
+            effect: {
+              cost: [50],
+              "char-background": "Fort Gorrot.",
+              "inv-items": [
+                {
+                  name: "Knight's Banner",
+                  desc: "True knight's will follow the banner of a true hero unto death.",
+                  quantity: 1,
+                  icon: false,
+                },
+              ],
+            },
+          },
+          {
+            name: "Golden Forest",
+            description:
+              "The wild and dangerous Golden Forest hides many strange and wonderful creatures and plants, but few are given passage by the strange and terrible Druid. The druid's first mistress is knowledge and the forest hides their darkest experimentations. Powerful and fiercely intelligent the druids are capable of turning the tide in the favour the forces of good, but it will take much to coax them into turning their strengths to the interests of others.",
+            img: goldenForest,
+            effect: {
+              cost: [50],
+              "char-background": "Golden Forest.",
+              "body-ability": {
+                name: "Alchemy",
+                power:
+                  "Knowledge of the supernatural properties of Golden forest flora, and alchemical usage.",
+              },
+            },
+          },
+          {
+            name: "Gorruk's Hermitage",
+            description:
+              "High up in the mountains the dwarven zealots of Gorruk station themselves against the heretical and vice driven rabble. The mighty and true word of Gorruk shields them from all dark influence and set their mind on the truest path. If only the heretics can see the light then the kingdom of man & dwarf will be protected from the coming darkness. Only the zealots of Gorruk as yet have answered the call of Fort Eadharras, with their only distraction being the heretical call weakness of their neighbours in the Looming Spires.",
+            img: gorruksHermitage,
+            effect: {
+              cost: [0],
+              "char-background": "Gorruk's Hermitage.",
+              "body-ability": {
+                name: "Immunity to cold",
+                power:
+                  "Not even the fiercest blizzard can turn your mind from it's chosen course.",
+              },
+            },
+          },
+          {
+            name: "Landskarn End",
+            description:
+              "Once the scene of great battle, landskarn end is now the home of those seeking to escapre the vile horror of the Dinnol pits, whose creeping vices snake their way inside it's noble walls. To fight such influence an Inquisition has been declared and censors are given the right to check a person's morale behaviour and mark those found wanting, a public register lies in the town square declaring all acts of poor character. But beneath this mask of enlightened moral action, a deep underground market of vices find its way in the darkest places.",
+            img: LandskarnEnd,
+            effect: {
+              cost: [50],
+              "char-background": "Landskarn End.",
+              "body-ability": {
+                name: "Censor's rod",
+                power:
+                  "Cast fear into those who lack moral scruples.",
+              },
+            },
+          },
+        ],
+      },
+      {
+        name: "3/ Accursed Relic",
         description:
           "Among the items in the decorated box you find a strange item, it's tingles with a ponderous and powerful energy. It seems this item has a called forth a being to futher it's destiny.",
         style: "boxes",
@@ -478,7 +634,7 @@ const Data = {
         ],
       },
       {
-        name: "3/ Nemesis",
+        name: "4/ Nemesis",
         description:
           "Deep in the dark wood a dark power is growing, it thirsts for something, something it hopes to gain from the people of this world.",
         style: "lines",
@@ -560,7 +716,7 @@ const Data = {
         ],
       },
       {
-        name: "4/ Items",
+        name: "5/ Items",
         description:
           "What other useful equipment you have found to help you on your journey.",
         style: "boxes",
@@ -778,7 +934,7 @@ const Data = {
         ],
       },
       {
-        name: "5/ Allies",
+        name: "6/ Allies",
         description:
           "there are many who are willing and able to help you on your journey.",
         style: "lines",
@@ -871,7 +1027,7 @@ const Data = {
         ],
       },
       {
-        name: "6/ Drawbacks",
+        name: "7/ Drawbacks",
         description:
           "Without challenges to make us stronger we remain weak in character.",
         style: "boxes",
@@ -920,7 +1076,7 @@ const Data = {
         ],
       },
       {
-        name: "7/ Skills",
+        name: "8/ Skills",
         description:
           "You had a home, your past has given you many strengths to build from.",
         style: "smallboxes",
