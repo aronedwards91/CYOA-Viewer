@@ -438,8 +438,7 @@ const Data = {
               },
               "body-ability": {
                 name: "Survival Training",
-                power:
-                  "innate knowledge of survival skills.",
+                power: "innate knowledge of survival skills.",
               },
             },
           },
@@ -459,8 +458,7 @@ const Data = {
               },
               "body-ability": {
                 name: "Physical Fitnes",
-                power:
-                  "Healthy and strong.",
+                power: "Healthy and strong.",
               },
             },
           },
@@ -478,8 +476,7 @@ const Data = {
               },
               "body-ability": {
                 name: "Free Running",
-                power:
-                  "pull off acrobatic feats.",
+                power: "pull off acrobatic feats.",
               },
             },
           },
@@ -1075,7 +1072,8 @@ const Data = {
       },
       {
         name: "6/ Skills & Abilities.",
-        description: "Character customization on steroids. you want superpowers? you got superpowers. have fun!, some may already be applied, depends on your identity.",
+        description:
+          "Character customization on steroids. you want superpowers? you got superpowers. have fun!, some may already be applied, depends on your identity.",
         style: "lines",
         buy: {
           unique: true,
@@ -1084,103 +1082,104 @@ const Data = {
         choices: [
           {
             name: "Physical Fitness",
-            description: "You gain a body that is healthy and strong. Not captain america strong, but close. Free: small town.",
+            description:
+              "You gain a body that is healthy and strong. Not captain america strong, but close. Free: small town.",
             effect: {
               cost: [100],
               "body-ability": {
                 name: "Physical Fitnes",
-                power:
-                  "Healthy and strong.",
+                power: "Healthy and strong.",
               },
             },
           },
           {
             name: "Survival Training",
-            description: "You gain an innate knowledge of survival skills. You could survive just about anywhere. Free: hermit",
+            description:
+              "You gain an innate knowledge of survival skills. You could survive just about anywhere. Free: hermit",
             effect: {
               cost: [100],
               "body-ability": {
                 name: "Survival Training",
-                power:
-                  "innate knowledge of survival skills.",
+                power: "innate knowledge of survival skills.",
               },
             },
           },
           {
             name: "Free Running",
-            description: "You can pull off acrobatic feats very few humans and not many pokemon could match. Free: city life",
+            description:
+              "You can pull off acrobatic feats very few humans and not many pokemon could match. Free: city life",
             effect: {
               cost: [100],
               "body-ability": {
                 name: "Free Running",
-                power:
-                  "pull off acrobatic feats.",
+                power: "pull off acrobatic feats.",
               },
             },
           },
           {
             name: "Combat Training",
-            description: "You gain mastery of marine hand to hand combat. You can also keep your cool in a fight.",
+            description:
+              "You gain mastery of marine hand to hand combat. You can also keep your cool in a fight.",
             effect: {
               cost: [50],
               "body-ability": {
                 name: "Combat Training",
-                power:
-                  "calm & capable.",
+                power: "calm & capable.",
               },
             },
           },
           {
             name: "Mechanic",
-            description: "You become much more adept with a toolbox. You can fix or improve most machines.",
+            description:
+              "You become much more adept with a toolbox. You can fix or improve most machines.",
             effect: {
               cost: [200],
               "body-ability": {
                 name: "Mechanic",
-                power:
-                  "can fix or improve most machines.",
+                power: "can fix or improve most machines.",
               },
             },
           },
           {
             name: "Ranger",
-            description: "You gain insight into the instincts of wild pokemon, as well as tracking skills.",
+            description:
+              "You gain insight into the instincts of wild pokemon, as well as tracking skills.",
             effect: {
               cost: [200],
               "body-ability": {
                 name: "Ranger",
-                power:
-                  "wild instincts, tracking skills.",
+                power: "wild instincts, tracking skills.",
               },
             },
           },
           {
             name: "Technician",
-            description: "You are very handy with most forms of electronics, from the pc to the pokeball.",
+            description:
+              "You are very handy with most forms of electronics, from the pc to the pokeball.",
             effect: {
               cost: [200],
               "body-ability": {
                 name: "Technician",
-                power:
-                  "fix electronics.",
+                power: "fix electronics.",
               },
             },
           },
           {
             name: "Blend In",
-            description: "You can easily blend in to a crowd, hide in plain sight, or lose someone following you.",
+            description:
+              "You can easily blend in to a crowd, hide in plain sight, or lose someone following you.",
             effect: {
               cost: [200],
               "body-ability": {
                 name: "Blend In",
-                power:
-                  "hide in plain sight.",
+                power: "hide in plain sight.",
               },
             },
           },
           {
             name: "Aura",
-            description: "You gain the ability to manifest your aura. you can sense emotions, create barriers, and throw aura spheres. Your powers increase with training but cap equivalent to a lucario.",
+            description:
+              "You gain the ability to manifest your aura. you can sense emotions, create barriers, and throw aura spheres. Your powers increase with training but cap equivalent to a lucario.",
             effect: {
               cost: [500],
               "body-ability": {
@@ -1192,54 +1191,426 @@ const Data = {
           },
           {
             name: "Pokéglot",
-            description: "You gain the incredibly rare ability of understanding pokemon speech. They will be much more willing to hold a conversation with you, but that doesn't mean they have to like you.",
+            description:
+              "You gain the incredibly rare ability of understanding pokemon speech. They will be much more willing to hold a conversation with you, but that doesn't mean they have to like you.",
             effect: {
               cost: [500],
               "body-ability": {
                 name: "Pokéglot",
-                power:
-                  "understand pokemon speech.",
+                power: "understand pokemon speech.",
               },
             },
           },
           {
             name: "Psionics",
-            description: "You gain psychic powers like telekinesis and telepathy. You still can't understand your pokemon but can issue them orders via telepathy. No mind reading. Skill cap is equal to a gardevoir.",
+            description:
+              "You gain psychic powers like telekinesis and telepathy. You still can't understand your pokemon but can issue them orders via telepathy. No mind reading. Skill cap is equal to a gardevoir.",
             effect: {
               cost: [500],
               "body-ability": {
                 name: "Psionics",
-                power:
-                  "psychic powers (telekinesis, telepathy).",
+                power: "psychic powers (telekinesis, telepathy).",
               },
             },
           },
           {
             name: "Savant",
-            description: "Your mind is enhanced, granting you perfect memory, calculator-like mental math, and better spatial awareness. Your aim with a firearm is better than annie oakley and simo hayha combined.",
+            description:
+              "Your mind is enhanced, granting you perfect memory, calculator-like mental math, and better spatial awareness. Your aim with a firearm is better than annie oakley and simo hayha combined.",
             effect: {
               cost: [500],
               "body-ability": {
                 name: "Savant",
-                power:
-                  "perfect memory, mental math, spatial awareness.",
+                power: "perfect memory, mental math, spatial awareness.",
               },
             },
           },
           {
             name: "Champ in the making",
-            description: "You might just have what it takes to catch em all! You're and expert at training both teams and individuals, managing team dynamics, and working out social issues between teammates, both Pokémon abd human. Yu can make teamwork work.",
+            description:
+              "You might just have what it takes to catch em all! You're and expert at training both teams and individuals, managing team dynamics, and working out social issues between teammates, both Pokémon abd human. Yu can make teamwork work.",
             effect: {
               cost: [200],
               "body-ability": {
                 name: "Champ",
-                power:
-                  "perfect team manager.",
+                power: "perfect team manager.",
               },
             },
           },
-        ]
-      }
+        ],
+      },
+      {
+        name: "6/ Gear.",
+        description:
+          "Welcome to my humble little shop of amazing gear that you aren't getting anywhere else. find anything interesting?",
+        style: "boxes",
+        buy: {
+          unique: false,
+          max: 100,
+        },
+        choices: [
+          {
+            name: "3x Master Balls",
+            description:
+              "Catch Pokémon without fail, cannot sell.",
+            effect: {
+              cost: [100],
+              "inv-items": [
+                {
+                  name: "Master Balls",
+                  desc: "100% success, cannot sell.",
+                  quantity: 3,
+                },
+              ],
+            },
+          },
+          {
+            name: "HM Collection",
+            description:
+              "One of every HM, can't sell.",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "HM Collection",
+                  desc: "One of every HM.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "50k Pokedollars",
+            description:
+              "Can buy stuff.",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Pokedollars",
+                  desc: "Can buy stuff.",
+                  quantity: 50000,
+                },
+              ],
+            },
+          },
+          {
+            name: "Bicycle",
+            description:
+              "Collapsible, 2 speed, can fit in backpack, can't sell.",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Bicycle",
+                  desc: "Collapsible, 2 speed.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Motorcycle",
+            description:
+              "fast, inifnite fuel.",
+            effect: {
+              cost: [100],
+              "inv-items": [
+                {
+                  name: "Motorcycle",
+                  desc: "fast, inifnite fuel.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Helicopter",
+            description:
+              "fastest, ferry across regions.",
+            effect: {
+              cost: [300],
+              "inv-items": [
+                {
+                  name: "Helicopter",
+                  desc: "fastest, ferry across regions.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Parachute",
+            description:
+              "small, redeployable.",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Parachute",
+                  desc: "small, redeployable.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Wingsuit",
+            description:
+              "Can activate while in freefall, hard to stop, best pack aa parachute.",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Wingsuit",
+                  desc: "small, hard to stop.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Rappelling Rig",
+            description:
+              "Everthing neede to climb down a cliff. Self-detaching for re-use",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Rappelling Rig",
+                  desc: "climb down a cliff, re-usable.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Rebreather",
+            description:
+              "Breath underwater, toxic enviroments, infinite use",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Rebreather",
+                  desc: "underwater, toxic enviroments, infinite use.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Laptop",
+            description:
+              "Access in-world internet, fast, solar powered",
+            effect: {
+              cost: [100],
+              "inv-items": [
+                {
+                  name: "Laptop",
+                  desc: "internet, fast, solar powered.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Thrust Pack",
+            description:
+              "Titanfall style, mini jet/thruster pack, double jump and wall running.",
+            effect: {
+              cost: [100],
+              "inv-items": [
+                {
+                  name: "Thrust Pack",
+                  desc: "double jump, wall running.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Medical Kit",
+            description:
+              "Stabilizes critcal injury, still require Pokémon centre.",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Medical Kit",
+                  desc: "Stabilizes critcal injury.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Welding Torch",
+            description:
+              "For when HM Cut isn't enough, cut up to 2 inches, fuel limited but regenerates.",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Welding Torch",
+                  desc: "2 inch cut, slow refuel.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Hypervisor",
+            description:
+              "Sunglasses with LED overlay, wall x-ray and pokémon status monitoring. lasts 20s, 1 min recharge",
+            effect: {
+              cost: [200],
+              "inv-items": [
+                {
+                  name: "Hypervisor",
+                  desc: "wall x-ray, pokémon status. 20s, 1min charge.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Echorecorder",
+            description:
+              "Record surrounding for up to two hours, replay via hologram, good for battle reviews.",
+            effect: {
+              cost: [100],
+              "inv-items": [
+                {
+                  name: "Echorecorder",
+                  desc: "Record 2h, review via hologram.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Headsets",
+            description:
+              "Universal Pokémon headset, issue orders in 10 mile range, works in reverse with Pokéglot.",
+            effect: {
+              cost: [100],
+              "inv-items": [
+                {
+                  name: "Headsets",
+                  desc: "Remote orders, 10 mile range.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Capture Styler",
+            description:
+              "Temporarily capture wild pokémon, they won't batlle, but can aid you once.",
+            effect: {
+              cost: [200],
+              "inv-items": [
+                {
+                  name: "Capture Styler",
+                  desc: "Temp capture, no battle.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Collapsible Baton",
+            description:
+              "Spring loaded, useful against humans.",
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Collapsible Baton",
+                  desc: "Anti human, personal defence.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Flak Jacket",
+            description:
+              "Medium weight, stops small arms and most pokémon attacks.",
+            effect: {
+              cost: [100],
+              "inv-items": [
+                {
+                  name: "Collapsible Baton",
+                  desc: "small arms & pokémon attacks.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Tranquilizer Gun",
+            description:
+              "Air powered. knocks out humans and most pokémon, 200 rounds.",
+            effect: {
+              cost: [200],
+              "inv-items": [
+                {
+                  name: "Tranquilizer Gun & Ammo",
+                  desc: "humans and most pokémon.",
+                  quantity: 200,
+                },
+              ],
+            },
+          },
+          {
+            name: "Handgun",
+            description:
+              "Glock 17, 9mm, semi-auto, 2 magazines each 17 rounds.",
+            effect: {
+              cost: [200],
+              "inv-items": [
+                {
+                  name: "Handgun & Ammo",
+                  desc: "Glock 17, 9mm, 2 mags.",
+                  quantity: 500,
+                },
+              ],
+            },
+          },
+          {
+            name: "Sniper Rifle",
+            description:
+              "M110 SASS 7.62, Nato sniper with scope, 1 magazine 20 rounds.",
+            effect: {
+              cost: [400],
+              "inv-items": [
+                {
+                  name: "Sniper Rifle & Ammo",
+                  desc: "M110 SASS, 1 mag 20 rounds.",
+                  quantity: 250,
+                },
+              ],
+            },
+          },
+          {
+            name: "Snag Machine",
+            description:
+              "Can steal Pokémon from other trainers, highly illegal, Pokémon do not like being stolen.",
+            effect: {
+              cost: [600],
+              "inv-items": [
+                {
+                  name: "Snag Machine",
+                  desc: "Steal Pokémon, illegal.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+        ],
+      },
     ],
   },
   charSetup: {
