@@ -353,7 +353,7 @@ const MiscEffects = observer(() => {
           <TextBox
             key={miscEffect.name}
             title={miscEffect.name + ": "}
-            value={`${miscEffect.desc} x${miscEffect.quantity}`}
+            value={`${miscEffect.desc} ${miscEffect.quantity > 1 ? `x${miscEffect.quantity}` : ''}`}
           />
         ))}
       </div>

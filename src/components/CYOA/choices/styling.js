@@ -143,6 +143,11 @@ export const BoxImage = styled.img`
   width: 100%;
   object-fit: cover;
 `;
+export const SmBoxImage = styled.img`
+  max-height: 80px;
+  width: 100%;
+  object-fit: contain;
+`;
 export const BoxTextWrapper = styled.div`
   text-align: left;
   padding: calc(0.5rem + 1vw);

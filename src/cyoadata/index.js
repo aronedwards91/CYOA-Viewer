@@ -28,6 +28,33 @@ import unova from "../public/region/unova.jpg";
 import kalos from "../public/region/kalos.jpg";
 import orre from "../public/region/orre.jpg";
 import egg from "../public/region/egg.png";
+// Starters
+import pikachu from "../public/starter/pikachu.png";
+import eevee from "../public/starter/eevee.png";
+import gen1b from "../public/starter/gen1b.png";
+import gen1g from "../public/starter/gen1g.png";
+import gen1r from "../public/starter/gen1r.png";
+import gen2b from "../public/starter/gen2b.png";
+import gen2g from "../public/starter/gen2g.png";
+import gen2r from "../public/starter/gen2r.png";
+import gen3b from "../public/starter/gen3b.png";
+import gen3g from "../public/starter/gen3g.png";
+import gen3r from "../public/starter/gen3r.png";
+import gen4b from "../public/starter/gen4b.png";
+import gen4g from "../public/starter/gen4g.png";
+import gen4r from "../public/starter/gen4r.png";
+import gen5b from "../public/starter/gen5b.png";
+import gen5g from "../public/starter/gen5g.png";
+import gen5r from "../public/starter/gen5r.png";
+import gen6b from "../public/starter/gen6b.png";
+import gen6g from "../public/starter/gen6g.png";
+import gen6r from "../public/starter/gen6r.png";
+import gen7b from "../public/starter/gen7b.png";
+import gen7g from "../public/starter/gen7g.png";
+import gen7r from "../public/starter/gen7r.png";
+import gen8b from "../public/starter/gen8b.png";
+import gen8g from "../public/starter/gen8g.png";
+import gen8r from "../public/starter/gen8r.png";
 
 const Data = {
   appData: {
@@ -88,7 +115,8 @@ const Data = {
     selections: [
       {
         name: "Free Items",
-        description: "Here, you can take these things for free.",
+        description:
+          "Here, you can take these things for free. Best grab them All.",
         style: "smallboxes", // layout style, options: lines, boxes, smallboxes
         buy: {
           //Limit the amount you can buy
@@ -323,6 +351,7 @@ const Data = {
         choices: [
           {
             name: "Manual Choice",
+            img: egg,
             effect: {
               cost: 100,
             },
@@ -395,7 +424,8 @@ const Data = {
           },
           {
             name: "Hermit",
-            description: "As an infant, you were abandoned in the middle of the woods. luckily, you were discovered by a reclusive old man who took you in. You have come to learn a lot about survival skills and you get along well with the wild pokemon who live nearby. however, you very rarely go into town for supplies your social skills are stunted and you have trouble with cities. deciding to go explore the world, you bid farewell to your adoptive father and set out on the road. as you leave, a wild pokemon you have been caring for over the past month follows, intent on joining.",
+            description:
+              "As an infant, you were abandoned in the middle of the woods. luckily, you were discovered by a reclusive old man who took you in. You have come to learn a lot about survival skills and you get along well with the wild pokemon who live nearby. however, you very rarely go into town for supplies your social skills are stunted and you have trouble with cities. deciding to go explore the world, you bid farewell to your adoptive father and set out on the road. as you leave, a wild pokemon you have been caring for over the past month follows, intent on joining.",
             effect: {
               cost: [50],
               "char-background": "hermit.",
@@ -403,47 +433,624 @@ const Data = {
                 name: "Hermit",
                 adv:
                   "You learn a lot about wilderness survival you tend to be able to approach wild pokemon better than most people.",
-                drawback: "you have little experience in social activities. you don't 'get' people well and become nervous in cities.",
+                drawback:
+                  "you have little experience in social activities. you don't 'get' people well and become nervous in cities.",
               },
             },
           },
           {
             name: "Small Town",
-            description: "You were raised by your mother in the first town of your region your father had to work a lot, so you never saw much of him. The air is clean, the neighborhood is safe, and you have a tight circle of friends whom you would trust with anything. you have lived a very balanced life, and you are very healthy and physically fit. You decide to go on a pokemon journey like many children your age, with your friends joining you along the way. You bring along the pokemon companion your parents gave you that you grew up with over the past few years.",
+            description:
+              "You were raised by your mother in the first town of your region your father had to work a lot, so you never saw much of him. The air is clean, the neighborhood is safe, and you have a tight circle of friends whom you would trust with anything. you have lived a very balanced life, and you are very healthy and physically fit. You decide to go on a pokemon journey like many children your age, with your friends joining you along the way. You bring along the pokemon companion your parents gave you that you grew up with over the past few years.",
             effect: {
               cost: [50],
               "char-advdrawback": {
                 name: "Drop In",
                 adv:
                   "You are physcially fit and ahave a small group of very close friends (One of which has a crush).",
-                drawback: "You don't have a lot of wilderness experience besides some camping and you don't have much city experience either.",
+                drawback:
+                  "You don't have a lot of wilderness experience besides some camping and you don't have much city experience either.",
               },
             },
           },
           {
             name: "City Life",
-            description: "You were raised by your mother and father in a modest apartment in one of your region's major cities. Born and raised an urban kid, you have almost no experience living outside the city's confines. however, life in the city brings its own advantages. You have a very powerful sense of navigation and over the course of your life have become an expert freerunner with great acrobatic skills. Like many children, you decide to go on a pokemon journey, taking along the pokemon partner you rescued from a shelter half a year ago..",
+            description:
+              "You were raised by your mother and father in a modest apartment in one of your region's major cities. Born and raised an urban kid, you have almost no experience living outside the city's confines. however, life in the city brings its own advantages. You have a very powerful sense of navigation and over the course of your life have become an expert freerunner with great acrobatic skills. Like many children, you decide to go on a pokemon journey, taking along the pokemon partner you rescued from a shelter half a year ago..",
             effect: {
               cost: [50],
               "char-advdrawback": {
                 name: "Drop In",
-                adv:
-                  "You are very acrobatic and have become adept in parkour.",
+                adv: "You are very acrobatic and have become adept in parkour.",
                 drawback: "You have no experience in wilderness survival.",
               },
             },
           },
           {
             name: "Moneybags",
-            description: "You were born as the only child of a very wealthy family. You were pampered as a child and did not want for much of anything. you relieved a top tier education from some of the best tutors in the region. however, you have very little practical experience. Wanting a change of pace from your dull, somewhat repetitive life of constant luxury, you decide to go on a pokemon journey and gain the experience you want on your own, taking along the pokemon your parents had purchased for your protection when you were just a baby.",
+            description:
+              "You were born as the only child of a very wealthy family. You were pampered as a child and did not want for much of anything. you relieved a top tier education from some of the best tutors in the region. however, you have very little practical experience. Wanting a change of pace from your dull, somewhat repetitive life of constant luxury, you decide to go on a pokemon journey and gain the experience you want on your own, taking along the pokemon your parents had purchased for your protection when you were just a baby.",
             effect: {
               cost: [100],
               "char-advdrawback": {
                 name: "Drop In",
                 adv:
                   "You have a lot of money and some top of the line gear most trainers will never get.",
-                drawback: "You have very little real world experience in general, education only goes so far.",
+                drawback:
+                  "You have very little real world experience in general, education only goes so far.",
               },
+            },
+          },
+        ],
+      },
+      {
+        name: "4/ Starter Pokémon",
+        description:
+          "Your starter Pokémon will likely become one of your best firends. Make your choice here a good one. Pokémon start ~ lv5 skill wise. No Legendaries.",
+        style: "smallboxes",
+        buy: {
+          unique: true,
+          max: 1,
+        },
+        choices: [
+          {
+            name: "Eevee",
+            description: "Eevee (Normal).",
+            img: eevee,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Eevee",
+                  desc: "Eevee (Normal).",
+                  quantity: 1,
+                  icon: eevee,
+                },
+              ],
+            },
+          },
+          {
+            name: "Pikachu",
+            description: "Pikachu (Electric).",
+            img: pikachu,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Pikachu",
+                  desc: "Pikachu (Electric).",
+                  quantity: 1,
+                  icon: pikachu,
+                },
+              ],
+            },
+          },
+          {
+            name: "Squirtle",
+            description: "Squirtle (water).",
+            img: gen1b,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Squirtle",
+                  desc: "Squirtle (water).",
+                  quantity: 1,
+                  icon: gen1b,
+                },
+              ],
+            },
+          },
+          {
+            name: "Bulbasaur",
+            description: "Bulbasaur (Grass / Poison)",
+            img: gen1g,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Bulbasaur",
+                  desc: "Bulbasaur (Grass / Poison)",
+                  quantity: 1,
+                  icon: gen1g,
+                },
+              ],
+            },
+          },
+          {
+            name: "Charmander",
+            description: "Charmander (Fire)",
+            img: gen1r,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Charmander",
+                  desc: "Charmander (Fire)",
+                  quantity: 1,
+                  icon: gen1r,
+                },
+              ],
+            },
+          },
+
+          {
+            name: "Totodile",
+            description: "Totodile (water).",
+            img: gen2b,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Totodile",
+                  desc: "Totodile (water).",
+                  quantity: 1,
+                  icon: gen2b,
+                },
+              ],
+            },
+          },
+          {
+            name: "Chikorita",
+            description: "Chikorita (Grass)",
+            img: gen2g,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Chikorita",
+                  desc: "Chikorita (Grass)",
+                  quantity: 1,
+                  icon: gen2g,
+                },
+              ],
+            },
+          },
+          {
+            name: "Cyndaquil",
+            description: "Cyndaquil (Fire)",
+            img: gen2r,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Cyndaquil",
+                  desc: "Cyndaquil (Fire)",
+                  quantity: 1,
+                  icon: gen2r,
+                },
+              ],
+            },
+          },
+          {
+            name: "Mudkip",
+            description: "Mudkip (water).",
+            img: gen3b,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Mudkip",
+                  desc: "Mudkip (water).",
+                  quantity: 1,
+                  icon: gen3b,
+                },
+              ],
+            },
+          },
+          {
+            name: "Treecko",
+            description: "Treecko (Grass)",
+            img: gen3g,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Treecko",
+                  desc: "Treecko (Grass)",
+                  quantity: 1,
+                  icon: gen3g,
+                },
+              ],
+            },
+          },
+          {
+            name: "Torchic",
+            description: "Torchic (Fire)",
+            img: gen3r,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Torchic",
+                  desc: "Torchic (Fire)",
+                  quantity: 1,
+                  icon: gen3r,
+                },
+              ],
+            },
+          },
+          {
+            name: "Piplup",
+            description: "Piplup (water).",
+            img: gen4b,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Piplup",
+                  desc: "Piplup (water).",
+                  quantity: 1,
+                  icon: gen4b,
+                },
+              ],
+            },
+          },
+          {
+            name: "Turtwig",
+            description: "Turtwig (Grass)",
+            img: gen4g,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Turtwig",
+                  desc: "Turtwig (Grass)",
+                  quantity: 1,
+                  icon: gen4g,
+                },
+              ],
+            },
+          },
+          {
+            name: "Chimchar",
+            description: "Chimchar (Fire)",
+            img: gen4r,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Chimchar",
+                  desc: "Chimchar (Fire)",
+                  quantity: 1,
+                  icon: gen4r,
+                },
+              ],
+            },
+          },
+          {
+            name: "Oshawott",
+            description: "Oshawott (water).",
+            img: gen5b,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Oshawott",
+                  desc: "Oshawott (water).",
+                  quantity: 1,
+                  icon: gen5b,
+                },
+              ],
+            },
+          },
+          {
+            name: "Snivy",
+            description: "Snivy (Grass)",
+            img: gen5g,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Snivy",
+                  desc: "Snivy (Grass)",
+                  quantity: 1,
+                  icon: gen5g,
+                },
+              ],
+            },
+          },
+          {
+            name: "Tepig",
+            description: "Tepig (Fire)",
+            img: gen5r,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Tepig",
+                  desc: "Tepig (Fire)",
+                  quantity: 1,
+                  icon: gen5r,
+                },
+              ],
+            },
+          },
+          {
+            name: "Froakie",
+            description: "Froakie (water).",
+            img: gen6b,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Oshawott",
+                  desc: "Oshawott (water).",
+                  quantity: 1,
+                  icon: gen6b,
+                },
+              ],
+            },
+          },
+          {
+            name: "Chespin",
+            description: "Chespin (Grass)",
+            img: gen6g,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Chespin",
+                  desc: "Chespin (Grass)",
+                  quantity: 1,
+                  icon: gen6g,
+                },
+              ],
+            },
+          },
+          {
+            name: "Fennekin",
+            description: "Fennekin (Fire)",
+            img: gen6r,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Fennekin",
+                  desc: "Fennekin (Fire)",
+                  quantity: 1,
+                  icon: gen6r,
+                },
+              ],
+            },
+          },
+          {
+            name: "Popplio",
+            description: "Popplio (water).",
+            img: gen7b,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Popplio",
+                  desc: "Popplio (water).",
+                  quantity: 1,
+                  icon: gen7b,
+                },
+              ],
+            },
+          },
+          {
+            name: "Rowlet",
+            description: "Rowlet (Grass / flying)",
+            img: gen7g,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Rowlet",
+                  desc: "Rowlet (Grass / flying)",
+                  quantity: 1,
+                  icon: gen7g,
+                },
+              ],
+            },
+          },
+          {
+            name: "Litten",
+            description: "Litten (Fire)",
+            img: gen7r,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Litten",
+                  desc: "Litten (Fire)",
+                  quantity: 1,
+                  icon: gen7r,
+                },
+              ],
+            },
+          },
+          {
+            name: "Sobble",
+            description: "Sobble (water).",
+            img: gen8b,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Sobble",
+                  desc: "Sobble (water).",
+                  quantity: 1,
+                  icon: gen8b,
+                },
+              ],
+            },
+          },
+          {
+            name: "Grookey",
+            description: "Grookey (Grass)",
+            img: gen8g,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Grookey",
+                  desc: "Grookey (Grass)",
+                  quantity: 1,
+                  icon: gen8g,
+                },
+              ],
+            },
+          },
+          {
+            name: "Scorbunny",
+            description: "Scorbunny (Fire)",
+            img: gen8r,
+            effect: {
+              cost: [0],
+              "inv-items": [
+                {
+                  name: "Scorbunny",
+                  desc: "Scorbunny (Fire)",
+                  quantity: 1,
+                  icon: gen8r,
+                },
+              ],
+            },
+          },
+          {
+            name: "In Region, Common",
+            description:
+              "Applies to any Pokémon that can be found easily in the wild [Encounter rate < 20%].",
+            img: pokéball,
+            effect: {
+              cost: [50],
+              "inv-items": [
+                {
+                  name: "Pokémon",
+                  desc: "Common Pokémon.",
+                  quantity: 1,
+                  icon: pokéballIcon,
+                },
+              ],
+            },
+          },
+          {
+            name: "In Region, Uncommon",
+            description:
+              "Applies to any Pokémon that can be found with difficulty in the wild [Encounter rate 10-15%].",
+            img: pokéball,
+            effect: {
+              cost: [100],
+              "inv-items": [
+                {
+                  name: "Pokémon",
+                  desc: "Uncommon Pokémon.",
+                  quantity: 1,
+                  icon: pokéballIcon,
+                },
+              ],
+            },
+          },
+          {
+            name: "In Region, Rare",
+            description:
+              "Applies to any Pokémon in region with a low encounter rate [Encounter rate 5%].",
+            img: pokéball,
+            effect: {
+              cost: [150],
+              "inv-items": [
+                {
+                  name: "Pokémon",
+                  desc: "Common Pokémon.",
+                  quantity: 1,
+                  icon: pokéballIcon,
+                },
+              ],
+            },
+          },
+          {
+            name: "Out of Region +Hidden Ability",
+            description:
+              "Applies to Pokémon that cannot be caught in region. Also applies to any Pokémon with it's hidden ability.",
+            img: pokéball,
+            effect: {
+              cost: [200],
+              "inv-items": [
+                {
+                  name: "Pokémon",
+                  desc: "Common Pokémon.",
+                  quantity: 1,
+                  icon: pokéballIcon,
+                },
+              ],
+            },
+          },
+        ],
+      },
+      {
+        name: "5/ Starter Modifiers.",
+        description: "Your starter might be no ordinary starter.",
+        style: "smallboxes",
+        buy: {
+          unique: true,
+          max: 1,
+        },
+        choices: [
+          {
+            name: "Shiny",
+            description:
+              "Your starter is a shiny, it's entirely cosmetic, but it looks nice.",
+            effect: {
+              cost: [50],
+              misc: [
+                {
+                  key: "Details",
+                  name: "Starter-color",
+                  desc: "Shiny.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Advanced Move",
+            description:
+              "Your starter knows a move only it's evolution should be able to learn.",
+            effect: {
+              cost: [100],
+              misc: [
+                {
+                  key: "Details",
+                  name: "Starter-moves",
+                  desc: "Knows Advanced moves.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Egg move",
+            description:
+              "Your starter knows a move it should only learn via egg breeding.",
+            effect: {
+              cost: [50],
+              misc: [
+                {
+                  key: "Details",
+                  name: "Starter-egg",
+                  desc: "Knows Bred-in moves.",
+                  quantity: 1,
+                },
+              ],
+            },
+          },
+          {
+            name: "Mental Bond",
+            description:
+              "You and Your starter share both emotions & thoughspeech via a telepathic link.",
+            effect: {
+              cost: [50],
+              misc: [
+                {
+                  key: "Details",
+                  name: "Mental Bond",
+                  desc: "Linked mentally with starter.",
+                  quantity: 1,
+                },
+              ],
             },
           },
         ],
