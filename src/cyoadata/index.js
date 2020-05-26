@@ -428,13 +428,18 @@ const Data = {
               "As an infant, you were abandoned in the middle of the woods. luckily, you were discovered by a reclusive old man who took you in. You have come to learn a lot about survival skills and you get along well with the wild pokemon who live nearby. however, you very rarely go into town for supplies your social skills are stunted and you have trouble with cities. deciding to go explore the world, you bid farewell to your adoptive father and set out on the road. as you leave, a wild pokemon you have been caring for over the past month follows, intent on joining.",
             effect: {
               cost: [50],
-              "char-background": "hermit.",
+              "char-background": "Hermit.",
               "char-advdrawback": {
                 name: "Hermit",
                 adv:
                   "You learn a lot about wilderness survival you tend to be able to approach wild pokemon better than most people.",
                 drawback:
                   "you have little experience in social activities. you don't 'get' people well and become nervous in cities.",
+              },
+              "body-ability": {
+                name: "Survival Training",
+                power:
+                  "innate knowledge of survival skills.",
               },
             },
           },
@@ -444,12 +449,18 @@ const Data = {
               "You were raised by your mother in the first town of your region your father had to work a lot, so you never saw much of him. The air is clean, the neighborhood is safe, and you have a tight circle of friends whom you would trust with anything. you have lived a very balanced life, and you are very healthy and physically fit. You decide to go on a pokemon journey like many children your age, with your friends joining you along the way. You bring along the pokemon companion your parents gave you that you grew up with over the past few years.",
             effect: {
               cost: [50],
+              "char-background": "Small Town.",
               "char-advdrawback": {
-                name: "Drop In",
+                name: "Small Town",
                 adv:
                   "You are physcially fit and ahave a small group of very close friends (One of which has a crush).",
                 drawback:
                   "You don't have a lot of wilderness experience besides some camping and you don't have much city experience either.",
+              },
+              "body-ability": {
+                name: "Physical Fitnes",
+                power:
+                  "Healthy and strong.",
               },
             },
           },
@@ -459,10 +470,16 @@ const Data = {
               "You were raised by your mother and father in a modest apartment in one of your region's major cities. Born and raised an urban kid, you have almost no experience living outside the city's confines. however, life in the city brings its own advantages. You have a very powerful sense of navigation and over the course of your life have become an expert freerunner with great acrobatic skills. Like many children, you decide to go on a pokemon journey, taking along the pokemon partner you rescued from a shelter half a year ago..",
             effect: {
               cost: [50],
+              "char-background": "City born.",
               "char-advdrawback": {
-                name: "Drop In",
+                name: "City Life",
                 adv: "You are very acrobatic and have become adept in parkour.",
                 drawback: "You have no experience in wilderness survival.",
+              },
+              "body-ability": {
+                name: "Free Running",
+                power:
+                  "pull off acrobatic feats.",
               },
             },
           },
@@ -472,8 +489,9 @@ const Data = {
               "You were born as the only child of a very wealthy family. You were pampered as a child and did not want for much of anything. you relieved a top tier education from some of the best tutors in the region. however, you have very little practical experience. Wanting a change of pace from your dull, somewhat repetitive life of constant luxury, you decide to go on a pokemon journey and gain the experience you want on your own, taking along the pokemon your parents had purchased for your protection when you were just a baby.",
             effect: {
               cost: [100],
+              "char-background": "Aristocrat.",
               "char-advdrawback": {
-                name: "Drop In",
+                name: "Moneybags",
                 adv:
                   "You have a lot of money and some top of the line gear most trainers will never get.",
                 drawback:
@@ -1055,6 +1073,173 @@ const Data = {
           },
         ],
       },
+      {
+        name: "6/ Skills & Abilities.",
+        description: "Character customization on steroids. you want superpowers? you got superpowers. have fun!, some may already be applied, depends on your identity.",
+        style: "lines",
+        buy: {
+          unique: true,
+          max: 10,
+        },
+        choices: [
+          {
+            name: "Physical Fitness",
+            description: "You gain a body that is healthy and strong. Not captain america strong, but close. Free: small town.",
+            effect: {
+              cost: [100],
+              "body-ability": {
+                name: "Physical Fitnes",
+                power:
+                  "Healthy and strong.",
+              },
+            },
+          },
+          {
+            name: "Survival Training",
+            description: "You gain an innate knowledge of survival skills. You could survive just about anywhere. Free: hermit",
+            effect: {
+              cost: [100],
+              "body-ability": {
+                name: "Survival Training",
+                power:
+                  "innate knowledge of survival skills.",
+              },
+            },
+          },
+          {
+            name: "Free Running",
+            description: "You can pull off acrobatic feats very few humans and not many pokemon could match. Free: city life",
+            effect: {
+              cost: [100],
+              "body-ability": {
+                name: "Free Running",
+                power:
+                  "pull off acrobatic feats.",
+              },
+            },
+          },
+          {
+            name: "Combat Training",
+            description: "You gain mastery of marine hand to hand combat. You can also keep your cool in a fight.",
+            effect: {
+              cost: [50],
+              "body-ability": {
+                name: "Combat Training",
+                power:
+                  "calm & capable.",
+              },
+            },
+          },
+          {
+            name: "Mechanic",
+            description: "You become much more adept with a toolbox. You can fix or improve most machines.",
+            effect: {
+              cost: [200],
+              "body-ability": {
+                name: "Mechanic",
+                power:
+                  "can fix or improve most machines.",
+              },
+            },
+          },
+          {
+            name: "Ranger",
+            description: "You gain insight into the instincts of wild pokemon, as well as tracking skills.",
+            effect: {
+              cost: [200],
+              "body-ability": {
+                name: "Ranger",
+                power:
+                  "wild instincts, tracking skills.",
+              },
+            },
+          },
+          {
+            name: "Technician",
+            description: "You are very handy with most forms of electronics, from the pc to the pokeball.",
+            effect: {
+              cost: [200],
+              "body-ability": {
+                name: "Technician",
+                power:
+                  "fix electronics.",
+              },
+            },
+          },
+          {
+            name: "Blend In",
+            description: "You can easily blend in to a crowd, hide in plain sight, or lose someone following you.",
+            effect: {
+              cost: [200],
+              "body-ability": {
+                name: "Blend In",
+                power:
+                  "hide in plain sight.",
+              },
+            },
+          },
+          {
+            name: "Aura",
+            description: "You gain the ability to manifest your aura. you can sense emotions, create barriers, and throw aura spheres. Your powers increase with training but cap equivalent to a lucario.",
+            effect: {
+              cost: [500],
+              "body-ability": {
+                name: "Aura",
+                power:
+                  "Sense emotions, create barriers, and throw aura spheres.",
+              },
+            },
+          },
+          {
+            name: "Pokéglot",
+            description: "You gain the incredibly rare ability of understanding pokemon speech. They will be much more willing to hold a conversation with you, but that doesn't mean they have to like you.",
+            effect: {
+              cost: [500],
+              "body-ability": {
+                name: "Pokéglot",
+                power:
+                  "understand pokemon speech.",
+              },
+            },
+          },
+          {
+            name: "Psionics",
+            description: "You gain psychic powers like telekinesis and telepathy. You still can't understand your pokemon but can issue them orders via telepathy. No mind reading. Skill cap is equal to a gardevoir.",
+            effect: {
+              cost: [500],
+              "body-ability": {
+                name: "Psionics",
+                power:
+                  "psychic powers (telekinesis, telepathy).",
+              },
+            },
+          },
+          {
+            name: "Savant",
+            description: "Your mind is enhanced, granting you perfect memory, calculator-like mental math, and better spatial awareness. Your aim with a firearm is better than annie oakley and simo hayha combined.",
+            effect: {
+              cost: [500],
+              "body-ability": {
+                name: "Savant",
+                power:
+                  "perfect memory, mental math, spatial awareness.",
+              },
+            },
+          },
+          {
+            name: "Champ in the making",
+            description: "You might just have what it takes to catch em all! You're and expert at training both teams and individuals, managing team dynamics, and working out social issues between teammates, both Pokémon abd human. Yu can make teamwork work.",
+            effect: {
+              cost: [200],
+              "body-ability": {
+                name: "Champ",
+                power:
+                  "perfect team manager.",
+              },
+            },
+          },
+        ]
+      }
     ],
   },
   charSetup: {
