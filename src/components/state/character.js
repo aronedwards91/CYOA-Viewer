@@ -44,7 +44,7 @@ export function createCharStore() {
     resetAge() {
       this.age = 0;
     },
-    race: "Human",
+    race: "Trainer",
     setRace(newRace) {
       this.race = newRace;
     },

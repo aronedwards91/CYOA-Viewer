@@ -24,6 +24,8 @@ instead of planning
 so does dwarf scout
 >cap[able
 - more clarity of nemesis/relic synergy, better nemesis(trolls too generic)
+default name 'click to change'
+misc - if 1 hide x1
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)
