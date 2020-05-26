@@ -1251,8 +1251,7 @@ const Data = {
         choices: [
           {
             name: "3x Master Balls",
-            description:
-              "Catch Pokémon without fail, cannot sell.",
+            description: "Catch Pokémon without fail, cannot sell.",
             effect: {
               cost: [100],
               "inv-items": [
@@ -1266,8 +1265,7 @@ const Data = {
           },
           {
             name: "HM Collection",
-            description:
-              "One of every HM, can't sell.",
+            description: "One of every HM, can't sell.",
             effect: {
               cost: [50],
               "inv-items": [
@@ -1281,8 +1279,7 @@ const Data = {
           },
           {
             name: "50k Pokedollars",
-            description:
-              "Can buy stuff.",
+            description: "Can buy stuff.",
             effect: {
               cost: [50],
               "inv-items": [
@@ -1311,8 +1308,7 @@ const Data = {
           },
           {
             name: "Motorcycle",
-            description:
-              "fast, inifnite fuel.",
+            description: "fast, inifnite fuel.",
             effect: {
               cost: [100],
               "inv-items": [
@@ -1326,8 +1322,7 @@ const Data = {
           },
           {
             name: "Helicopter",
-            description:
-              "fastest, ferry across regions.",
+            description: "fastest, ferry across regions.",
             effect: {
               cost: [300],
               "inv-items": [
@@ -1341,8 +1336,7 @@ const Data = {
           },
           {
             name: "Parachute",
-            description:
-              "small, redeployable.",
+            description: "small, redeployable.",
             effect: {
               cost: [50],
               "inv-items": [
@@ -1386,8 +1380,7 @@ const Data = {
           },
           {
             name: "Rebreather",
-            description:
-              "Breath underwater, toxic enviroments, infinite use",
+            description: "Breath underwater, toxic enviroments, infinite use",
             effect: {
               cost: [50],
               "inv-items": [
@@ -1401,8 +1394,7 @@ const Data = {
           },
           {
             name: "Laptop",
-            description:
-              "Access in-world internet, fast, solar powered",
+            description: "Access in-world internet, fast, solar powered",
             effect: {
               cost: [100],
               "inv-items": [
@@ -1521,8 +1513,7 @@ const Data = {
           },
           {
             name: "Collapsible Baton",
-            description:
-              "Spring loaded, useful against humans.",
+            description: "Spring loaded, useful against humans.",
             effect: {
               cost: [50],
               "inv-items": [
@@ -1607,6 +1598,126 @@ const Data = {
                   quantity: 1,
                 },
               ],
+            },
+          },
+        ],
+      },
+      {
+        name: "7/ Flaws & Future.",
+        description:
+          "Flaws override skilss & identity. You can take a few flaws to get more choice points in return. only two though, don't want to be too minmaxed, do we?",
+        style: "lines",
+        buy: {
+          unique: true,
+          max: 2,
+        },
+        choices: [
+          {
+            name: "Swarmed",
+            description:
+              "A zubat swarm has taken to following you and attacking at random times. they are easily beaten, but cannot be caught, and no matter how many times you defeat them they come back for another round.",
+            effect: {
+              cost: [-100],
+              "char-drawback": {
+                name: "Swarmed",
+                desc: "Hunted continuosly by Zubats.",
+              },
+            },
+          },
+          {
+            name: "Crippled",
+            description:
+              "Some accident in your past has left you with a leg amputated below the knee. you have a prosthetic leg to replace it, but it has its own issues. mechanical prosthetics are decades out no matter what you do.",
+            effect: {
+              cost: [-100],
+              "char-drawback": {
+                name: "Crippled",
+                desc: "Low tech prosthetic leg.",
+              },
+            },
+          },
+          {
+            name: "Silenced",
+            description:
+              "A birth defect has left you incapable of speech. you can still laugh and make noises, but speaking is no longer an option. sign language would be a useful tool to have here, as would psionics.",
+            effect: {
+              cost: [-100],
+              "char-drawback": {
+                name: "Silenced",
+                desc: "incapable of speech.",
+              },
+            },
+          },
+          {
+            name: "Scared",
+            description:
+              "A tragic accident in your past has left you deathly afraid of pokémon. you become nervous around caught and tamed pokémon, and wild ones can induce fear and the fight or flight response. Your starter is exempt.",
+            effect: {
+              cost: [-200],
+              "char-drawback": {
+                name: "Scared",
+                desc: "deathly afraid of pokémon.",
+              },
+            },
+          },
+          {
+            name: "Cursed",
+            description:
+              "A ghost pokémon has taken offense to some percieved slight and cursed you with eternal bad luck. you're not in mortal danger, but catch rates are reduced and things tend to not go smooth with you around.",
+            effect: {
+              cost: [-200],
+              "char-drawback": {
+                name: "Cursed",
+                desc: "very bad luck.",
+              },
+            },
+          },
+          {
+            name: "Marked",
+            description:
+              "Something in your past possibly involving your family has caused the local criminal group to mark you as a target. They will relentlessly hunt you down and try to steal away your pokemon.",
+            effect: {
+              cost: [-200],
+              "char-drawback": {
+                name: "Marked",
+                desc: "Hunted by local criminals, steal pokémon.",
+              },
+            },
+          },
+          {
+            name: "Wanted",
+            description:
+              "For one reason or another you are number one on the most wanted list for every region in the world. If the cops spot you, they will try and hunt you down. avoid settlements or learn how to stay hidden.",
+            effect: {
+              cost: [-300],
+              "char-drawback": {
+                name: "Wanted",
+                desc: "Hunted by law enforcement.",
+              },
+            },
+          },
+          {
+            name: "Hunted",
+            description:
+              "A side effect of my sending you into this world has caused a legendary pokemon to take notice. If it finds you it will kill you, and it can't be caught even with a master ball. you better be able to fend off a god.",
+            effect: {
+              cost: [-300],
+              "char-drawback": {
+                name: "Hunted",
+                desc: "Hunted by Legendary pokémon, intends to kill.",
+              },
+            },
+          },
+          {
+            name: "Damned",
+            description:
+              "I don't know what you did but it looks like darkrai has taken to messing with your mind. Expect horrible sanity-distorting nightmares to plague your sleep at least once a week, probably more.",
+            effect: {
+              cost: [-300],
+              "char-drawback": {
+                name: "Damned",
+                desc: "Extreme, sanity damaging nightmares.",
+              },
             },
           },
         ],
