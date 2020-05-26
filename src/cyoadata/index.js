@@ -2,7 +2,7 @@
 // import images placed in /public
 import bg from "../public/bg.jpg";
 import BuyIcon from "../public/icons/coin.png";
-import logo from "../public/logo.svg";
+import logo from "../public/logo.png";
 import portal from "../public/portal.jpg";
 // import font converted to base64
 import fontb64 from "../public/pokemon-font.json";
