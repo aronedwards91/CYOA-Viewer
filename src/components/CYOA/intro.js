@@ -70,6 +70,7 @@ const AddendumCard = styled(Card)`
   padding: 32px;
 `;
 const MdImg = styled.img`
+  margin-top: 16px;
   max-width: 100%;
   min-width: 220px;
   object-fit: contain;

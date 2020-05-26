@@ -3,6 +3,7 @@
 import bg from "../public/bg.jpg";
 import BuyIcon from "../public/icons/coin.png";
 import logo from "../public/logo.svg";
+import portal from "../public/portal.jpg";
 // import font converted to base64
 import fontb64 from "../public/pokemon-font.json";
 // Free
@@ -108,9 +109,11 @@ const Data = {
       appendTitle: "You get 1000 choice points. Spend them wisely.",
       appendText:
         "You can keep your clothes you're wearing right now. Your wallet and cell phone are fair game, but remember: No cell service and different country. So now that your ready, let's get started on your new life. Lots fo stuff to choose from, jump to it.",
-      addendumTitle: "The end",
-      addendumPic: hat,
-      addendumText: "endtext.",
+      addendumTitle:
+        "Once you make your choices, prepare for the adventure of a (new) lifetime! good luck, have fun, and be entertaining!",
+      addendumPic: portal,
+      addendumText:
+        "POST ADVENTURE\n\n\nLike i said, you're gonna be spending 10 years in the world of pokemon. after that, well, i leave the choice to you.\nYou have three choices Before you.\n\nHOMEWARD BOUND\n\nYou return back home. you awaken in your bed the day you left at the age you were originally. You can keep your skills, 5 pokémon plus your starter, and all of your gear as a token of my appreciation. If you feel like taking over your world with that stuff go nuts.\n\nOR\n\nNOT GOING BACK\n\nyou elect to stay you will live out the rest of your life in the world of pokémon. Adventures, fun, and excitement will last for the rest of your days in your home world, you have gone missing and will never be found.\n\nOR\n\nThe next adventure\n\nyou move on. if i find the life you lived sufficiently entertaining and to my fancy, i will make you another deal. ten more years-in a new world. You can keep 5 pokemon plus your starter, your skills, and all your gear. time is still stopped at home.",
     },
     selections: [
       {
