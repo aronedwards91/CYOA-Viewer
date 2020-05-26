@@ -44,6 +44,7 @@ export const TitleDiv = styled.div`
   padding-left: ${({ nopad }) => (nopad ? "0" : "8px")};
   text-decoration: underline;
   text-transform: capitalize;
+  margin: 8px 0;
 `;
 export const LgCharTop = styled.div`
   display: flex;
@@ -86,6 +87,7 @@ export const DesktopSm = styled.div`
   border-right: ${
     Style.themeing.bordersWidth + " solid " + Style.colors.charBorder
   };
+  color: ${Style.colors.charText};
 `;
 export const DesktopFullSize = styled.div`
   position: fixed;
@@ -95,6 +97,7 @@ export const DesktopFullSize = styled.div`
   padding: 24px;
   background: ${CharBgGradient}
   border-right: ${CharBorderStyle};
+  color: ${Style.colors.charText};
 `;
 export const DesktopScroll = styled.div`
   margin-bottom: 10px;

@@ -31,6 +31,7 @@ import {
   MultibuyOverlay,
   LinesOverlay,
   BoxImage,
+  SmBoxImage,
   BoxTextWrapper,
   PadNoImg,
 } from "./styling";
@@ -219,7 +220,8 @@ const BoxItem = observer(
           )}
           <TriggerOverlay onClick={buyFunc} />
         </OverlayBox>
-        {choice.img && <BoxImage alt="image" src={choice.img} />}
+        {small && choice.img && <SmBoxImage alt="image" src={choice.img} />}
+        {!small && choice.img && <BoxImage alt="image" src={choice.img} />}
         {!choice.img && !unique && boughtNum > 0 && <PadNoImg>|</PadNoImg>}
         <BoxTextWrapper>
           <TitleWrap>

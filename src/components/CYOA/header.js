@@ -64,7 +64,7 @@ const Title = styled.div`
   padding: 12px 0;
 `;
 const Subtitle = styled.div`
-  flex-grow: 1;
+  flex-grow: 2;
   padding-bottom: 16px;
 
   ${media.greaterThan("medium")`
@@ -72,7 +72,8 @@ const Subtitle = styled.div`
   `}
 `;
 const Author = styled.div`
-  min-width: 20%;
+  flex: 0 1 20%;
+  margin-left: 16px;
 `;
 
 export default Header;

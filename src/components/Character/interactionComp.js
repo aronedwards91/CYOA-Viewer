@@ -8,6 +8,7 @@ import {
   TextPad,
   FontBold,
 } from "./styling";
+import { TextSm } from "../StyledItems/fontSizing";
 import { useCharDataStore } from "../state/character";
 import { useGlobalDataStore } from "../state/globals";
 import { observer } from "mobx-react-lite";
@@ -42,9 +43,11 @@ export const ShowEffectsBtn = observer(({ marginBtm }) => {
   );
 });
 
-export const EditableText = ({ label, value, triggerChange, type }) => {
+export const EditableText = ({ label, value, triggerChange, type, info }) => {
   const [showTick, setShowTick] = useState(false);
   const [editVal, setEditVal] = useState(value);
+  const [wasEdited, setWasEdited] = useState(false);
+
   useEffect(() => {
     setEditVal(value);
   }, [value]);
@@ -54,6 +57,7 @@ export const EditableText = ({ label, value, triggerChange, type }) => {
   const acceptNewVal = () => {
     triggerChange(editVal);
     setShowTick(false);
+    setWasEdited(true);
   };
 
   return (
@@ -69,6 +73,11 @@ export const EditableText = ({ label, value, triggerChange, type }) => {
         onChange={setNewVal}
         onClick={clickShow}
       />
+      {!wasEdited && info && (
+        <div>
+          <TextSm>{info}</TextSm>
+        </div>
+      )}
     </TextPad>
   );
 };

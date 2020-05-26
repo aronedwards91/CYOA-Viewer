@@ -8,6 +8,7 @@ import {
   PadTopDiv,
   PadSm,
   ImgSm,
+  CostWrap
 } from "./styling";
 import { effectKeys } from "../../state/character";
 
@@ -32,14 +33,14 @@ export const Cost = ({ data }) => {
       const Info = Settings.charSetup.purchasing[index];
       return (
         cost !== 0 && (
-          <div key={Info.ShortName}>
+          <CostWrap key={Info.ShortName}>
             <TextSm>
               {cost < 0 && <TextMd bold>+</TextMd>}
               {-1 * cost}
               {!Info.icon && " " + Info.ShortName}
             </TextSm>
             {Info.icon && <ImgSm src={Info.icon} alt={Info.ShortName} />}
-          </div>
+          </CostWrap>
         )
       );
     })

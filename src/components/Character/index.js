@@ -192,12 +192,14 @@ const CharDetails = observer(() => {
         value={name}
         triggerChange={setName}
         type="text"
+        info="^ Click to update ^"
       />
       <EditableText
         label="Age:"
         value={age}
         triggerChange={setAge}
         type="number"
+        info="^ Click to update ^"
       />
       <TextBox title="Race:" value={race} />
       <Purchasing />
@@ -353,7 +355,7 @@ const MiscEffects = observer(() => {
           <TextBox
             key={miscEffect.name}
             title={miscEffect.name + ": "}
-            value={`${miscEffect.desc} x${miscEffect.quantity}`}
+            value={`${miscEffect.desc} ${miscEffect.quantity > 1 ? `x${miscEffect.quantity}` : ''}`}
           />
         ))}
       </div>
