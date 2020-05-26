@@ -192,12 +192,14 @@ const CharDetails = observer(() => {
         value={name}
         triggerChange={setName}
         type="text"
+        info="^ Click to update ^"
       />
       <EditableText
         label="Age:"
         value={age}
         triggerChange={setAge}
         type="number"
+        info="^ Click to set ^"
       />
       <TextBox title="Race:" value={race} />
       <Purchasing />
