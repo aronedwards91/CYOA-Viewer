@@ -41,10 +41,10 @@ const Data = {
       bgB: "#424242",
       mainBorder: "#007f7f",
       mainHighlight: "#00FFFF",
-      charBgA: "#424242",
-      charBgB: "#404040",
-      charText: "#ff0000",
-      charBorder: "#cc0000",
+      charBgA: "#00FFFF",
+      charBgB: "#007f7f",
+      charText: "#000000",
+      charBorder: "#220000",
     },
     layout: {
       sidebarWidth: "380px",
@@ -379,57 +379,70 @@ const Data = {
         choices: [
           {
             name: "Drop In",
-            description: ".",
+            description:
+              "YOu wak eup on the road just outside the first town in your region. You have no family, no firends, no history. ALl you have are the clothers you wear, the gear you purchased, and whatever skillsor abilities you may have. Looking into your bag, your see a trainer card that will server as identification in the event you would need it. You notice a bunch of bird pokemon harassing something down the road. After shooing them off, you see that their target was a wild pokémon. As thanks for rescuing it, the Pokémon seems to want to tag along with you.",
             effect: {
-              "char-background": "",
+              cost: [0],
+              "char-background": "Dropped into world.",
               "char-advdrawback": {
                 name: "Drop In",
-                adv: "No memory set altering your actyions, no history in the world of Pokémon.",
-                drawback: ".",
+                adv:
+                  "No memory set altering your actyions, no history in the world of Pokémon.",
+                drawback:
+                  "No history means some things can be difficult your aren't getting any new skills for free.",
               },
             },
           },
           {
             name: "Hermit",
-            description: ".",
+            description: "As an infant, you were abandoned in the middle of the woods. luckily, you were discovered by a reclusive old man who took you in. You have come to learn a lot about survival skills and you get along well with the wild pokemon who live nearby. however, you very rarely go into town for supplies your social skills are stunted and you have trouble with cities. deciding to go explore the world, you bid farewell to your adoptive father and set out on the road. as you leave, a wild pokemon you have been caring for over the past month follows, intent on joining.",
             effect: {
+              cost: [50],
+              "char-background": "hermit.",
               "char-advdrawback": {
-                name: "Drop In",
-                adv: "No memory set altering your actyions, no history in the world of Pokémon.",
-                drawback: ".",
+                name: "Hermit",
+                adv:
+                  "You learn a lot about wilderness survival you tend to be able to approach wild pokemon better than most people.",
+                drawback: "you have little experience in social activities. you don't 'get' people well and become nervous in cities.",
               },
             },
           },
           {
             name: "Small Town",
-            description: ".",
+            description: "You were raised by your mother in the first town of your region your father had to work a lot, so you never saw much of him. The air is clean, the neighborhood is safe, and you have a tight circle of friends whom you would trust with anything. you have lived a very balanced life, and you are very healthy and physically fit. You decide to go on a pokemon journey like many children your age, with your friends joining you along the way. You bring along the pokemon companion your parents gave you that you grew up with over the past few years.",
             effect: {
+              cost: [50],
               "char-advdrawback": {
                 name: "Drop In",
-                adv: "No memory set altering your actyions, no history in the world of Pokémon.",
-                drawback: ".",
+                adv:
+                  "You are physcially fit and ahave a small group of very close friends (One of which has a crush).",
+                drawback: "You don't have a lot of wilderness experience besides some camping and you don't have much city experience either.",
               },
             },
           },
           {
             name: "City Life",
-            description: ".",
+            description: "You were raised by your mother and father in a modest apartment in one of your region's major cities. Born and raised an urban kid, you have almost no experience living outside the city's confines. however, life in the city brings its own advantages. You have a very powerful sense of navigation and over the course of your life have become an expert freerunner with great acrobatic skills. Like many children, you decide to go on a pokemon journey, taking along the pokemon partner you rescued from a shelter half a year ago..",
             effect: {
+              cost: [50],
               "char-advdrawback": {
                 name: "Drop In",
-                adv: "No memory set altering your actyions, no history in the world of Pokémon.",
-                drawback: ".",
+                adv:
+                  "You are very acrobatic and have become adept in parkour.",
+                drawback: "You have no experience in wilderness survival.",
               },
             },
           },
           {
             name: "Moneybags",
-            description: ".",
+            description: "You were born as the only child of a very wealthy family. You were pampered as a child and did not want for much of anything. you relieved a top tier education from some of the best tutors in the region. however, you have very little practical experience. Wanting a change of pace from your dull, somewhat repetitive life of constant luxury, you decide to go on a pokemon journey and gain the experience you want on your own, taking along the pokemon your parents had purchased for your protection when you were just a baby.",
             effect: {
+              cost: [100],
               "char-advdrawback": {
                 name: "Drop In",
-                adv: "No memory set altering your actyions, no history in the world of Pokémon.",
-                drawback: ".",
+                adv:
+                  "You have a lot of money and some top of the line gear most trainers will never get.",
+                drawback: "You have very little real world experience in general, education only goes so far.",
               },
             },
           },
