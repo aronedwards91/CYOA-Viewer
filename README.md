@@ -17,13 +17,6 @@ To build your own App, a web form App has been build that exports working html A
 vscode's replace to remove the line endings.
 
 ## Todo
-No drop in?
-Human wanderer has a typo.
->plannign ahead
-instead of planning
-so does dwarf scout
->cap[able
-- more clarity of nemesis/relic synergy, better nemesis(trolls too generic)
 
 #### Possible future additions
 - discount logic (requires bigger rewrite)

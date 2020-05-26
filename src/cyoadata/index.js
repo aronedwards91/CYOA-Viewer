@@ -244,7 +244,7 @@ const Data = {
           {
             name: "Human Wanderer",
             description:
-              "Unable to withstand the pull of your feet you let them lead you. You are rarely interested in plannign ahead but merely rely on you wit and intelligence to get you through each day.",
+              "Unable to withstand the pull of your feet you let them lead you. You are rarely interested in planning ahead but merely rely on you wit and intelligence to get you through each day.",
             img: humanwanderer,
             effect: {
               cost: [0],
@@ -280,7 +280,7 @@ const Data = {
           {
             name: "Dwarf Scout",
             description:
-              "One of the few dwarves who is comfortable outdoors. Your life of exploration and has made you cunning and wise to the dangers of the forest, few can catch such a swift and cap[able woodsman as yourself.",
+              "One of the few dwarves who is comfortable outdoors. Your life of exploration and has made you cunning and wise to the dangers of the forest, few can catch such a swift and capable woodsman as yourself.",
             img: dwarfscout,
             effect: {
               cost: [50],
